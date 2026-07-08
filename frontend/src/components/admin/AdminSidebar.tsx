@@ -37,7 +37,7 @@ export function AdminSidebar() {
   };
 
   return (
-    <aside className="w-64 shrink-0 bg-slate-950 min-h-screen flex flex-col border-r border-slate-800/60 shadow-xl relative z-20">
+    <aside className="w-64 shrink-0 bg-slate-950 h-screen sticky top-0 flex flex-col border-r border-slate-800/60 shadow-xl relative z-20">
       {/* Background glow in sidebar */}
       <div className="absolute top-0 left-0 w-full h-40 bg-blue-500/5 blur-3xl pointer-events-none" />
 
@@ -65,7 +65,7 @@ export function AdminSidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 py-6 px-4 space-y-1 text-left">
+      <nav className="flex-1 py-6 px-4 space-y-1 text-left overflow-y-auto">
         <div className="px-3 mb-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest">数据管理</div>
 
         {/* Collapsible: 产品管理 */}
