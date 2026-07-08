@@ -1,0 +1,292 @@
+[
+  {
+    "id": "1",
+    "title": "企业智能数据分析与决策系统（修改测试）",
+    "tagline": "多源异构数据分析与高频运营指标智能决策系统",
+    "category": "智能决策与分析",
+    "description": "面向大型企业提供跨部门的数据整合、指标分析与预测性排程方案，助力管理层进行精准的运营决策及风险把控。支持私有化数据库安全对接。（修改测试）",
+    "features": [
+      "多源异构数据高速分析与指标建模",
+      "高频运营指标自动监控预警与推演",
+      "（修改测试）（修改测试）（修改测试）"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Decision Center Office",
+    "order": 1,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "c7klv9f",
+        "type": "video",
+        "video": {
+          "title": "产品与案例视频演示",
+          "subtitle": "3分钟快速了解我们在该行业的落地实践与具体成效",
+          "videoUrl": "https://www.bilibili.com/video/BV1rxjo6zEg1?t=10.3",
+          "coverUrl": "https://meta-sh.oss-cn-shanghai.aliyuncs.com/website/2026/05/28/1779969915653115.png"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "AI多模态大模型预测舱",
+    "tagline": "融合时序与舆情数据的供应链与需求预测系统",
+    "category": "智能决策与分析",
+    "description": "融合时序数据与行业舆情，提供供应链波动及市场需求毫秒级预测，辅助企业制定中长期战略规划，降低库存损耗并提升市场响应效率。",
+    "features": [
+      "供应链上下游波动语义关联分析",
+      "行业舆情指数与销售数据联合建模",
+      "多维度情景模拟与压力测试报告"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "AI Prediction Cabin",
+    "order": 2,
+    "showInHome": false,
+    "showInNavbar": true,
+    "layout": "text-right",
+    "detailSections": [
+      {
+        "id": "ti33h9t",
+        "type": "hero",
+        "hero": {
+          "title": "AI多模态大模型预测舱",
+          "subtitle": "融合时序与舆情数据的供应链与需求预测系统",
+          "bgType": "image",
+          "bgUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
+        }
+      },
+      {
+        "id": "mpd0dc2",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          },
+          {
+            "title": "核心能力 2",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          }
+        ]
+      },
+      {
+        "id": "weviuaj",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "设备运维",
+              "imageUrl": "",
+              "description": "实现设备巡检与状态自动推演"
+            },
+            {
+              "title": "生产制造",
+              "imageUrl": "",
+              "description": "打通流水线核心指标建模"
+            },
+            {
+              "title": "新应用场景",
+              "imageUrl": "",
+              "description": ""
+            }
+          ]
+        }
+      },
+      {
+        "id": "pdemm60",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "0e9oli4",
+        "type": "cta",
+        "cta": {
+          "title": "深度融合技术，带来行业数字化升级",
+          "description": "立即预约演示，快速了解如何助力您的企业提升整体效率。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "非结构化知识资产管理平台",
+    "tagline": "海量企业文档语义解析与毫秒级智能知识定位平台",
+    "category": "自动化与办公协同",
+    "description": "针对企业各类 PDF 手册、Word 合同、CAD 工程图纸等海量文档进行集中式解析，实现毫秒级精准知识定位，打破部门间的信息 and 文档壁垒。",
+    "features": [
+      "海量扫描件与非结构化文档语义关联解析",
+      "毫秒级精准文档溯源高亮定位与对比",
+      "细粒度多租户权限控制体系与分级加密"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Enterprise Data Room",
+    "order": 3,
+    "showInHome": false,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "hero-sec",
+        "type": "hero",
+        "hero": {
+          "title": "非结构化知识资产管理平台",
+          "subtitle": "打破部门间的信息壁垒，实现企业海量文档的毫秒级语义检索与高亮知识定位",
+          "bgType": "image",
+          "bgUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200"
+        }
+      },
+      {
+        "id": "caps-sec",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "跨源海量文档深度解析",
+            "description": "系统全面兼容 PDF 手册、Word 合同、CAD 工程图纸及各类扫描图片，深度提取隐藏在文档中的图表、表格与公式数据，实现结构化语义整合。",
+            "imageUrl": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=1200"
+          },
+          {
+            "title": "精准高亮溯源与智能比对",
+            "description": "点击检索结果即可毫秒级跳转到源文档对应的页码与高亮位置。内置智能比对算法，清晰识别不同版本合同或规章之间的细微改动。",
+            "imageUrl": "https://images.unsplash.com/photo-1507207611509-ec012433ff52?auto=format&fit=crop&q=80&w=1200"
+          }
+        ]
+      },
+      {
+        "id": "scenes-sec",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "多维度落地应用场景",
+          "items": [
+            {
+              "title": "法务合同审查",
+              "imageUrl": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=600",
+              "description": "深度解析历年合同文件，自动提取争议条款并关联分析。"
+            },
+            {
+              "title": "研发技术文档共享",
+              "imageUrl": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=600",
+              "description": "建立庞大的产品设计手册与工程图纸语义知识图谱。"
+            },
+            {
+              "title": "新员工入职培训",
+              "imageUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600",
+              "description": "新员工一键问答，快速定位公司规章制度及日常流程操作指南。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "arch-sec",
+        "type": "architecture",
+        "architecture": {
+          "title": "平台核心技术架构",
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
+          "description": "结合多模态深度学习语义提取引擎与分布式向量数据库存储中心，提供百万级文档秒级精准反馈架构。"
+        }
+      },
+      {
+        "id": "cta-sec",
+        "type": "cta",
+        "cta": {
+          "title": "让企业的非结构化知识流转起来",
+          "description": "立即联系我们的资深知识管理专家，开启 30 天免费私有化部署体验之旅。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      },
+      {
+        "id": "r86jdpo",
+        "type": "video",
+        "video": {
+          "title": "产品与案例视频演示",
+          "subtitle": "3分钟快速了解我们在该行业的落地实践与具体成效",
+          "videoUrl": "https://www.bilibili.com/video/BV162E16VEtN/?spm_id_from=333.1007.tianma.1-2-2.click&vd_source=984ae27dd29602d81ef2c4aaec2f979d",
+          "coverUrl": ""
+        }
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "业务流程自动化协同系统",
+    "tagline": "跨系统业务流程智能化RPA全自动协同调度系统",
+    "category": "自动化与办公协同",
+    "description": "集成智能化流程控制（RPA）与跨系统调度能力，全自动流转跨 Web、ERP、日常办公文档等复杂流程，全天候静默运行，极大节省人力。",
+    "features": [
+      "跨应用、跨系统界面数据自动提取与校验",
+      "直观的工作流节点设计及快速上线调试",
+      "自动异常通知、降级重试与合规审计日志"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Business Meeting",
+    "order": 4,
+    "showInHome": false,
+    "showInNavbar": true,
+    "layout": "text-left"
+  },
+  {
+    "id": "5",
+    "title": "AI智能公文与合同审查助手",
+    "tagline": "企业合同与公文合规性风险自动审计与智能修订建议",
+    "category": "自动化与办公协同",
+    "description": "针对法律合同、企业公文进行智能化合规性检查，自动识别潜在风险条款，防范潜在合规及法务漏洞，并给出智能化的条款修改及修订意见。",
+    "features": [
+      "法律条款冲突与合规性自动扫描",
+      "语义层面的违约风险多维评估",
+      "一键生成修订建议与合规报告"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Contract Review Office",
+    "order": 5,
+    "showInHome": false,
+    "showInNavbar": false,
+    "layout": "text-left"
+  },
+  {
+    "id": "6",
+    "title": "工业机器视觉智能质检系统",
+    "tagline": "高精度流水线零部件缺陷在线毫秒级识别与筛查",
+    "category": "工业智能物联",
+    "description": "通过工业高清成像设备采集，对精密五金、组装部件进行表面缺陷（划伤、孔洞、错漏）进行毫秒级自动分类筛查，控制产品漏检率。",
+    "features": [
+      "流水线零部件缺陷在线毫秒级识别与分类",
+      "支持相机自动标定与多种物理传感器对接",
+      "质检看板管理，输出异常检测统计分析周报"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Industrial Automation Line",
+    "order": 6,
+    "showInHome": false,
+    "showInNavbar": false,
+    "layout": "text-right"
+  },
+  {
+    "id": "7",
+    "title": "三维数字孪生工业控制台",
+    "tagline": "高精度厂区与生产线3D数字孪生实时联动控制系统",
+    "category": "工业智能物联",
+    "description": "构建厂区与设备的三维实时数字孪生模型，联动多源传感器数据，实现生产过程的可视化智能监控与预防性警报调度，全面提升厂区运转效率。",
+    "features": [
+      "高精度厂区及生产线3D场景重建",
+      "传感器数据实时渲染与轨迹追踪",
+      "设备寿命预测与预防性维护报警"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Digital Twin Console",
+    "order": 7,
+    "showInHome": false,
+    "showInNavbar": false,
+    "layout": "text-left"
+  }
+]

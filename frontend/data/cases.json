@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "industry": "智慧农业",
+    "title": "智慧农业视觉中枢系统",
+    "client": "国家级现代农业产业园",
+    "description": "通过在园区部署高频边缘计算视觉节点，融合自主研发的农作物表型分析算法，实现针对柑橘、香蕉等作物的病虫害全天候自动定位与巡检。病害平均识别率突破 98%，指导精准施药，使得农药平均喷洒消耗量降低达 30%。",
+    "stat": "-30%",
+    "statLabel": "农药喷洒消耗",
+    "deliverables": [
+      "病虫害自动抓拍与标记",
+      "精准指导靶向用药",
+      "边缘计算硬件本地部署"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "智慧农业",
+    "order": 1,
+    "visible": true
+  },
+  {
+    "id": "2",
+    "industry": "智慧政务",
+    "title": "政务大厅 3D 数字人导办中枢",
+    "client": "某市级智慧政务服务中心",
+    "description": "接入专有政务审批大模型知识库，打造具备逼真动作与嘴型对齐的 3D 拟真数字人服务前台。实现自助审批、业务办理指引、高频政策问答等全链条覆盖，成功分担办事大厅 60% 的线下窗口咨询量，平均等待时长缩短 40%。",
+    "stat": "60%",
+    "statLabel": "大厅基础窗口咨询分担率",
+    "deliverables": [
+      "政策多轮对话问答引擎",
+      "高逼真 3D 拟真数字人模型",
+      "窗口办事指南自动匹配"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "智慧政务",
+    "order": 2,
+    "visible": true
+  },
+  {
+    "id": "3",
+    "industry": "跨境电商",
+    "title": "多语种大模型智能客服平台",
+    "client": "头部跨境电商集团",
+    "description": "为全球 20+ 个国家与地区的店铺统一配置智能大模型客服引擎。实现针对英语、西语、阿语等多语种复杂语义的秒级精准响应，支持售后纠纷自主协商，推动全球客户整体满意度提升 45%，客服人工成本下降 50%。",
+    "stat": "+45%",
+    "statLabel": "客户整体满意度提升",
+    "deliverables": [
+      "20+ 语种大模型意图理解",
+      "售后纠纷自主协商流转",
+      "全渠道 API 对接导入"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "跨境电商",
+    "order": 3,
+    "visible": true
+  },
+  {
+    "id": "4",
+    "industry": "智能制造",
+    "title": "工业级视觉瑕疵智能筛查平台",
+    "client": "大型智能制造基地",
+    "description": "在装配流水线配备高频工业相机与视觉感知质检算法，对高精密零部件表面的微小划痕、凹坑实现毫秒级在线缺陷检测，漏检率控制在 0.01% 以下。实现质检环节 100% 机器替代，助力企业降本提效。",
+    "stat": "99.99%",
+    "statLabel": "零配件缺陷检出率",
+    "deliverables": [
+      "高精密工业相机毫秒级响应",
+      "缺陷像素特征自学习算法",
+      "异常流水线智能停机告警"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "智能制造",
+    "order": 4,
+    "visible": true
+  }
+]

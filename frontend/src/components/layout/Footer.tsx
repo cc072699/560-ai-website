@@ -1,6 +1,11 @@
 import Link from 'next/link';
+import type { SiteConfig } from '@/types';
 
-export function Footer() {
+interface FooterProps {
+  site: SiteConfig;
+}
+
+export function Footer({ site }: FooterProps) {
   return (
     <footer id="contact" className="border-t border-gray-200/40 bg-transparent relative z-10 pt-24 pb-12">
       <div className="container mx-auto px-6 max-w-4xl">
@@ -16,10 +21,10 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-[17px] font-extrabold tracking-tight text-gray-900 leading-tight transition-colors group-hover:text-blue-600">
-                  五六零人工智能科技
+                  {site.companyName}
                 </span>
                 <span className="text-[9px] font-bold text-gray-400 tracking-[0.18em] uppercase leading-none mt-0.5">
-                  560 AI TECHNOLOGY
+                  {site.companyNameEn}
                 </span>
               </div>
             </Link>
@@ -30,14 +35,15 @@ export function Footer() {
           <div className="md:pl-12 flex flex-col justify-start">
             <h4 className="text-gray-900 font-semibold mb-6">联系我们</h4>
             <ul className="flex flex-col gap-4 text-sm text-gray-500">
-              <li>电话：400-880-0560</li>
-              <li>邮箱：contact@560ai.com</li>
-              <li>地址：广西北海市银海区高新技术产业园</li>
+              {site.contact.phone && <li>电话：{site.contact.phone}</li>}
+              {site.contact.email && <li>邮箱：{site.contact.email}</li>}
+              {site.contact.address && <li>地址：{site.contact.address}</li>}
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p>© 2026 560 AI Technology Co., Ltd. 保留所有权利。</p>
+          <p>{site.copyright}</p>
+          {site.icp && <p>{site.icp}</p>}
           <div className="flex gap-6">
             <Link href="#" className="hover:text-gray-900 transition-colors">隐私政策</Link>
             <Link href="#" className="hover:text-gray-900 transition-colors">服务条款</Link>
