@@ -16,18 +16,7 @@
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
-    "detailSections": [
-      {
-        "id": "c7klv9f",
-        "type": "video",
-        "video": {
-          "title": "产品与案例视频演示",
-          "subtitle": "3分钟快速了解我们在该行业的落地实践与具体成效",
-          "videoUrl": "https://www.bilibili.com/video/BV1rxjo6zEg1?t=10.3",
-          "coverUrl": "https://meta-sh.oss-cn-shanghai.aliyuncs.com/website/2026/05/28/1779969915653115.png"
-        }
-      }
-    ]
+    "detailSections": []
   },
   {
     "id": "2",

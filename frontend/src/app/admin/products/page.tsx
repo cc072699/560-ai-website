@@ -28,6 +28,7 @@ export default function ProductsPage() {
   const [formData, setFormData] = useState(emptyProduct());
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
+  const [categories, setCategories] = useState<string[]>(['智能决策与分析', '自动化与办公协同', '工业智能物联']);
 
   const showToast = useCallback((msg: string, type: 'success' | 'error' = 'success') => {
     setToast({ msg, type });
@@ -43,6 +44,34 @@ export default function ProductsPage() {
   }, []);
 
   useEffect(() => { fetchProducts(); }, [fetchProducts]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch('/api/admin/site');
+        const data = await res.json();
+        if (data.categories && Array.isArray(data.categories)) {
+          setCategories(data.categories);
+        }
+      } catch (err) {
+        console.error('Failed to load categories', err);
+      }
+    };
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const editId = params.get('edit');
+      if (editId && products.length > 0) {
+        const found = products.find((p) => p.id === editId);
+        if (found) {
+          openEdit(found);
+        }
+      }
+    }
+  }, [products]);
 
   const openNew = () => {
     setEditingId('new');
@@ -241,13 +270,22 @@ export default function ProductsPage() {
                   {/* Category */}
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1.5">产品分类</label>
-                    <input
-                      type="text"
+                    <select
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                      placeholder="请输入分类名称（如：智能决策与分析、自动化与办公协同）"
-                      className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 text-slate-800 transition-all bg-white hover:border-slate-350"
-                    />
+                      className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 text-slate-800 transition-all bg-white hover:border-slate-350 cursor-pointer font-semibold"
+                    >
+                      <option value="">请选择产品所属分类</option>
+                      {categories.map((cat) => (
+                        <option key={cat} value={cat}>{cat}</option>
+                      ))}
+                      {formData.category && !categories.includes(formData.category) && (
+                        <option value={formData.category}>{formData.category} (自定义)</option>
+                      )}
+                    </select>
+                    <p className="text-[10px] text-slate-400 mt-1.5 font-bold">
+                      💡 您可以在 <Link href="/admin/products/stats" className="text-blue-600 underline">首页/导航统计看板</Link> 中统一新增或修改分类词库选项。
+                    </p>
                   </div>
 
                   {/* Tagline */}
