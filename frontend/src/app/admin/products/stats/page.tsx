@@ -127,9 +127,9 @@ export default function ProductsStatsPage() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-xs">
+          <table className="w-full text-left border-collapse text-sm">
             <thead>
-              <tr className="bg-slate-50 text-slate-500 border-b border-slate-100 uppercase font-black text-[10px] tracking-wider">
+              <tr className="bg-slate-50 text-slate-500 border-b border-slate-100 uppercase font-black text-xs tracking-wider">
                 <th className="px-6 py-4">产品编号 / 名称</th>
                 <th className="px-6 py-4">所属分类</th>
                 <th className="px-6 py-4">首页开关</th>

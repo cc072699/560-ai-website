@@ -420,7 +420,7 @@ export default function ProductDesignPage() {
 
                       {/* Section Card Form */}
                       {isExpanded && (
-                        <div className="p-4 border-t border-slate-200/60 bg-white space-y-4 text-xs text-left">
+                        <div className="p-4 border-t border-slate-200/60 bg-white space-y-4 text-sm text-left">
                           {/* 1. HERO BLOCK */}
                           {sec.type === 'hero' && sec.hero && (
                             <div className="space-y-3">
@@ -430,7 +430,7 @@ export default function ProductDesignPage() {
                                   type="text"
                                   value={sec.hero.title}
                                   onChange={(e) => updateHero(idx, { title: e.target.value })}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                 />
                               </div>
                               <div>
@@ -439,7 +439,7 @@ export default function ProductDesignPage() {
                                   type="text"
                                   value={sec.hero.subtitle}
                                   onChange={(e) => updateHero(idx, { subtitle: e.target.value })}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                 />
                               </div>
                               <div>
@@ -483,7 +483,7 @@ export default function ProductDesignPage() {
                                       value={cap.description}
                                       onChange={(e) => updateCapabilities(idx, capIdx, { description: e.target.value })}
                                       rows={2}
-                                      className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-xs resize-none"
+                                      className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm resize-none"
                                     />
                                   </div>
                                   <div>
@@ -514,7 +514,7 @@ export default function ProductDesignPage() {
                                   type="text"
                                   value={sec.scenarios.title}
                                   onChange={(e) => updateScenarios(idx, e.target.value)}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                 />
                               </div>
                               <div className="space-y-3.5">
@@ -536,7 +536,7 @@ export default function ProductDesignPage() {
                                         type="text"
                                         value={item.title}
                                         onChange={(e) => updateScenarioItem(idx, itemIdx, { title: e.target.value })}
-                                        className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-xs"
+                                        className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm"
                                       />
                                     </div>
                                     <div>
@@ -545,7 +545,7 @@ export default function ProductDesignPage() {
                                         type="text"
                                         value={item.description || ''}
                                         onChange={(e) => updateScenarioItem(idx, itemIdx, { description: e.target.value })}
-                                        className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-xs"
+                                        className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm"
                                       />
                                     </div>
                                     <div>
@@ -577,7 +577,7 @@ export default function ProductDesignPage() {
                                   type="text"
                                   value={sec.architecture.title}
                                   onChange={(e) => updateArchitecture(idx, { title: e.target.value })}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                 />
                               </div>
                               <div>
@@ -594,7 +594,7 @@ export default function ProductDesignPage() {
                                   value={sec.architecture.description || ''}
                                   onChange={(e) => updateArchitecture(idx, { description: e.target.value })}
                                   rows={3}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs resize-none"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm resize-none"
                                 />
                               </div>
                             </div>
@@ -609,7 +609,7 @@ export default function ProductDesignPage() {
                                   type="text"
                                   value={sec.cta.title}
                                   onChange={(e) => updateCta(idx, { title: e.target.value })}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                 />
                               </div>
                               <div>
@@ -618,7 +618,7 @@ export default function ProductDesignPage() {
                                   type="text"
                                   value={sec.cta.description}
                                   onChange={(e) => updateCta(idx, { description: e.target.value })}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                 />
                               </div>
                               <div className="grid grid-cols-2 gap-3">
@@ -628,7 +628,7 @@ export default function ProductDesignPage() {
                                     type="text"
                                     value={sec.cta.primaryText}
                                     onChange={(e) => updateCta(idx, { primaryText: e.target.value })}
-                                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                   />
                                 </div>
                                 <div>
@@ -637,7 +637,7 @@ export default function ProductDesignPage() {
                                     type="text"
                                     value={sec.cta.secondaryText}
                                     onChange={(e) => updateCta(idx, { secondaryText: e.target.value })}
-                                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                   />
                                 </div>
                               </div>
@@ -653,7 +653,7 @@ export default function ProductDesignPage() {
                                   type="text"
                                   value={sec.video.title}
                                   onChange={(e) => updateVideo(idx, { title: e.target.value })}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                 />
                               </div>
                               <div>
@@ -662,7 +662,7 @@ export default function ProductDesignPage() {
                                   type="text"
                                   value={sec.video.subtitle || ''}
                                   onChange={(e) => updateVideo(idx, { subtitle: e.target.value })}
-                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs"
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
                                 />
                               </div>
                               <div>

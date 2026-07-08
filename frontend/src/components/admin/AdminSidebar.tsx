@@ -93,8 +93,8 @@ export function AdminSidebar() {
                 href="/admin/products"
                 className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                   isActive('/admin/products', true)
-                    ? 'text-blue-450 bg-blue-950/20 border-l-2 border-blue-500 pl-3.5'
-                    : 'text-slate-450 hover:text-slate-200 hover:bg-slate-900'
+                    ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
                 }`}
               >
                 <div className="w-1 h-1 rounded-full bg-current opacity-70" />
@@ -104,8 +104,8 @@ export function AdminSidebar() {
                 href="/admin/products/stats"
                 className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                   isActive('/admin/products/stats', true)
-                    ? 'text-blue-450 bg-blue-950/20 border-l-2 border-blue-500 pl-3.5'
-                    : 'text-slate-450 hover:text-slate-200 hover:bg-slate-900'
+                    ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
                 }`}
               >
                 <div className="w-1 h-1 rounded-full bg-current opacity-70" />
@@ -115,8 +115,8 @@ export function AdminSidebar() {
                 href="/admin/products/templates"
                 className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
                   isActive('/admin/products/templates', true)
-                    ? 'text-blue-450 bg-blue-950/20 border-l-2 border-blue-500 pl-3.5'
-                    : 'text-slate-450 hover:text-slate-200 hover:bg-slate-900'
+                    ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
                 }`}
               >
                 <div className="w-1 h-1 rounded-full bg-current opacity-70" />
