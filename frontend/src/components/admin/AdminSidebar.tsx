@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import {
   Package,
   FolderOpen,
@@ -9,24 +10,29 @@ import {
   LogOut,
   ExternalLink,
   ShieldCheck,
+  ChevronDown,
+  ChevronRight,
 } from 'lucide-react';
-
-const navItems = [
-  { href: '/admin/products', label: '产品管理', icon: Package },
-  { href: '/admin/cases', label: '客户案例', icon: FolderOpen },
-  { href: '/admin/settings', label: '全局配置', icon: Settings },
-];
 
 export function AdminSidebar() {
   const pathname = usePathname();
   const router = useRouter();
+
+  const [productsOpen, setProductsOpen] = useState(pathname.startsWith('/admin/products'));
+
+  useEffect(() => {
+    if (pathname.startsWith('/admin/products')) {
+      setProductsOpen(true);
+    }
+  }, [pathname]);
 
   const handleLogout = async () => {
     await fetch('/api/admin/logout', { method: 'POST' });
     router.push('/admin/login');
   };
 
-  const isActive = (href: string) => {
+  const isActive = (href: string, exact = false) => {
+    if (exact) return pathname === href;
     return pathname.startsWith(href);
   };
 
@@ -46,7 +52,7 @@ export function AdminSidebar() {
             </svg>
           </div>
           <div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 flex-row">
               <span className="text-sm font-extrabold text-white tracking-tight leading-none">五六零AI</span>
               <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[9px] font-black uppercase bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-md tracking-wider">
                 <ShieldCheck className="w-2.5 h-2.5" />
@@ -59,31 +65,102 @@ export function AdminSidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 py-6 px-4 space-y-1">
+      <nav className="flex-1 py-6 px-4 space-y-1 text-left">
         <div className="px-3 mb-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest">数据管理</div>
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const active = isActive(item.href);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative group ${
-                active
-                  ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-900'
-              }`}
-            >
-              <Icon className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
-                active ? 'scale-105' : 'group-hover:scale-105'
+
+        {/* Collapsible: 产品管理 */}
+        <div className="space-y-1">
+          <button
+            onClick={() => setProductsOpen(!productsOpen)}
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group cursor-pointer ${
+              isActive('/admin/products')
+                ? 'bg-slate-900 text-white border border-slate-800'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <Package className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+                isActive('/admin/products') ? 'scale-105' : 'group-hover:scale-105'
               }`} />
-              {item.label}
-              {active && (
-                <span className="absolute right-3.5 w-1.5 h-1.5 rounded-full bg-white shadow-glow" />
-              )}
-            </Link>
-          );
-        })}
+              <span>产品管理</span>
+            </div>
+            {productsOpen ? <ChevronDown className="w-3.5 h-3.5 text-slate-500" /> : <ChevronRight className="w-3.5 h-3.5 text-slate-500" />}
+          </button>
+
+          {productsOpen && (
+            <div className="pl-6 pr-2 py-1 space-y-1 animate-fade-in">
+              <Link
+                href="/admin/products"
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                  isActive('/admin/products', true)
+                    ? 'text-blue-450 bg-blue-950/20 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-450 hover:text-slate-200 hover:bg-slate-900'
+                }`}
+              >
+                <div className="w-1 h-1 rounded-full bg-current opacity-70" />
+                <span>产品矩阵列表</span>
+              </Link>
+              <Link
+                href="/admin/products/stats"
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                  isActive('/admin/products/stats', true)
+                    ? 'text-blue-450 bg-blue-950/20 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-450 hover:text-slate-200 hover:bg-slate-900'
+                }`}
+              >
+                <div className="w-1 h-1 rounded-full bg-current opacity-70" />
+                <span>首页/导航统计</span>
+              </Link>
+              <Link
+                href="/admin/products/templates"
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                  isActive('/admin/products/templates', true)
+                    ? 'text-blue-450 bg-blue-950/20 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-450 hover:text-slate-200 hover:bg-slate-900'
+                }`}
+              >
+                <div className="w-1 h-1 rounded-full bg-current opacity-70" />
+                <span>设计模版库介绍</span>
+              </Link>
+            </div>
+          )}
+        </div>
+
+        {/* 客户案例 */}
+        <Link
+          href="/admin/cases"
+          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative group ${
+            isActive('/admin/cases')
+              ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
+              : 'text-slate-400 hover:text-white hover:bg-slate-900'
+          }`}
+        >
+          <FolderOpen className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+            isActive('/admin/cases') ? 'scale-105' : 'group-hover:scale-105'
+          }`} />
+          <span>客户案例</span>
+          {isActive('/admin/cases') && (
+            <span className="absolute right-3.5 w-1.5 h-1.5 rounded-full bg-white shadow-glow" />
+          )}
+        </Link>
+
+        {/* 全局配置 */}
+        <Link
+          href="/admin/settings"
+          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative group ${
+            isActive('/admin/settings')
+              ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
+              : 'text-slate-400 hover:text-white hover:bg-slate-900'
+          }`}
+        >
+          <Settings className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+            isActive('/admin/settings') ? 'scale-105' : 'group-hover:scale-105'
+          }`} />
+          <span>全局配置</span>
+          {isActive('/admin/settings') && (
+            <span className="absolute right-3.5 w-1.5 h-1.5 rounded-full bg-white shadow-glow" />
+          )}
+        </Link>
       </nav>
 
       {/* Sidebar Footer / Actions */}
