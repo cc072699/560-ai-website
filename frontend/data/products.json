@@ -355,5 +355,229 @@
     "showInHome": false,
     "showInNavbar": false,
     "layout": "text-left"
+  },
+  {
+    "id": "1783564561023",
+    "title": "ESP32八合一安防报警系统",
+    "tagline": "基于高性能微控制器构建的综合性智能安防预警终端",
+    "category": "工业智能物联",
+    "description": "该产品深度集成了八种高灵敏度环境及物理传感器，并结合底层实时操作系统（FreeRTOS），实现了对复杂环境的多维度、无死角监控。无论是在智慧工业、智能仓储还是高端全屋智能场景，该系统都能在险情发生的毫秒级时间内做出精准响应，为您的生命与财产安全保驾护航。\n",
+    "features": [
+      "单设备集成八大核心传感器阵列（触摸、红外寻迹、声音、烟雾、火焰、震动、倾斜、光敏），覆盖入侵防盗、火灾预警、异常异动等所有高频安全场景。",
+      "依托ESP-IDF框架与FreeRTOS实时任务调度，系统以50ms（毫秒）周期高频轮询所有传感器链路，做到“触之即警”。",
+      "针对各类传感器的物理特性（如声音的瞬态性），系统内置智能脉冲拉长与独立超时计时器（3秒超时释放机制），有效滤除环境干扰与误触发。",
+      "对于烟雾、火焰等危及生命安全的险情，系统采用独立无延迟的直通报警逻辑，确保火情初期的绝对触发。",
+      "采用硬件级PWM（LEDC）驱动，输出频率可调的高分贝警报声，穿透力强，确保环境内人员第一时间获悉险情。"
+    ],
+    "imageUrl": "/uploads/1783564511550-otzkit6zvx.jpg",
+    "imageAlt": "",
+    "order": 8,
+    "showInHome": false,
+    "showInNavbar": false,
+    "layout": "text-right",
+    "detailSections": [
+      {
+        "id": "91g9exv",
+        "type": "hero",
+        "hero": {
+          "title": "ESP32八合一安防报警系统",
+          "subtitle": "基于高性能微控制器构建的综合性智能安防预警终端",
+          "bgType": "image",
+          "bgUrl": "/uploads/1783564511550-otzkit6zvx.jpg"
+        }
+      },
+      {
+        "id": "zk5rvl2",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          },
+          {
+            "title": "核心能力 2",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          }
+        ]
+      },
+      {
+        "id": "9j1yxwv",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "设备运维",
+              "imageUrl": "",
+              "description": "实现设备巡检与状态自动推演"
+            },
+            {
+              "title": "生产制造",
+              "imageUrl": "",
+              "description": "打通流水线核心指标建模"
+            }
+          ]
+        }
+      },
+      {
+        "id": "opscbmg",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "n1zjh40",
+        "type": "timeline",
+        "timeline": {
+          "title": "落地实施与服务流程",
+          "subtitle": "我们提供端到端的贴身规划与系统平滑上线支持",
+          "steps": [
+            {
+              "title": "需求调研与环境规划",
+              "description": "深入业务一线进行软硬件环境与物理数据流建模规划",
+              "duration": "阶段一 (第1-2周)"
+            },
+            {
+              "title": "系统部署与模型定制",
+              "description": "现场/私有化交付系统并针对客户特定业务微调垂直模型",
+              "duration": "阶段二 (第3-4周)"
+            },
+            {
+              "title": "上线培训与运营交割",
+              "description": "提供全套技术文档并培训现场人员，实现系统完美交接",
+              "duration": "阶段三 (第5周起)"
+            }
+          ]
+        }
+      },
+      {
+        "id": "g4zjez8",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "全方位多场景支持，打通业务效率瓶颈",
+          "items": [
+            {
+              "title": "多源物理引擎适配",
+              "description": "支持绝大多数主流工控协议和物理设备端实时接入",
+              "highlightText": "核心"
+            },
+            {
+              "title": "秒级预测模型响应",
+              "description": "云端联合计算实现超短网络时延与高帧率仿真反馈",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "私有化离线交付",
+              "description": "支持完全的单机/私有网部署，保障核心数据资产安全"
+            }
+          ]
+        }
+      },
+      {
+        "id": "mwc1hiq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cl1jrv7",
+        "type": "cta",
+        "cta": {
+          "title": "深度融合技术，带来行业数字化升级",
+          "description": "立即预约演示，快速了解如何助力您的企业提升整体效率。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
+  },
+  {
+    "id": "1783565274208",
+    "title": "560科技数字员工平台",
+    "tagline": "数字员工平台是一个企业内部 AI 对话 Agent 管理与使用平台。",
+    "category": "自动化与办公协同",
+    "description": "数字员工平台是一个企业内部 AI 对话 Agent 管理与使用平台，核心目标是为企业提供统一的数字员工（AI Agent）配置、授权、对话入口，并通过 RBAC + 个人权限叠加的精细化权限体系控制使用范围，同时支持访客模式将部分数字员工开放给未登录用户。",
+    "features": [
+      "数字员工",
+      "自建知识库"
+    ],
+    "imageUrl": "/uploads/1783569498049-wepx4spnxvn.png",
+    "imageAlt": "",
+    "order": 9,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left"
+  },
+  {
+    "id": "1783578171259",
+    "title": "物联网智慧民宿管理系统",
+    "tagline": "全链路可视化的智能民宿管理系统，让房屋运营更高效、更智能。",
+    "category": "工业智能物联",
+    "description": "本系统深度融合物联网与数据可视化技术，打造了一站式的智能民宿管理解决方案。系统通过MQTT协议实时连接各类智能硬件，实现对房间设备（灯光、窗帘、门锁等）的毫秒级远程控制与状态监测。依托Home Assistant构建稳定的核心控制层，结合InfluxDB时序数据库与Grafana可视化大屏，不仅能完美支持订单对接与自动化场景联动，更能将能耗与设备运行数据转化为直观的可视化报表，帮助管理者实时掌握运营状态，降低运维成本，提升住客体验。",
+    "features": [
+      "毫秒级实时监控与控制",
+      "数据驱动的可视化运营",
+      "高扩展性的模块化架构"
+    ],
+    "imageUrl": "/uploads/1783579322241-gcoz2de26s.png",
+    "imageAlt": "",
+    "order": 10,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left"
+  },
+  {
+    "id": "1783579884779",
+    "title": "大数据智能咨询平台",
+    "tagline": "企业级智能对话分析平台，让数据分析像聊天一样简单，赋能全员数据决策。",
+    "category": "智能决策与分析",
+    "description": "是一款基于大语言模型与 RAG 技术的先进 ChatBI 系统，致力于打破数据孤岛，让业务人员无需掌握 SQL 技能也能轻松驾驭复杂数据。系统支持 MySQL、Oracle、ClickHouse 等十余种主流数据源，通过自然语言即可秒级生成精准 SQL 与可视化图表。依托 Vanna 引擎与强大的数据训练能力，系统能深度理解企业专属业务术语，确保分析结果的专业性与准确性。同时，提供细粒度的行级/字段级权限控制、全链路操作审计及 MCP 协议嵌入能力，既保障了核心数据资产的安全，又能无缝集成到企业现有业务系统中，是企业实现数字化转型的理想数据助手。",
+    "features": [
+      "无缝集成：支持多种嵌入方式，像聊天机器人一样轻松接入企业现有系统。",
+      "安全可控：提供精细权限管理与审计，保障数据安全。",
+      "精准问答：通过私有化训练，让查数据像聊天一样简单准确。"
+    ],
+    "imageUrl": "/uploads/1783580246881-wl60fspe0u.png",
+    "imageAlt": "",
+    "order": 11,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left"
+  },
+  {
+    "id": "1783581339995",
+    "title": "五六零人工智能考试管理系统",
+    "tagline": "AI赋能的智能考试管理平台，实现从出题到评卷的全流程自动化。",
+    "category": "自动化与办公协同",
+    "description": "本系统是一款专为现代化教育与考核场景打造的智能化管理平台。它不仅涵盖了用户、题库、试卷及考试的全生命周期管理，更创新性地集成了先进的AI技术。通过内置的“AI生成试题”功能，系统能够根据知识点模板自动批量生成高质量题目，极大地降低了人工出题的成本与难度。清晰的可视化控制台让管理员能实时掌握考试动态与数据概览，配合便捷的快捷操作入口，无论是创建试题还是发布考试都能一键完成。这不仅提升了考务工作的效率，更推动了考试管理的数字化与智能化转型。",
+    "features": [
+      "AI智能辅助出题",
+      "全流程考务管理",
+      "可视化数据看板"
+    ],
+    "imageUrl": "/uploads/1783581589598-cey70pqqkxi.png",
+    "imageAlt": "",
+    "order": 12,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left"
   }
 ]

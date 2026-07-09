@@ -7,9 +7,9 @@ interface FooterProps {
 
 export function Footer({ site }: FooterProps) {
   return (
-    <footer id="contact" className="border-t border-gray-200/40 bg-transparent relative z-10 pt-24 pb-12">
+    <footer id="contact" className="border-t border-gray-200/40 bg-transparent relative z-10 pt-10 pb-8">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-10 text-left">
           {/* Column 1: Logo and Introduction */}
           <div className="md:col-span-5 flex flex-col justify-start space-y-6">
             <Link href="/" className="flex items-center gap-3.5 group shrink-0 w-fit">
