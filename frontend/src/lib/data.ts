@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import type { SiteConfig, HeroData, AboutData, Product, Case } from '@/types';
+import type { SiteConfig, HeroData, AboutData, AboutPageData, Product, Case } from '@/types';
 
 const dataDir = path.join(process.cwd(), 'data');
 
@@ -27,6 +27,10 @@ export async function getHeroData(): Promise<HeroData> {
 
 export async function getAboutData(): Promise<AboutData> {
   return readJson<AboutData>('about.json');
+}
+
+export async function getAboutPageData(): Promise<AboutPageData> {
+  return readJson<AboutPageData>('about_page.json');
 }
 
 export async function getProducts(): Promise<Product[]> {
@@ -74,6 +78,10 @@ export async function saveSiteConfig(config: SiteConfig): Promise<void> {
 
 export async function saveAboutData(about: AboutData): Promise<void> {
   await writeJson('about.json', about);
+}
+
+export async function saveAboutPageData(aboutPage: AboutPageData): Promise<void> {
+  await writeJson('about_page.json', aboutPage);
 }
 
 export async function saveHeroData(hero: HeroData): Promise<void> {

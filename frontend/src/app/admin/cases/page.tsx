@@ -11,12 +11,14 @@ const emptyCase = (): Omit<Case, 'id' | 'order'> => ({
   title: '',
   client: '',
   description: '',
+  homeDescription: '',
   stat: '',
   statLabel: '',
   deliverables: ['', '', ''],
   imageUrl: '',
   imageAlt: '',
   visible: true,
+  showInHome: true,
 });
 
 export default function CasesPage() {
@@ -51,12 +53,14 @@ export default function CasesPage() {
       title: c.title,
       client: c.client,
       description: c.description,
+      homeDescription: c.homeDescription || '',
       stat: c.stat,
       statLabel: c.statLabel,
       deliverables: [...c.deliverables, '', '', ''].slice(0, Math.max(3, c.deliverables.length)),
       imageUrl: c.imageUrl,
       imageAlt: c.imageAlt,
       visible: c.visible,
+      showInHome: c.showInHome !== false,
     });
   };
   const cancelEdit = () => setEditingId(null);
@@ -223,14 +227,26 @@ export default function CasesPage() {
                 />
               </div>
 
-              {/* Description */}
+              {/* Description (detailed for /cases page) */}
               <div className="md:col-span-2">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">项目背景与深度详述</label>
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">案例详细介绍 (用于/cases页面) (description)</label>
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   rows={4}
                   placeholder="细化描述该项目从立案、解决过程、部署落地到给客户带来的宏观成效..."
+                  className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 text-slate-800 transition-all resize-none bg-slate-50/50 hover:bg-white"
+                />
+              </div>
+
+              {/* Home Description (brief for homepage) */}
+              <div className="md:col-span-2">
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">首页简略介绍 (homeDescription)</label>
+                <textarea
+                  value={formData.homeDescription || ''}
+                  onChange={(e) => setFormData({ ...formData, homeDescription: e.target.value })}
+                  rows={3}
+                  placeholder="简略概述，用于官网首页展示（如不填写则自动复用上方详细描述）..."
                   className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 text-slate-800 transition-all resize-none bg-slate-50/50 hover:bg-white"
                 />
               </div>
@@ -292,17 +308,30 @@ export default function CasesPage() {
                 />
               </div>
 
-              {/* Visible */}
-              <div>
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">状态发布</label>
-                <select
-                  value={formData.visible ? '1' : '0'}
-                  onChange={(e) => setFormData({ ...formData, visible: e.target.value === '1' })}
-                  className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 bg-white text-slate-800 transition-all"
-                >
-                  <option value="1">公开展示于官网相应板块</option>
-                  <option value="0">草稿保存</option>
-                </select>
+              {/* Visible & ShowInHome */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">状态发布</label>
+                  <select
+                    value={formData.visible ? '1' : '0'}
+                    onChange={(e) => setFormData({ ...formData, visible: e.target.value === '1' })}
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 bg-white text-slate-800 transition-all"
+                  >
+                    <option value="1">公开展示于官网相应板块</option>
+                    <option value="0">草稿保存</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">首页展示配置 (showInHome)</label>
+                  <select
+                    value={formData.showInHome !== false ? '1' : '0'}
+                    onChange={(e) => setFormData({ ...formData, showInHome: e.target.value === '1' })}
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 bg-white text-slate-800 transition-all"
+                  >
+                    <option value="1">在首页和/cases中均展示</option>
+                    <option value="0">仅在/cases页面中展示</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -367,15 +396,29 @@ export default function CasesPage() {
                         </div>
                       )}
 
-                      {/* Display Status Pill */}
-                      <span className={`absolute top-4 right-4 inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full font-bold shadow-md transition-all duration-300 ${
-                        c.visible
-                          ? 'bg-emerald-500 text-white shadow-emerald-500/20'
-                          : 'bg-slate-500 text-white shadow-slate-500/10'
-                      }`}>
-                        <span className={`w-1.5 h-1.5 rounded-full bg-white ${c.visible ? 'animate-ping' : ''}`} />
-                        <span>{c.visible ? '前台展示中' : '暂存草稿'}</span>
-                      </span>
+                      {/* Display Status Pills */}
+                      <div className="absolute top-4 right-4 flex items-center gap-2">
+                        {c.visible && c.showInHome !== false && (
+                          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full font-bold shadow-md bg-blue-500 text-white shadow-blue-500/20">
+                            <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+                            <span>首页展示</span>
+                          </span>
+                        )}
+                        {c.visible && c.showInHome === false && (
+                          <span className="inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full font-bold shadow-md bg-amber-500 text-white shadow-amber-500/20">
+                            <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                            <span>仅/cases</span>
+                          </span>
+                        )}
+                        <span className={`inline-flex items-center gap-1.5 text-[10px] px-3 py-1 rounded-full font-bold shadow-md transition-all duration-300 ${
+                          c.visible
+                            ? 'bg-emerald-500 text-white shadow-emerald-500/20'
+                            : 'bg-slate-500 text-white shadow-slate-500/10'
+                        }`}>
+                          <span className={`w-1.5 h-1.5 rounded-full bg-white ${c.visible ? 'animate-ping' : ''}`} />
+                          <span>{c.visible ? '前台展示中' : '暂存草稿'}</span>
+                        </span>
+                      </div>
                     </div>
 
                     {/* Meta info & content */}

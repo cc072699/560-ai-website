@@ -16,9 +16,10 @@ interface HomeClientProps {
 export function HomeClient({ hero, about, products, cases }: HomeClientProps) {
   const [activeTab, setActiveTab] = useState(0);
 
-  // 获取行业唯一列表
-  const industries = Array.from(new Set(cases.map((c) => c.industry)));
-  const activeCase = cases.filter((c) => c.industry === industries[activeTab])[0];
+  // 获取行业唯一列表（仅含首页展示案例）
+  const homeCases = cases.filter((c) => c.showInHome !== false);
+  const industries = Array.from(new Set(homeCases.map((c) => c.industry)));
+  const activeCase = homeCases.filter((c) => c.industry === industries[activeTab])[0];
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-[#FDFDFD] relative overflow-hidden">
@@ -200,7 +201,7 @@ export function HomeClient({ hero, about, products, cases }: HomeClientProps) {
                           <span className="text-xs font-bold text-blue-600 block mb-2">{activeCase.client}</span>
                           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight mb-4">{activeCase.title}</h3>
                           <p className="text-gray-500 leading-relaxed text-sm md:text-base mb-8 indent-[2em]">
-                            {activeCase.description}
+                            {activeCase.homeDescription || activeCase.description}
                           </p>
                           <div className="space-y-3 mb-8">
                             <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">项目核心交付成果</span>

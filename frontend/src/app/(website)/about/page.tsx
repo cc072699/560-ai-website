@@ -1,10 +1,10 @@
-import { getAboutData, getSiteConfig } from '@/lib/data';
+import { getAboutPageData, getSiteConfig } from '@/lib/data';
 import { AboutClient } from '@/components/AboutClient';
 
 export const revalidate = 30;
 
 export default async function AboutPage() {
-  const [about, site] = await Promise.all([getAboutData(), getSiteConfig()]);
+  const [aboutPage, site] = await Promise.all([getAboutPageData(), getSiteConfig()]);
 
-  return <AboutClient about={about} site={site} />;
+  return <AboutClient aboutPage={aboutPage} site={site} />;
 }

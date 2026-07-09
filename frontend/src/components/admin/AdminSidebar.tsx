@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import {
   Package,
   FolderOpen,
+  FileText,
   Settings,
   LogOut,
   ExternalLink,
@@ -140,6 +141,24 @@ export function AdminSidebar() {
           }`} />
           <span>客户案例</span>
           {isActive('/admin/cases') && (
+            <span className="absolute right-3.5 w-1.5 h-1.5 rounded-full bg-white shadow-glow" />
+          )}
+        </Link>
+
+        {/* 公司简介 */}
+        <Link
+          href="/admin/about"
+          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-base font-semibold transition-all duration-200 relative group ${
+            isActive('/admin/about')
+              ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
+              : 'text-slate-400 hover:text-white hover:bg-slate-900'
+          }`}
+        >
+          <FileText className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+            isActive('/admin/about') ? 'scale-105' : 'group-hover:scale-105'
+          }`} />
+          <span>公司简介</span>
+          {isActive('/admin/about') && (
             <span className="absolute right-3.5 w-1.5 h-1.5 rounded-full bg-white shadow-glow" />
           )}
         </Link>

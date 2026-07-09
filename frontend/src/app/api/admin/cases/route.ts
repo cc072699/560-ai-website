@@ -29,6 +29,8 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
     imageAlt: body.imageAlt || '',
     order: cases.length + 1,
     visible: body.visible ?? true,
+    showInHome: body.showInHome ?? true,
+    homeDescription: body.homeDescription || '',
   };
 
   await saveCases([...cases, newCase]);

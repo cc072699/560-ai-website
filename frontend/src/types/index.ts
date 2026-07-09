@@ -157,4 +157,48 @@ export interface Case {
   imageAlt: string;
   order: number;
   visible: boolean;
+  showInHome?: boolean;
+  homeDescription?: string;
+}
+
+export interface AboutSlide {
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+export interface PhilosophyItem {
+  title: string;
+  description: string;
+  image: string;
+}
+
+export interface CultureTimelineItem {
+  tag: string;
+  title: string;
+  description: string;
+  image: string;
+  node: string;
+}
+
+export interface AboutPageData {
+  hero: {
+    title: string;
+    description: string;
+    imageUrl: string;
+  };
+  slides: AboutSlide[];
+  philosophy: {
+    title: string;
+    left: PhilosophyItem;
+    right: PhilosophyItem;
+  };
+  culture: {
+    title: string;
+    subtitle: string;
+    description: string;
+    heading: string;
+    timeline: CultureTimelineItem[];
+  };
 }
