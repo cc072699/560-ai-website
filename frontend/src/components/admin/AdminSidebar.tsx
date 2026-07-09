@@ -72,9 +72,9 @@ export function AdminSidebar() {
         <div className="space-y-1">
           <button
             onClick={() => setProductsOpen(!productsOpen)}
-            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 group cursor-pointer ${
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-base font-semibold transition-all duration-200 group cursor-pointer ${
               isActive('/admin/products')
-                ? 'bg-slate-900 text-white border border-slate-800'
+                ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
                 : 'text-slate-400 hover:text-white hover:bg-slate-900'
             }`}
           >
@@ -91,7 +91,7 @@ export function AdminSidebar() {
             <div className="pl-6 pr-2 py-1 space-y-1 animate-fade-in">
               <Link
                 href="/admin/products"
-                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                   isActive('/admin/products', true)
                     ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
@@ -102,7 +102,7 @@ export function AdminSidebar() {
               </Link>
               <Link
                 href="/admin/products/stats"
-                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                   isActive('/admin/products/stats', true)
                     ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
@@ -113,7 +113,7 @@ export function AdminSidebar() {
               </Link>
               <Link
                 href="/admin/products/templates"
-                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                   isActive('/admin/products/templates', true)
                     ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
@@ -129,7 +129,7 @@ export function AdminSidebar() {
         {/* 客户案例 */}
         <Link
           href="/admin/cases"
-          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative group ${
+          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-base font-semibold transition-all duration-200 relative group ${
             isActive('/admin/cases')
               ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
               : 'text-slate-400 hover:text-white hover:bg-slate-900'
@@ -147,7 +147,7 @@ export function AdminSidebar() {
         {/* 全局配置 */}
         <Link
           href="/admin/settings"
-          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative group ${
+          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-base font-semibold transition-all duration-200 relative group ${
             isActive('/admin/settings')
               ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
               : 'text-slate-400 hover:text-white hover:bg-slate-900'
@@ -169,7 +169,7 @@ export function AdminSidebar() {
           href="/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-900 transition-all duration-200 group"
+          className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-base font-semibold text-slate-400 hover:text-white hover:bg-slate-900 transition-all duration-200 group"
         >
           <ExternalLink className="w-4 h-4 shrink-0 text-slate-500 group-hover:text-white transition-colors" />
           <span>预览官网</span>
@@ -177,7 +177,7 @@ export function AdminSidebar() {
         <button
           id="admin-logout-btn"
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-red-950/20 transition-all duration-200 group"
+          className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-base font-semibold text-slate-400 hover:text-red-400 hover:bg-red-950/20 transition-all duration-200 group"
         >
           <LogOut className="w-4 h-4 shrink-0 text-slate-500 group-hover:text-red-400 transition-colors" />
           <span>退出登录</span>
