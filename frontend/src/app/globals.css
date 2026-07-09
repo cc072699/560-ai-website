@@ -120,3 +120,52 @@
     animation: float 6s ease-in-out infinite;
   }
 }
+
+/* ==========================================================================
+   Admin Dashboard Global Font Scaling Overrides
+   ========================================================================== */
+.admin-root {
+  font-size: 16px !important;
+}
+
+.admin-root .text-\[9px\],
+.admin-root .text-\[10px\],
+.admin-root .text-xs {
+  font-size: 0.875rem !important; /* 12px -> 14px */
+}
+
+.admin-root .text-\[11px\],
+.admin-root .text-\[13px\],
+.admin-root .text-sm {
+  font-size: 1rem !important; /* 14px -> 16px */
+}
+
+.admin-root .text-base {
+  font-size: 1.125rem !important; /* 16px -> 18px */
+}
+
+.admin-root .text-lg {
+  font-size: 1.25rem !important; /* 18px -> 20px */
+}
+
+.admin-root .text-xl {
+  font-size: 1.5rem !important; /* 20px -> 24px */
+}
+
+.admin-root .text-2xl {
+  font-size: 1.75rem !important; /* 24px -> 28px */
+}
+
+.admin-root .text-3xl {
+  font-size: 2.25rem !important; /* 30px -> 36px */
+}
+
+.admin-root .text-4xl {
+  font-size: 2.75rem !important; /* 36px -> 44px */
+}
+
+.admin-root input,
+.admin-root select,
+.admin-root textarea {
+  font-size: 1rem !important;
+}
