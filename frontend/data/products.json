@@ -16,7 +16,85 @@
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
-    "detailSections": []
+    "detailSections": [
+      {
+        "id": "swxd5dc",
+        "type": "hero",
+        "hero": {
+          "title": "企业智能数据分析与决策系统（修改测试）",
+          "subtitle": "多源异构数据分析与高频运营指标智能决策系统",
+          "bgType": "image",
+          "bgUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+        }
+      },
+      {
+        "id": "qqmauk7",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          },
+          {
+            "title": "核心能力 2",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          }
+        ]
+      },
+      {
+        "id": "swhxcl4",
+        "type": "video",
+        "video": {
+          "title": "产品与案例视频演示",
+          "subtitle": "3分钟快速了解我们在该行业的落地实践与具体成效",
+          "videoUrl": ""
+        }
+      },
+      {
+        "id": "aael308",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "d29q4qn",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "全方位多场景支持，打通业务效率瓶颈",
+          "items": [
+            {
+              "title": "多源物理引擎适配",
+              "description": "支持绝大多数主流工控协议和物理设备端实时接入",
+              "highlightText": "核心"
+            },
+            {
+              "title": "秒级预测模型响应",
+              "description": "云端联合计算实现超短网络时延与高帧率仿真反馈",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "私有化离线交付",
+              "description": "支持完全的单机/私有网部署，保障核心数据资产安全"
+            }
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "2",
