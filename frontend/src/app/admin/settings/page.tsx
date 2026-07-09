@@ -24,7 +24,9 @@ const defaultConfig: any = {
   social: { wechat: '', weibo: '', linkedin: '' },
   nav: [],
   hero: { headline: '', headlineHighlight: '', description: '' },
-  about: { title: '', description: '', tagline: '', imageUrl: '', imageAlt: '', ctaText: '', ctaHref: '' }
+  about: { title: '', description: '', tagline: '', imageUrl: '', imageAlt: '', ctaText: '', ctaHref: '' },
+  wechatQrUrl: '',
+  douyinQrUrl: ''
 };
 
 export default function SettingsPage() {
@@ -279,6 +281,30 @@ export default function SettingsPage() {
                 />
               </Field>
             </div>
+          </div>
+        </section>
+
+        {/* WeChat and Douyin QR Code Settings */}
+        <section className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+          <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <h2 className="text-sm font-bold text-slate-800">关注我们 & 社交平台配置</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Field label="微信公众号二维码 (微信扫码关注)">
+              <ImageUpload
+                label="上传微信二维码"
+                value={config.wechatQrUrl || ''}
+                onChange={(url) => setConfig({ ...config, wechatQrUrl: url })}
+              />
+            </Field>
+            <Field label="抖音官方号二维码 (抖音扫码关注)">
+              <ImageUpload
+                label="上传抖音二维码"
+                value={config.douyinQrUrl || ''}
+                onChange={(url) => setConfig({ ...config, douyinQrUrl: url })}
+              />
+            </Field>
           </div>
         </section>
 

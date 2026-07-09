@@ -28,6 +28,8 @@ export interface SiteConfig {
   contact: SiteContact;
   social: SiteSocial;
   nav: NavItem[];
+  wechatQrUrl?: string;
+  douyinQrUrl?: string;
 }
 
 export interface HeroData {

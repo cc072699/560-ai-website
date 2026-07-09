@@ -5,19 +5,33 @@
   "copyright": "© 2026 560 AI Technology Co., Ltd. 保留所有权利。",
   "icp": "",
   "contact": {
-    "phone": "400-880-0560",
-    "email": "contact@560ai.com",
-    "address": "广西北海市银海区高新技术产业园"
+    "phone": "0779-xxxxx",
+    "email": "xxx@560ai.com",
+    "address": "北海市海城区北海大道北、西藏路以西北海银河城市科技产业城2幢0705号房"
   },
   "social": {
     "wechat": "",
     "weibo": "",
     "linkedin": ""
   },
+  "wechatQrUrl": "",
+  "douyinQrUrl": "",
   "nav": [
-    { "name": "公司简介", "href": "/about" },
-    { "name": "产品介绍", "href": "/products" },
-    { "name": "客户案例", "href": "/cases" },
-    { "name": "联系我们", "href": "/#contact" }
+    {
+      "name": "公司简介",
+      "href": "/about"
+    },
+    {
+      "name": "产品介绍",
+      "href": "/products"
+    },
+    {
+      "name": "客户案例",
+      "href": "/cases"
+    },
+    {
+      "name": "联系我们",
+      "href": "/#contact"
+    }
   ]
 }
