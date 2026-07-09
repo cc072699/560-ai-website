@@ -1,10 +1,20 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Check, Loader2, X, Settings as SettingsIcon, Globe, MapPin, Save } from 'lucide-react';
-import type { SiteConfig } from '@/types';
+import {
+  Check,
+  Loader2,
+  X,
+  Settings as SettingsIcon,
+  Globe,
+  MapPin,
+  Save,
+  Sparkles,
+  Building2
+} from 'lucide-react';
+import { ImageUpload } from '@/components/admin/ImageUpload';
 
-const defaultConfig: SiteConfig = {
+const defaultConfig: any = {
   companyName: '',
   companyNameEn: '',
   companyFullName: '',
@@ -13,10 +23,12 @@ const defaultConfig: SiteConfig = {
   contact: { phone: '', email: '', address: '' },
   social: { wechat: '', weibo: '', linkedin: '' },
   nav: [],
+  hero: { headline: '', headlineHighlight: '', description: '' },
+  about: { title: '', description: '', tagline: '', imageUrl: '', imageAlt: '', ctaText: '', ctaHref: '' }
 };
 
 export default function SettingsPage() {
-  const [config, setConfig] = useState<SiteConfig>(defaultConfig);
+  const [config, setConfig] = useState<any>(defaultConfig);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
@@ -29,7 +41,18 @@ export default function SettingsPage() {
   useEffect(() => {
     fetch('/api/admin/site')
       .then((r) => r.json())
-      .then((data) => { setConfig(data); setLoading(false); });
+      .then((data) => {
+        // Ensure sub-objects are initialized
+        const merged = {
+          ...defaultConfig,
+          ...data,
+          contact: { ...defaultConfig.contact, ...(data.contact || {}) },
+          hero: { ...defaultConfig.hero, ...(data.hero || {}) },
+          about: { ...defaultConfig.about, ...(data.about || {}) }
+        };
+        setConfig(merged);
+        setLoading(false);
+      });
   }, []);
 
   const handleSave = async () => {
@@ -49,14 +72,20 @@ export default function SettingsPage() {
     }
   };
 
-  const setContact = (key: keyof SiteConfig['contact'], val: string) =>
+  const setContact = (key: string, val: string) =>
     setConfig({ ...config, contact: { ...config.contact, [key]: val } });
+
+  const setHero = (key: string, val: string) =>
+    setConfig({ ...config, hero: { ...config.hero, [key]: val } });
+
+  const setAbout = (key: string, val: string) =>
+    setConfig({ ...config, about: { ...config.about, [key]: val } });
 
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-slate-400 gap-3">
         <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
-        <span className="text-xs font-medium">获取全局配置数据中...</span>
+        <span className="text-xs font-semibold">获取全局配置数据中...</span>
       </div>
     );
   }
@@ -81,7 +110,7 @@ export default function SettingsPage() {
           <SettingsIcon className="w-5 h-5 text-blue-600" />
           全局配置
         </h1>
-        <p className="text-xs text-slate-400 mt-1">更新官网基础信息、页脚版权声明、ICP 备案号以及服务联系方式</p>
+        <p className="text-xs text-slate-400 mt-1">更新官网基础信息、页脚版权、ICP 备案号、首页首屏口号以及企业简介区块</p>
       </div>
 
       <div className="space-y-6">
@@ -111,7 +140,7 @@ export default function SettingsPage() {
                 placeholder="如：560 AI TECHNOLOGY"
               />
             </Field>
-            <Field label="公司法定全称 (显示于简介块)">
+            <Field label="公司法定全称">
               <input
                 type="text"
                 value={config.companyFullName}
@@ -138,6 +167,118 @@ export default function SettingsPage() {
                 className={inputCls}
               />
             </Field>
+          </div>
+        </section>
+
+        {/* Homepage Hero Settings */}
+        <section className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+          <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <h2 className="text-sm font-bold text-slate-800">首页首屏大屏 (Hero) 配置</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            <Field label="标语主文本 (Headline)">
+              <input
+                type="text"
+                value={config.hero.headline}
+                onChange={(e) => setHero('headline', e.target.value)}
+                className={inputCls}
+                placeholder="如：大模型时代的企业"
+              />
+            </Field>
+            <Field label="标语高亮词 (Headline Highlight - 蓝色渐变呈现)">
+              <input
+                type="text"
+                value={config.hero.headlineHighlight}
+                onChange={(e) => setHero('headlineHighlight', e.target.value)}
+                className={inputCls}
+                placeholder="如：新一代智能引擎"
+              />
+            </Field>
+            <Field label="标语副文本/描述 (Description)">
+              <textarea
+                value={config.hero.description}
+                onChange={(e) => setHero('description', e.target.value)}
+                rows={3}
+                className={`${inputCls} resize-none`}
+                placeholder="如：专注于为大中型企业提供私有化部署、高安全性的 AI 大模型系统及机器视觉引擎..."
+              />
+            </Field>
+          </div>
+        </section>
+
+        {/* Company About Section Settings */}
+        <section className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+          <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
+            <Building2 className="w-4 h-4 text-blue-600" />
+            <h2 className="text-sm font-bold text-slate-800">企业简介模块配置</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            <Field label="简介区块大标题">
+              <input
+                type="text"
+                value={config.about.title}
+                onChange={(e) => setAbout('title', e.target.value)}
+                className={inputCls}
+                placeholder="如：五六零人工智能科技（北海）有限公司"
+              />
+            </Field>
+            <Field label="产品核心使命宣传语 (Tagline)">
+              <input
+                type="text"
+                value={config.about.tagline}
+                onChange={(e) => setAbout('tagline', e.target.value)}
+                className={inputCls}
+                placeholder="如：驱动企业数字化的新一代生产力引擎..."
+              />
+            </Field>
+            <Field label="详细描述介绍 (Description)">
+              <textarea
+                value={config.about.description}
+                onChange={(e) => setAbout('description', e.target.value)}
+                rows={3}
+                className={`${inputCls} resize-none`}
+                placeholder="如：我们致力于前沿算法在工业制造、协同办公及智慧政务等核心领域的场景化落地..."
+              />
+            </Field>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Field label="行动按钮文字 (CTA Text)">
+                <input
+                  type="text"
+                  value={config.about.ctaText}
+                  onChange={(e) => setAbout('ctaText', e.target.value)}
+                  className={inputCls}
+                  placeholder="如：了解我们的核心价值观"
+                />
+              </Field>
+              <Field label="行动按钮链接 (CTA Href)">
+                <input
+                  type="text"
+                  value={config.about.ctaHref}
+                  onChange={(e) => setAbout('ctaHref', e.target.value)}
+                  className={inputCls}
+                  placeholder="如：/#contact 或 /about"
+                />
+              </Field>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Field label="展示大楼配图 (ImageUrl)">
+                <ImageUpload
+                  label="上传企业配图"
+                  value={config.about.imageUrl}
+                  onChange={(url) => setAbout('imageUrl', url)}
+                />
+              </Field>
+              <Field label="配图替换文本 (ImageAlt)">
+                <input
+                  type="text"
+                  value={config.about.imageAlt}
+                  onChange={(e) => setAbout('imageAlt', e.target.value)}
+                  className={inputCls}
+                  placeholder="如：560 AI Corporate Headquarter"
+                />
+              </Field>
+            </div>
           </div>
         </section>
 
@@ -185,7 +326,7 @@ export default function SettingsPage() {
             id="save-settings-btn"
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 disabled:bg-blue-300 text-white text-xs font-bold px-6 py-3 rounded-xl shadow-lg shadow-blue-500/15 transition-all duration-200"
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 disabled:bg-blue-300 text-white text-xs font-bold px-6 py-3 rounded-xl shadow-lg shadow-blue-500/15 transition-all duration-200 cursor-pointer"
           >
             {saving ? <Loader2 className="w-4.5 h-4.5 animate-spin" /> : <Save className="w-4.5 h-4.5" />}
             {saving ? '正在写入系统配置...' : '保存全局设置'}
