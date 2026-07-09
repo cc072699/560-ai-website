@@ -256,25 +256,25 @@ export default function TemplatesIntroPage() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-0.5 rounded-md border border-blue-100 uppercase">
+          <div className="flex items-center gap-2.5">
+            <span className="text-xs font-bold bg-blue-50 text-blue-600 px-2.5 py-1 rounded-md border border-blue-100 uppercase">
               组件模版库
             </span>
-            <h1 className="text-2xl font-black text-slate-900 tracking-tight">低代码设计模版指南</h1>
+            <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">低代码设计模版指南</h1>
           </div>
-          <p className="text-xs text-slate-400 mt-1">帮助开发者或系统管理员学习、研究模版数据字段，并为未来迭代开发新布局区块提供指引</p>
+          <p className="text-sm text-slate-450 mt-1">帮助开发者或系统管理员学习、研究模版数据字段，并为未来迭代开发新布局区块提供指引</p>
         </div>
       </div>
 
       {/* Intro info alert */}
-      <div className="p-5 bg-blue-50/50 border border-blue-100 rounded-3xl flex gap-4 text-xs font-semibold text-blue-800/90 leading-relaxed">
+      <div className="p-5 bg-blue-50/50 border border-blue-100 rounded-3xl flex gap-4 text-sm font-semibold text-blue-850 leading-relaxed">
         <div className="p-2 bg-white text-blue-600 rounded-2xl shrink-0 h-fit border border-blue-100/50 shadow-sm">
-          <BookOpen className="w-5 h-5" />
+          <BookOpen className="w-5.5 h-5.5" />
         </div>
-        <div className="space-y-1">
-          <h3 className="font-bold text-blue-900 text-sm">如何通过这套组件搭建页面？</h3>
-          <p className="font-normal text-slate-600">每个产品都可以随意编排零个或多个下列模版。在前台渲染时，系统会自上而下读取这些模版的数据结构进行拼接。</p>
-          <p className="font-normal text-slate-600">数据通过本地的 <code className="px-1.5 py-0.5 bg-slate-100 border rounded text-[10px] text-slate-700">products.json</code> 进行存储与维护，在后台点击“设计”按钮后直接调用可视化编辑器修改数据并自动刷新路由生成缓存。</p>
+        <div className="space-y-1.5">
+          <h3 className="font-extrabold text-blue-905 text-base">如何通过这套组件搭建页面？</h3>
+          <p className="font-normal text-slate-750">每个产品都可以随意编排零个或多个下列模版。在前台渲染时，系统会自上而下读取这些模版的数据结构进行拼接。</p>
+          <p className="font-normal text-slate-750">数据通过本地的 <code className="px-1.5 py-0.5 bg-slate-100 border rounded text-xs text-slate-700">products.json</code> 进行存储与维护，在后台点击“设计”按钮后直接调用可视化编辑器修改数据并自动刷新路由生成缓存。</p>
         </div>
       </div>
 
@@ -288,11 +288,11 @@ export default function TemplatesIntroPage() {
               <div className="p-5 border-b border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className={`p-2 bg-gradient-to-br ${tpl.color} text-white rounded-xl`}>
-                    <Icon className="w-4 h-4" />
+                    <Icon className="w-4.5 h-4.5" />
                   </div>
-                  <h3 className="font-bold text-slate-900 text-sm leading-none">{tpl.name}</h3>
+                  <h3 className="font-black text-slate-900 text-base leading-none">{tpl.name}</h3>
                 </div>
-                <span className="text-[9px] font-black uppercase tracking-wider text-slate-400 bg-slate-50 border border-slate-150 px-2 py-0.5 rounded">
+                <span className="text-xs font-black uppercase tracking-wider text-slate-500 bg-slate-50 border border-slate-150 px-2.5 py-1 rounded">
                   Type: {tpl.id}
                 </span>
               </div>
@@ -300,14 +300,14 @@ export default function TemplatesIntroPage() {
               {/* Card description and fields list */}
               <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
-                  <p className="text-xs text-slate-500 leading-relaxed font-normal">{tpl.desc}</p>
+                  <p className="text-sm text-slate-600 leading-relaxed font-semibold">{tpl.desc}</p>
                   
                   {/* Schema fields badges */}
                   <div className="space-y-1.5 text-left">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">模版数据字段：</span>
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block">模版数据字段：</span>
                     <div className="flex flex-wrap gap-1.5">
                       {tpl.fields.map((f, i) => (
-                        <span key={i} className="text-[10px] font-medium px-2 py-0.5 bg-slate-50 text-slate-600 rounded-md border border-slate-200/60 font-mono">
+                        <span key={i} className="text-xs font-bold px-2.5 py-1 bg-slate-50 text-slate-700 rounded-md border border-slate-200 font-mono">
                           {f}
                         </span>
                       ))}
@@ -317,8 +317,8 @@ export default function TemplatesIntroPage() {
 
                 {/* Wireframe Mockup Preview */}
                 <div className="space-y-2 text-left pt-2">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block flex items-center gap-1">
-                    <Eye className="w-3.5 h-3.5 text-slate-400" />
+                  <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block flex items-center gap-1">
+                    <Eye className="w-4 h-4 text-slate-400" />
                     <span>视觉排版简图：</span>
                   </span>
                   {tpl.mockup}

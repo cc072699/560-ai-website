@@ -194,13 +194,13 @@ export default function ProductsPage() {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-slate-200/60">
         <div className="space-y-1">
           <div className="flex items-center gap-2 text-blue-600">
-            <Layers className="w-5 h-5" />
-            <span className="text-xs font-bold uppercase tracking-widest">产品中心</span>
+            <Layers className="w-5.5 h-5.5" />
+            <span className="text-sm font-bold uppercase tracking-widest">产品中心</span>
           </div>
           <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
             {editingId !== null ? '配置产品档案' : '产品线管控'}
           </h1>
-          <p className="text-sm text-slate-500">
+          <p className="text-base text-slate-500">
             {editingId !== null ? '通过表单实时调整并在下方预览实际渲染效果' : '管理在官网主推的人工智能、业务协同及深度学习决策产品'}
           </p>
         </div>
@@ -208,9 +208,9 @@ export default function ProductsPage() {
           <button
             id="add-product-btn"
             onClick={openNew}
-            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-lg shadow-blue-500/15 hover:shadow-blue-500/25 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white text-base font-bold px-6 py-3 rounded-xl shadow-lg shadow-blue-500/15 hover:shadow-blue-500/25 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-5 h-5" />
             <span>新增核心产品</span>
           </button>
         ) : (
@@ -540,27 +540,27 @@ export default function ProductsPage() {
                       <div className="p-6 space-y-4">
                         <div className="flex items-center justify-between">
                           <div className="flex gap-2">
-                            <span className="inline-flex items-center px-2.5 py-1 bg-blue-50 border border-blue-100 rounded-lg text-sm font-semibold text-blue-600 uppercase tracking-wider">
+                            <span className="inline-flex items-center px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-lg text-sm font-bold text-blue-600 uppercase tracking-wider">
                               {p.category}
                             </span>
-                            <span className="inline-flex items-center px-2.5 py-1 bg-slate-100 border border-slate-200/50 rounded-lg text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                            <span className="inline-flex items-center px-3 py-1.5 bg-slate-100 border border-slate-200/50 rounded-lg text-sm font-bold text-slate-500 uppercase tracking-wider">
                               {p.layout === 'text-left' ? '文左图右' : '图左文右'}
                             </span>
                           </div>
-                          <div className="flex items-center gap-1.5 text-sm text-slate-400 font-bold">
-                            <Calendar className="w-3.5 h-3.5" />
+                          <div className="flex items-center gap-1.5 text-base text-slate-400 font-black">
+                            <Calendar className="w-4 h-4" />
                             <span>NO. {p.id}</span>
                           </div>
                         </div>
 
-                        <div className="space-y-2">
-                          <h3 className="text-lg font-bold text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
+                        <div className="space-y-2.5">
+                          <h3 className="text-2xl font-black text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
                             {p.title}
                           </h3>
-                          <p className="text-sm font-semibold text-blue-600/90 leading-normal">
+                          <p className="text-base font-bold text-blue-650 leading-normal">
                             {p.tagline}
                           </p>
-                          <p className="text-sm text-slate-500 line-clamp-3 leading-relaxed indent-[2em]">
+                          <p className="text-base text-slate-650 line-clamp-3 leading-relaxed indent-[2em]">
                             {p.description}
                           </p>
                         </div>
@@ -571,7 +571,7 @@ export default function ProductsPage() {
                             {p.features.filter(f => f.trim() !== '').map((f, i) => (
                               <span
                                 key={i}
-                                className="text-xs font-medium px-2.5 py-1 bg-slate-50 text-slate-600 rounded-lg border border-slate-200/60"
+                                className="text-sm font-semibold px-3 py-1.5 bg-slate-50/80 text-slate-600 rounded-lg border border-slate-200"
                               >
                                 {f}
                               </span>
@@ -587,48 +587,48 @@ export default function ProductsPage() {
                       <div className="flex gap-3">
                         <button
                           onClick={() => handleToggleShowInHome(p)}
-                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-bold border transition-all cursor-pointer ${
+                          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-base font-bold border transition-all cursor-pointer ${
                             p.showInHome
-                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                              ? 'bg-emerald-50 text-emerald-700 border-emerald-250 shadow-sm'
                               : 'bg-white text-slate-400 border-slate-200 hover:border-slate-300'
                           }`}
                         >
-                          <span className={`w-1.5 h-1.5 rounded-full ${p.showInHome ? 'bg-emerald-500 animate-pulse' : 'bg-slate-350'}`} />
+                          <span className={`w-2 h-2 rounded-full ${p.showInHome ? 'bg-emerald-500 animate-pulse' : 'bg-slate-350'}`} />
                           <span>首页</span>
                         </button>
                         <button
                           onClick={() => handleToggleShowInNavbar(p)}
-                          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-bold border transition-all cursor-pointer ${
+                          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-base font-bold border transition-all cursor-pointer ${
                             p.showInNavbar
-                              ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                              ? 'bg-indigo-50 text-indigo-700 border-indigo-255 shadow-sm'
                               : 'bg-white text-slate-400 border-slate-200 hover:border-slate-300'
                           }`}
                         >
-                          <span className={`w-1.5 h-1.5 rounded-full ${p.showInNavbar ? 'bg-indigo-500 animate-pulse' : 'bg-slate-355'}`} />
+                          <span className={`w-2 h-2 rounded-full ${p.showInNavbar ? 'bg-indigo-500 animate-pulse' : 'bg-slate-355'}`} />
                           <span>导航</span>
                         </button>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2.5">
                         <Link
                           href={`/admin/products/${p.id}/design`}
-                          className="flex items-center gap-1.5 px-3 py-2 bg-blue-50 text-blue-600 border border-blue-150 rounded-xl text-sm font-semibold hover:bg-blue-100/60 transition-all shadow-sm cursor-pointer"
+                          className="flex items-center gap-2 px-4 py-2.5 bg-blue-50 text-blue-600 border border-blue-150 rounded-xl text-base font-bold hover:bg-blue-100/60 transition-all shadow-sm cursor-pointer"
                         >
-                          <Palette className="w-3.5 h-3.5" />
+                          <Palette className="w-4.5 h-4.5" />
                           <span>设计</span>
                         </Link>
                         <button
                           onClick={() => openEdit(p)}
-                          className="flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-sm font-semibold hover:bg-slate-100 hover:text-slate-800 transition-all shadow-sm cursor-pointer"
+                          className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-600 rounded-xl text-base font-bold hover:bg-slate-100 hover:text-slate-800 transition-all shadow-sm cursor-pointer"
                         >
-                          <Pencil className="w-3.5 h-3.5" />
+                          <Pencil className="w-4.5 h-4.5" />
                           <span>编辑</span>
                         </button>
                         <button
                           onClick={() => setDeleteId(p.id)}
-                          className="flex items-center gap-1.5 px-3.5 py-2 bg-rose-50 text-rose-600 border border-rose-100 rounded-xl text-sm font-semibold hover:bg-rose-100 transition-all cursor-pointer"
+                          className="flex items-center gap-2 px-4.5 py-2.5 bg-rose-50 text-rose-600 border border-rose-100 rounded-xl text-base font-bold hover:bg-rose-100 transition-all cursor-pointer"
                         >
-                          <Trash2 className="w-3.5 h-3.5" />
+                          <Trash2 className="w-4.5 h-4.5" />
                           <span>删除</span>
                         </button>
                       </div>
