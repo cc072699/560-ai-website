@@ -3,7 +3,7 @@
     "id": "1",
     "title": "企业智能数据分析与决策系统（修改测试）",
     "tagline": "多源异构数据分析与高频运营指标智能决策系统",
-    "category": "智能决策与分析",
+    "category": "自动化与办公协同",
     "description": "面向大型企业提供跨部门的数据整合、指标分析与预测性排程方案，助力管理层进行精准的运营决策及风险把控。支持私有化数据库安全对接。（修改测试）",
     "features": [
       "多源异构数据高速分析与指标建模",
@@ -32,7 +32,7 @@
     "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
     "imageAlt": "AI Prediction Cabin",
     "order": 2,
-    "showInHome": false,
+    "showInHome": true,
     "showInNavbar": true,
     "layout": "text-right",
     "detailSections": [
@@ -121,7 +121,7 @@
     "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200",
     "imageAlt": "Enterprise Data Room",
     "order": 3,
-    "showInHome": false,
+    "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -220,7 +220,7 @@
     "imageUrl": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200",
     "imageAlt": "Business Meeting",
     "order": 4,
-    "showInHome": false,
+    "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left"
   },

@@ -20,7 +20,9 @@ import {
   Eye,
   FileCode,
   Undo,
-  Play
+  Play,
+  Clock,
+  HelpCircle
 } from 'lucide-react';
 import { ImageUpload } from '@/components/admin/ImageUpload';
 import { VideoUpload } from '@/components/admin/VideoUpload';
@@ -151,6 +153,35 @@ export default function ProductDesignPage() {
         subtitle: '3分钟快速了解我们在该行业的落地实践与具体成效',
         videoUrl: '',
       };
+    } else if (type === 'timeline') {
+      newSec.timeline = {
+        title: '落地实施与服务流程',
+        subtitle: '我们提供端到端的贴身规划与系统平滑上线支持',
+        steps: [
+          { title: '需求调研与环境规划', description: '深入业务一线进行软硬件环境与物理数据流建模规划', duration: '阶段一 (第1-2周)' },
+          { title: '系统部署与模型定制', description: '现场/私有化交付系统并针对客户特定业务微调垂直模型', duration: '阶段二 (第3-4周)' },
+          { title: '上线培训与运营交割', description: '提供全套技术文档并培训现场人员，实现系统完美交接', duration: '阶段三 (第5周起)' }
+        ]
+      };
+    } else if (type === 'features') {
+      newSec.features = {
+        title: '细分功能特性矩阵',
+        subtitle: '全方位多场景支持，打通业务效率瓶颈',
+        items: [
+          { title: '多源物理引擎适配', description: '支持绝大多数主流工控协议和物理设备端实时接入', highlightText: '核心' },
+          { title: '秒级预测模型响应', description: '云端联合计算实现超短网络时延与高帧率仿真反馈', highlightText: '推荐' },
+          { title: '私有化离线交付', description: '支持完全的单机/私有网部署，保障核心数据资产安全' }
+        ]
+      };
+    } else if (type === 'faq') {
+      newSec.faq = {
+        title: '常见问题解答',
+        subtitle: '关于该产品的商业授权、技术服务与部署周期的解答',
+        items: [
+          { question: '该系统支持私有化部署吗？', answer: '支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。' },
+          { question: '部署这套系统需要多长时间？', answer: '一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。' }
+        ]
+      };
     }
 
     setSections([...sections, newSec]);
@@ -268,6 +299,105 @@ export default function ProductDesignPage() {
     const list = [...sections];
     if (list[index].video) {
       list[index].video = { ...list[index].video!, ...fields };
+      setSections(list);
+    }
+  };
+
+  // Mutators for timeline
+  const updateTimeline = (index: number, fields: Partial<NonNullable<PageSection['timeline']>>) => {
+    const list = [...sections];
+    if (list[index].timeline) {
+      list[index].timeline = { ...list[index].timeline!, ...fields };
+      setSections(list);
+    }
+  };
+
+  const updateTimelineStep = (index: number, stepIdx: number, fields: Partial<NonNullable<PageSection['timeline']>['steps'][0]>) => {
+    const list = [...sections];
+    if (list[index].timeline) {
+      list[index].timeline!.steps[stepIdx] = { ...list[index].timeline!.steps[stepIdx], ...fields };
+      setSections(list);
+    }
+  };
+
+  const addTimelineStep = (index: number) => {
+    const list = [...sections];
+    if (list[index].timeline) {
+      list[index].timeline!.steps.push({ title: '新步骤节点', description: '', duration: '' });
+      setSections(list);
+    }
+  };
+
+  const removeTimelineStep = (index: number, stepIdx: number) => {
+    const list = [...sections];
+    if (list[index].timeline) {
+      list[index].timeline!.steps.splice(stepIdx, 1);
+      setSections(list);
+    }
+  };
+
+  // Mutators for features
+  const updateFeatures = (index: number, fields: Partial<NonNullable<PageSection['features']>>) => {
+    const list = [...sections];
+    if (list[index].features) {
+      list[index].features = { ...list[index].features!, ...fields };
+      setSections(list);
+    }
+  };
+
+  const updateFeaturesItem = (index: number, itemIdx: number, fields: Partial<NonNullable<PageSection['features']>['items'][0]>) => {
+    const list = [...sections];
+    if (list[index].features) {
+      list[index].features!.items[itemIdx] = { ...list[index].features!.items[itemIdx], ...fields };
+      setSections(list);
+    }
+  };
+
+  const addFeaturesItem = (index: number) => {
+    const list = [...sections];
+    if (list[index].features) {
+      list[index].features!.items.push({ title: '新特性说明', description: '', highlightText: '' });
+      setSections(list);
+    }
+  };
+
+  const removeFeaturesItem = (index: number, itemIdx: number) => {
+    const list = [...sections];
+    if (list[index].features) {
+      list[index].features!.items.splice(itemIdx, 1);
+      setSections(list);
+    }
+  };
+
+  // Mutators for faq
+  const updateFaq = (index: number, fields: Partial<NonNullable<PageSection['faq']>>) => {
+    const list = [...sections];
+    if (list[index].faq) {
+      list[index].faq = { ...list[index].faq!, ...fields };
+      setSections(list);
+    }
+  };
+
+  const updateFaqItem = (index: number, itemIdx: number, fields: Partial<NonNullable<PageSection['faq']>['items'][0]>) => {
+    const list = [...sections];
+    if (list[index].faq) {
+      list[index].faq!.items[itemIdx] = { ...list[index].faq!.items[itemIdx], ...fields };
+      setSections(list);
+    }
+  };
+
+  const addFaqItem = (index: number) => {
+    const list = [...sections];
+    if (list[index].faq) {
+      list[index].faq!.items.push({ question: '新问题？', answer: '新答案说明。' });
+      setSections(list);
+    }
+  };
+
+  const removeFaqItem = (index: number, itemIdx: number) => {
+    const list = [...sections];
+    if (list[index].faq) {
+      list[index].faq!.items.splice(itemIdx, 1);
       setSections(list);
     }
   };
@@ -674,6 +804,224 @@ export default function ProductDesignPage() {
                               </div>
                             </div>
                           )}
+
+                          {/* 7. TIMELINE BLOCK */}
+                          {sec.type === 'timeline' && sec.timeline && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">实施流程大标题</label>
+                                <input
+                                  type="text"
+                                  value={sec.timeline.title}
+                                  onChange={(e) => updateTimeline(idx, { title: e.target.value })}
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
+                                />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题描述</label>
+                                <input
+                                  type="text"
+                                  value={sec.timeline.subtitle || ''}
+                                  onChange={(e) => updateTimeline(idx, { subtitle: e.target.value })}
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
+                                />
+                              </div>
+                              <div className="space-y-3.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">流程节点配置</label>
+                                {sec.timeline.steps.map((step, stepIdx) => (
+                                  <div key={stepIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-3 relative text-left">
+                                    <button
+                                      onClick={() => removeTimelineStep(idx, stepIdx)}
+                                      className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer"
+                                      title="删除步骤"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <span className="text-[10px] font-bold text-slate-400 bg-slate-200 px-1.5 py-0.5 rounded w-fit block">
+                                      节点 {stepIdx + 1}
+                                    </span>
+                                    <div className="grid grid-cols-2 gap-3">
+                                      <div>
+                                        <label className="block font-semibold text-slate-700 mb-1">时间/期段 (可选)</label>
+                                        <input
+                                          type="text"
+                                          value={step.duration || ''}
+                                          onChange={(e) => updateTimelineStep(idx, stepIdx, { duration: e.target.value })}
+                                          className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm"
+                                        />
+                                      </div>
+                                      <div>
+                                        <label className="block font-semibold text-slate-700 mb-1">节点名称</label>
+                                        <input
+                                          type="text"
+                                          value={step.title}
+                                          onChange={(e) => updateTimelineStep(idx, stepIdx, { title: e.target.value })}
+                                          className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <label className="block font-semibold text-slate-700 mb-1">节点详细描述</label>
+                                      <textarea
+                                        value={step.description}
+                                        onChange={(e) => updateTimelineStep(idx, stepIdx, { description: e.target.value })}
+                                        rows={2}
+                                        className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm resize-none"
+                                      />
+                                    </div>
+                                  </div>
+                                ))}
+                                <button
+                                  onClick={() => addTimelineStep(idx)}
+                                  className="w-full py-2 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs"
+                                >
+                                  + 新增流程节点
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 8. FEATURES BLOCK */}
+                          {sec.type === 'features' && sec.features && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">特性矩阵大标题</label>
+                                <input
+                                  type="text"
+                                  value={sec.features.title}
+                                  onChange={(e) => updateFeatures(idx, { title: e.target.value })}
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
+                                />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题描述</label>
+                                <input
+                                  type="text"
+                                  value={sec.features.subtitle || ''}
+                                  onChange={(e) => updateFeatures(idx, { subtitle: e.target.value })}
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
+                                />
+                              </div>
+                              <div className="space-y-3.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">特性项卡片配置</label>
+                                {sec.features.items.map((item, itemIdx) => (
+                                  <div key={itemIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-3 relative text-left">
+                                    <button
+                                      onClick={() => removeFeaturesItem(idx, itemIdx)}
+                                      className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer"
+                                      title="删除特性"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <span className="text-[10px] font-bold text-slate-400 bg-slate-200 px-1.5 py-0.5 rounded w-fit block">
+                                      特性 {itemIdx + 1}
+                                    </span>
+                                    <div className="grid grid-cols-2 gap-3">
+                                      <div>
+                                        <label className="block font-semibold text-slate-700 mb-1">特性名称</label>
+                                        <input
+                                          type="text"
+                                          value={item.title}
+                                          onChange={(e) => updateFeaturesItem(idx, itemIdx, { title: e.target.value })}
+                                          className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm"
+                                        />
+                                      </div>
+                                      <div>
+                                        <label className="block font-semibold text-slate-700 mb-1">高亮标签 (可选)</label>
+                                        <input
+                                          type="text"
+                                          value={item.highlightText || ''}
+                                          onChange={(e) => updateFeaturesItem(idx, itemIdx, { highlightText: e.target.value })}
+                                          className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm"
+                                          placeholder="例如：核心、推荐"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <label className="block font-semibold text-slate-700 mb-1">详细描述</label>
+                                      <textarea
+                                        value={item.description}
+                                        onChange={(e) => updateFeaturesItem(idx, itemIdx, { description: e.target.value })}
+                                        rows={2}
+                                        className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm resize-none"
+                                      />
+                                    </div>
+                                  </div>
+                                ))}
+                                <button
+                                  onClick={() => addFeaturesItem(idx)}
+                                  className="w-full py-2 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs"
+                                >
+                                  + 新增特性卡片
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 9. FAQ BLOCK */}
+                          {sec.type === 'faq' && sec.faq && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">FAQ 答疑区标题</label>
+                                <input
+                                  type="text"
+                                  value={sec.faq.title}
+                                  onChange={(e) => updateFaq(idx, { title: e.target.value })}
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
+                                />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题描述</label>
+                                <input
+                                  type="text"
+                                  value={sec.faq.subtitle || ''}
+                                  onChange={(e) => updateFaq(idx, { subtitle: e.target.value })}
+                                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm"
+                                />
+                              </div>
+                              <div className="space-y-3.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">问答对配置</label>
+                                {sec.faq.items.map((item, itemIdx) => (
+                                  <div key={itemIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-3 relative text-left">
+                                    <button
+                                      onClick={() => removeFaqItem(idx, itemIdx)}
+                                      className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer"
+                                      title="删除问答"
+                                    >
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <span className="text-[10px] font-bold text-slate-400 bg-slate-200 px-1.5 py-0.5 rounded w-fit block">
+                                      问答项 {itemIdx + 1}
+                                    </span>
+                                    <div>
+                                      <label className="block font-semibold text-slate-700 mb-1">客户疑问 (Question)</label>
+                                      <input
+                                        type="text"
+                                        value={item.question}
+                                        onChange={(e) => updateFaqItem(idx, itemIdx, { question: e.target.value })}
+                                        className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm"
+                                      />
+                                    </div>
+                                    <div>
+                                      <label className="block font-semibold text-slate-700 mb-1">官方解答 (Answer)</label>
+                                      <textarea
+                                        value={item.answer}
+                                        onChange={(e) => updateFaqItem(idx, itemIdx, { answer: e.target.value })}
+                                        rows={3}
+                                        className="w-full px-3 py-2 border border-slate-200 bg-white rounded-lg text-sm resize-none"
+                                      />
+                                    </div>
+                                  </div>
+                                ))}
+                                <button
+                                  onClick={() => addFaqItem(idx)}
+                                  className="w-full py-2 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs"
+                                >
+                                  + 新增 FAQ 问答
+                                </button>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -731,6 +1079,27 @@ export default function ProductDesignPage() {
               >
                 <Play className="w-4 h-4" />
                 <span>案例视频播放</span>
+              </button>
+              <button
+                onClick={() => addSection('timeline')}
+                className="px-2 py-2.5 border border-slate-200 hover:border-blue-500 rounded-xl text-[10px] font-bold text-slate-655 hover:text-blue-600 transition-all flex flex-col items-center gap-1.5 bg-slate-50 hover:bg-blue-50/10 cursor-pointer"
+              >
+                <Clock className="w-4 h-4" />
+                <span>服务实施流程</span>
+              </button>
+              <button
+                onClick={() => addSection('features')}
+                className="px-2 py-2.5 border border-slate-200 hover:border-blue-500 rounded-xl text-[10px] font-bold text-slate-655 hover:text-blue-600 transition-all flex flex-col items-center gap-1.5 bg-slate-50 hover:bg-blue-50/10 cursor-pointer"
+              >
+                <Layers className="w-4 h-4" />
+                <span>特性功能矩阵</span>
+              </button>
+              <button
+                onClick={() => addSection('faq')}
+                className="px-2 py-2.5 border border-slate-200 hover:border-blue-500 rounded-xl text-[10px] font-bold text-slate-655 hover:text-blue-600 transition-all flex flex-col items-center gap-1.5 bg-slate-50 hover:bg-blue-50/10 cursor-pointer"
+              >
+                <HelpCircle className="w-4 h-4" />
+                <span>常见问题解答</span>
               </button>
             </div>
           </div>
@@ -919,6 +1288,78 @@ export default function ProductDesignPage() {
                             <span className="px-4 py-2 border border-white/40 text-white text-xs font-bold rounded-lg cursor-pointer">
                               {sec.cta.secondaryText}
                             </span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Render type: TIMELINE */}
+                      {sec.type === 'timeline' && sec.timeline && (
+                        <div className="py-12 px-8 bg-white border-b border-slate-100">
+                          <div className="text-center mb-8">
+                            <h3 className="text-sm font-bold text-slate-900">{sec.timeline.title}</h3>
+                            {sec.timeline.subtitle && <p className="text-[10px] text-slate-400 mt-1">{sec.timeline.subtitle}</p>}
+                            <div className="w-10 h-1 bg-blue-600 rounded-full mx-auto mt-2" />
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {sec.timeline.steps.map((step, stepIdx) => (
+                              <div key={stepIdx} className="bg-slate-50 p-4 rounded-xl border border-slate-200/40 relative text-left flex flex-col space-y-2">
+                                <div className="flex justify-between items-center text-[9px] font-bold text-blue-600">
+                                  <span>{step.duration || `阶段 ${stepIdx + 1}`}</span>
+                                  <span className="text-slate-300">0{stepIdx + 1}</span>
+                                </div>
+                                <h4 className="text-xs font-bold text-slate-800">{step.title}</h4>
+                                <p className="text-[10px] text-slate-450 leading-normal font-medium">{step.description}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Render type: FEATURES */}
+                      {sec.type === 'features' && sec.features && (
+                        <div className="py-12 px-8 bg-slate-50/50 border-b border-slate-100">
+                          <div className="text-center mb-8">
+                            <h3 className="text-sm font-bold text-slate-900">{sec.features.title}</h3>
+                            {sec.features.subtitle && <p className="text-[10px] text-slate-400 mt-1">{sec.features.subtitle}</p>}
+                            <div className="w-10 h-1 bg-blue-600 rounded-full mx-auto mt-2" />
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {sec.features.items.map((item, itemIdx) => (
+                              <div key={itemIdx} className="bg-white p-4 rounded-xl border border-slate-150 relative text-left flex flex-col space-y-2">
+                                {item.highlightText && (
+                                  <span className="absolute top-2 right-2 text-[8px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 px-1 py-0.5 rounded">
+                                    {item.highlightText}
+                                  </span>
+                                )}
+                                <div className="w-6 h-6 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center">
+                                  <Check className="w-3.5 h-3.5" />
+                                </div>
+                                <h4 className="text-xs font-bold text-slate-800">{item.title}</h4>
+                                <p className="text-[10px] text-slate-450 leading-normal font-medium">{item.description}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Render type: FAQ */}
+                      {sec.type === 'faq' && sec.faq && (
+                        <div className="py-12 px-8 bg-white border-b border-slate-100">
+                          <div className="text-center mb-8">
+                            <h3 className="text-sm font-bold text-slate-900">{sec.faq.title}</h3>
+                            {sec.faq.subtitle && <p className="text-[10px] text-slate-400 mt-1">{sec.faq.subtitle}</p>}
+                            <div className="w-10 h-1 bg-blue-600 rounded-full mx-auto mt-2" />
+                          </div>
+                          <div className="space-y-3">
+                            {sec.faq.items.map((item, itemIdx) => (
+                              <div key={itemIdx} className="p-4 border border-slate-150 rounded-xl bg-slate-50/30 text-left space-y-1.5">
+                                <h4 className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                                  <span className="text-[9px] font-black bg-blue-50 text-blue-600 px-1 py-0.5 rounded">Q</span>
+                                  <span>{item.question}</span>
+                                </h4>
+                                <p className="text-[10px] text-slate-450 leading-normal font-medium pl-5">{item.answer}</p>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       )}

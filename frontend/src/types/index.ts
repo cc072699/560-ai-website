@@ -48,7 +48,16 @@ export interface AboutData {
 
 export type ProductLayout = 'text-left' | 'text-right';
 
-export type SectionType = 'hero' | 'capabilities' | 'scenarios' | 'architecture' | 'cta' | 'video';
+export type SectionType =
+  | 'hero'
+  | 'capabilities'
+  | 'scenarios'
+  | 'architecture'
+  | 'cta'
+  | 'video'
+  | 'timeline'
+  | 'features'
+  | 'faq';
 
 export interface PageSection {
   id: string;
@@ -88,6 +97,32 @@ export interface PageSection {
     subtitle?: string;
     videoUrl: string;
     coverUrl?: string;
+  };
+  timeline?: {
+    title: string;
+    subtitle?: string;
+    steps: Array<{
+      title: string;
+      description: string;
+      duration?: string;
+    }>;
+  };
+  features?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      title: string;
+      description: string;
+      highlightText?: string;
+    }>;
+  };
+  faq?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      question: string;
+      answer: string;
+    }>;
   };
 }
 

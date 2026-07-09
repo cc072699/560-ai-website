@@ -165,6 +165,9 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               if (section.type === 'architecture') return <DetailArchitecture key={section.id} section={section} />;
               if (section.type === 'cta') return <DetailCta key={section.id} section={section} />;
               if (section.type === 'video') return <DetailVideo key={section.id} section={section} />;
+              if (section.type === 'timeline') return <DetailTimeline key={section.id} section={section} />;
+              if (section.type === 'features') return <DetailFeatures key={section.id} section={section} />;
+              if (section.type === 'faq') return <DetailFaq key={section.id} section={section} />;
               return null;
             })}
           </div>
@@ -394,6 +397,126 @@ function DetailVideo({ section }: { section: PageSection }) {
           ) : (
             <video src={src} poster={video.coverUrl} controls className="w-full h-full object-contain" />
           )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DetailTimeline({ section }: { section: PageSection }) {
+  const timeline = section.timeline;
+  if (!timeline) return null;
+  return (
+    <div className="py-24 bg-white border-b border-gray-100 relative overflow-hidden">
+      <div className="container mx-auto px-6 max-w-5xl relative z-10">
+        <div className="text-center mb-16 max-w-2xl mx-auto space-y-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{timeline.title}</h2>
+          {timeline.subtitle && (
+            <p className="text-sm md:text-base text-gray-500 leading-relaxed font-normal">{timeline.subtitle}</p>
+          )}
+          <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
+        </div>
+
+        <div className="relative mt-12">
+          <div className="absolute top-12 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 hidden md:block" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+            {timeline.steps.map((step, idx) => (
+              <div key={idx} className="group flex flex-col text-left space-y-4 relative bg-white p-6 rounded-2xl border border-gray-150/70 shadow-sm hover:border-blue-300 hover:shadow-md transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black text-blue-600 bg-blue-50 border border-blue-100 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    {step.duration || `阶段 ${idx + 1}`}
+                  </span>
+                  <span className="text-sm font-extrabold text-gray-300 group-hover:text-blue-500/30 transition-colors">
+                    0{idx + 1}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors">
+                  {step.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DetailFeatures({ section }: { section: PageSection }) {
+  const feats = section.features;
+  if (!feats) return null;
+  return (
+    <div className="py-24 bg-slate-50/50 border-b border-gray-100 relative overflow-hidden">
+      <div className="container mx-auto px-6 max-w-5xl relative z-10">
+        <div className="text-center mb-16 max-w-2xl mx-auto space-y-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{feats.title}</h2>
+          {feats.subtitle && (
+            <p className="text-sm md:text-base text-gray-500 leading-relaxed font-normal">{feats.subtitle}</p>
+          )}
+          <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {feats.items.map((item, idx) => (
+            <div key={idx} className="group relative bg-white p-6 rounded-2xl border border-gray-200/80 shadow-sm hover:border-blue-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-left">
+              {item.highlightText && (
+                <span className="absolute top-4 right-4 text-[10px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-md">
+                  {item.highlightText}
+                </span>
+              )}
+              <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                <CheckCircle2 className="w-5 h-5" />
+              </div>
+              <h3 className="text-[17px] font-bold text-gray-900 mb-2 leading-snug">
+                {item.title}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DetailFaq({ section }: { section: PageSection }) {
+  const faq = section.faq;
+  if (!faq) return null;
+  return (
+    <div className="py-24 bg-white border-b border-gray-100 relative overflow-hidden">
+      <div className="container mx-auto px-6 max-w-4xl relative z-10">
+        <div className="text-center mb-16 max-w-2xl mx-auto space-y-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{faq.title}</h2>
+          {faq.subtitle && (
+            <p className="text-sm md:text-base text-gray-500 leading-relaxed font-normal">{faq.subtitle}</p>
+          )}
+          <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
+        </div>
+
+        <div className="space-y-4">
+          {faq.items.map((item, idx) => (
+            <details
+              key={idx}
+              className="group border border-gray-200/80 rounded-2xl p-5 bg-white shadow-sm hover:shadow hover:border-blue-200 transition-all duration-300 [&_summary::-webkit-details-marker]:hidden"
+            >
+              <summary className="flex items-center justify-between font-bold text-gray-800 cursor-pointer list-none text-base select-none text-left">
+                <span>{item.question}</span>
+                <span className="p-1 bg-slate-50 text-slate-400 group-open:bg-blue-50 group-open:text-blue-600 rounded-lg transition-colors duration-300">
+                  <svg className="w-4 h-4 transition-transform duration-300 group-open:rotate-180" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </span>
+              </summary>
+              <div className="mt-3.5 text-sm text-gray-500 leading-relaxed font-medium border-t border-slate-100/60 pt-3 text-left">
+                {item.answer}
+              </div>
+            </details>
+          ))}
         </div>
       </div>
     </div>

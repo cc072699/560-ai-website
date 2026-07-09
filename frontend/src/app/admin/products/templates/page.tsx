@@ -10,7 +10,10 @@ import {
   BookOpen,
   ArrowRight,
   Eye,
-  FileCode
+  FileCode,
+  Clock,
+  HelpCircle,
+  Check
 } from 'lucide-react';
 
 export default function TemplatesIntroPage() {
@@ -93,6 +96,90 @@ export default function TemplatesIntroPage() {
                   <div className="text-[8px] font-bold text-slate-800">场景 {i}</div>
                   <div className="text-[7px] text-slate-450 leading-tight">简介描述信息描述</div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'timeline',
+      name: '服务实施流程 (Timeline Block)',
+      desc: '横向连接的进度轴布局，适合呈现产品的交付实施步骤、发展历程或者项目开发演进阶段。在手机端将自适应为垂直排列。',
+      icon: Clock,
+      fields: ['标题 (title)', '副标题 (subtitle)', '步骤列表 (steps)', '步骤标题 (step.title)', '详细说明 (step.description)', '时间/标识 (step.duration)'],
+      color: 'from-violet-600 to-fuchsia-600',
+      mockup: (
+        <div className="w-full border border-slate-200 bg-white rounded-2xl p-4 space-y-3 shadow-inner select-none text-left">
+          <div className="text-center font-bold text-slate-800 text-[10px] pb-1 border-b border-slate-100 flex items-center justify-center gap-1">
+            <Clock className="w-3.5 h-3.5 text-violet-500" /> 服务交付实施流程
+          </div>
+          <div className="grid grid-cols-3 gap-2.5 scale-95 origin-center relative">
+            <div className="absolute top-4 left-2 right-2 h-0.5 bg-blue-100 -z-10" />
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-slate-50 border border-slate-150 rounded-xl p-2 flex flex-col space-y-1 relative">
+                <div className="text-[6px] font-bold text-blue-600">第 {i} 阶段</div>
+                <div className="text-[8px] font-bold text-slate-800">步骤标题 {i}</div>
+                <div className="text-[6px] text-slate-400 leading-normal">描述说明文本</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'features',
+      name: '特性功能矩阵 (Features Block)',
+      desc: '小卡片多列特性排版。支持为关键技术点添加绿色的高亮标签（如：核心、推荐、首创），适合长列表的技术规格呈现。',
+      icon: Layers,
+      fields: ['标题 (title)', '副标题 (subtitle)', '特性卡片列表 (items)', '卡片标题 (item.title)', '卡片描述 (item.description)', '高亮徽标 (item.highlightText)'],
+      color: 'from-indigo-600 to-cyan-600',
+      mockup: (
+        <div className="w-full border border-slate-200 bg-slate-50/50 rounded-2xl p-4 space-y-3 shadow-inner select-none text-left">
+          <div className="text-center font-bold text-slate-800 text-[10px] pb-1 border-b border-slate-150 flex items-center justify-center gap-1">
+            <Layers className="w-3.5 h-3.5 text-indigo-500" /> 特性功能矩阵
+          </div>
+          <div className="grid grid-cols-2 gap-2 scale-95 origin-center">
+            {[1, 2].map((i) => (
+              <div key={i} className="bg-white border border-slate-150 rounded-xl p-2.5 flex flex-col space-y-1 relative shadow-sm">
+                {i === 1 && (
+                  <span className="absolute top-2 right-2 text-[6px] font-bold text-emerald-600 bg-emerald-50 px-1 rounded border border-emerald-100">核心</span>
+                )}
+                <div className="w-4 h-4 bg-blue-50 text-blue-600 rounded flex items-center justify-center">
+                  <Check className="w-2.5 h-2.5" />
+                </div>
+                <div className="text-[8px] font-bold text-slate-800">特性标题 {i}</div>
+                <div className="text-[6px] text-slate-400 leading-normal">这里是该特性的底层技术与功能注解说明。</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'faq',
+      name: '常见问题解答 (FAQ Block)',
+      desc: '交互式折叠问答区。在网页渲染时支持平滑的风琴折叠展开，有效解惑用户，提升网站转化率和SEO搜索引擎友好度。',
+      icon: HelpCircle,
+      fields: ['大标题 (title)', '副标题 (subtitle)', '问答项列表 (items)', '客户疑问 (item.question)', '官方解答 (item.answer)'],
+      color: 'from-pink-600 to-rose-600',
+      mockup: (
+        <div className="w-full border border-slate-200 bg-white rounded-2xl p-4 space-y-3 shadow-inner select-none text-left">
+          <div className="text-center font-bold text-slate-800 text-[10px] pb-1 border-b border-slate-100 flex items-center justify-center gap-1">
+            <HelpCircle className="w-3.5 h-3.5 text-pink-500" /> 常见问题与解答
+          </div>
+          <div className="space-y-1.5 scale-95 origin-center">
+            {[1, 2].map((i) => (
+              <div key={i} className="border border-slate-150 rounded-xl p-2 bg-slate-50/50 flex flex-col space-y-1">
+                <div className="text-[8px] font-bold text-slate-800 flex items-center justify-between">
+                  <span>Q: 常见疑问标题 {i} ？</span>
+                  <span className="text-[8px] text-slate-400">▼</span>
+                </div>
+                {i === 1 && (
+                  <div className="text-[7px] text-slate-400 border-t border-slate-200/50 pt-1 leading-normal">
+                    A: 针对该常见疑问的高阶技术规范、服务支持与收费策略的权威官方解答。
+                  </div>
+                )}
               </div>
             ))}
           </div>
