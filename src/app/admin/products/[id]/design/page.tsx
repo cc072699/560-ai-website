@@ -519,6 +519,10 @@ export default function ProductDesignPage() {
                             {sec.type === 'scenarios' && '应用场景网格 (Scenarios)'}
                             {sec.type === 'architecture' && '产品架构图 (Architecture)'}
                             {sec.type === 'cta' && '引导转换横幅 (CTA)'}
+                            {sec.type === 'video' && '产品与案例视频演示 (Video)'}
+                            {sec.type === 'timeline' && '服务实施流程 (Timeline)'}
+                            {sec.type === 'features' && '特性功能矩阵 (Features)'}
+                            {sec.type === 'faq' && '常见问题解答 (FAQ)'}
                           </span>
                         </div>
 
