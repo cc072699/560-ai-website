@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { getAllProducts, saveProducts } from '@/lib/data';
 import { withAdminAuth } from '@/lib/api-auth';
+import { ProductSchema } from '@/lib/validations/product';
 import type { NextRequest } from 'next/server';
 
 type RouteParams = { params: Promise<{ id: string }> };
@@ -11,6 +12,14 @@ export const PUT = withAdminAuth(async (req: NextRequest, ...args: unknown[]) =>
   const { params } = args[0] as RouteParams;
   const { id } = await params;
   const body = await req.json();
+  
+  // Zod验证(部分验证,允许只更新部分字段)
+  const result = ProductSchema.partial().safeParse(body);
+  if (!result.success) {
+    const errorMessage = result.error.issues[0]?.message || '数据验证失败';
+    return NextResponse.json({ error: errorMessage }, { status: 400 });
+  }
+  
   const products = await getAllProducts();
   const index = products.findIndex((p) => p.id === id);
 
@@ -18,7 +27,7 @@ export const PUT = withAdminAuth(async (req: NextRequest, ...args: unknown[]) =>
     return NextResponse.json({ error: '产品不存在' }, { status: 404 });
   }
 
-  products[index] = { ...products[index], ...body, id };
+  products[index] = { ...products[index], ...result.data, id };
   await saveProducts(products);
   revalidatePath('/');
   revalidatePath('/products');

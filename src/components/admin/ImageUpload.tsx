@@ -14,6 +14,37 @@ export function ImageUpload({ value, onChange, label = '图片' }: ImageUploadPr
   const [error, setError] = useState('');
   const [mode, setMode] = useState<'url' | 'upload'>('url');
 
+  // URL验证函数
+  const validateImageUrl = (url: string): boolean => {
+    if (url.trim() === '') {
+      return true; // 允许空值
+    }
+
+    try {
+      const parsedUrl = new URL(url);
+      // 仅允许http/https协议
+      if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+        setError('仅支持HTTP/HTTPS协议的图片URL');
+        return false;
+      }
+      return true;
+    } catch {
+      setError('URL格式无效,请输入完整的URL地址');
+      return false;
+    }
+  };
+
+  const handleUrlChange = (url: string) => {
+    setError(''); // 清除旧错误
+    onChange(url);
+  };
+
+  const handleUrlBlur = () => {
+    if (value && !validateImageUrl(value)) {
+      return; // 验证失败,不更新值
+    }
+  };
+
   const handleFile = useCallback(async (file: File) => {
     setUploading(true);
     setError('');
@@ -72,13 +103,18 @@ export function ImageUpload({ value, onChange, label = '图片' }: ImageUploadPr
       </div>
 
       {mode === 'url' && (
-        <input
-          type="url"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder="https://example.com/image.jpg"
-          className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800"
-        />
+        <>
+          <input
+            type="url"
+            value={value}
+            onChange={(e) => handleUrlChange(e.target.value)}
+            onBlur={handleUrlBlur}
+            placeholder="https://example.com/image.jpg"
+            className={`w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 ${
+              error ? 'border-red-300 bg-red-50' : 'border-slate-200'
+            }`}
+          />
+        </>
       )}
 
       {mode === 'upload' && (

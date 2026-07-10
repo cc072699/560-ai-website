@@ -13,10 +13,8 @@ export async function POST(req: NextRequest) {
   const adminUsername = process.env.ADMIN_USERNAME;
   const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH;
 
-  console.log('[DEBUG LOGIN] Expected user:', adminUsername, 'Hash:', adminPasswordHash);
-
+  // 生产环境不输出敏感配置信息
   if (!adminUsername || !adminPasswordHash) {
-    console.error('[Auth] 环境变量 ADMIN_USERNAME 或 ADMIN_PASSWORD_HASH 未设置');
     return NextResponse.json({ error: '服务器配置错误' }, { status: 500 });
   }
 

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { getAllProducts, saveProducts } from '@/lib/data';
 import { withAdminAuth } from '@/lib/api-auth';
+import { ProductSchema } from '@/lib/validations/product';
 import type { Product } from '@/types';
 import type { NextRequest } from 'next/server';
 
@@ -14,21 +15,29 @@ export const GET = withAdminAuth(async () => {
 // POST /api/admin/products - 新增产品
 export const POST = withAdminAuth(async (req: NextRequest) => {
   const body = await req.json();
+  
+  // Zod验证
+  const result = ProductSchema.safeParse(body);
+  if (!result.success) {
+    const errorMessage = result.error.issues[0]?.message || '数据验证失败';
+    return NextResponse.json({ error: errorMessage }, { status: 400 });
+  }
+  
   const products = await getAllProducts();
 
   const newProduct: Product = {
     id: Date.now().toString(),
-    title: body.title || '新产品',
-    tagline: body.tagline || '',
-    category: body.category || '',
-    description: body.description || '',
-    features: body.features || [],
-    imageUrl: body.imageUrl || '',
-    imageAlt: body.imageAlt || '',
+    title: result.data.title,
+    tagline: result.data.tagline || '',
+    category: result.data.category || '',
+    description: result.data.description || '',
+    features: result.data.features || [],
+    imageUrl: result.data.imageUrl || '',
+    imageAlt: result.data.imageAlt || '',
     order: products.length + 1,
-    showInHome: body.showInHome ?? true,
-    showInNavbar: body.showInNavbar ?? true,
-    layout: body.layout || 'text-left',
+    showInHome: result.data.showInHome ?? true,
+    showInNavbar: result.data.showInNavbar ?? true,
+    layout: result.data.layout || 'text-left',
   };
 
   await saveProducts([...products, newProduct]);
