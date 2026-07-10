@@ -93,10 +93,14 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
     );
   }
 
+  // 支持传入 folder 参数，例如 "products/9"、"cases/3"
+  // 文件将保存到 public/uploads/{folder}/
+  const folder = (formData.get('folder') as string) || 'general';
+
   // 生成唯一文件名
   const ext = file.name.split('.').pop() || 'jpg';
   const filename = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
-  const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+  const uploadDir = path.join(process.cwd(), 'public', 'uploads', folder);
 
   // 确保目录存在
   await mkdir(uploadDir, { recursive: true });
@@ -105,6 +109,7 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
   const buffer = Buffer.from(bytes);
   await writeFile(path.join(uploadDir, filename), buffer);
 
-  const url = `/uploads/${filename}`;
+  // 返回的 URL 路径包含子目录
+  const url = `/uploads/${folder}/${filename}`;
   return NextResponse.json({ url, filename }, { status: 201 });
 });

@@ -305,6 +305,7 @@ export default function CasesPage() {
                   label="标杆案例配图"
                   value={formData.imageUrl}
                   onChange={(url) => setFormData({ ...formData, imageUrl: url })}
+                  folder={editingId && editingId !== 'new' ? `cases/${editingId}` : undefined}
                 />
               </div>
 

@@ -22,7 +22,6 @@ export const ProductSchema = z.object({
     .optional(),
 
   imageUrl: z.string()
-    .url('图片URL格式无效')
     .max(500, 'URL过长(最大500字符)')
     .optional()
     .or(z.literal('')), // 允许空字符串

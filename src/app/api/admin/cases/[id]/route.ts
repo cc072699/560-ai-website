@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { getAllCases, saveCases } from '@/lib/data';
+import { deleteCaseImageDir } from '@/lib/cleanup';
 import { withAdminAuth } from '@/lib/api-auth';
 import type { NextRequest } from 'next/server';
 
@@ -36,6 +37,7 @@ export const DELETE = withAdminAuth(async (_req: NextRequest, ...args: unknown[]
   }
 
   await saveCases(filtered);
+  await deleteCaseImageDir(id);
   revalidatePath('/');
   return NextResponse.json({ success: true });
 });

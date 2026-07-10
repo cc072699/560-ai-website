@@ -7,9 +7,10 @@ interface ImageUploadProps {
   value: string;
   onChange: (url: string) => void;
   label?: string;
+  folder?: string;
 }
 
-export function ImageUpload({ value, onChange, label = '图片' }: ImageUploadProps) {
+export function ImageUpload({ value, onChange, label = '图片', folder }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [mode, setMode] = useState<'url' | 'upload'>('url');
@@ -50,6 +51,7 @@ export function ImageUpload({ value, onChange, label = '图片' }: ImageUploadPr
     setError('');
     const formData = new FormData();
     formData.append('file', file);
+		if (folder) formData.append('folder', folder);
 
     try {
       const res = await fetch('/api/admin/upload', {
@@ -64,7 +66,7 @@ export function ImageUpload({ value, onChange, label = '图片' }: ImageUploadPr
     } finally {
       setUploading(false);
     }
-  }, [onChange]);
+  }, [onChange, folder]);
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();

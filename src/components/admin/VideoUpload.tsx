@@ -7,9 +7,10 @@ interface VideoUploadProps {
   value: string;
   onChange: (url: string) => void;
   label?: string;
+  folder?: string;
 }
 
-export function VideoUpload({ value, onChange, label = '视频' }: VideoUploadProps) {
+export function VideoUpload({ value, onChange, label = '视频', folder }: VideoUploadProps) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [mode, setMode] = useState<'url' | 'upload'>('url');
@@ -19,6 +20,7 @@ export function VideoUpload({ value, onChange, label = '视频' }: VideoUploadPr
     setError('');
     const formData = new FormData();
     formData.append('file', file);
+		if (folder) formData.append('folder', folder);
 
     try {
       const res = await fetch('/api/admin/upload', {
@@ -33,7 +35,7 @@ export function VideoUpload({ value, onChange, label = '视频' }: VideoUploadPr
     } finally {
       setUploading(false);
     }
-  }, [onChange]);
+  }, [onChange, folder]);
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();

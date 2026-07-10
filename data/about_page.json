@@ -2,26 +2,26 @@
   "hero": {
     "title": "科技点亮实体产业（修改测试）",
     "description": "让大模型及物联网智能感知能力切实落地，\n服务广西，辐射东盟，助力区域人工智能产业协同普惠与共赢。",
-    "imageUrl": "/uploads/about_hero_banner.jpg"
+    "imageUrl": "/uploads/about/about_hero_banner.jpg"
   },
   "slides": [
     {
       "category": "有硬实力的技术基因 / Tech DNA",
       "title": "源自深圳的前沿算法沉淀（测试）",
       "description": "五六零人工智能发源于深圳大湾区，传承领先的大语言模型、时序大数据预测及机器视觉底层核心算法能力。依托先进的算法工程化经验，确保我们的技术架构始终保持行业前列。",
-      "image": "/uploads/shenzhen_lab.jpg"
+      "image": "/uploads/about/shenzhen_lab.jpg"
     },
     {
       "category": "更懂实体痛点的本地方案 / Regional Delivery",
       "title": "深耕广西的敏捷服务交付",
       "description": "总部落地广西北海高新技术产业园。我们知晓小微科技企业的核心竞争力在于\"交付与贴身服务\"，因此建立了一支2小时内快速响应的本地技术交付队伍，切实消除传统实体数智化转型的后顾之忧。",
-      "image": "/uploads/1783560678234-41fljf97v.jpg"
+      "image": "/uploads/about/1783560678234-41fljf97v.jpg"
     },
     {
       "category": "协同共赢的开放体系 / Regional Ecosystem",
       "title": "辐射东盟的产业普惠生态",
       "description": "紧跟国家\"中国-东盟信息港\"战略，我们以北海为跨境合作桥头堡。通过定制开发中英双语、东盟多语种的智能工作流与高兼容物联网数据网关，积极联动政企、院校与行业主体，推动AI技术普惠共赢。",
-      "image": "/uploads/asean_connectivity.jpg"
+      "image": "/uploads/about/asean_connectivity.jpg"
     },
     {
       "category": "测试1",
@@ -35,12 +35,12 @@
     "left": {
       "title": "生态构建",
       "description": "推动AI技术全面普惠化与产业生态成熟化，构建协同共赢的人工智能产业生态。",
-      "image": "/uploads/vision_bg.jpg"
+      "image": "/uploads/about/vision_bg.jpg"
     },
     "right": {
       "title": "技术赋能",
       "description": "以\"技术赋能+生态构建\"为核心，助力传统企业高效完成数字化转型，推动区域人工智能产业规模化、生态化发展。",
-      "image": "/uploads/mission_bg.jpg"
+      "image": "/uploads/about/mission_bg.jpg"
     }
   },
   "culture": {
@@ -53,28 +53,28 @@
         "tag": "品牌标识",
         "title": "科技之蓝，普惠之绿",
         "description": "五六零人工智能以\"560\"为名，承载\"五洲互联、六力聚能、零碳未来\"的使命担当，深耕广西北部湾产业沃土，致力于用前沿AI大数据与物联网软硬件一体化交付方案，实实在在助推实体企业降本增效、完成绿色数智化转型。",
-        "image": "/uploads/brand_identity_bg.jpg",
+        "image": "/uploads/about/brand_identity_bg.jpg",
         "node": "AI"
       },
       {
         "tag": "价值观",
         "title": "好技术，重交付，真诚利他",
         "description": "我们坚信，只有为客户创造价值的科技才有生命力。公司拒绝花哨的PPT概念，坚持\"交付与贴身服务\"重于一切。通过广西北海本地的快速响应团队，切实解决小微与传统企业智能化转型中交付困难的痛点。",
-        "image": "/uploads/values_handshake.jpg",
+        "image": "/uploads/about/values_handshake.jpg",
         "node": "V"
       },
       {
         "tag": "企业使命",
         "title": "让领先算法回归产业实效",
         "description": "五六零人工智能旨在打破昂贵的人工智能技术壁垒。我们致力于打造高性价比、易部署、易运营的定制大模型与自动化工作流，让科技回归实体产业，使中小实体微企都能平等地享受算法红利。",
-        "image": "/uploads/mission_climber.jpg",
+        "image": "/uploads/about/mission_climber.jpg",
         "node": "M"
       },
       {
         "tag": "企业愿景",
         "title": "共筑区域数字智能新生态",
         "description": "立足广西北海，面向东盟，我们将深耕多语种智能大模型和物联网数据感知交付方案。积极构建多方协同共赢的普惠AI生态，成为中国-东盟区域最值得信赖、最懂实体转型痛点的数字智能化伙伴。",
-        "image": "/uploads/vision_connectivity.jpg",
+        "image": "/uploads/about/vision_connectivity.jpg",
         "node": "V"
       }
     ]

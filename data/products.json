@@ -10,7 +10,7 @@
       "高频运营指标自动监控预警与推演",
       "（修改测试）（修改测试）（修改测试）"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+    "imageUrl": "/uploads/general/1783671774978-rn0osa71bt.webp",
     "imageAlt": "Decision Center Office",
     "order": 1,
     "showInHome": true,
@@ -369,7 +369,7 @@
       "对于烟雾、火焰等危及生命安全的险情，系统采用独立无延迟的直通报警逻辑，确保火情初期的绝对触发。",
       "采用硬件级PWM（LEDC）驱动，输出频率可调的高分贝警报声，穿透力强，确保环境内人员第一时间获悉险情。"
     ],
-    "imageUrl": "/uploads/1783564511550-otzkit6zvx.jpg",
+    "imageUrl": "/uploads/products/8/1783564511550-otzkit6zvx.jpg",
     "imageAlt": "",
     "order": 8,
     "showInHome": false,
@@ -383,7 +383,7 @@
           "title": "ESP32八合一安防报警系统",
           "subtitle": "基于高性能微控制器构建的综合性智能安防预警终端",
           "bgType": "image",
-          "bgUrl": "/uploads/1783564511550-otzkit6zvx.jpg"
+          "bgUrl": "/uploads/products/8/1783564511550-otzkit6zvx.jpg"
         }
       },
       {
@@ -519,7 +519,7 @@
       "数字员工",
       "自建知识库"
     ],
-    "imageUrl": "/uploads/1783582205539-xq75fflnrrm.png",
+    "imageUrl": "/uploads/products/9/1783582205539-xq75fflnrrm.png",
     "imageAlt": "",
     "order": 9,
     "showInHome": true,
@@ -533,7 +533,7 @@
           "title": "560科技数字员工平台",
           "subtitle": "数字员工平台是一个企业内部 AI 对话 Agent 管理与使用平台。",
           "bgType": "image",
-          "bgUrl": "/uploads/1783582205539-xq75fflnrrm.png"
+          "bgUrl": "/uploads/products/9/1783582205539-xq75fflnrrm.png"
         }
       },
       {
@@ -543,12 +543,12 @@
           {
             "title": "核心能力 1",
             "description": "数字员工",
-            "imageUrl": "/uploads/1783665920376-9158lwqhxnu.png"
+            "imageUrl": "/uploads/products/9/1783665920376-9158lwqhxnu.png"
           },
           {
             "title": "核心能力 2",
             "description": "自建知识库",
-            "imageUrl": "/uploads/1783666051563-0zj1wdenwxyc.png"
+            "imageUrl": "/uploads/products/9/1783666051563-0zj1wdenwxyc.png"
           }
         ]
       },
@@ -557,7 +557,7 @@
         "type": "architecture",
         "architecture": {
           "title": "产品架构图",
-          "imageUrl": "/uploads/1783666012797-kv5x6h9mm7f.png",
+          "imageUrl": "/uploads/products/9/1783666012797-kv5x6h9mm7f.png",
           "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
         }
       },
@@ -593,13 +593,12 @@
           "items": [
             {
               "title": "设备运维",
-              "imageUrl": "/uploads/1783666433173-o1tdbw6bfib.png",
               "imageUrl": "",
               "description": "实现设备巡检与状态自动推演"
             },
             {
               "title": "生产制造",
-              "imageUrl": "/uploads/1783666414848-hd1liy9wylw.png",
+              "imageUrl": "/uploads/products/9/1783666414848-hd1liy9wylw.png",
               "description": "打通流水线核心指标建模"
             }
           ]
@@ -646,7 +645,7 @@
       "数据驱动的可视化运营",
       "高扩展性的模块化架构"
     ],
-    "imageUrl": "/uploads/1783579322241-gcoz2de26s.png",
+    "imageUrl": "/uploads/products/10/1783579322241-gcoz2de26s.png",
     "imageAlt": "",
     "order": 10,
     "showInHome": true,
@@ -660,7 +659,7 @@
           "title": "物联网智慧民宿管理系统",
           "subtitle": "全链路可视化的智能民宿管理系统，让房屋运营更高效、更智能。",
           "bgType": "image",
-          "bgUrl": "/uploads/1783579322241-gcoz2de26s.png"
+          "bgUrl": "/uploads/products/10/1783579322241-gcoz2de26s.png"
         }
       },
       {
@@ -670,12 +669,12 @@
           {
             "title": "核心能力 1",
             "description": "毫秒级实时监控与控制",
-            "imageUrl": "/uploads/1783666775734-tzmobvbhk0d.png"
+            "imageUrl": "/uploads/products/10/1783666775734-tzmobvbhk0d.png"
           },
           {
             "title": "核心能力 2",
             "description": "数据驱动的可视化运营",
-            "imageUrl": "/uploads/1783667434388-uty364jg5c.png"
+            "imageUrl": "/uploads/products/10/1783667434388-uty364jg5c.png"
           }
         ]
       },
@@ -684,7 +683,7 @@
         "type": "architecture",
         "architecture": {
           "title": "产品架构图",
-          "imageUrl": "/uploads/1783667495381-jddb9rlogvo.png",
+          "imageUrl": "/uploads/products/10/1783667495381-jddb9rlogvo.png",
           "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
         }
       },
@@ -696,12 +695,12 @@
           "items": [
             {
               "title": "智慧民宿",
-              "imageUrl": "/uploads/1783667811107-mepcjjpkls.png",
+              "imageUrl": "/uploads/products/10/1783667811107-mepcjjpkls.png",
               "description": "物联智控民宿，实现无人值守与高效数字化管理。"
             },
             {
               "title": "智能家居",
-              "imageUrl": "/uploads/1783667993543-sqxb5kwfpzs.png",
+              "imageUrl": "/uploads/products/10/1783667993543-sqxb5kwfpzs.png",
               "description": "万物互联智控，打造便捷舒适安全的全新生活。"
             }
           ]
@@ -763,7 +762,7 @@
       "安全可控：提供精细权限管理与审计，保障数据安全。",
       "精准问答：通过私有化训练，让查数据像聊天一样简单准确。"
     ],
-    "imageUrl": "/uploads/1783580246881-wl60fspe0u.png",
+    "imageUrl": "/uploads/products/11/1783580246881-wl60fspe0u.png",
     "imageAlt": "",
     "order": 11,
     "showInHome": true,
@@ -777,7 +776,7 @@
           "title": "大数据智能咨询平台",
           "subtitle": "企业级智能对话分析平台，让数据分析像聊天一样简单，赋能全员数据决策。",
           "bgType": "image",
-          "bgUrl": "/uploads/1783580246881-wl60fspe0u.png"
+          "bgUrl": "/uploads/products/11/1783580246881-wl60fspe0u.png"
         }
       },
       {
@@ -787,7 +786,7 @@
           {
             "title": "无缝集成",
             "description": "支持多种嵌入方式，像聊天机器人一样轻松接入企业现有系统。",
-            "imageUrl": "/uploads/1783668236410-0nygpriu97sj.png"
+            "imageUrl": "/uploads/products/11/1783668236410-0nygpriu97sj.png"
           },
           {
             "title": "安全可控",
@@ -879,7 +878,7 @@
       "全流程考务管理",
       "可视化数据看板"
     ],
-    "imageUrl": "/uploads/1783581896338-oc3ajxbygm.png",
+    "imageUrl": "/uploads/products/12/1783581896338-oc3ajxbygm.png",
     "imageAlt": "",
     "order": 12,
     "showInHome": true,
@@ -899,7 +898,7 @@
       "本地 SenseVoice 语音识别，弱网离线极速交互",
       "连接生命周期资源回收，7x24小时常驻运行不溢出"
     ],
-    "imageUrl": "/uploads/livetalking_hero.jpg",
+    "imageUrl": "/uploads/products/13/livetalking_hero.jpg",
     "imageAlt": "LiveTalking-560 实时交互数字人",
     "order": 13,
     "showInHome": true,
@@ -913,7 +912,7 @@
           "title": "LiveTalking-560 实时交互数字人系统",
           "subtitle": "560 AI 团队深度重构的超低延迟实时数字人引擎，打造智能、流畅、无抖动的面对面实时人机交互。",
           "bgType": "image",
-          "bgUrl": "/uploads/livetalking_hero.jpg"
+          "bgUrl": "/uploads/products/13/livetalking_hero.jpg"
         }
       },
       {
@@ -923,12 +922,12 @@
           {
             "title": "极致流畅：双向 WebRTC 极速低延迟推流",
             "description": "依托底层重构的 WebRTC 通信链路与全局会话生命周期管理器，完美解决数字人推流的画质损失与网络卡顿。多端并发连接毫秒级响应，带来仿佛真人面对面交谈的低延迟视频互动体验。",
-            "imageUrl": "/uploads/livetalking_hero.jpg"
+            "imageUrl": "/uploads/products/13/livetalking_hero.jpg"
           },
           {
             "title": "硬核重构：像素级字幕渲染与画面抖动消除",
             "description": "独创的 OpenCV 像素级矩阵运算代替 PIL，使得单帧字幕合成耗时由 30ms 暴降至 1ms，稳定跑满 25fps 推流。同时，重组静音与播报状态下的时序帧对齐，杜绝了开源版本中数字人反复跳步和画面抖动的致命 Bug。",
-            "imageUrl": "/uploads/livetalking_hero.jpg"
+            "imageUrl": "/uploads/products/13/livetalking_hero.jpg"
           }
         ]
       },
@@ -937,7 +936,7 @@
         "type": "architecture",
         "architecture": {
           "title": "模块化技术架构与统一 API 交付",
-          "imageUrl": "/uploads/livetalking_architecture.jpg",
+          "imageUrl": "/uploads/products/13/livetalking_architecture.jpg",
           "description": "基于统一的 API 路由管理，无缝提供 WebRTC 握手 (Offer)、文本驱动 (Human)、音频驱动 (Human Audio) 及录像合成服务。企业可轻松将本系统打包接入现有 App、大屏终端或网页，快速构建专属虚拟前台。"
         }
       },
@@ -974,17 +973,17 @@
           "items": [
             {
               "title": "智能金融/理财顾问",
-              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "imageUrl": "/uploads/products/13/livetalking_hero.jpg",
               "description": "数字人搭配专属金融知识库，全天候不间断为用户解答理财政策与理财产品信息，提升客服质量。"
             },
             {
               "title": "智慧政务虚拟前台",
-              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "imageUrl": "/uploads/products/13/livetalking_hero.jpg",
               "description": "市民通过语音直达数字前台，轻松查询各类事务办事指南与流程，减少线下排队拥挤。"
             },
             {
               "title": "电商无人带货直播",
-              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "imageUrl": "/uploads/products/13/livetalking_hero.jpg",
               "description": "支持自动文字/音频脚本驱动，实时回复用户弹幕，一键启动多平台无人直播，极大节约主播成本。"
             }
           ]

@@ -582,6 +582,7 @@ export default function ProductDesignPage() {
                                   label="上传背景图"
                                   value={sec.hero.bgUrl}
                                   onChange={(url) => updateHero(idx, { bgUrl: url })}
+                                  folder={`products/${product.id}`}
                                 />
                               </div>
                             </div>
@@ -626,6 +627,7 @@ export default function ProductDesignPage() {
                                       label="上传图片"
                                       value={cap.imageUrl}
                                       onChange={(url) => updateCapabilities(idx, capIdx, { imageUrl: url })}
+                                      folder={`products/${product.id}`}
                                     />
                                   </div>
                                 </div>
@@ -688,6 +690,7 @@ export default function ProductDesignPage() {
                                         label="上传图片"
                                         value={item.imageUrl}
                                         onChange={(url) => updateScenarioItem(idx, itemIdx, { imageUrl: url })}
+                                        folder={`products/${product.id}`}
                                       />
                                     </div>
                                   </div>
@@ -720,6 +723,7 @@ export default function ProductDesignPage() {
                                   label="上传大图"
                                   value={sec.architecture.imageUrl}
                                   onChange={(url) => updateArchitecture(idx, { imageUrl: url })}
+                                  folder={`products/${product.id}`}
                                 />
                               </div>
                               <div>
@@ -804,6 +808,7 @@ export default function ProductDesignPage() {
                                   label="视频源文件"
                                   value={sec.video.videoUrl}
                                   onChange={(url) => updateVideo(idx, { videoUrl: url })}
+                                  folder={`products/${product.id}`}
                                 />
                               </div>
                             </div>

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { revalidatePath } from 'next/cache';
 import { getAllProducts, saveProducts } from '@/lib/data';
+import { deleteProductImageDir } from '@/lib/cleanup';
 import { withAdminAuth } from '@/lib/api-auth';
 import { ProductSchema } from '@/lib/validations/product';
 import type { NextRequest } from 'next/server';
@@ -47,6 +48,7 @@ export const DELETE = withAdminAuth(async (_req: NextRequest, ...args: unknown[]
   }
 
   await saveProducts(filtered);
+  await deleteProductImageDir(id);
   revalidatePath('/');
   revalidatePath('/products');
   revalidatePath(`/products/${id}`);

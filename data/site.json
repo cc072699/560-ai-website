@@ -14,7 +14,7 @@
     "weibo": "",
     "linkedin": ""
   },
-  "wechatQrUrl": "/uploads/1783561335632-8i7n4ravjv6.png",
+  "wechatQrUrl": "/uploads/site/1783561335632-8i7n4ravjv6.png",
   "douyinQrUrl": "",
   "nav": [
     {
@@ -33,5 +33,11 @@
       "name": "联系我们",
       "href": "/#contact"
     }
+  ],
+  "categories": [
+    "智能决策与分析",
+    "自动化与办公协同",
+    "工业智能物联",
+    "测试分类"
   ]
 }
