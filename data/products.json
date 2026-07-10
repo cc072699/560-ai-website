@@ -524,7 +524,115 @@
     "order": 9,
     "showInHome": true,
     "showInNavbar": true,
-    "layout": "text-left"
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "a98szfa",
+        "type": "hero",
+        "hero": {
+          "title": "560科技数字员工平台",
+          "subtitle": "数字员工平台是一个企业内部 AI 对话 Agent 管理与使用平台。",
+          "bgType": "image",
+          "bgUrl": "/uploads/1783582205539-xq75fflnrrm.png"
+        }
+      },
+      {
+        "id": "dnvrjnu",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "数字员工",
+            "imageUrl": "/uploads/1783665920376-9158lwqhxnu.png"
+          },
+          {
+            "title": "核心能力 2",
+            "description": "自建知识库",
+            "imageUrl": "/uploads/1783666051563-0zj1wdenwxyc.png"
+          }
+        ]
+      },
+      {
+        "id": "sc4o2cz",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "/uploads/1783666012797-kv5x6h9mm7f.png",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "asfux8b",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "全方位多场景支持，打通业务效率瓶颈",
+          "items": [
+            {
+              "title": "多源物理引擎适配",
+              "description": "支持绝大多数主流工控协议和物理设备端实时接入",
+              "highlightText": "核心"
+            },
+            {
+              "title": "秒级预测模型响应",
+              "description": "云端联合计算实现超短网络时延与高帧率仿真反馈",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "私有化离线交付",
+              "description": "支持完全的单机/私有网部署，保障核心数据资产安全"
+            }
+          ]
+        }
+      },
+      {
+        "id": "xep2us4",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "设备运维",
+              "imageUrl": "/uploads/1783666433173-o1tdbw6bfib.png",
+              "description": "实现设备巡检与状态自动推演"
+            },
+            {
+              "title": "生产制造",
+              "imageUrl": "/uploads/1783666414848-hd1liy9wylw.png",
+              "description": "打通流水线核心指标建模"
+            }
+          ]
+        }
+      },
+      {
+        "id": "yr15ckg",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "3273v4b",
+        "type": "cta",
+        "cta": {
+          "title": "深度融合技术，带来行业数字化升级",
+          "description": "立即预约演示，快速了解如何助力您的企业提升整体效率。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
   },
   {
     "id": "10",
@@ -542,7 +650,106 @@
     "order": 10,
     "showInHome": true,
     "showInNavbar": true,
-    "layout": "text-left"
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "txjshqy",
+        "type": "hero",
+        "hero": {
+          "title": "物联网智慧民宿管理系统",
+          "subtitle": "全链路可视化的智能民宿管理系统，让房屋运营更高效、更智能。",
+          "bgType": "image",
+          "bgUrl": "/uploads/1783579322241-gcoz2de26s.png"
+        }
+      },
+      {
+        "id": "duslbd5",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "毫秒级实时监控与控制",
+            "imageUrl": "/uploads/1783666775734-tzmobvbhk0d.png"
+          },
+          {
+            "title": "核心能力 2",
+            "description": "数据驱动的可视化运营",
+            "imageUrl": "/uploads/1783667434388-uty364jg5c.png"
+          }
+        ]
+      },
+      {
+        "id": "p1qq8bw",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "/uploads/1783667495381-jddb9rlogvo.png",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "wz8vrej",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "智慧民宿",
+              "imageUrl": "/uploads/1783667811107-mepcjjpkls.png",
+              "description": "物联智控民宿，实现无人值守与高效数字化管理。"
+            },
+            {
+              "title": "智能家居",
+              "imageUrl": "/uploads/1783667993543-sqxb5kwfpzs.png",
+              "description": "万物互联智控，打造便捷舒适安全的全新生活。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "xta16a6",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "y29lonv",
+        "type": "timeline",
+        "timeline": {
+          "title": "落地实施与服务流程",
+          "subtitle": "我们提供端到端的贴身规划与系统平滑上线支持",
+          "steps": [
+            {
+              "title": "需求调研与环境规划",
+              "description": "深入业务一线进行软硬件环境与物理数据流建模规划",
+              "duration": "阶段一 (第1-2周)"
+            },
+            {
+              "title": "系统部署与模型定制",
+              "description": "现场/私有化交付系统并针对客户特定业务微调垂直模型",
+              "duration": "阶段二 (第3-4周)"
+            },
+            {
+              "title": "上线培训与运营交割",
+              "description": "提供全套技术文档并培训现场人员，实现系统完美交接",
+              "duration": "阶段三 (第5周起)"
+            }
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "11",
@@ -560,7 +767,105 @@
     "order": 11,
     "showInHome": true,
     "showInNavbar": true,
-    "layout": "text-left"
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "h15d8sw",
+        "type": "hero",
+        "hero": {
+          "title": "大数据智能咨询平台",
+          "subtitle": "企业级智能对话分析平台，让数据分析像聊天一样简单，赋能全员数据决策。",
+          "bgType": "image",
+          "bgUrl": "/uploads/1783580246881-wl60fspe0u.png"
+        }
+      },
+      {
+        "id": "pxuhek3",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "无缝集成",
+            "description": "支持多种嵌入方式，像聊天机器人一样轻松接入企业现有系统。",
+            "imageUrl": "/uploads/1783668236410-0nygpriu97sj.png"
+          },
+          {
+            "title": "安全可控",
+            "description": "提供精细权限管理与审计，保障数据安全。",
+            "imageUrl": ""
+          }
+        ]
+      },
+      {
+        "id": "lkwxazg",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "vuq3lvv",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "设备运维",
+              "imageUrl": "",
+              "description": "实现设备巡检与状态自动推演"
+            },
+            {
+              "title": "生产制造",
+              "imageUrl": "",
+              "description": "打通流水线核心指标建模"
+            }
+          ]
+        }
+      },
+      {
+        "id": "oyq1rrt",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "8082jds",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "全方位多场景支持，打通业务效率瓶颈",
+          "items": [
+            {
+              "title": "多源物理引擎适配",
+              "description": "支持绝大多数主流工控协议和物理设备端实时接入",
+              "highlightText": "核心"
+            },
+            {
+              "title": "秒级预测模型响应",
+              "description": "云端联合计算实现超短网络时延与高帧率仿真反馈",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "私有化离线交付",
+              "description": "支持完全的单机/私有网部署，保障核心数据资产安全"
+            }
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "12",
