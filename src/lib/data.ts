@@ -6,13 +6,25 @@ const dataDir = path.join(process.cwd(), 'data');
 
 async function readJson<T>(filename: string): Promise<T> {
   const filePath = path.join(dataDir, filename);
-  const raw = await fs.readFile(filePath, 'utf-8');
-  return JSON.parse(raw) as T;
+  try {
+    const raw = await fs.readFile(filePath, 'utf-8');
+    return JSON.parse(raw) as T;
+  } catch (error) {
+    // 文件不存在或JSON格式错误时抛出明确错误
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+      throw new Error(`数据文件不存在: ${filename}`);
+    }
+    throw new Error(`数据文件读取失败: ${filename}`);
+  }
 }
 
 export async function writeJson<T>(filename: string, data: T): Promise<void> {
   const filePath = path.join(dataDir, filename);
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  try {
+    await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (error) {
+    throw new Error(`数据文件写入失败: ${filename}`);
+  }
 }
 
 // ── 读取函数 ──────────────────────────────────────────

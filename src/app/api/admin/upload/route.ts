@@ -9,8 +9,66 @@ const ALLOWED_TYPES = [
   'video/mp4', 'video/webm', 'video/ogg', 'video/quicktime'
 ];
 
+// 简单的内存速率限制器
+class UploadLimiter {
+  private uploadCounts: Map<string, number[]> = new Map();
+  private readonly limit: number;
+  private readonly windowMs: number;
+
+  constructor(limit: number = 10, windowMs: number = 60000) {
+    this.limit = limit;
+    this.windowMs = windowMs;
+  }
+
+  check(identifier: string): boolean {
+    const now = Date.now();
+    const uploads = this.uploadCounts.get(identifier) || [];
+
+    // 过滤掉窗口外的上传记录
+    const recentUploads = uploads.filter(time => now - time < this.windowMs);
+
+    if (recentUploads.length >= this.limit) {
+      return false; // 超过限制
+    }
+
+    // 记录本次上传
+    recentUploads.push(now);
+    this.uploadCounts.set(identifier, recentUploads);
+
+    // 定期清理过期数据(每小时)
+    if (Math.random() < 0.01) {
+      this.cleanup();
+    }
+
+    return true;
+  }
+
+  private cleanup() {
+    const now = Date.now();
+    for (const [key, uploads] of this.uploadCounts.entries()) {
+      const recent = uploads.filter(time => now - time < this.windowMs);
+      if (recent.length === 0) {
+        this.uploadCounts.delete(key);
+      } else {
+        this.uploadCounts.set(key, recent);
+      }
+    }
+  }
+}
+
+const uploadLimiter = new UploadLimiter(10, 60000); // 每分钟10次
+
 // POST /api/admin/upload
 export const POST = withAdminAuth(async (req: NextRequest) => {
+  // 速率限制检查(使用IP或用户标识)
+  const identifier = req.ip || 'anonymous';
+  if (!uploadLimiter.check(identifier)) {
+    return NextResponse.json(
+      { error: '上传频率过高,请稍后再试' },
+      { status: 429 }
+    );
+  }
+
   const formData = await req.formData();
   const file = formData.get('file') as File | null;
 
