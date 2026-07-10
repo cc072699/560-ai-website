@@ -357,7 +357,7 @@
     "layout": "text-left"
   },
   {
-    "id": "1783564561023",
+    "id": "8",
     "title": "ESP32八合一安防报警系统",
     "tagline": "基于高性能微控制器构建的综合性智能安防预警终端",
     "category": "工业智能物联",
@@ -510,7 +510,7 @@
     ]
   },
   {
-    "id": "1783565274208",
+    "id": "9",
     "title": "560科技数字员工平台",
     "tagline": "数字员工平台是一个企业内部 AI 对话 Agent 管理与使用平台。",
     "category": "自动化与办公协同",
@@ -527,7 +527,7 @@
     "layout": "text-left"
   },
   {
-    "id": "1783578171259",
+    "id": "10",
     "title": "物联网智慧民宿管理系统",
     "tagline": "全链路可视化的智能民宿管理系统，让房屋运营更高效、更智能。",
     "category": "工业智能物联",
@@ -545,7 +545,7 @@
     "layout": "text-left"
   },
   {
-    "id": "1783579884779",
+    "id": "11",
     "title": "大数据智能咨询平台",
     "tagline": "企业级智能对话分析平台，让数据分析像聊天一样简单，赋能全员数据决策。",
     "category": "智能决策与分析",
@@ -563,7 +563,7 @@
     "layout": "text-left"
   },
   {
-    "id": "1783581339995",
+    "id": "12",
     "title": "五六零人工智能考试管理系统",
     "tagline": "AI赋能的智能考试管理平台，实现从出题到评卷的全流程自动化。",
     "category": "自动化与办公协同",
@@ -579,5 +579,143 @@
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left"
+  },
+  {
+    "id": "13",
+    "title": "LiveTalking-560 实时交互数字人系统",
+    "tagline": "企业专属知识库同步实时交互数字人解决方案",
+    "category": "自动化与办公协同",
+    "description": "基于低延迟 WebRTC 协议深度重构的音视频同步实时数字人系统。系统针对画面抖动、合成时延进行了像素级算法优化，支持企业知识库无感热更新以及本地 ASR 离线识别，为客户提供全天候的高稳定性虚拟人交互解决方案。",
+    "features": [
+      "视频抖动深度消除，画面完美自然过渡",
+      "OpenCV 像素级渲染加速，1ms 极速字幕合成",
+      "企业专属知识库注入，外部配置热加载即时生效",
+      "本地 SenseVoice 语音识别，弱网离线极速交互",
+      "连接生命周期资源回收，7x24小时常驻运行不溢出"
+    ],
+    "imageUrl": "/uploads/livetalking_hero.jpg",
+    "imageAlt": "LiveTalking-560 实时交互数字人",
+    "order": 13,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-right",
+    "detailSections": [
+      {
+        "id": "lt-hero",
+        "type": "hero",
+        "hero": {
+          "title": "LiveTalking-560 实时交互数字人系统",
+          "subtitle": "560 AI 团队深度重构的超低延迟实时数字人引擎，打造智能、流畅、无抖动的面对面实时人机交互。",
+          "bgType": "image",
+          "bgUrl": "/uploads/livetalking_hero.jpg"
+        }
+      },
+      {
+        "id": "lt-capabilities",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "极致流畅：双向 WebRTC 极速低延迟推流",
+            "description": "依托底层重构的 WebRTC 通信链路与全局会话生命周期管理器，完美解决数字人推流的画质损失与网络卡顿。多端并发连接毫秒级响应，带来仿佛真人面对面交谈的低延迟视频互动体验。",
+            "imageUrl": "/uploads/livetalking_hero.jpg"
+          },
+          {
+            "title": "硬核重构：像素级字幕渲染与画面抖动消除",
+            "description": "独创的 OpenCV 像素级矩阵运算代替 PIL，使得单帧字幕合成耗时由 30ms 暴降至 1ms，稳定跑满 25fps 推流。同时，重组静音与播报状态下的时序帧对齐，杜绝了开源版本中数字人反复跳步和画面抖动的致命 Bug。",
+            "imageUrl": "/uploads/livetalking_hero.jpg"
+          }
+        ]
+      },
+      {
+        "id": "lt-architecture",
+        "type": "architecture",
+        "architecture": {
+          "title": "模块化技术架构与统一 API 交付",
+          "imageUrl": "/uploads/livetalking_architecture.jpg",
+          "description": "基于统一的 API 路由管理，无缝提供 WebRTC 握手 (Offer)、文本驱动 (Human)、音频驱动 (Human Audio) 及录像合成服务。企业可轻松将本系统打包接入现有 App、大屏终端或网页，快速构建专属虚拟前台。"
+        }
+      },
+      {
+        "id": "lt-features",
+        "type": "features",
+        "features": {
+          "title": "多场景细分技术特性矩阵",
+          "subtitle": "卓越的技术底座，让企业的虚拟员工更具智能与高可用性",
+          "items": [
+            {
+              "title": "专属知识库无感热更新",
+              "description": "通过 prompt_config.yaml 热加载，大模型提示词与企业问答随时编辑即时生效，无需重启服务。",
+              "highlightText": "首创"
+            },
+            {
+              "title": "本地离线 ASR 识别",
+              "description": "集成 FunASR 的 SenseVoice 语音识别引擎，不依赖公网，在局域网内即可实现极速端到端语音转文字。",
+              "highlightText": "核心"
+            },
+            {
+              "title": "7x24小时常驻稳定性",
+              "description": "修复多路连接断开时的资源泄漏，内存占用始终稳定在约 8.4 GB 最佳水平，支持长期挂机运行。",
+              "highlightText": "推荐"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lt-scenarios",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "多行业落地应用场景",
+          "items": [
+            {
+              "title": "智能金融/理财顾问",
+              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "description": "数字人搭配专属金融知识库，全天候不间断为用户解答理财政策与理财产品信息，提升客服质量。"
+            },
+            {
+              "title": "智慧政务虚拟前台",
+              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "description": "市民通过语音直达数字前台，轻松查询各类事务办事指南与流程，减少线下排队拥挤。"
+            },
+            {
+              "title": "电商无人带货直播",
+              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "description": "支持自动文字/音频脚本驱动，实时回复用户弹幕，一键启动多平台无人直播，极大节约主播成本。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lt-faq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答 (FAQ)",
+          "subtitle": "全面解答 LiveTalking-560 的环境配置、运行与更新问题",
+          "items": [
+            {
+              "question": "该系统部署需要准备哪些模型 and 数据文件？",
+              "answer": "由于权重文件过大，系统未将模型纳入 Git。用户需要手动下载主模型 wav2lip.pth (205MB) 与企业定制的形象包（如 zxw560-1 约 777MB），解压放入 data/avatars/ 对应目录。本地 ASR 模型在首次运行 FunASR 时会自动拉取。"
+            },
+            {
+              "question": "如何更新数字人的企业知识库？",
+              "answer": "系统支持热加载机制。只需直接编辑根目录下的 prompt_config.yaml 配置文件并保存，下一次与数字人对话时即刻生效，完全无需重启服务器。"
+            },
+            {
+              "question": "为什么客户端连不上麦克风？如何开启 HTTPS (SSL)？",
+              "answer": "浏览器安全机制要求只有在安全上下文（HTTPS 或 localhost）中才能使用麦克风功能。LiveTalking-560 默认支持开启自签名 SSL 证书。生成 ssl/cert.pem 和 ssl/key.pem 并在 config.py 或 .env 中将 SSL_ENABLED 改为 True，即可通过 https://<IP>:8051 正常使用语音通话功能。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lt-cta",
+        "type": "cta",
+        "cta": {
+          "title": "开启企业的智能人机交互时代",
+          "description": "联系我们的技术专家，申请 30 天免费本地私有化部署测试，体验零抖动的极速实时数字人交互。",
+          "primaryText": "申请预约演示",
+          "secondaryText": "在线咨询"
+        }
+      }
+    ]
   }
 ]
