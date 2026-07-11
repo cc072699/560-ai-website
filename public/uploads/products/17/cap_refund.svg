@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, sans-serif">
+<defs>
+  <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F8FAFC"/><stop offset="100%" stop-color="#EEF2F7"/></linearGradient>
+  <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2563EB"/><stop offset="100%" stop-color="#6366F1"/></linearGradient>
+  <linearGradient id="grn" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#10B981"/></linearGradient>
+  <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.06"/></filter>
+</defs>
+<rect width="1024" height="768" fill="url(#bg)"/>
+<text x="512" y="55" text-anchor="middle" font-size="26" font-weight="700" fill="#1E293B">退款自动抵扣</text><text x="512" y="82" text-anchor="middle" font-size="14" fill="#64748B">智能识别退款 · 自动匹配原支出项 · 杜绝重复计算</text>
+  <g filter="url(#sh)"><rect x="60" y="140" width="450" height="200" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="285" y="175" text-anchor="middle" font-size="16" font-weight="700" fill="#1E293B">识别「不计收支」中的退款记录</text>
+  <line x1="80" y1="190" x2="490" y2="190" stroke="#F1F5F9"/>
+  <g transform="translate(90,210)">
+    <rect x="0" y="0" width="400" height="40" rx="10" fill="#FFF7ED"/><text x="200" y="26" text-anchor="middle" font-size="13" fill="#EA580C">不计收支 · 退款 ¥200.00（来自3月15日支出）</text>
+    <rect x="0" y="50" width="400" height="40" rx="10" fill="#FFF7ED"/><text x="200" y="76" text-anchor="middle" font-size="13" fill="#EA580C">不计收支 · 退款 ¥50.00（来自3月20日支出）</text>
+    <rect x="0" y="100" width="400" height="32" rx="8" fill="#FFF1F2"/><text x="200" y="121" text-anchor="middle" font-size="12" fill="#DC2626">更多退款记录自动识别中...</text>
+  </g></g>
+  <text x="540" y="260" text-anchor="middle" font-size="28" fill="#2563EB">→</text>
+  <g filter="url(#sh)"><rect x="560" y="140" width="400" height="200" rx="16" fill="#FFFFFF" stroke="#D1FAE5" stroke-width="2"/>
+  <text x="760" y="175" text-anchor="middle" font-size="16" font-weight="700" fill="#059669">自动匹配并扣除</text>
+  <line x1="580" y1="190" x2="940" y2="190" stroke="#F1F5F9"/>
+  <g transform="translate(590,210)">
+    <rect x="0" y="0" width="350" height="40" rx="10" fill="#F0FDF4"/><text x="175" y="26" text-anchor="middle" font-size="13" fill="#059669">匹配成功：原支出¥200 → 抵扣退款¥200</text>
+    <rect x="0" y="50" width="350" height="40" rx="10" fill="#F0FDF4"/><text x="175" y="76" text-anchor="middle" font-size="13" fill="#059669">匹配成功：原支出¥50 → 抵扣退款¥50</text>
+  </g></g>
+  <g filter="url(#sh)"><rect x="200" y="400" width="620" height="110" rx="16" fill="#FFFFFF" stroke="#DBEAFE"/>
+  <text x="510" y="435" text-anchor="middle" font-size="16" font-weight="700" fill="#1E40AF">抵扣前后对比</text>
+  <g transform="translate(250,460)">
+    <rect x="0" y="0" width="230" height="36" rx="10" fill="#FEF2F2"/><text x="115" y="24" text-anchor="middle" font-size="14" fill="#DC2626">抵扣前总支出：¥1,250.00</text>
+    <text x="270" y="24" text-anchor="middle" font-size="20" fill="#CBD5E1">→</text>
+    <rect x="320" y="0" width="230" height="36" rx="10" fill="#F0FDF4"/><text x="435" y="24" text-anchor="middle" font-size="14" fill="#059669">抵扣后总支出：¥1,000.00</text>
+  </g></g>
+</svg>

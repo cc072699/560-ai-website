@@ -83,22 +83,23 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             </div>
 
             {/* Product Image */}
-            <div className="lg:col-span-6 rounded-2xl overflow-hidden aspect-video border border-gray-200/80 shadow-lg">
+            <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-gray-200/80 shadow-lg bg-slate-50 flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={product.imageUrl}
                 alt={product.imageAlt}
-                className="w-full h-full object-cover"
+                className="w-full h-auto max-h-[500px] object-contain"
               />
             </div>
           </div>
 
           {/* Product Features Matrix */}
-          <div className="mb-20">
+            <div className="mb-20">
             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight text-center mb-12">
               核心功能与服务优势
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className={`grid grid-cols-1 ${product.features.length === 1 ? 'md:grid-cols-1' : product.features.length === 2 ? 'md:grid-cols-2' : product.features.length === 4 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-6`}>
+
               {product.features.map((feature, index) => (
                 <div
                   key={index}
@@ -206,7 +207,7 @@ function DetailHero({ section }: { section: PageSection }) {
         </video>
       ) : hero.bgUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={hero.bgUrl} alt="Hero background" className="absolute inset-0 w-full h-full object-cover opacity-45" />
+        <img src={hero.bgUrl} alt="Hero background" className="absolute inset-0 w-full h-full object-cover object-center opacity-45" />
       ) : null}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-950/20 via-gray-950/40 to-gray-950/80" />
       <div className="relative z-10 text-center text-white px-6 max-w-4xl space-y-6">
@@ -248,10 +249,10 @@ function DetailCapabilities({ section }: { section: PageSection }) {
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-snug">{cap.title}</h3>
                   <p className="text-gray-500 text-sm md:text-base leading-relaxed indent-[2em]">{cap.description}</p>
                 </div>
-                <div className={`lg:col-span-7 rounded-2xl overflow-hidden aspect-video border border-gray-200/80 shadow-lg relative bg-slate-50 ${isLeft ? '' : 'order-2 lg:order-1'}`}>
+                <div className={`lg:col-span-7 rounded-2xl overflow-hidden border border-gray-200/80 shadow-lg relative bg-slate-100 flex items-center justify-center min-h-[300px] ${isLeft ? '' : 'order-2 lg:order-1'}`}>
                   {cap.imageUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={cap.imageUrl} alt={cap.title} className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500" />
+                    <img src={cap.imageUrl} alt={cap.title} className="w-full h-auto max-h-[600px] object-contain hover:scale-[1.02] transition-transform duration-500" />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-gray-300 gap-2 bg-gray-55">
                       <ImageIcon className="w-8 h-8 opacity-40" />
@@ -271,6 +272,9 @@ function DetailCapabilities({ section }: { section: PageSection }) {
 function DetailScenarios({ section }: { section: PageSection }) {
   const sc = section.scenarios;
   if (!sc) return null;
+  const itemCount = sc.items.length;
+  const gridCols = itemCount === 1 ? 'md:grid-cols-1' : itemCount === 2 ? 'md:grid-cols-2' : itemCount === 4 ? 'md:grid-cols-2 lg:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3';
+
   return (
     <div className="py-24 bg-slate-50/50 border-b border-gray-100 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
@@ -278,13 +282,13 @@ function DetailScenarios({ section }: { section: PageSection }) {
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{sc.title || '应用场景'}</h2>
           <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className={`grid grid-cols-1 ${gridCols} gap-8`}>
           {sc.items.map((item, idx) => (
             <div key={idx} className="bg-white rounded-2xl border border-gray-150 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col h-full text-left">
-              <div className="aspect-[16/10] bg-slate-100 relative overflow-hidden border-b border-gray-100">
+              <div className="bg-slate-100 relative overflow-hidden border-b border-gray-100 flex items-center justify-center min-h-[180px]">
                 {item.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500" />
+                  <img src={item.imageUrl} alt={item.title} className="w-full h-auto max-h-[350px] object-contain hover:scale-[1.02] transition-transform duration-500" />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-gray-300 gap-1 bg-gray-50">
                     <ImageIcon className="w-6 h-6 opacity-40" />
@@ -318,10 +322,10 @@ function DetailArchitecture({ section }: { section: PageSection }) {
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{arch.title || '产品架构图'}</h2>
           <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
         </div>
-        <div className="border border-gray-200/80 rounded-2xl overflow-hidden shadow-lg bg-slate-50 relative aspect-[21/9] flex items-center justify-center mb-10">
+        <div className="border border-gray-200/80 rounded-2xl overflow-hidden shadow-lg bg-slate-100 relative flex items-center justify-center min-h-[300px] mb-10">
           {arch.imageUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={arch.imageUrl} alt={arch.title} className="w-full h-full object-cover" />
+            <img src={arch.imageUrl} alt={arch.title} className="w-full h-auto max-h-[700px] object-contain" />
           ) : (
             <div className="w-full h-full flex flex-col items-center justify-center text-gray-300 gap-2 bg-slate-50">
               <Workflow className="w-10 h-10 opacity-45 animate-pulse" />
@@ -465,6 +469,9 @@ function DetailTimeline({ section }: { section: PageSection }) {
 function DetailFeatures({ section }: { section: PageSection }) {
   const feats = section.features;
   if (!feats) return null;
+  const itemCount = feats.items.length;
+  const gridCols = itemCount === 1 ? 'md:grid-cols-1' : itemCount === 2 ? 'md:grid-cols-2' : itemCount === 4 ? 'md:grid-cols-2 lg:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3';
+
   return (
     <div className="py-24 bg-slate-50/50 border-b border-gray-100 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
@@ -476,7 +483,7 @@ function DetailFeatures({ section }: { section: PageSection }) {
           <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className={`grid grid-cols-1 ${gridCols} gap-6`}>
           {feats.items.map((item, idx) => (
             <div key={idx} className="group relative bg-white p-6 rounded-2xl border border-gray-200/80 shadow-sm hover:border-blue-200 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-left">
               {item.highlightText && (
@@ -653,7 +660,8 @@ function DetailMetrics({ section }: { section: PageSection }) {
           <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        {/* 动态网格：1个=1列，2个=2列，3个=3列，4个=2列（2x2），5个以上=3列（3x2...） */}
+        <div className={`grid grid-cols-1 ${met.items.length === 1 ? 'md:grid-cols-1' : met.items.length === 2 ? 'md:grid-cols-2' : met.items.length === 4 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-8 ${met.items.length === 4 ? 'max-w-2xl' : 'max-w-4xl'} mx-auto`}>
           {met.items.map((item, idx) => (
             <div key={idx} className="bg-white/95 backdrop-blur rounded-3xl border border-gray-150 p-8 shadow-sm hover:shadow-md transition-all text-center space-y-3">
               <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-indigo-650 bg-clip-text text-transparent tracking-tight">
@@ -687,16 +695,16 @@ function DetailCanvas({ section }: { section: PageSection }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Panel: High Fidelity macOS screenshot wrapper */}
-          <div className="lg:col-span-7 bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl aspect-video relative flex flex-col">
+          <div className="lg:col-span-7 bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col">
             {/* macOS Window Controls */}
             <div className="bg-slate-955 px-4 py-3 flex gap-1.5 items-center border-b border-slate-800 shrink-0">
               <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
               <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
             </div>
-            <div className="flex-grow relative bg-slate-950 flex items-center justify-center">
+            <div className="flex-grow relative bg-slate-950 flex items-center justify-center min-h-[300px] max-h-[600px]">
               {canv.imageUrl ? (
-                <img src={canv.imageUrl} alt={canv.imageAlt || canv.title} className="w-full h-full object-cover" />
+                <img src={canv.imageUrl} alt={canv.imageAlt || canv.title} className="w-full h-auto max-h-[600px] object-contain" />
               ) : (
                 <div className="text-slate-500 flex flex-col items-center gap-2">
                   <ImageIcon className="w-10 h-10 opacity-30 text-slate-300 animate-pulse" />
@@ -757,10 +765,10 @@ function DetailRichText({ section }: { section: PageSection }) {
             </div>
           </div>
           {hasImage && (
-            <div className={`lg:col-span-5 rounded-2xl overflow-hidden aspect-video border border-gray-200/80 shadow-lg relative bg-white ${
+            <div className={`lg:col-span-5 rounded-2xl overflow-hidden border border-gray-200/80 shadow-lg relative bg-white flex items-center justify-center ${
               rt.imagePosition === 'left' ? 'lg:order-1' : ''
             }`}>
-              <img src={rt.imageUrl} alt="rich text side graphic" className="w-full h-full object-cover" />
+              <img src={rt.imageUrl} alt="rich text side graphic" className="w-full h-auto max-h-[450px] object-contain" />
             </div>
           )}
         </div>
@@ -813,9 +821,9 @@ function DetailCarousel({ section }: { section: PageSection }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {caro.items.map((item, idx) => (
             <div key={idx} className="group bg-white rounded-3xl overflow-hidden border border-gray-150 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
-              <div className="aspect-video bg-slate-900 overflow-hidden relative flex items-center justify-center">
+              <div className="bg-slate-900 overflow-hidden relative flex items-center justify-center min-h-[200px] max-h-[400px]">
                 {item.imageUrl ? (
-                  <img src={item.imageUrl} alt={item.caption || 'Product Slide'} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={item.imageUrl} alt={item.caption || 'Product Slide'} className="w-full h-auto max-h-[400px] object-contain group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <div className="text-slate-500 flex flex-col items-center gap-2">
                     <Images className="w-8 h-8 opacity-30 text-slate-350" />
@@ -906,7 +914,7 @@ function DetailCertificates({ section }: { section: PageSection }) {
             <div key={idx} className="bg-white rounded-3xl border border-gray-150 p-6 flex flex-col items-center justify-between gap-5 text-center shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
               <div className="w-20 h-28 bg-slate-50 border border-gray-200/80 rounded-lg flex items-center justify-center text-gray-400 overflow-hidden relative shadow-inner">
                 {item.imageUrl ? (
-                  <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
+                  <img src={item.imageUrl} alt={item.name} className="w-full h-full object-contain" />
                 ) : (
                   <Award className="w-8 h-8 opacity-25 text-amber-600" />
                 )}
@@ -1030,7 +1038,7 @@ function DetailMultiDevice({ section }: { section: PageSection }) {
             <div className="w-[80%] max-w-[440px] bg-slate-900 rounded-2xl border border-slate-700/80 shadow-2xl p-2 select-none z-10 transition-transform hover:scale-[1.01] duration-300">
               <div className="aspect-[16/10] bg-slate-950 rounded-lg flex items-center justify-center text-xs text-slate-500 overflow-hidden relative border border-slate-800">
                 {md.desktopUrl ? (
-                  <img src={md.desktopUrl} alt="Desktop display" className="w-full h-full object-cover" />
+                  <img src={md.desktopUrl} alt="Desktop display" className="w-full h-full object-contain" />
                 ) : (
                   <div className="flex flex-col items-center gap-2">
                     <Monitor className="w-8 h-8 opacity-40" />
@@ -1045,7 +1053,7 @@ function DetailMultiDevice({ section }: { section: PageSection }) {
             <div className="w-[38%] max-w-[200px] bg-slate-900 rounded-xl border border-slate-700/85 shadow-2xl p-1.5 select-none absolute right-4 bottom-4 z-20 transition-transform hover:translate-y-[-4px] duration-300">
               <div className="aspect-[3/4] bg-slate-955 rounded-md flex items-center justify-center text-[10px] text-slate-500 overflow-hidden relative border border-slate-800">
                 {md.tabletUrl ? (
-                  <img src={md.tabletUrl} alt="Tablet display" className="w-full h-full object-cover" />
+                  <img src={md.tabletUrl} alt="Tablet display" className="w-full h-full object-contain" />
                 ) : (
                   <span>平板端</span>
                 )}
@@ -1056,7 +1064,7 @@ function DetailMultiDevice({ section }: { section: PageSection }) {
             <div className="w-[22%] max-w-[120px] bg-slate-900 rounded-xl border border-slate-700/90 shadow-2xl p-1 select-none absolute left-6 bottom-4 z-30 transition-transform hover:translate-y-[-4px] duration-300">
               <div className="aspect-[9/16] bg-slate-960 rounded-lg flex items-center justify-center text-[8px] text-slate-550 overflow-hidden relative border border-slate-800">
                 {md.mobileUrl ? (
-                  <img src={md.mobileUrl} alt="Mobile display" className="w-full h-full object-cover" />
+                  <img src={md.mobileUrl} alt="Mobile display" className="w-full h-full object-contain" />
                 ) : (
                   <span>手机端</span>
                 )}
@@ -1097,9 +1105,9 @@ function DetailHardwareSpec({ section }: { section: PageSection }) {
         </div>
 
         {/* Central exploded spec container */}
-        <div className="max-w-3xl mx-auto bg-slate-900/40 border border-slate-800/80 rounded-3xl p-8 shadow-2xl relative flex items-center justify-center overflow-hidden aspect-[16/9]">
+        <div className="max-w-3xl mx-auto bg-slate-900/40 border border-slate-800/80 rounded-3xl p-8 shadow-2xl relative flex items-center justify-center overflow-hidden">
           {hw.imageUrl ? (
-            <img src={hw.imageUrl} alt="Core specification architecture" className="w-full h-full object-cover rounded-2xl" />
+            <img src={hw.imageUrl} alt="Core specification architecture" className="w-full h-auto max-h-[600px] object-contain rounded-2xl" />
           ) : (
             <div className="text-slate-500 flex flex-col items-center gap-3">
               <Workflow className="w-12 h-12 opacity-20 text-slate-300 animate-pulse" />

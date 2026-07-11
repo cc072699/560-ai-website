@@ -282,7 +282,7 @@
     "title": "物联网智慧民宿管理系统",
     "tagline": "全链路可视化的智能民宿管理系统，让房屋运营更高效、更智能。",
     "category": "工业智能物联",
-    "description": "本系统深度融合物联网与数据可视化技术，打造了一站式的智能民宿管理解决方案。系统通过MQTT协议实时连接各类智能硬件，实现对房间设备（灯光、窗帘、门锁等）的毫秒级远程控制与状态监测。依托Home Assistant构建稳定的核心控制层，结合InfluxDB时序数据库与Grafana可视化大屏，不仅能完美支持订单对接与自动化场景联动，更能将能耗与设备运行数据转化为直观的可视化报表，帮助管理者实时掌握运营状态，降低运维成本，提升住客体验。",
+    "description": "深度融合物联网与数据可视化技术的一站式智能民宿管理方案。通过MQTT实时连接灯光、窗帘、门锁等智能硬件，将能耗与设备数据转化为直观可视化报表，让房屋运营更高效智能。",
     "features": [
       "毫秒级实时监控与控制",
       "数据驱动的可视化运营",
@@ -399,7 +399,7 @@
     "title": "大数据智能咨询平台",
     "tagline": "企业级智能对话分析平台，让数据分析像聊天一样简单，赋能全员数据决策。",
     "category": "智能决策与分析",
-    "description": "是一款基于大语言模型与 RAG 技术的先进 ChatBI 系统，致力于打破数据孤岛，让业务人员无需掌握 SQL 技能也能轻松驾驭复杂数据。系统支持 MySQL、Oracle、ClickHouse 等十余种主流数据源，通过自然语言即可秒级生成精准 SQL 与可视化图表。依托 Vanna 引擎与强大的数据训练能力，系统能深度理解企业专属业务术语，确保分析结果的专业性与准确性。同时，提供细粒度的行级/字段级权限控制、全链路操作审计及 MCP 协议嵌入能力，既保障了核心数据资产的安全，又能无缝集成到企业现有业务系统中，是企业实现数字化转型的理想数据助手。",
+    "description": "基于大语言模型与RAG技术的企业级ChatBI系统。支持十余种主流数据源，用自然语言即可秒级生成精准SQL与可视化图表，让业务人员无需SQL技能也能轻松洞察数据。",
     "features": [
       "无缝集成：支持多种嵌入方式，像聊天机器人一样轻松接入企业现有系统。",
       "安全可控：提供精细权限管理与审计，保障数据安全。",
@@ -515,7 +515,7 @@
     "title": "五六零人工智能考试管理系统",
     "tagline": "AI赋能的智能考试管理平台，实现从出题到评卷的全流程自动化。",
     "category": "自动化与办公协同",
-    "description": "本系统是一款专为现代化教育与考核场景打造的智能化管理平台。它不仅涵盖了用户、题库、试卷及考试的全生命周期管理，更创新性地集成了先进的AI技术。通过内置的“AI生成试题”功能，系统能够根据知识点模板自动批量生成高质量题目，极大地降低了人工出题的成本与难度。清晰的可视化控制台让管理员能实时掌握考试动态与数据概览，配合便捷的快捷操作入口，无论是创建试题还是发布考试都能一键完成。这不仅提升了考务工作的效率，更推动了考试管理的数字化与智能化转型。",
+    "description": "AI赋能的智能考试管理平台。覆盖用户、题库、试卷及考试全生命周期管理，内置AI自动生成试题功能，配合可视化控制台实时掌握考试动态，推动考务工作数字化与智能化转型。",
     "features": [
       "AI智能辅助出题",
       "全流程考务管理",
@@ -661,6 +661,907 @@
           "title": "开启企业的智能人机交互时代",
           "description": "联系我们的技术专家，申请 30 天免费本地私有化部署测试，体验零抖动的极速实时数字人交互。",
           "primaryText": "申请预约演示",
+          "secondaryText": "在线咨询"
+        }
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "title": "智能法律文书批量生成系统",
+    "tagline": "一次上传，整包产出——百件案件文书，分钟级交付",
+    "category": "自动化与办公协同",
+    "description": "面向律所与企业法务的自动化文书处理工具。上传案件数据与模板，一键批量生成律师函、起诉状与违约金计算表，百件案件约5分钟完成，全部本地处理保障数据安全。",
+    "features": [
+      "律师函批量生成：上传模板与欠费数据，一键填充全部关键信息，百份律师函同步产出",
+      "起诉状智能填充：自动识别诉讼请求选项并勾选多选框，告别手工逐项标注",
+      "违约金跨年复利核算：内置2012年至今央行利率数据，逐月分段13档加权核算，结果精确至每一元",
+      "一键整包下载：按客户独立归类打包，支持单户或批量下载，即得即用",
+      "本地处理，数据安全：全部计算在浏览器端完成，客户案件数据不上传云端",
+      "浏览器即用：无需安装任何软件，拖拽上传即可操作，零门槛上手"
+    ],
+    "imageUrl": "/uploads/products/14/hero.png",
+    "imageAlt": "智能法律文书批量生成系统",
+    "order": 14,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-right",
+    "detailSections": [
+      {
+        "id": "ld-hero",
+        "type": "hero",
+        "hero": {
+          "title": "智能法律文书批量生成系统",
+          "subtitle": "一次上传，整包产出——百件案件文书，分钟级交付",
+          "bgType": "image",
+          "bgUrl": "/uploads/products/14/hero.png"
+        }
+      },
+      {
+        "id": "ld-metrics",
+        "type": "metrics",
+        "metrics": {
+          "title": "产品核心数据成果",
+          "subtitle": "以100件物业纠纷案件为基准，实测数据如下",
+          "items": [
+            {
+              "value": "5分钟",
+              "label": "全流程耗时",
+              "description": "传统模式需5-7个工作日"
+            },
+            {
+              "value": "13档",
+              "label": "复利核算精度",
+              "description": "覆盖2012年至今全部利率档位"
+            },
+            {
+              "value": "零差错",
+              "label": "自动填充与计算",
+              "description": "消除人为抄写与计算错误"
+            },
+            {
+              "value": "数百倍",
+              "label": "效率提升",
+              "description": "律师回归案件分析，而非文书制作"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ld-capabilities",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "律师函批量生成",
+            "description": "上传律师函Word模板与客户欠费数据，系统自动填充被催告人姓名、欠费明细、催告截止日期等关键信息，一键生成全部律师函。每份文书独立完整，格式统一规范，可直接打印寄送。",
+            "imageUrl": "/uploads/products/14/cap-lawyer-letter.png"
+          },
+          {
+            "title": "民事起诉状智能填充",
+            "description": "系统自动填充当事人信息、标的金额等文本内容，更能智能识别诉讼请求选项，自动完成多选框勾选。当案件涉及本金与利息追索时，自动勾选对应选项，无需人工逐个标注。",
+            "imageUrl": "/uploads/products/14/product-ui.png"
+          },
+          {
+            "title": "违约金跨年复利自动核算",
+            "description": "内置2012年至今的全部央行基准利率档位，根据每个案件的欠费起止日期自动展开逐月明细，按不同时期利率标准分段计算逾期天数，完成13档加权复利核算，生成精确到每一元的违约金计算表。",
+            "imageUrl": "/uploads/products/14/dashboard.png"
+          }
+        ]
+      },
+      {
+        "id": "ld-features",
+        "type": "features",
+        "features": {
+          "title": "产品亮点特性矩阵",
+          "subtitle": "六大核心亮点，重新定义法律文书制作效率",
+          "items": [
+            {
+              "title": "一次上传，三文书齐出",
+              "description": "律师函、起诉状、违约金计算表同步生成，一次上传即可获得完整文书包",
+              "highlightText": "核心"
+            },
+            {
+              "title": "智能勾选诉讼请求",
+              "description": "自动识别并勾选起诉状中的多选框，告别手工标注，准确率100%",
+              "highlightText": "首创"
+            },
+            {
+              "title": "跨年复利精准核算",
+              "description": "覆盖十余年利率变动，逐月分段计算，结果经得起法庭质证",
+              "highlightText": "核心"
+            },
+            {
+              "title": "拖拽上传，操作极简",
+              "description": "无需安装软件，浏览器打开即用，拖拽上传数据与模板，上手零门槛",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "本地处理，数据安全",
+              "description": "全部计算在浏览器端完成，客户案件数据不上传云端，保障隐私合规",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "整包下载，即得即用",
+              "description": "按客户归类打包，下载后可直接打印归档，无缝衔接律所业务流程"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ld-architecture",
+        "type": "architecture",
+        "architecture": {
+          "title": "系统处理流程",
+          "imageUrl": "/uploads/products/14/architecture.svg",
+          "description": "四步流程：①上传模板与案件数据 → ②解析文书结构并识别变量字段 → ③自动填充内容与核算违约金 → ④按客户归类打包下载。从原始数据到可交付文书，全程自动化闭环处理。"
+        }
+      },
+      {
+        "id": "ld-comparison",
+        "type": "comparison",
+        "comparison": {
+          "title": "传统模式 vs 本系统",
+          "subtitle": "以100件物业纠纷案件为基准进行全流程对比",
+          "headers": [
+            "对比维度",
+            "本系统",
+            "传统手工模式"
+          ],
+          "rows": [
+            {
+              "label": "全流程耗时",
+              "values": [
+                "约5分钟",
+                "5-7个工作日"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "诉讼请求勾选",
+              "values": [
+                "智能识别自动勾选",
+                "人工逐个标注核对"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "文书填写方式",
+              "values": [
+                "系统自动填充",
+                "逐案手工填写"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "违约金计算",
+              "values": [
+                "秒级自动核算",
+                "数小时/案，易出错"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "格式一致性",
+              "values": [
+                "严格统一，模板驱动",
+                "人工操作，易不一致"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "文书归档",
+              "values": [
+                "按客户自动打包",
+                "逐份手动保存"
+              ],
+              "highlightIndex": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "ld-scenarios",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "多行业应用场景",
+          "items": [
+            {
+              "title": "律师事务所",
+              "imageUrl": "/uploads/products/14/office-scene.png",
+              "description": "过去百件文书制作需团队加班数日；如今上传数据即可分钟级交付，律师得以回归案件分析本身。"
+            },
+            {
+              "title": "企业法务",
+              "imageUrl": "/uploads/products/14/product-ui.png",
+              "description": "以往催告函需逐份起草审核；现在系统批量生成自动填充，法务团队从重复劳动中解放，专注核心合规工作。"
+            },
+            {
+              "title": "金融机构",
+              "imageUrl": "/uploads/products/14/dashboard.png",
+              "description": "传统手工制作效率低易出错；系统一键生成标准函件，每份文书格式统一内容精准，满足大规模合规催收需求。"
+            },
+            {
+              "title": "物业管理",
+              "imageUrl": "/uploads/products/14/cap-lawyer-letter.png",
+              "description": "过去每起欠费需单独准备诉讼材料；现在一键上传数据，催告函与起诉状同步产出，批量物业纠纷标准化处理。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ld-faq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于系统使用、数据安全与适用场景的常见疑问",
+          "items": [
+            {
+              "question": "系统支持哪些类型的文书模板？",
+              "answer": "系统支持上传标准Word格式（.docx）的文书模板，目前覆盖律师函、民事起诉状、违约金计算表三大类。用户可根据自身业务需求自定义模板中的固定内容与变量占位符，系统会自动识别并填充对应数据字段。"
+            },
+            {
+              "question": "客户数据的安全性如何保障？",
+              "answer": "系统采用浏览器端本地处理架构，客户案件数据仅在用户本地进行处理，不会上传至云端服务器。生成的文书文件也仅在用户本地存储，保障客户隐私与数据安全。支持私有化部署以满足更高安全需求。"
+            },
+            {
+              "question": "违约金计算的利率数据是否及时更新？",
+              "answer": "系统内置了2012年至今的全部央行基准利率档位数据，并支持管理员手动更新最新利率。计算逻辑严格按照逐月分段、加权复利方式进行，确保计算结果经得起法庭质证和专业审计。"
+            },
+            {
+              "question": "每次能处理多少案件？系统性能如何？",
+              "answer": "系统设计支持批量处理，经验证可同时处理100+案件数据。文书生成速度取决于案件数量，百件案件的律师函、起诉状及违约金计算表全流程约5分钟即可完成，性能稳定可靠。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ld-cta",
+        "type": "cta",
+        "cta": {
+          "title": "让律师回归案件本身，告别重复劳动",
+          "description": "立即预约演示，了解智能法律文书批量生成系统如何帮助您的团队提升数百倍文书处理效率。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "title": "wecom-kingdee 集成服务",
+    "tagline": "企业微信审批通过即自动生成金蝶会计凭证，3秒入账，财务零手工",
+    "category": "自动化与办公协同",
+    "description": "连接企业微信审批与金蝶精斗云的自动化集成产品。报销审批通过后3秒自动生成借贷平衡凭证并同步附件，财务团队每月释放30+小时重复劳动。",
+    "features": [
+      "审批自动触发：报销审批通过瞬间实时捕获并启动自动化流程，7×24小时不间断响应，无需人工触发或定时轮询",
+      "费用明细智能解析：自动读取报销单中的费用类型、金额、摘要与明细行，支持差旅、日常费用、业务招待等多模板同时接入",
+      "科目自动匹配：按预设规则将费用类型映射为金蝶借贷科目编码，内置别名智能识别，匹配率持续提升",
+      "借贷凭证自动生成：按金蝶标准格式组装凭证JSON，自动校验借贷平衡（差额>0.009元即拒绝提交），推送至金蝶草稿箱等待一键过账",
+      "附件自动同步：从企业微信下载发票、行程单等原始附件，自动上传金蝶并绑定对应凭证，支持18种常见文件格式",
+      "实时通知与追溯：凭证生成结果企微+邮件双通道即时通知，审批单号→凭证→附件全链路留痕，审计无忧"
+    ],
+    "imageUrl": "/uploads/products/15/hero_bg.png",
+    "imageAlt": "wecom-kingdee 集成服务",
+    "order": 15,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "wk-hero",
+        "type": "hero",
+        "hero": {
+          "title": "wecom-kingdee 集成服务",
+          "subtitle": "企业微信审批通过即自动生成金蝶会计凭证，3秒入账，财务零手工",
+          "bgType": "image",
+          "bgUrl": "/uploads/products/15/hero_bg.png"
+        }
+      },
+      {
+        "id": "wk-metrics",
+        "type": "metrics",
+        "metrics": {
+          "title": "核心业务数据",
+          "subtitle": "来自实际使用场景的量化成果，可纳入项目验收",
+          "items": [
+            {
+              "value": "3秒",
+              "label": "审批到入账",
+              "description": "原来需要2-5个工作日"
+            },
+            {
+              "value": "100%",
+              "label": "借贷平衡率",
+              "description": "系统自动校验，告别手工核对"
+            },
+            {
+              "value": "30+小时",
+              "label": "财务每月节省",
+              "description": "重复录入工作完全解放"
+            },
+            {
+              "value": "0笔",
+              "label": "人工录入错误",
+              "description": "原来每月3-8笔差错归零"
+            }
+          ]
+        }
+      },
+      {
+        "id": "wk-canvas",
+        "type": "canvas",
+        "canvas": {
+          "title": "费用科目对照 · 可视化规则配置",
+          "subtitle": "企业微信报销类型自动映射金蝶借贷科目，零代码配置",
+          "imageUrl": "/uploads/products/15/canvas_mapping.png",
+          "imageAlt": "wecom-kingdee 费用科目对照管理后台",
+          "description": "管理员在后台完成全部配置：费用类型、借贷科目、启用状态、备注规则一目了然。支持搜索、编辑、新增，配置完成后审批通过即自动匹配，无需切换系统。",
+          "features": [
+            {
+              "title": "12+类费用科目预置",
+              "description": "办公用品、飞机票、火车票、餐饮费等常见费用类型已预置借贷科目映射，开箱即用"
+            },
+            {
+              "title": "别名智能识别",
+              "description": "系统自动识别费用类型别名，减少规则维护量，匹配率持续提升"
+            },
+            {
+              "title": "启用状态可视",
+              "description": "每条规则启用状态高亮显示，一键启停，无需技术背景即可管理"
+            },
+            {
+              "title": "贷方科目灵活配置",
+              "description": "借方费用科目与贷方资金科目均可按需配置，适配不同企业核算体系"
+            }
+          ]
+        }
+      },
+      {
+        "id": "wk-notification",
+        "type": "richText",
+        "richText": {
+          "title": "审批通过 → 凭证通知秒达",
+          "subtitle": "员工在企业微信即时收到凭证同步结果，借贷分录与附件状态一目了然",
+          "content": "当报销审批通过，系统自动完成费用解析、科目匹配、凭证生成与附件同步。员工会在企业微信即时收到凭证同步成功通知，包含金蝶凭证号、借贷分录明细、附件下载绑定状态。无需财务逐条通知，审批单号到凭证号全链路可追溯。",
+          "imageUrl": "/uploads/products/15/canvas_notification.png",
+          "imageAlt": "企业微信凭证同步成功通知",
+          "imagePosition": "left",
+          "align": "left"
+        }
+      },
+      {
+        "id": "wk-comp",
+        "type": "comparison",
+        "comparison": {
+          "title": "上线前后对比",
+          "subtitle": "从传统手工模式到自动化集成，财务工作方式的根本性改变",
+          "headers": [
+            "对比维度",
+            "wecom-kingdee",
+            "传统手工模式"
+          ],
+          "rows": [
+            {
+              "label": "处理速度",
+              "values": [
+                "审批通过后3秒自动入账",
+                "审批通过后2-5天才能入账"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "凭证质量",
+              "values": [
+                "自动生成，100%借贷平衡",
+                "人工录入，每月3-8笔错误"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "附件管理",
+              "values": [
+                "自动同步绑定，零遗漏",
+                "手工下载→逐张上传，易遗漏"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "科目匹配",
+              "values": [
+                "规则引擎自动匹配，秒级完成",
+                "财务逐条查科目表手工配"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "财务工时",
+              "values": [
+                "每月释放30+小时，聚焦审核与分析",
+                "每月30+小时重复录入"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "可追溯性",
+              "values": [
+                "审批单号→凭证→附件全链路",
+                "凭证与审批单脱节，难追查"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "多模板支持",
+              "values": [
+                "配置即生效，一套规则适配N模板",
+                "每新增模板需重新培训"
+              ],
+              "highlightIndex": 1
+            },
+            {
+              "label": "通知机制",
+              "values": [
+                "成功/失败即时通知到人",
+                "财务主动询问单到哪了"
+              ],
+              "highlightIndex": 1
+            }
+          ]
+        }
+      },
+      {
+        "id": "wk-scen",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "适用场景",
+          "items": [
+            {
+              "title": "中小企业 · 财务共享",
+              "imageUrl": "/uploads/products/15/scenario_sme.png",
+              "description": "月报销单量100-2000笔，财务2-5人，金蝶精斗云为唯一账务系统。上线后每月节省30+小时重复劳动，凭证零差错。"
+            },
+            {
+              "title": "连锁零售 · 多门店统一核算",
+              "imageUrl": "/uploads/products/15/scenario_retail.png",
+              "description": "门店多、单据多、附件多，需要统一科目与凭证格式。总部财务集中审单、集中入账，全门店凭证格式统一，对账自动完成。"
+            },
+            {
+              "title": "专业服务 · 项目制核算",
+              "imageUrl": "/uploads/products/15/scenario_service.png",
+              "description": "按项目归集费用，凭证需含项目编码。规则灵活可定制，审计要求高的场景下，项目费用自动归集，审计无忧。"
+            },
+            {
+              "title": "成长型互联网公司",
+              "imageUrl": "/uploads/products/15/scenario_tech.png",
+              "description": "审批流程数字化先行，金蝶精斗云+企微多端协同。要求快速上线、轻量集成，无专职运维。一周上线，零运维负担。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "wk-timeline",
+        "type": "timeline",
+        "timeline": {
+          "title": "产品路线图",
+          "subtitle": "每一步都围绕让财务更轻松展开，迭代清晰可见",
+          "steps": [
+            {
+              "title": "V1.0 · 自动凭证引擎",
+              "description": "审批通过→草稿凭证端到端打通，费用科目可视化映射管理，附件自动上传与绑定，邮件通知+审计日志，多模板并行接入。已稳定交付。",
+              "duration": "已交付"
+            },
+            {
+              "title": "V1.5 · 智能升级",
+              "description": "AI智能识别发票并自动填单，费用类型置信度评分与模糊匹配，多租户支持（集团/分公司隔离），BI报表：报销趋势与部门费用排行。",
+              "duration": "规划中"
+            },
+            {
+              "title": "V2.0 · 平台化",
+              "description": "对接更多ERP（用友/浪潮/SAP B1），对接更多OA（飞书/钉钉），开放API供三方系统调用，财务数字看板与智能预警。",
+              "duration": "未来方向"
+            }
+          ]
+        }
+      },
+      {
+        "id": "wk-faq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于系统部署、数据安全与适用场景的常见疑问",
+          "items": [
+            {
+              "question": "系统部署需要多长时间？是否支持私有化部署？",
+              "answer": "标准部署周期为1周，我们提供全流程远程部署支持。系统支持私有化部署，所有数据存储在客户自有服务器，保障财务数据安全合规。"
+            },
+            {
+              "question": "如果企业微信的报销模板发生变更，是否需要重新配置？",
+              "answer": "不需要。系统支持多模板并行接入，新增或变更模板只需在后台添加对应的template_id并完成字段映射即可，已有模板的配置不受影响，配置即生效。"
+            },
+            {
+              "question": "系统如何保证凭证的准确性？出现匹配失败怎么办？",
+              "answer": "系统在生成凭证前进行严格的借贷平衡校验（差额>0.009元即拒绝提交），并支持配置多级规则兜底。当费用类型无法匹配科目时，系统会通过企微+邮件即时通知管理员，进入人工审核流程，同时该条记录被标记便于后续完善规则。"
+            },
+            {
+              "question": "已使用金蝶其他版本（非精斗云），能否对接？",
+              "answer": "当前V1.0版本深度适配金蝶精斗云。产品路线图中V2.0规划了更多ERP对接（用友、浪潮、SAP B1等），建议联系技术团队评估定制对接方案。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "wk-cta",
+        "type": "cta",
+        "cta": {
+          "title": "让财务从录入员变成分析者",
+          "description": "立即预约演示，了解wecom-kingdee如何在1周内帮助您的财务团队释放每月30+小时重复劳动。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "title": "智能办公助理",
+    "tagline": "在企微里聊天，就能办公——用自然语言对话替代表单填写与系统跳转",
+    "category": "自动化与办公协同",
+    "description": "嵌入企业微信的 AI 办公助手。员工像聊天一样发消息，就能完成请假、查制度、查审批进度等日常办公操作，实现从「对话」到「业务执行」的完整闭环。",
+    "features": [
+      "对话式请假：口语描述自动提取信息、校验假种、组装表单并提交审批",
+      "企业知识问答：接入专属知识库，自然语言提问即时获得准确回答",
+      "请假进度追踪：一句话查询审批状态、单号详情与月度请假统计",
+      "图片附件上传：支持病假证明、诊断书等图片作为审批附件",
+      "多轮对话交互：无需一次说全，像聊天一样逐步补充信息",
+      "假种实时校验：与企业微信审批模板实时校验，避免错误提交"
+    ],
+    "imageUrl": "/uploads/products/16/hero_bg.png",
+    "imageAlt": "智能办公助理",
+    "order": 16,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "oa-hero",
+        "type": "hero",
+        "hero": {
+          "title": "智能办公助理",
+          "subtitle": "在企微里聊天，就能办公——用自然语言对话替代表单填写与系统跳转",
+          "bgType": "image",
+          "bgUrl": "/uploads/products/16/hero_bg.png"
+        }
+      },
+      {
+        "id": "oa-capabilities",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "对话式请假审批",
+            "description": "员工用日常口语描述请假需求，系统自动提取信息、校验假种、组装表单并提交审批。支持年假、病假、事假、调休假、陪产假等多种假种，口语化表述自动识别。可分多次对话补充信息，支持上传病假证明等图片附件。",
+            "imageUrl": "/uploads/products/16/user_mobile_screens.png"
+          },
+          {
+            "title": "企业知识问答",
+            "description": "接入企业专属知识库，覆盖人事制度、行政规范、IT 指南、财务报销规则等。员工用自然语言提问，即时获得基于企业真实文档的准确回答，有据可依，避免 AI 编造信息。7×24 小时在线，服务异常时自动降级。",
+            "imageUrl": "/uploads/products/16/1783759423416-ngo81mvlm6.png"
+          },
+          {
+            "title": "请假进度全维度追踪",
+            "description": "员工不仅能请假，还能随时通过对话查询审批进度和历史记录。说「最近请假怎么样了」自动定位最新申请，展示完整审批状态。支持单号查询、日期智能匹配，以及月度请假统计汇总。",
+            "imageUrl": "/uploads/products/16/user_pc_chat.png"
+          }
+        ]
+      },
+      {
+        "id": "oa-features",
+        "type": "features",
+        "features": {
+          "title": "产品亮点特性",
+          "subtitle": "六大核心能力，让办公像聊天一样简单",
+          "items": [
+            {
+              "title": "对话式请假",
+              "description": "口语描述自动提取信息、校验假种、组装表单并提交，全程不用打开 OA 表单",
+              "highlightText": "核心"
+            },
+            {
+              "title": "企业知识问答",
+              "description": "基于真实文档回答，有据可依，7×24 小时在线，即时获得准确答案",
+              "highlightText": "核心"
+            },
+            {
+              "title": "进度全维度追踪",
+              "description": "一句话查询审批状态、单号详情与月度统计，不用登录 OA 系统",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "图片附件上传",
+              "description": "支持病假证明、诊断书等图片作为审批附件，最多 6 张，手机端完成",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "多轮对话交互",
+              "description": "无需一次说全，像聊天一样逐步补充信息，系统自动合并",
+              "highlightText": "首创"
+            },
+            {
+              "title": "假种实时校验",
+              "description": "与企业微信审批模板实时校验，模板没有的假种明确提示，避免错误提交",
+              "highlightText": "核心"
+            }
+          ]
+        }
+      },
+      {
+        "id": "oa-scenarios",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "新员工入职咨询",
+              "description": "新员工入职时面临大量制度文档，通过智能助理直接提问即可获得即时解答，降低入职适应成本，减轻 HR 重复咨询压力。",
+              "imageUrl": "/uploads/products/16/scenario_onboard.png"
+            },
+            {
+              "title": "日常请假快捷办理",
+              "description": "员工生病或临时有事需要请假，在企业微信里发一条消息就能提交请假申请，附带医院证明照片，全程手机端完成。",
+              "imageUrl": "/uploads/products/16/scenario_leave.png"
+            },
+            {
+              "title": "制度规范即时查询",
+              "description": "员工对报销标准、考勤规则等日常制度问题高度重复。智能助理基于企业知识库即时回答，保证准确一致，释放行政和 HR 团队压力。",
+              "imageUrl": "/uploads/products/16/scenario_policy.png"
+            }
+          ]
+        }
+      },
+      {
+        "id": "oa-faq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于智能办公助理的使用、集成与数据安全",
+          "items": [
+            {
+              "question": "如何保障知识库回答的准确性？",
+              "answer": "系统基于企业上传的真实文档（如制度手册、报销规范等）进行回答，所有答案均有据可依，避免 AI 编造信息。当企业文档未覆盖某些问题时，系统会明确告知而非猜测。"
+            },
+            {
+              "question": "请假审批如何与企业微信集成？",
+              "answer": "智能办公助理深度嵌入企业微信，请假时自动与企业微信审批模板实时校验假种。审批通过后，请假单号、审批状态等信息实时同步，员工无需切换系统即可查询进度。"
+            },
+            {
+              "question": "支持哪些假种？一次可以请多少天？",
+              "answer": "系统支持年假、病假、事假、调休假、陪产假等多种假种，口语化表述自动识别。具体天数限制取决于企业微信审批模板的配置，系统会按企业规则自动校验。"
+            },
+            {
+              "question": "员工数据是否安全？",
+              "answer": "对话数据与企业微信数据存储在企业自有服务器，支持私有化部署。所有数据访问均有权限控制，保障员工隐私与企业信息安全。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "oa-cta",
+        "type": "cta",
+        "cta": {
+          "title": "让办公像聊天一样简单",
+          "description": "立即预约演示，了解智能办公助理如何帮助您的企业提升办公效率、降低管理成本。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "title": "流水智算",
+    "tagline": "上传一份流水，自动生成完整收支统计报告",
+    "category": "自动化与办公协同",
+    "description": "流水智算是一款专为个人与企业打造的智能交易流水统计解决方案。用户上传微信或支付宝导出的交易流水文件，系统即可自动识别平台类型、提取并分类统计每笔交易，从原始文件到统计报告全程零人工操作，高效精准。",
+    "features": [
+      "智能平台识别：自动判断微信支付与支付宝，无需手动选择，解析策略无缝切换",
+      "逐条精准提取：针对支付宝与微信不同格式，定制化解析算法精准定位每笔交易的关键信息",
+      "不计收支隔离：自动识别并隔离支付宝流水中的不计收支记录，还原真实收支口径",
+      "退款自动抵扣：智能识别退款并匹配对应支出项，自动扣除避免重复计算",
+      "一键汇总输出：生成 Markdown 统计报告，含总收支、净差额、有效记录数四项核心指标",
+      "强大容错能力：针对页码跨行、空行干扰、PDF 拆字等问题内置预处理修复"
+    ],
+    "imageUrl": "/uploads/products/17/hero_bg.png",
+    "imageAlt": "流水智算产品主图",
+    "order": 17,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "sz-hero",
+        "type": "hero",
+        "hero": {
+          "title": "流水智算",
+          "subtitle": "上传微信/支付宝流水文件，AI 自动识别解析，一键输出收支统计报告",
+          "bgType": "image",
+          "bgUrl": "/uploads/products/17/hero_bg.png"
+        }
+      },
+      {
+        "id": "sz-metrics",
+        "type": "metrics",
+        "metrics": {
+          "title": "核心数据指标",
+          "subtitle": "来自实测的真实使用数据",
+          "items": [
+            {
+              "value": "10秒",
+              "label": "全流程处理速度",
+              "description": "单份流水文件从上传到报告生成"
+            },
+            {
+              "value": "99.5%",
+              "label": "交易识别准确率",
+              "description": "覆盖微信/支付宝多版本格式"
+            },
+            {
+              "value": "0误差",
+              "label": "退款自动抵扣",
+              "description": "智能匹配，杜绝重复计算"
+            },
+            {
+              "value": "多格式",
+              "label": "文件支持",
+              "description": "PDF/图片/截图一键上传"
+            }
+          ]
+        }
+      },
+      {
+        "id": "sz-cap",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "智能平台识别",
+            "description": "自动判断上传的流水文件属于微信支付还是支付宝，无需用户手动选择，两种平台的解析策略可无缝切换。",
+            "imageUrl": "/uploads/products/17/cap_recognize.svg"
+          },
+          {
+            "title": "逐条精准提取",
+            "description": "针对支付宝和微信流水的不同格式，采用定制化解析算法，精准定位并提取每笔交易的金额、交易对方、时间等关键信息。",
+            "imageUrl": "/uploads/products/17/cap_extract.svg"
+          },
+          {
+            "title": "不计收支隔离",
+            "description": "自动识别并隔离支付宝流水中的不计收支记录，不计入收入或支出的汇总统计，已对PDF换行拆字等问题进行预处理修复。",
+            "imageUrl": "/uploads/products/17/cap_isolate.svg"
+          },
+          {
+            "title": "退款自动抵扣",
+            "description": "智能识别不计收支中的退款记录，自动匹配对应的支出项，从总支出中予以扣除，避免重复计算。",
+            "imageUrl": "/uploads/products/17/cap_refund.svg"
+          },
+          {
+            "title": "一键汇总输出",
+            "description": "处理完成后直接生成一份清晰的Markdown格式统计报告，包含总收入、总支出、净差额、有效记录数四项核心指标。",
+            "imageUrl": "/uploads/products/17/cap_summary.svg"
+          },
+          {
+            "title": "强大容错能力",
+            "description": "针对页码标记跨行、空行干扰、PDF换行碎片化等各种已知干扰场景，内置预处理逻辑进行兜底。",
+            "imageUrl": "/uploads/products/17/cap_robust.svg"
+          }
+        ]
+      },
+      {
+        "id": "sz-features",
+        "type": "features",
+        "features": {
+          "title": "产品亮点特性",
+          "subtitle": "六大核心能力覆盖流水处理全链路",
+          "items": [
+            {
+              "title": "智能平台识别",
+              "description": "自动判断微信支付与支付宝，无感切换解析策略",
+              "highlightText": "秒级识别"
+            },
+            {
+              "title": "逐条精准提取",
+              "description": "支付宝逐行分组、微信时间戳分割，每笔交易不遗漏",
+              "highlightText": "高精度"
+            },
+            {
+              "title": "不计收支隔离",
+              "description": "自动剥离非交易记录，还原真实收支口径",
+              "highlightText": "智能过滤"
+            },
+            {
+              "title": "退款自动抵扣",
+              "description": "智能识别退款并匹配原支出，杜绝重复计算",
+              "highlightText": "自动抵扣"
+            },
+            {
+              "title": "一键汇总报告",
+              "description": "Markdown报告秒出，含收支/净差额/有效记录数",
+              "highlightText": "即得即用"
+            },
+            {
+              "title": "强大容错能力",
+              "description": "页码跨行、空行干扰、PDF拆字统统预修复",
+              "highlightText": "强容错"
+            }
+          ]
+        }
+      },
+      {
+        "id": "sz-arch",
+        "type": "architecture",
+        "architecture": {
+          "title": "四步完成流水统计",
+          "imageUrl": "/uploads/products/17/architecture.svg",
+          "description": "从原始文件上传到结构化报告输出，全程零人工干预。系统自动识别平台、解析流水、抵扣退款、汇总报告，平均 10 秒即可交付一份完整的 Markdown 收支统计。"
+        }
+      },
+      {
+        "id": "sz-scenarios",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "多场景应用价值",
+          "items": [
+            {
+              "title": "个人财务管理",
+              "imageUrl": "/uploads/products/17/scenario_personal.png",
+              "description": "快速统计个人或家庭月度收支，无需逐条计算，掌握财务状况"
+            },
+            {
+              "title": "审计与合规",
+              "imageUrl": "/uploads/products/17/scenario_audit.png",
+              "description": "批量处理流水并自动生成结构化报告，为审计合规提供便利"
+            },
+            {
+              "title": "财务对账",
+              "imageUrl": "/uploads/products/17/scenario_reconcile.png",
+              "description": "智能识别退款并完成抵扣，避免重复计算，确保对账准确"
+            },
+            {
+              "title": "企业报销辅助",
+              "imageUrl": "/uploads/products/17/scenario_reimburse.png",
+              "description": "员工上传流水自动生成支出明细，简化企业报销流程"
+            }
+          ]
+        }
+      },
+      {
+        "id": "sz-faq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于文件支持、数据安全、识别准确性的疑问",
+          "items": [
+            {
+              "question": "支持哪些文件格式和平台？",
+              "answer": "支持微信支付账单PDF、支付宝流水PDF、截图、照片等常见格式。系统自动识别微信支付与支付宝两种平台，无需手动选择。"
+            },
+            {
+              "question": "处理速度如何？大批量数据能扛得住吗？",
+              "answer": "单份流水文件从上传到报告生成约10秒。系统支持批量上传与后台处理，多份文件按顺序处理并各自生成独立报告。"
+            },
+            {
+              "question": "退款是如何被自动抵扣的？",
+              "answer": "系统在解析阶段自动识别支付宝流水中的不计收支记录，并智能匹配同笔交易对应的支出项，从总支出中扣除，彻底避免重复计算。"
+            },
+            {
+              "question": "上传的流水数据是否安全？",
+              "answer": "系统支持全本地化处理模式，原始流水文件与解析数据仅存储在用户本地，不上传云端，敏感财务信息全程可控。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "sz-cta",
+        "type": "cta",
+        "cta": {
+          "title": "让流水统计从数小时缩短到10秒",
+          "description": "立即预约演示，了解流水智算如何帮助您告别逐笔核对，把时间留给真正重要的财务决策。",
+          "primaryText": "免费生成一份流水报告",
           "secondaryText": "在线咨询"
         }
       }

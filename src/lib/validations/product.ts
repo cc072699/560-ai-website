@@ -34,6 +34,8 @@ export const ProductSchema = z.object({
 
   showInHome: z.boolean().optional(),
   showInNavbar: z.boolean().optional(),
+
+  detailSections: z.array(z.any()).optional(),
 });
 
 export type ProductInput = z.infer<typeof ProductSchema>;
