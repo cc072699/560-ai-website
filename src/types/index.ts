@@ -59,7 +59,24 @@ export type SectionType =
   | 'video'
   | 'timeline'
   | 'features'
-  | 'faq';
+  | 'faq'
+  | 'comparison'
+  | 'testimonials'
+  | 'metrics'
+  | 'canvas'
+  | 'richText'
+  | 'partners'
+  | 'carousel'
+  | 'downloads'
+  | 'certificates'
+  | 'coverage'
+  | 'consultation'
+  | 'multiDevice'
+  | 'hardwareSpec'
+  | 'techStack'
+  | 'sandbox'
+  | 'signalWave'
+  | 'bentoGrid';
 
 export interface PageSection {
   id: string;
@@ -124,6 +141,168 @@ export interface PageSection {
     items: Array<{
       question: string;
       answer: string;
+    }>;
+  };
+  comparison?: {
+    title: string;
+    subtitle?: string;
+    headers: string[];
+    rows: Array<{
+      label: string;
+      values: string[];
+      highlightIndex?: number;
+    }>;
+  };
+  testimonials?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      quote: string;
+      author: string;
+      role: string;
+      company: string;
+      logoUrl?: string;
+      avatarUrl?: string;
+    }>;
+  };
+  metrics?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      value: string;
+      label: string;
+      description?: string;
+    }>;
+  };
+  canvas?: {
+    title: string;
+    subtitle?: string;
+    imageUrl: string;
+    imageAlt?: string;
+    description?: string;
+    features: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
+  richText?: {
+    title: string;
+    subtitle?: string;
+    content: string;
+    align?: 'left' | 'center';
+    imageUrl?: string;
+    imagePosition?: 'left' | 'right';
+  };
+  partners?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      name: string;
+      logoUrl: string;
+    }>;
+  };
+  carousel?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      imageUrl: string;
+      caption?: string;
+      description?: string;
+    }>;
+  };
+  downloads?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      title: string;
+      fileSize?: string;
+      fileUrl: string;
+      fileType?: string;
+    }>;
+  };
+  certificates?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      name: string;
+      imageUrl: string;
+      issuingBody?: string;
+      date?: string;
+    }>;
+  };
+  coverage?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      region: string;
+      address?: string;
+      phone?: string;
+      email?: string;
+    }>;
+  };
+  consultation?: {
+    title: string;
+    subtitle?: string;
+    ctaText: string;
+    benefits: string[];
+  };
+  multiDevice?: {
+    title: string;
+    subtitle?: string;
+    desktopUrl: string;
+    tabletUrl: string;
+    mobileUrl: string;
+    features: Array<{ title: string; desc: string }>;
+  };
+  hardwareSpec?: {
+    title: string;
+    subtitle?: string;
+    imageUrl: string;
+    annotations: Array<{
+      x: number;
+      y: number;
+      title: string;
+      desc: string;
+    }>;
+  };
+  techStack?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      name: string;
+      logoUrl: string;
+      status: string;
+      version?: string;
+    }>;
+  };
+  sandbox?: {
+    title: string;
+    subtitle?: string;
+    tabs: Array<{
+      label: string;
+      language: string;
+      code: string;
+      description: string;
+    }>;
+  };
+  signalWave?: {
+    title: string;
+    subtitle?: string;
+    leftLabel: string;
+    rightLabel: string;
+    description: string;
+    leftValue: string;
+    rightValue: string;
+  };
+  bentoGrid?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      size: 'small' | 'large' | 'tall';
+      title: string;
+      subtitle?: string;
+      imageUrl?: string;
+      colorBg?: string;
     }>;
   };
 }

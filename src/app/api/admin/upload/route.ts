@@ -61,7 +61,7 @@ const uploadLimiter = new UploadLimiter(10, 60000); // 每分钟10次
 // POST /api/admin/upload
 export const POST = withAdminAuth(async (req: NextRequest) => {
   // 速率限制检查(使用IP或用户标识)
-  const identifier = req.ip || 'anonymous';
+  const identifier = req.headers.get('x-forwarded-for') || 'anonymous';
   if (!uploadLimiter.check(identifier)) {
     return NextResponse.json(
       { error: '上传频率过高,请稍后再试' },
