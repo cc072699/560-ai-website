@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": "8",
     "title": "ESP32八合一安防报警系统",
     "tagline": "八大传感器一体集成 · 50ms极速巡检 · 生命安全直通零延迟",
     "category": "工业智能物联",
@@ -13,10 +13,10 @@
       "1kHz PWM强效报警：硬件级LEDC驱动高分贝蜂鸣器，频率可调穿透力强",
       "8路GPIO高低电平输入：支持上下拉稳压配置，兼容各类数字传感器模块"
     ],
-    "imageUrl": "/uploads/products/1/1783995809775-1ka6xfstbm7.jpeg",
+    "imageUrl": "/uploads/products/8/hero-bg.png",
     "imageAlt": "ESP32八合一安防报警系统",
-    "order": 1,
-    "showInHome": true,
+    "order": 8,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-right",
     "detailSections": [
@@ -27,7 +27,7 @@
           "title": "ESP32八合一安防报警系统",
           "subtitle": "八大传感器一体集成 · 50ms极速巡检 · 生命安全直通零延迟",
           "bgType": "image",
-          "bgUrl": "/uploads/products/1/1783995875146-xikn8zpuuj.jpeg"
+          "bgUrl": "/uploads/products/8/hero-bg.png"
         }
       },
       {
@@ -36,7 +36,7 @@
         "hardwareSpec": {
           "title": "八大传感器硬件布局",
           "subtitle": "单设备集成全部核心感知模块，覆盖所有高频安防场景",
-          "imageUrl": "/uploads/products/1/cap-sensors.png",
+          "imageUrl": "/uploads/products/8/cap-sensors.png",
           "annotations": [
             {
               "x": 50,
@@ -126,17 +126,17 @@
           {
             "title": "多维环境全景感知",
             "description": "单设备集成八大核心传感器阵列（触摸、红外寻迹、声音、烟雾、火焰、震动、倾斜、光敏），覆盖入侵防盗、火灾预警、异常异动等所有高频安全场景。8路GPIO独立高低电平输入检测，支持上下拉稳压配置，兼容各类数字传感器模块，真正实现一机通感。",
-            "imageUrl": "/uploads/products/1/hardware-image.png"
+            "imageUrl": "/uploads/products/8/cap-sensors.png"
           },
           {
             "title": "50毫秒极速响应内核",
             "description": "依托ESP-IDF框架与FreeRTOS实时任务调度，系统以50ms周期高频轮询所有传感器链路，实现20Hz极速采样频率。相比传统秒级巡检方案，将威胁检测窗口从秒级压缩至毫秒级。当任何传感器触发时，系统在下一任务心跳（最多50ms）内即可拉响警报，做到真正的触之即警。",
-            "imageUrl": "/uploads/products/1/cap-alarm.png"
+            "imageUrl": "/uploads/products/8/cap-alarm.png"
           },
           {
             "title": "智能防误报与生命优先",
             "description": "针对声音瞬态干扰、环境振动等常见误触发场景，内置智能脉冲拉长与独立3秒超时释放计时器，有效滤除非持续性干扰信号。对于烟雾、火焰等危及生命安全的险情，系统采用独立零延迟的直通报警逻辑——不经过任何软件滤波，确保火情初期的绝对触发，优先保障人员生命。",
-            "imageUrl": "/uploads/products/1/1783996840610-y3kkqgnk8aa.jpeg"
+            "imageUrl": "/uploads/products/8/cap-filter.png"
           }
         ]
       },
@@ -161,17 +161,17 @@
           "items": [
             {
               "title": "智慧工厂与无人仓储",
-              "imageUrl": "/uploads/products/1/scene-warehouse.png",
+              "imageUrl": "/uploads/products/8/scene-warehouse.png",
               "description": "24小时不间断火灾预防（烟雾+火焰双保险），防范非法入侵（红外+震动），异常异动实时告警（倾斜+声音），为智能流水线与无人仓库构建核心安全防线。"
             },
             {
               "title": "高端智能家居安防",
-              "imageUrl": "/uploads/products/1/scene-home.png",
+              "imageUrl": "/uploads/products/8/scene-home.png",
               "description": "结合家庭网关实现门窗防破坏（声音+倾斜双模检测）、紧急求助（触摸一键触发）及全天候防火监控（烟雾+火焰），全屋安防状态自动推送至手机。"
             },
             {
               "title": "贵重资产与特种设备监控",
-              "imageUrl": "/uploads/products/1/scene-server.png",
+              "imageUrl": "/uploads/products/8/scene-server.png",
               "description": "全方位监控资产物理环境：倾倒即警（倾斜传感器）、异常光照告警（光敏传感器）、非法触碰检测（红外+震动），确保核心设备和贵重资产安全无虞。"
             }
           ]
@@ -182,7 +182,7 @@
         "type": "architecture",
         "architecture": {
           "title": "五层实时安防架构",
-          "imageUrl": "/uploads/products/1/1783996420905-ym6pcf41ud9.jpeg",
+          "imageUrl": "/uploads/products/8/architecture.svg",
           "description": "五层实时架构：八大传感器阵列多维感知层→FreeRTOS 50ms高频轮询内核→智能防误报算法层（脉冲拉长+3秒超时释放）→三通道分级报警（生命安全直通/入侵检测/环境监测）→1kHz PWM强效报警输出+LED指示。ESP32双核看门狗保护，确保7×24小时稳定运行。"
         }
       },
@@ -275,7 +275,7 @@
     ]
   },
   {
-    "id": "2",
+    "id": "9",
     "title": "560科技数字员工平台",
     "tagline": "上传视频即建专属AI员工，企业知识一键赋能",
     "category": "自动化与办公协同",
@@ -288,10 +288,10 @@
       "访客免登录模式：数字员工可设为公开，无需注册即可使用，满足对外服务场景",
       "多模型自由切换：支持配置多种 LLM，API Key 加密存储，连通性测试一键搞定"
     ],
-    "imageUrl": "/uploads/products/2/hero-bg.png",
+    "imageUrl": "/uploads/products/9/hero-bg.png",
     "imageAlt": "560科技数字员工平台工作台界面",
-    "order": 2,
-    "showInHome": false,
+    "order": 9,
+    "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -302,7 +302,7 @@
           "title": "560科技数字员工平台",
           "subtitle": "上传视频即建专属 AI 员工，企业知识一键赋能",
           "bgType": "image",
-          "bgUrl": "/uploads/products/2/1783582205539-xq75fflnrrm.png"
+          "bgUrl": "/uploads/products/9/hero-bg.png"
         }
       },
       {
@@ -346,25 +346,25 @@
               "size": "large",
               "title": "RBAC 精细权限叠加",
               "subtitle": "角色权限 + 个人权限并集，部门级数据隔离，覆盖7大模块增删改查",
-              "imageUrl": "/uploads/products/2/bento_rbac.png"
+              "imageUrl": "/uploads/products/9/bento_rbac.png"
             },
             {
               "size": "small",
               "title": "访客免登录模式",
               "subtitle": "数字员工设为公开，无需注册即可对话，满足对外服务场景",
-              "imageUrl": "/uploads/products/2/bento_guest.png"
+              "imageUrl": "/uploads/products/9/bento_guest.png"
             },
             {
               "size": "small",
               "title": "知识库 RAG 增强",
               "subtitle": "外接 WeKnora，对话自动检索知识片段，失败不影响对话降级继续",
-              "imageUrl": "/uploads/products/2/bento_rag.png"
+              "imageUrl": "/uploads/products/9/bento_rag.png"
             },
             {
               "size": "large",
               "title": "流式 SSE + 多模型",
               "subtitle": "逐字输出首字≤3秒，支持打断/停止生成，多种 LLM 自由切换",
-              "imageUrl": "/uploads/products/2/bento_sse.png"
+              "imageUrl": "/uploads/products/9/bento_sse.png"
             }
           ]
         }
@@ -418,17 +418,17 @@
           "items": [
             {
               "title": "企业内部智能问答",
-              "imageUrl": "/uploads/products/2/scenario_qa.png",
+              "imageUrl": "/uploads/products/9/scenario_qa.png",
               "description": "法务、IT、HR 等专业数字员工自动回答常见问题，减少60%人工处理量，员工随时随地获取精准答案"
             },
             {
               "title": "知识库专家问答",
-              "imageUrl": "/uploads/products/2/scenario_kb.png",
+              "imageUrl": "/uploads/products/9/scenario_kb.png",
               "description": "基于企业文档库精准回答，新人快速上手，培训周期缩短40%，企业知识真正沉淀与复用"
             },
             {
               "title": "对外开放智能服务",
-              "imageUrl": "/uploads/products/2/scenario_open.png",
+              "imageUrl": "/uploads/products/9/scenario_open.png",
               "description": "将客服类数字员工设为公开，访客无需注册即可使用，降低对外服务门槛，扩展品牌触达"
             }
           ]
@@ -439,7 +439,7 @@
         "type": "architecture",
         "architecture": {
           "title": "系统技术架构",
-          "imageUrl": "/uploads/products/2/architecture.svg",
+          "imageUrl": "/uploads/products/9/architecture.svg",
           "description": "五层分层架构：用户接入层（Web/移动端/访客/API）→ 认证鉴权层（JWT/RBAC/Session）→ 业务核心层（6大模块）→ AI 引擎层（模型调度/RAG检索/上下文编排）→ 数据基础层。支持 Docker/K8s 容器化部署，可私有化部署或云端 SaaS 多租户。"
         }
       },
@@ -482,7 +482,7 @@
     ]
   },
   {
-    "id": "3",
+    "id": "10",
     "title": "HomeStay 智能民宿管理平台",
     "tagline": "一句话管房，一屏看全店——民宿数字化转型一站式平台",
     "category": "工业智能物联",
@@ -497,9 +497,9 @@
       "历史数据留存：InfluxDB时序数据库保存所有环境数据，支持长期趋势分析与在线状态判断",
       "智能设备自动注册：基于MQTT Discovery，新设备通电即自动接入系统，无需手工配置"
     ],
-    "imageUrl": "/uploads/products/3/1783992320128-j3qn6twxb9.jpeg",
+    "imageUrl": "/uploads/products/10/hero-bg.jpeg",
     "imageAlt": "HomeStay 智能民宿管理平台",
-    "order": 3,
+    "order": 10,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -511,7 +511,7 @@
           "title": "HomeStay 智能民宿管理平台",
           "subtitle": "一句话管房，一屏看全店——民宿数字化转型一站式平台",
           "bgType": "image",
-          "bgUrl": "/uploads/products/3/1783990921573-fbumhmpnzef.jpeg"
+          "bgUrl": "/uploads/products/10/hero-bg.jpeg"
         }
       },
       {
@@ -551,17 +551,17 @@
           {
             "title": "智能客房控制与监控",
             "description": "远程控制灯光开关、窗帘开合、门锁指令下发，实时监控每个房间的温度、湿度、光照、门窗状态。支持单房间精准控制与全楼批量管理，设备离线即时告警，60秒自动刷新数据。",
-            "imageUrl": "/uploads/products/3/room-control.jpeg"
+            "imageUrl": "/uploads/products/10/room-control.png"
           },
           {
             "title": "经营业务闭环管理",
             "description": "从订单创建、入住办理、退房处理到清洁完工恢复可用，全链路数字化管理。内置OTA模拟订单演示，一键生成美团/携程/Airbnb订单，自动分配房间并生成门锁临时密码。",
-            "imageUrl": "/uploads/products/3/1783667434388-uty364jg5c.png"
+            "imageUrl": "/uploads/products/10/mobile-control.jpeg"
           },
           {
             "title": "AI语音与数据可视化",
             "description": "通过MCP协议接入小智AI，用自然语言即可查询房间状态、控制设备。Grafana数据大屏实时展示能耗趋势、环境监测、设备状态总览，10秒自动刷新，让运营一屏看全店。",
-            "imageUrl": "/uploads/products/3/led-dashboard.jpeg"
+            "imageUrl": "/uploads/products/10/led-dashboard.jpeg"
           }
         ]
       },
@@ -571,7 +571,7 @@
         "canvas": {
           "title": "产品全景总览",
           "subtitle": "从智能家居到经营管理的全链路覆盖",
-          "imageUrl": "/uploads/products/3/1783991584762-fhjw9c35vnd.jpeg",
+          "imageUrl": "/uploads/products/10/overview.jpeg",
           "imageAlt": "HomeStay 产品全景展示",
           "description": "HomeStay 将智能家居设备管控与民宿经营业务深度融合，提供Web管理后台、AI语音助手、移动端管理、数据可视化大屏四大入口，实现民宿运营全链路数字化。",
           "features": [
@@ -648,22 +648,22 @@
           "items": [
             {
               "title": "智慧民宿管理",
-              "imageUrl": "/uploads/products/3/scenario-exhibition.jpeg",
+              "imageUrl": "/uploads/products/10/scenario-exhibition.jpeg",
               "description": "民宿/客栈经营者通过Web后台一屏掌控所有房间状态，远程操控灯光、窗帘，实时查看订单与入住情况，实现无人值守与高效数字化管理。"
             },
             {
               "title": "智慧酒店运营",
-              "imageUrl": "/uploads/products/3/led-dashboard-2.jpeg",
+              "imageUrl": "/uploads/products/10/led-dashboard-2.jpeg",
               "description": "智慧酒店/长租公寓运营商通过数据可视化大屏集中监控能耗、环境指标与设备状态，异常情况自动告警，运营成本大幅降低。"
             },
             {
               "title": "移动端随查随控",
-              "imageUrl": "/uploads/products/3/mobile-control.jpeg",
+              "imageUrl": "/uploads/products/10/mobile-control.jpeg",
               "description": "房东通过手机随时随地查看房间状态、生成门锁密码、管理清洁进度。移动端与Web后台实时同步，数据一致零延迟。"
             },
             {
               "title": "物联网教学演示",
-              "imageUrl": "/uploads/products/3/overview.jpeg",
+              "imageUrl": "/uploads/products/10/overview.jpeg",
               "description": "架构完整的物联网教学样板：MQTT协议、Home Assistant、时序数据库、AI Agent、REST API、前端可视化。一条docker-compose即可部署教学环境。"
             }
           ]
@@ -674,7 +674,7 @@
         "type": "architecture",
         "architecture": {
           "title": "分层技术架构",
-          "imageUrl": "/uploads/products/3/1783579322241-gcoz2de26s.png",
+          "imageUrl": "/uploads/products/10/architecture.svg",
           "description": "从用户层到设备层六层架构：浏览器/小智AI→前端Nginx+MCP→Go后端（Gin+SQLite+Prometheus）→Home Assistant智能家居平台→MQTT Broker→温度/湿度/光照/门窗/灯光/窗帘/门锁/ESP32等智能硬件。"
         }
       },
@@ -717,7 +717,7 @@
     ]
   },
   {
-    "id": "4",
+    "id": "12",
     "title": "五六零人工智能考试管理系统",
     "tagline": "AI赋能的智能考试管理平台，实现从出题到评卷的全流程自动化。",
     "category": "自动化与办公协同",
@@ -730,9 +730,9 @@
       "断点续考：意外退出自动保存进度，重新进入无缝恢复答题",
       "防作弊体系：切屏监控+警告+超限自动交卷，三重保障考试公平"
     ],
-    "imageUrl": "/uploads/products/4/hero-bg.png",
+    "imageUrl": "/uploads/products/12/hero-bg.png",
     "imageAlt": "五六零人工智能考试管理系统",
-    "order": 4,
+    "order": 12,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -744,7 +744,7 @@
           "title": "五六零人工智能考试管理系统",
           "subtitle": "从出题到评卷全流程AI自动化，让企业培训考核真正数字化",
           "bgType": "image",
-          "bgUrl": "/uploads/products/4/1783581896338-oc3ajxbygm.png"
+          "bgUrl": "/uploads/products/12/hero-bg.png"
         }
       },
       {
@@ -784,17 +784,17 @@
           {
             "title": "AI智能出题与组卷",
             "description": "对接企业乐享知识库，选择知识节点即可一键拉取并解析试题，分钟级自动生成包含试题、答案、解析、分值的完整试卷。支持按知识点多级标签分类管理，试卷保存为模板复用，批量创建相似考试更高效。",
-            "imageUrl": "/uploads/products/4/cap-paper-gen.png"
+            "imageUrl": "/uploads/products/12/cap-paper-gen.png"
           },
           {
             "title": "在线考试与防作弊",
             "description": "响应式H5设计，PC端和手机端自适应。考生微信扫码或链接即可进入考试，支持倒计时提醒、题号导航、试题标记、实时自动保存草稿。切屏监控自动记录并警告，超阈值强制交卷；意外退出后重新进入自动恢复答题进度，断点续考不丢失数据。",
-            "imageUrl": "/uploads/products/4/screenshot-exam.png"
+            "imageUrl": "/uploads/products/12/screenshot-exam.png"
           },
           {
             "title": "AI智能阅卷与复核",
             "description": "客观题（单选/多选/填空）提交即时出分；简答题基于百度NLP语义分析、关键词匹配与文本相似度自动评分并给出置信度。管理员按置信度优先复核低分题，可调整分数并留痕，复核记录可追溯到人与时间，确保评分公平可审计。",
-            "imageUrl": "/uploads/products/4/cap-ai-grading.png"
+            "imageUrl": "/uploads/products/12/cap-ai-grading.png"
           }
         ]
       },
@@ -846,22 +846,22 @@
           "items": [
             {
               "title": "新员工入职考核",
-              "imageUrl": "/uploads/products/4/scene-qrcode.png",
+              "imageUrl": "/uploads/products/12/scene-qrcode.png",
               "description": "HR批量导入新员工名单，生成考试二维码发送至群聊，新人扫码即考。系统自动评分排名，培训效果一目了然。"
             },
             {
               "title": "岗位技能认证",
-              "imageUrl": "/uploads/products/4/scene-pc.png",
+              "imageUrl": "/uploads/products/12/scene-pc.png",
               "description": "按岗位设置不同试卷与及格线，定期组织技能认证考试。成绩永久存档，认证到期自动提醒复考。"
             },
             {
               "title": "培训效果评估",
-              "imageUrl": "/uploads/products/4/screenshot-admin.png",
+              "imageUrl": "/uploads/products/12/screenshot-admin.png",
               "description": "培训前后分别组织考试，系统自动对比成绩变化，识别学员薄弱知识点，为课程优化提供数据支撑。"
             },
             {
               "title": "移动端随到随考",
-              "imageUrl": "/uploads/products/4/scene-mobile.png",
+              "imageUrl": "/uploads/products/12/scene-mobile.png",
               "description": "现场培训结束后立即发布考试，学员手机扫码开考。从扫码到答题不超过3步，弱网环境断点续考无忧。"
             }
           ]
@@ -906,7 +906,7 @@
     ]
   },
   {
-    "id": "5",
+    "id": "13",
     "title": "LiveTalking 实时交互数字人引擎",
     "tagline": "一段视频生成AI数字分身 — 能听、能说、能打断，口型毫秒级同步",
     "category": "自动化与办公协同",
@@ -921,9 +921,9 @@
       "录制导出MP4：对话过程录制存档，支持API批量生产视频内容",
       "全身视频拼接：仅生成口部区域无缝贴回高清全身，支持全身出镜"
     ],
-    "imageUrl": "/uploads/products/5/hero.jpg",
+    "imageUrl": "/uploads/products/13/hero.jpg",
     "imageAlt": "LiveTalking 实时交互数字人引擎",
-    "order": 5,
+    "order": 13,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -935,7 +935,7 @@
           "title": "LiveTalking 实时交互数字人引擎",
           "subtitle": "一段视频生成AI数字分身 — 能听、能说、能打断，口型毫秒级同步",
           "bgType": "image",
-          "bgUrl": "/uploads/products/5/1783997901693-gpuyn2p2lrs.jpg"
+          "bgUrl": "/uploads/products/13/hero.jpg"
         }
       },
       {
@@ -946,32 +946,32 @@
           "subtitle": "从虚拟直播到在线教育，从短视频生产到展厅大屏，一个引擎覆盖全部数字人场景",
           "items": [
             {
-              "imageUrl": "/uploads/products/5/1783997733817-xlxfa4wspe.jpeg",
+              "imageUrl": "/uploads/products/13/cs-terminal.jpg",
               "caption": "AI数字人客服终端",
               "description": "7×24小时企业客服，对接知识库精准回答产品问题"
             },
             {
-              "imageUrl": "/uploads/products/5/education.jpg",
+              "imageUrl": "/uploads/products/13/education.jpg",
               "caption": "在线教育与培训",
               "description": "教师数字分身录制课程，一次拍摄无限复用"
             },
             {
-              "imageUrl": "/uploads/products/5/short-video.jpg",
+              "imageUrl": "/uploads/products/13/short-video.jpg",
               "caption": "短视频批量生产",
               "description": "输入文案即可生成数字人出镜视频，极大降低内容成本"
             },
             {
-              "imageUrl": "/uploads/products/5/exhibition.jpg",
+              "imageUrl": "/uploads/products/13/exhibition.jpg",
               "caption": "展厅大屏互动",
               "description": "数字人讲解员在企业大屏互动讲解，支持语音输入"
             },
             {
-              "imageUrl": "/uploads/products/5/api-batch.jpg",
+              "imageUrl": "/uploads/products/13/api-batch.jpg",
               "caption": "API批量自动化",
               "description": "驱动企业级API批量生产数字人视频内容"
             },
             {
-              "imageUrl": "/uploads/products/5/1783997786127-qmv2t9xsf8e.jpg",
+              "imageUrl": "/uploads/products/13/recording.jpg",
               "caption": "录制导出MP4",
               "description": "对话过程录制为MP4文件，方便存档或二次分发"
             }
@@ -984,7 +984,7 @@
         "canvas": {
           "title": "智能对话交互界面",
           "subtitle": "macOS风格窗口展示数字人实时对话系统",
-          "imageUrl": "/uploads/products/5/chat-ui.jpg",
+          "imageUrl": "/uploads/products/13/chat-ui.jpg",
           "imageAlt": "LiveTalking智能对话界面",
           "description": "左侧为数字人实时渲染画面，口型与语音毫秒级同步；右侧为对话面板，支持文字输入与语音输入双模式，实时显示大模型流式回复。支持WebRTC浏览器端直接打开，即开即用。",
           "features": [
@@ -1010,17 +1010,17 @@
           {
             "title": "实时口型驱动，音画毫秒同步",
             "description": "输入文本或语音，数字人的口型、面部表情与音频毫秒级同步生成，对话体验自然流畅。底层支持Wav2Lip（轻量快速）与MuseTalk（高精度）双推理引擎，根据GPU算力灵活切换。全身视频模式下仅生成口部区域再无缝贴回原始画面，保持全身出镜的高清质感。",
-            "imageUrl": "/uploads/products/5/lip-sync.jpg"
+            "imageUrl": "/uploads/products/13/lip-sync.jpg"
           },
           {
             "title": "声音克隆与12+TTS引擎",
             "description": "内置12+主流TTS引擎：CosyVoice一键声音克隆（几秒参考音频即可）、GPT-SoVITS少量训练定制、QwenTTS通义千问原生合成、Azure/腾讯云/豆包等云服务、EdgeTTS免费方案、XTTS/OmniTTS开源引擎。API调用时通过refaudio参数按会话动态切换音色，语速与情绪参数透传。",
-            "imageUrl": "/uploads/products/5/voice-clone.jpg"
+            "imageUrl": "/uploads/products/13/voice-clone.jpg"
           },
           {
             "title": "多形象管理，按需切换",
             "description": "上传任意人物视频即可自动训练生成专属数字人模型。系统支持同时管理多个形象（avatar_id），每个会话可按需指定不同的数字人出镜。支持任意服装、背景、场景的真实视频素材，企业可为不同业务线打造独立的数字人形象矩阵，一个系统承载全部对外服务。",
-            "imageUrl": "/uploads/products/5/multi-avatar.jpg"
+            "imageUrl": "/uploads/products/13/multi-avatar.jpg"
           }
         ]
       },
@@ -1030,9 +1030,9 @@
         "multiDevice": {
           "title": "三种输出方式，全场景覆盖",
           "subtitle": "浏览器、直播平台、OBS推流软件 — 一套系统全部打通",
-          "desktopUrl": "/uploads/products/5/live-stream.jpg",
-          "tabletUrl": "/uploads/products/5/recording.jpg",
-          "mobileUrl": "/uploads/products/5/api-batch.jpg",
+          "desktopUrl": "/uploads/products/13/live-stream.jpg",
+          "tabletUrl": "/uploads/products/13/recording.jpg",
+          "mobileUrl": "/uploads/products/13/cs-terminal.jpg",
           "features": [
             {
               "title": "WebRTC",
@@ -1199,7 +1199,7 @@
         "type": "architecture",
         "architecture": {
           "title": "技术架构与处理流程",
-          "imageUrl": "/uploads/products/5/architecture.jpg",
+          "imageUrl": "/uploads/products/13/architecture.jpg",
           "description": "从用户输入到数字人输出全链路：用户上传视频 → 模型训练生成数字分身 → LLM大模型流式生成对话文本 → TTS引擎实时合成语音 → Wav2Lip/MuseTalk口型驱动推理 → 全身视频无缝拼接合成 → WebRTC/RTMP/虚拟摄像头三路分发输出。支持GPU服务器部署（最低RTX 3060 8GB），Docker容器化一键启动，Apache 2.0开源协议商业友好。"
         }
       },
@@ -1222,7 +1222,7 @@
     ]
   },
   {
-    "id": "6",
+    "id": "14",
     "title": "智能法律文书批量生成系统",
     "tagline": "一次上传，整包产出——百件案件文书，分钟级交付",
     "category": "自动化与办公协同",
@@ -1235,9 +1235,9 @@
       "本地处理，数据安全：全部计算在浏览器端完成，客户案件数据不上传云端",
       "浏览器即用：无需安装任何软件，拖拽上传即可操作，零门槛上手"
     ],
-    "imageUrl": "/uploads/products/6/hero.png",
+    "imageUrl": "/uploads/products/14/hero.png",
     "imageAlt": "智能法律文书批量生成系统",
-    "order": 6,
+    "order": 14,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-right",
@@ -1249,7 +1249,7 @@
           "title": "智能法律文书批量生成系统",
           "subtitle": "一次上传，整包产出——百件案件文书，分钟级交付",
           "bgType": "image",
-          "bgUrl": "/uploads/products/6/_originals"
+          "bgUrl": "/uploads/products/14/hero.png"
         }
       },
       {
@@ -1289,17 +1289,17 @@
           {
             "title": "律师函批量生成",
             "description": "上传律师函Word模板与客户欠费数据，系统自动填充被催告人姓名、欠费明细、催告截止日期等关键信息，一键生成全部律师函。每份文书独立完整，格式统一规范，可直接打印寄送。",
-            "imageUrl": "/uploads/products/6/cap-lawyer-letter.png"
+            "imageUrl": "/uploads/products/14/cap-lawyer-letter.png"
           },
           {
             "title": "民事起诉状智能填充",
             "description": "系统自动填充当事人信息、标的金额等文本内容，更能智能识别诉讼请求选项，自动完成多选框勾选。当案件涉及本金与利息追索时，自动勾选对应选项，无需人工逐个标注。",
-            "imageUrl": "/uploads/products/6/dashboard.png"
+            "imageUrl": "/uploads/products/14/product-ui.png"
           },
           {
             "title": "违约金跨年复利自动核算",
             "description": "内置2012年至今的全部央行基准利率档位，根据每个案件的欠费起止日期自动展开逐月明细，按不同时期利率标准分段计算逾期天数，完成13档加权复利核算，生成精确到每一元的违约金计算表。",
-            "imageUrl": "/uploads/products/6/_originals"
+            "imageUrl": "/uploads/products/14/dashboard.png"
           }
         ]
       },
@@ -1347,7 +1347,7 @@
         "type": "architecture",
         "architecture": {
           "title": "系统处理流程",
-          "imageUrl": "/uploads/products/6/architecture.svg",
+          "imageUrl": "/uploads/products/14/architecture.svg",
           "description": "四步流程：①上传模板与案件数据 → ②解析文书结构并识别变量字段 → ③自动填充内容与核算违约金 → ④按客户归类打包下载。从原始数据到可交付文书，全程自动化闭环处理。"
         }
       },
@@ -1422,22 +1422,22 @@
           "items": [
             {
               "title": "律师事务所",
-              "imageUrl": "/uploads/products/6/office-scene.png",
+              "imageUrl": "/uploads/products/14/office-scene.png",
               "description": "过去百件文书制作需团队加班数日；如今上传数据即可分钟级交付，律师得以回归案件分析本身。"
             },
             {
               "title": "企业法务",
-              "imageUrl": "/uploads/products/6/product-ui.png",
+              "imageUrl": "/uploads/products/14/product-ui.png",
               "description": "以往催告函需逐份起草审核；现在系统批量生成自动填充，法务团队从重复劳动中解放，专注核心合规工作。"
             },
             {
               "title": "金融机构",
-              "imageUrl": "/uploads/products/6/architecture.svg",
+              "imageUrl": "/uploads/products/14/dashboard.png",
               "description": "传统手工制作效率低易出错；系统一键生成标准函件，每份文书格式统一内容精准，满足大规模合规催收需求。"
             },
             {
               "title": "物业管理",
-              "imageUrl": "/uploads/products/6/cap-lawyer-letter.png",
+              "imageUrl": "/uploads/products/14/cap-lawyer-letter.png",
               "description": "过去每起欠费需单独准备诉讼材料；现在一键上传数据，催告函与起诉状同步产出，批量物业纠纷标准化处理。"
             }
           ]
@@ -1482,7 +1482,7 @@
     ]
   },
   {
-    "id": "7",
+    "id": "15",
     "title": "wecom-kingdee 集成服务",
     "tagline": "企业微信审批通过即自动生成金蝶会计凭证，3秒入账，财务零手工",
     "category": "自动化与办公协同",
@@ -1495,9 +1495,9 @@
       "附件自动同步：从企业微信下载发票、行程单等原始附件，自动上传金蝶并绑定对应凭证，支持18种常见文件格式",
       "实时通知与追溯：凭证生成结果企微+邮件双通道即时通知，审批单号→凭证→附件全链路留痕，审计无忧"
     ],
-    "imageUrl": "/uploads/products/7/hero_bg.png",
+    "imageUrl": "/uploads/products/15/hero_bg.png",
     "imageAlt": "wecom-kingdee 集成服务",
-    "order": 7,
+    "order": 15,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -1509,7 +1509,7 @@
           "title": "wecom-kingdee 集成服务",
           "subtitle": "企业微信审批通过即自动生成金蝶会计凭证，3秒入账，财务零手工",
           "bgType": "image",
-          "bgUrl": "/uploads/products/7/canvas_mapping.png"
+          "bgUrl": "/uploads/products/15/hero_bg.png"
         }
       },
       {
@@ -1548,7 +1548,7 @@
         "canvas": {
           "title": "费用科目对照 · 可视化规则配置",
           "subtitle": "企业微信报销类型自动映射金蝶借贷科目，零代码配置",
-          "imageUrl": "/uploads/products/7/canvas_mapping.png",
+          "imageUrl": "/uploads/products/15/canvas_mapping.png",
           "imageAlt": "wecom-kingdee 费用科目对照管理后台",
           "description": "管理员在后台完成全部配置：费用类型、借贷科目、启用状态、备注规则一目了然。支持搜索、编辑、新增，配置完成后审批通过即自动匹配，无需切换系统。",
           "features": [
@@ -1578,7 +1578,7 @@
           "title": "审批通过 → 凭证通知秒达",
           "subtitle": "员工在企业微信即时收到凭证同步结果，借贷分录与附件状态一目了然",
           "content": "当报销审批通过，系统自动完成费用解析、科目匹配、凭证生成与附件同步。员工会在企业微信即时收到凭证同步成功通知，包含金蝶凭证号、借贷分录明细、附件下载绑定状态。无需财务逐条通知，审批单号到凭证号全链路可追溯。",
-          "imageUrl": "/uploads/products/7/canvas_notification.png",
+          "imageUrl": "/uploads/products/15/canvas_notification.png",
           "imageAlt": "企业微信凭证同步成功通知",
           "imagePosition": "left",
           "align": "left"
@@ -1671,22 +1671,22 @@
           "items": [
             {
               "title": "中小企业 · 财务共享",
-              "imageUrl": "/uploads/products/7/scenario_sme.png",
+              "imageUrl": "/uploads/products/15/scenario_sme.png",
               "description": "月报销单量100-2000笔，财务2-5人，金蝶精斗云为唯一账务系统。上线后每月节省30+小时重复劳动，凭证零差错。"
             },
             {
               "title": "连锁零售 · 多门店统一核算",
-              "imageUrl": "/uploads/products/7/scenario_retail.png",
+              "imageUrl": "/uploads/products/15/scenario_retail.png",
               "description": "门店多、单据多、附件多，需要统一科目与凭证格式。总部财务集中审单、集中入账，全门店凭证格式统一，对账自动完成。"
             },
             {
               "title": "专业服务 · 项目制核算",
-              "imageUrl": "/uploads/products/7/scenario_service.png",
+              "imageUrl": "/uploads/products/15/scenario_service.png",
               "description": "按项目归集费用，凭证需含项目编码。规则灵活可定制，审计要求高的场景下，项目费用自动归集，审计无忧。"
             },
             {
               "title": "成长型互联网公司",
-              "imageUrl": "/uploads/products/7/scenario_tech.png",
+              "imageUrl": "/uploads/products/15/scenario_tech.png",
               "description": "审批流程数字化先行，金蝶精斗云+企微多端协同。要求快速上线、轻量集成，无专职运维。一周上线，零运维负担。"
             }
           ]
@@ -1756,7 +1756,7 @@
     ]
   },
   {
-    "id": "8",
+    "id": "16",
     "title": "智能办公助理",
     "tagline": "在企微里聊天，就能办公——用自然语言对话替代表单填写与系统跳转",
     "category": "自动化与办公协同",
@@ -1769,9 +1769,9 @@
       "多轮对话交互：无需一次说全，像聊天一样逐步补充信息",
       "假种实时校验：与企业微信审批模板实时校验，避免错误提交"
     ],
-    "imageUrl": "/uploads/products/8/hero_bg.png",
+    "imageUrl": "/uploads/products/16/hero_bg.png",
     "imageAlt": "智能办公助理",
-    "order": 8,
+    "order": 16,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -1783,7 +1783,7 @@
           "title": "智能办公助理",
           "subtitle": "在企微里聊天，就能办公——用自然语言对话替代表单填写与系统跳转",
           "bgType": "image",
-          "bgUrl": "/uploads/products/8/1783758493438-7h0mpekixpd.png"
+          "bgUrl": "/uploads/products/16/hero_bg.png"
         }
       },
       {
@@ -1793,17 +1793,17 @@
           {
             "title": "对话式请假审批",
             "description": "员工用日常口语描述请假需求，系统自动提取信息、校验假种、组装表单并提交审批。支持年假、病假、事假、调休假、陪产假等多种假种，口语化表述自动识别。可分多次对话补充信息，支持上传病假证明等图片附件。",
-            "imageUrl": "/uploads/products/8/user_mobile_screens.png"
+            "imageUrl": "/uploads/products/16/user_mobile_screens.png"
           },
           {
             "title": "企业知识问答",
             "description": "接入企业专属知识库，覆盖人事制度、行政规范、IT 指南、财务报销规则等。员工用自然语言提问，即时获得基于企业真实文档的准确回答，有据可依，避免 AI 编造信息。7×24 小时在线，服务异常时自动降级。",
-            "imageUrl": "/uploads/products/8/1783759423416-ngo81mvlm6.png"
+            "imageUrl": "/uploads/products/16/1783759423416-ngo81mvlm6.png"
           },
           {
             "title": "请假进度全维度追踪",
             "description": "员工不仅能请假，还能随时通过对话查询审批进度和历史记录。说「最近请假怎么样了」自动定位最新申请，展示完整审批状态。支持单号查询、日期智能匹配，以及月度请假统计汇总。",
-            "imageUrl": "/uploads/products/8/user_pc_chat.png"
+            "imageUrl": "/uploads/products/16/user_pc_chat.png"
           }
         ]
       },
@@ -1856,17 +1856,17 @@
             {
               "title": "新员工入职咨询",
               "description": "新员工入职时面临大量制度文档，通过智能助理直接提问即可获得即时解答，降低入职适应成本，减轻 HR 重复咨询压力。",
-              "imageUrl": "/uploads/products/8/scenario_onboard.png"
+              "imageUrl": "/uploads/products/16/scenario_onboard.png"
             },
             {
               "title": "日常请假快捷办理",
               "description": "员工生病或临时有事需要请假，在企业微信里发一条消息就能提交请假申请，附带医院证明照片，全程手机端完成。",
-              "imageUrl": "/uploads/products/8/scenario_leave.png"
+              "imageUrl": "/uploads/products/16/scenario_leave.png"
             },
             {
               "title": "制度规范即时查询",
               "description": "员工对报销标准、考勤规则等日常制度问题高度重复。智能助理基于企业知识库即时回答，保证准确一致，释放行政和 HR 团队压力。",
-              "imageUrl": "/uploads/products/8/scenario_policy.png"
+              "imageUrl": "/uploads/products/16/scenario_policy.png"
             }
           ]
         }
@@ -1910,7 +1910,7 @@
     ]
   },
   {
-    "id": "9",
+    "id": "17",
     "title": "流水智算",
     "tagline": "上传一份流水，自动生成完整收支统计报告",
     "category": "自动化与办公协同",
@@ -1923,9 +1923,9 @@
       "一键汇总输出：生成 Markdown 统计报告，含总收支、净差额、有效记录数四项核心指标",
       "强大容错能力：针对页码跨行、空行干扰、PDF 拆字等问题内置预处理修复"
     ],
-    "imageUrl": "/uploads/products/9/hero_bg.png",
+    "imageUrl": "/uploads/products/17/hero_bg.png",
     "imageAlt": "流水智算产品主图",
-    "order": 9,
+    "order": 17,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -1937,7 +1937,7 @@
           "title": "流水智算",
           "subtitle": "上传微信/支付宝流水文件，AI 自动识别解析，一键输出收支统计报告",
           "bgType": "image",
-          "bgUrl": "/uploads/products/9/architecture.svg"
+          "bgUrl": "/uploads/products/17/hero_bg.png"
         }
       },
       {
@@ -1977,32 +1977,32 @@
           {
             "title": "智能平台识别",
             "description": "自动判断上传的流水文件属于微信支付还是支付宝，无需用户手动选择，两种平台的解析策略可无缝切换。",
-            "imageUrl": "/uploads/products/9/cap_recognize.svg"
+            "imageUrl": "/uploads/products/17/cap_recognize.svg"
           },
           {
             "title": "逐条精准提取",
             "description": "针对支付宝和微信流水的不同格式，采用定制化解析算法，精准定位并提取每笔交易的金额、交易对方、时间等关键信息。",
-            "imageUrl": "/uploads/products/9/cap_extract.svg"
+            "imageUrl": "/uploads/products/17/cap_extract.svg"
           },
           {
             "title": "不计收支隔离",
             "description": "自动识别并隔离支付宝流水中的不计收支记录，不计入收入或支出的汇总统计，已对PDF换行拆字等问题进行预处理修复。",
-            "imageUrl": "/uploads/products/9/cap_isolate.svg"
+            "imageUrl": "/uploads/products/17/cap_isolate.svg"
           },
           {
             "title": "退款自动抵扣",
             "description": "智能识别不计收支中的退款记录，自动匹配对应的支出项，从总支出中予以扣除，避免重复计算。",
-            "imageUrl": "/uploads/products/9/cap_refund.svg"
+            "imageUrl": "/uploads/products/17/cap_refund.svg"
           },
           {
             "title": "一键汇总输出",
             "description": "处理完成后直接生成一份清晰的Markdown格式统计报告，包含总收入、总支出、净差额、有效记录数四项核心指标。",
-            "imageUrl": "/uploads/products/9/cap_summary.svg"
+            "imageUrl": "/uploads/products/17/cap_summary.svg"
           },
           {
             "title": "强大容错能力",
             "description": "针对页码标记跨行、空行干扰、PDF换行碎片化等各种已知干扰场景，内置预处理逻辑进行兜底。",
-            "imageUrl": "/uploads/products/9/cap_robust.svg"
+            "imageUrl": "/uploads/products/17/cap_robust.svg"
           }
         ]
       },
@@ -2051,7 +2051,7 @@
         "type": "architecture",
         "architecture": {
           "title": "四步完成流水统计",
-          "imageUrl": "/uploads/products/9/architecture.svg",
+          "imageUrl": "/uploads/products/17/architecture.svg",
           "description": "从原始文件上传到结构化报告输出，全程零人工干预。系统自动识别平台、解析流水、抵扣退款、汇总报告，平均 10 秒即可交付一份完整的 Markdown 收支统计。"
         }
       },
@@ -2063,22 +2063,22 @@
           "items": [
             {
               "title": "个人财务管理",
-              "imageUrl": "/uploads/products/9/scenario_personal.png",
+              "imageUrl": "/uploads/products/17/scenario_personal.png",
               "description": "快速统计个人或家庭月度收支，无需逐条计算，掌握财务状况"
             },
             {
               "title": "审计与合规",
-              "imageUrl": "/uploads/products/9/scenario_audit.png",
+              "imageUrl": "/uploads/products/17/scenario_audit.png",
               "description": "批量处理流水并自动生成结构化报告，为审计合规提供便利"
             },
             {
               "title": "财务对账",
-              "imageUrl": "/uploads/products/9/scenario_reconcile.png",
+              "imageUrl": "/uploads/products/17/scenario_reconcile.png",
               "description": "智能识别退款并完成抵扣，避免重复计算，确保对账准确"
             },
             {
               "title": "企业报销辅助",
-              "imageUrl": "/uploads/products/9/scenario_reimburse.png",
+              "imageUrl": "/uploads/products/17/scenario_reimburse.png",
               "description": "员工上传流水自动生成支出明细，简化企业报销流程"
             }
           ]
@@ -2123,7 +2123,7 @@
     ]
   },
   {
-    "id": "10",
+    "id": "18",
     "title": "SQLBot 智能数据分析平台",
     "tagline": "自然语言对话，秒级生成SQL与可视化图表",
     "category": "智能决策与分析",
@@ -2138,9 +2138,9 @@
       "工作空间隔离：多租户数据隔离，行级权限控制，审计日志全程留痕",
       "MCP协议支持：通过MCP协议与其他AI助手交互，扩展系统边界"
     ],
-    "imageUrl": "/uploads/products/10/hero-bg.jpg",
+    "imageUrl": "/uploads/products/18/hero-bg.jpg",
     "imageAlt": "SQLBot 智能数据分析平台",
-    "order": 10,
+    "order": 18,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -2152,7 +2152,7 @@
           "title": "SQLBot 智能数据分析平台",
           "subtitle": "自然语言对话，秒级生成SQL与可视化图表",
           "bgType": "image",
-          "bgUrl": "/uploads/products/10/cap-chart-prediction.jpg"
+          "bgUrl": "/uploads/products/18/hero-bg.jpg"
         }
       },
       {
@@ -2192,22 +2192,22 @@
           {
             "title": "自然语言转SQL",
             "description": "用户用自然语言描述数据需求，系统通过术语匹配、表结构向量检索、SQL示例匹配，自动构建精准Prompt，调用大语言模型生成符合目标数据库语法的SQL。支持复杂多表联查、聚合计算、条件筛选。",
-            "imageUrl": "/uploads/products/10/cap-model-kb.jpg"
+            "imageUrl": "/uploads/products/18/cap-sql-gen.jpg"
           },
           {
             "title": "智能图表与数据分析",
             "description": "查询结果自动转换为可视化图表，系统智能推荐图表类型。支持数据分析摘要自动生成，基于历史数据识别趋势、异常和关联性。还可基于时间序列数据完成预测分析，输出预测报告与建议。",
-            "imageUrl": "/uploads/products/10/cap-sql-gen.jpg"
+            "imageUrl": "/uploads/products/18/cap-chart-prediction.jpg"
           },
           {
             "title": "模型配置与业务知识库",
             "description": "统一管理多种大语言模型（OpenAI、通义千问、智谱GLM、文心一言、Yi等），支持一键切换与连通性测试。业务知识库支持术语定义、SQL示例导入与向量化训练，让模型更懂业务。",
-            "imageUrl": "/uploads/products/10/cap-chart-prediction.jpg"
+            "imageUrl": "/uploads/products/18/cap-model-kb.jpg"
           },
           {
             "title": "企业级安全与审计",
             "description": "工作空间隔离、行级权限控制、字段级可见性管理，确保数据安全。完整审计日志记录所有查询操作、Token消耗与耗时，支持操作追溯与合规审计。",
-            "imageUrl": "/uploads/products/10/cap-security.jpg"
+            "imageUrl": "/uploads/products/18/cap-security.jpg"
           }
         ]
       },
@@ -2269,22 +2269,22 @@
           "items": [
             {
               "title": "经营分析会议",
-              "imageUrl": "/uploads/products/10/scenario-analysis.png",
+              "imageUrl": "/uploads/products/18/scenario-analysis.png",
               "description": "跨部门经营分析会上，管理层用自然语言提问，秒级获取销售趋势、库存分析、成本结构等数据，支持多维度对比，决策效率提升10倍。"
             },
             {
               "title": "财务数据查询",
-              "imageUrl": "/uploads/products/10/cap-model-kb.jpg",
+              "imageUrl": "/uploads/products/18/cap-chart-prediction.jpg",
               "description": "财务人员无需学习SQL，通过对话式查询快速获取应收应付、利润分析、现金流趋势，从小时级缩短到分钟级。"
             },
             {
               "title": "运营数据监控",
-              "imageUrl": "/uploads/products/10/cap-security.jpg",
+              "imageUrl": "/uploads/products/18/cap-sql-gen.jpg",
               "description": "运营团队实时监控用户增长、转化率、留存率等核心指标，异常自动告警，数据驱动精细化运营。"
             },
             {
               "title": "研发数据洞察",
-              "imageUrl": "/uploads/products/10/cap-sql-gen.jpg",
+              "imageUrl": "/uploads/products/18/cap-model-kb.jpg",
               "description": "研发团队通过自然语言查询Bug分布、代码提交趋势、版本发布质量，快速定位问题领域。"
             }
           ]
@@ -2329,7 +2329,7 @@
     ]
   },
   {
-    "id": "11",
+    "id": "19",
     "title": "小智AI赛博朋克智能相框",
     "tagline": "硬核手工铜线走线 × 小智AI全双工语音交互 × 18650无线便携——把AI艺术品放上你的桌面",
     "category": "工业智能物联",
@@ -2344,9 +2344,9 @@
       "个性化深度定制：支持自定义唤醒词、AI角色设定、音色风格与待机界面UI",
       "开放硬件架构：基于开源小智AI生态，支持创客DIY扩展与STEM教育"
     ],
-    "imageUrl": "/uploads/products/11/hero-main.jpg",
+    "imageUrl": "/uploads/products/19/hero-main.jpg",
     "imageAlt": "小智AI赛博朋克智能相框",
-    "order": 11,
+    "order": 19,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-right",
@@ -2358,7 +2358,7 @@
           "title": "小智AI赛博朋克智能相框",
           "subtitle": "硬核手工铜线走线 × 小智AI全双工语音交互 × 18650无线便携——把AI艺术品放上你的桌面",
           "bgType": "image",
-          "bgUrl": "/uploads/products/11/architecture-exploded.jpg"
+          "bgUrl": "/uploads/products/19/hero-main.jpg"
         }
       },
       {
@@ -2398,17 +2398,17 @@
           {
             "title": "赛博朋克与极客美学",
             "description": "打破传统数码相框的刻板印象，采用独特的裸露铜丝手工走线与透明开放式结构设计。将ESP32核心板、液晶屏幕、麦克风与扬声器等硬核电子元器件直接呈现在用户面前，化为桌面上的科技艺术品。底部点缀复古LED灯丝，由系统动态控制颜色与亮度，作为智能助手的\"呼吸\"与状态指示灯，呈现出极具未来感与工业风的视觉冲击。每一台相框的铜线走线都经过手工精心焊接与布局，兼具电路功能性与装饰艺术性。",
-            "imageUrl": "/uploads/products/11/cap-dual.jpg"
+            "imageUrl": "/uploads/products/19/hero-main.jpg"
           },
           {
             "title": "端云协同AI语音交互",
             "description": "内置小智AI核心架构，支持高灵敏度数字麦克风拾音与高保真腔体扬声器外放。通过流式ASR语音识别+LLM大模型语义理解+TTS语音合成技术，用户可以与相框进行低延迟、全双工的自然语音对话。系统支持随时打断、上下文记忆与多轮连续对话，无论是查询天气、闲聊陪伴、知识问答还是智能提醒，它都能快速理解并准确回应，成为桌面上最贴心的AI助手。",
-            "imageUrl": "/uploads/products/11/cap-voice.jpg"
+            "imageUrl": "/uploads/products/19/cap-voice.jpg"
           },
           {
             "title": "无线便携与电池供电",
             "description": "集成18650大容量可充电锂电池供电方案，Type-C接口充电，彻底摆脱线缆束缚。无论是在客厅茶几、书房桌面还是卧室床头，都能作为精美的科技艺术品独立放置。低功耗待机设计使其可以全天候在线待命，用户随时随地唤醒即可开始对话。支持边充边用，连接Type-C线缆后可作为常驻桌面摆件持续运行，兼顾便携性与长期部署需求。",
-            "imageUrl": "/uploads/products/11/1783992395018-dvzna914guo.jpeg"
+            "imageUrl": "/uploads/products/19/cap-dual.jpg"
           }
         ]
       },
@@ -2470,17 +2470,17 @@
           "items": [
             {
               "title": "桌面极客潮玩与科技摆件",
-              "imageUrl": "/uploads/products/11/1783992438373-0v2e21gwnmfh.jpg",
+              "imageUrl": "/uploads/products/19/scene-desk.png",
               "description": "独特的裸露电路设计与复古灯丝结合，使其成为桌面上最吸睛的科技潮玩。内置的双屏显示不仅可以展示动态时间、天气信息，还能根据语音交互状态呈现生动的AI表情反馈，极大地提升了桌面的科技氛围与个性表达。"
             },
             {
               "title": "贴心智能陪伴助手",
-              "imageUrl": "/uploads/products/11/scene-companion.png",
+              "imageUrl": "/uploads/products/19/scene-companion.png",
               "description": "它不仅是一个摆件，更是一个拥有灵魂的陪伴伴侣。接入主流大模型后，相框具备丰富的人格特性与知识储备，为你提供全天候的语音问答、效率提醒、情感交流与生活陪伴，随时唤醒立即回应。"
             },
             {
               "title": "个性化DIY与创客教育",
-              "imageUrl": "/uploads/products/11/scene-soldering.png",
+              "imageUrl": "/uploads/products/19/scene-soldering.png",
               "description": "开放式硬件架构极大地激发了创客的动手热情。通过裸铜线手工焊接与电路布局，不仅展示了电子电路之美，也为青少年STEM教育和DIY爱好者提供了一个极佳的软硬件结合实践与学习平台。"
             }
           ]
@@ -2491,7 +2491,7 @@
         "type": "architecture",
         "architecture": {
           "title": "硬件组成与核心架构",
-          "imageUrl": "/uploads/products/11/architecture-exploded.jpg",
+          "imageUrl": "/uploads/products/19/architecture-exploded.jpg",
           "description": "五层模块化架构：顶层用户语音输入交互→双屏视觉与LED灯丝多模态反馈→ESP32-S3核心与小智AI固件层（8MB PSRAM+16MB Flash）→Wi-Fi联网与云端LLM大模型协同（流式ASR+LLM+TTS）→底层麦克风/扬声器/18650锂电池硬件支撑。核心元器件包括：ESP32核心开发板（计算中枢与Wi-Fi连接）、独立数字麦克风与大功率腔体扬声器（语音输入输出）、双显示屏（视觉信息与互动UI）、LED发光灯丝（复古状态指示灯）、18650锂电池（超长续航无线供电）。"
         }
       },
@@ -2559,7 +2559,7 @@
     ]
   },
   {
-    "id": "12",
+    "id": "20",
     "title": "小智AI智能小车",
     "tagline": "基于ESP32与大模型融合，支持语音控制与MCP智能联动的下一代AI移动终端",
     "category": "工业智能物联",
@@ -2574,9 +2574,9 @@
       "开源硬件生态：全面开放硬件接口与软件SDK，适合STEM教育与二次开发",
       "模块化灵活扩展：支持外接摄像头、云台、氛围灯带等，按需组合构建专属功能"
     ],
-    "imageUrl": "/uploads/products/12/hero-bg.png",
+    "imageUrl": "/uploads/products/20/hero-bg.png",
     "imageAlt": "小智AI智能小车",
-    "order": 12,
+    "order": 20,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -2588,7 +2588,7 @@
           "title": "小智AI智能小车",
           "subtitle": "基于ESP32与大模型融合，支持语音控制与MCP智能联动的下一代AI移动终端",
           "bgType": "image",
-          "bgUrl": "/uploads/products/12/1783992716347-3o4hjoaxmm7.jpeg"
+          "bgUrl": "/uploads/products/20/hero-bg.png"
         }
       },
       {
@@ -2628,17 +2628,17 @@
           {
             "title": "全双工流式AI语音交互",
             "description": "采用流式ASR+LLM+TTS架构，内置ESP-SR离线语音唤醒引擎。用户可通过自然语言直接对小车下达指令，例如「向前走」「跳个舞」「避开障碍物」等。小车内置大模型（Qwen/DeepSeek）会实时解析语义意图并精准执行，支持随时打断、上下文记忆与多轮连续对话，实现真正的智能语音操控体验。",
-            "imageUrl": "/uploads/products/12/1783992765312-7cx9xis0s2w.jpeg"
+            "imageUrl": "/uploads/products/20/cap-voice.png"
           },
           {
             "title": "强大的MCP双向协议控制",
             "description": "借助设备端与云端MCP接口形成的双向控制闭环，不仅能实现基础的底盘运动控制（如方向、速度、PWM调速）和GPIO外设（灯光、云台、舵机）联动，还能让小车作为移动的智能控制中枢——接入智能家居环境、执行云端知识检索或邮件收发等进阶任务，赋予小车「思考」与「行动」的双重能力。",
-            "imageUrl": "/uploads/products/12/cap-mcp.png"
+            "imageUrl": "/uploads/products/20/cap-mcp.png"
           },
           {
             "title": "多模态感知与灵活扩展",
             "description": "全面兼容ESP32-C3/S3高性能平台，原生支持超声波测距避障、红外循线导航、IMU姿态感知和OLED动态表情屏。通讯协议同时支持Websocket与MQTT+UDP，满足不同场景下的低延迟通信需求。模块化硬件接口支持外接摄像头、4G通讯模块、氛围灯带等，按需构建专属功能。",
-            "imageUrl": "/uploads/products/12/cap-sensors.png"
+            "imageUrl": "/uploads/products/20/cap-sensors.png"
           }
         ]
       },
@@ -2700,17 +2700,17 @@
           "items": [
             {
               "title": "STEM教育与创客启蒙",
-              "imageUrl": "/uploads/products/12/scene-classroom.png",
+              "imageUrl": "/uploads/products/20/scene-classroom.png",
               "description": "结合开源生态和丰富的硬件接口，非常适合青少年编程教育和极客入门。学生不仅能学习硬件结构与电机控制，更能零距离体验前沿大语言模型应用开发，从硬件到AI全链路实践。"
             },
             {
               "title": "移动级智能陪伴机器人",
-              "imageUrl": "/uploads/products/12/scene-home.png",
+              "imageUrl": "/uploads/products/20/scene-home.png",
               "description": "搭载OLED屏幕（动态表情反馈）和声纹识别，小智AI智能小车能够识别互动者身份，成为可在屋内灵活移动、提供百科问答与情感互动的专属AI机器宠物。"
             },
             {
               "title": "智能巡逻与AIoT探索",
-              "imageUrl": "/uploads/products/12/scene-patrol.png",
+              "imageUrl": "/uploads/products/20/scene-patrol.png",
               "description": "凭借低功耗表现与4G网络扩展能力，小车可作为移动式IoT节点进行室内巡视与环境数据采集，是企业与科研机构验证AIoT融合方案的绝佳载体。"
             }
           ]
@@ -2721,7 +2721,7 @@
         "type": "architecture",
         "architecture": {
           "title": "五层系统架构",
-          "imageUrl": "/uploads/products/12/architecture.svg",
+          "imageUrl": "/uploads/products/20/architecture.svg",
           "description": "五层模块化架构：用户语音输入层→流式AI处理层（ASR+LLM+TTS）→MCP双向协议控制层→运动控制/显示/传感模块→ESP32主控与通信基座。将澎湃的AI算力装进移动底盘，让每一台小车都能听懂指令、独立思考并敏捷行动。"
         }
       },
@@ -2789,7 +2789,7 @@
     ]
   },
   {
-    "id": "13",
+    "id": "21",
     "title": "小智AI智能语音交互系统",
     "tagline": "基于ESP32与多端大模型融合的全语音交互终端一站式解决方案",
     "category": "工业智能物联",
@@ -2804,9 +2804,9 @@
       "私有化灵活部署：支持Python/Java/Golang服务端自建，对接企业私有LLM与数据库",
       "量产级稳定性：固件OTA升级、云端配置热加载、完善的开发文档与技术支持体系"
     ],
-    "imageUrl": "/uploads/products/13/1783993768851-ph6d3uxvuds.jpeg",
+    "imageUrl": "/uploads/products/21/hero-bg.png",
     "imageAlt": "小智AI智能语音交互系统",
-    "order": 13,
+    "order": 21,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -2818,7 +2818,7 @@
           "title": "小智AI智能语音交互系统",
           "subtitle": "基于ESP32与多端大模型融合的全语音交互终端一站式解决方案",
           "bgType": "image",
-          "bgUrl": "/uploads/products/13/1783993882220-1u0b7mb1hag.jpeg"
+          "bgUrl": "/uploads/products/21/hero-bg.png"
         }
       },
       {
@@ -2858,17 +2858,17 @@
           {
             "title": "端云协同的高能AI语音交互",
             "description": "采用流式ASR+LLM+TTS架构，内置ESP-SR离线语音唤醒引擎与3D Speaker声纹识别。用户只需自然发声，即可直接与主流大模型（Qwen/DeepSeek）进行低延迟的全双工对话。支持多轮上下文记忆、随时打断、连续对话，覆盖知识问答、闲聊陪伴、智能提醒等全部语音交互场景。高质量OPUS音频编解码保障清晰拾音与自然合成。",
-            "imageUrl": "/uploads/products/13/cap-voice.png"
+            "imageUrl": "/uploads/products/21/cap-voice.png"
           },
           {
             "title": "强大的MCP协议设备互联",
             "description": "通过设备端与云端MCP接口构成的完整控制链路，原生赋予大模型调用底层硬件与外部服务的能力。不仅是智能对话——更能实现GPIO的灯光开关、电机的PWM调速、音量的智能调节，并扩展至云端智能家居全屋控制、PC桌面操作、知识库检索、邮件收发等进阶服务，将大模型从「对话者」升级为「行动者」。",
-            "imageUrl": "/uploads/products/13/cap-mcp.png"
+            "imageUrl": "/uploads/products/21/cap-mcp.png"
           },
           {
             "title": "跨平台极简连接与全硬件适配",
             "description": "系统支持Wi-Fi与ML307 Cat.1 4G双模网络通讯，通信协议同时支持Websocket与MQTT+UDP。全面兼容ESP32-C3/S3/P4等主流芯片平台，原生支持超70款开源开发板及商业产品的快速接入。提供详尽的「自定义开发板指南」，并能在底层通讯及驱动层面提供专业技术指导，加速从原型到量产的全周期。",
-            "imageUrl": "/uploads/products/13/cap-boards.png"
+            "imageUrl": "/uploads/products/21/cap-boards.png"
           }
         ]
       },
@@ -2930,17 +2930,17 @@
           "items": [
             {
               "title": "桌面AI助手与陪伴机器人",
-              "imageUrl": "/uploads/products/13/scene-desk.png",
+              "imageUrl": "/uploads/products/21/scene-desk.png",
               "description": "借助OLED/LCD显示屏与定制化UI，模块可打造为具有人格特性的桌面数字分身，提供信息查询、知识问答以及全天候情感陪伴。"
             },
             {
               "title": "全屋IoT控制中枢",
-              "imageUrl": "/uploads/products/13/scene-home.png",
+              "imageUrl": "/uploads/products/21/scene-home.png",
               "description": "集成MCP协议可轻松扩展家庭物联网能力。用户通过语音即可控制照明、智能插座、电动窗帘等设备，成为全屋智能核心交互中枢。"
             },
             {
               "title": "可穿戴式智能与极客潮玩",
-              "imageUrl": "/uploads/products/13/scene-wearable.png",
+              "imageUrl": "/uploads/products/21/scene-wearable.png",
               "description": "低功耗和高集成度使其可嵌入极简硬件外壳，如智能AI吊坠、桌面机器狗等创新产品，丰富儿童教育玩具和极客开发生态。"
             }
           ]
@@ -2951,7 +2951,7 @@
         "type": "architecture",
         "architecture": {
           "title": "五层技术架构",
-          "imageUrl": "/uploads/products/13/architecture.svg",
+          "imageUrl": "/uploads/products/21/architecture.svg",
           "description": "五层架构：语音唤醒输入层→流式AI引擎层（ASR+LLM+TTS）→MCP双向协议控制层→设备/IoT/交互执行层→ESP32多系列硬件基座。基于流式ASR+LLM+TTS框架与多端MCP协议技术，为万物互联设备注入澎湃的AI算力与智能控制能力。"
         }
       },
@@ -3019,7 +3019,7 @@
     ]
   },
   {
-    "id": "14",
+    "id": "22",
     "title": "小智CC1101 AI智能门禁模块",
     "tagline": "基于ESP32-S3与CC1101的AI语音门禁与433MHz射频克隆一站式解决方案",
     "category": "工业智能物联",
@@ -3034,9 +3034,9 @@
       "不改原有门禁系统：仅需复制433MHz遥控器信号即可实现AI开门，零施工零改造",
       "多设备集中控制：一部模块可学习多个遥控器，集中管理门锁/窗帘/卷帘/插座等433MHz设备"
     ],
-    "imageUrl": "/uploads/products/14/1783994892729-kxnzyhr3tk.jpeg",
+    "imageUrl": "/uploads/products/22/hero-bg.png",
     "imageAlt": "小智CC1101 AI智能门禁模块",
-    "order": 14,
+    "order": 22,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -3048,7 +3048,7 @@
           "title": "小智CC1101 AI智能门禁模块",
           "subtitle": "基于ESP32-S3与CC1101的AI语音门禁与433MHz射频克隆一站式解决方案",
           "bgType": "image",
-          "bgUrl": "/uploads/products/14/1783994928181-k8mmzvg8ubk.jpeg"
+          "bgUrl": "/uploads/products/22/hero-bg.png"
         }
       },
       {
@@ -3088,17 +3088,17 @@
           {
             "title": "AI语音全双工交互控制",
             "description": "依托小智AI的端云协同架构，模块内置I2S高保真音频系统（INMP441数字麦克风+MAX98357A D类功放）。用户可以直接通过自然语言与大模型对话来控制门锁，例如说「帮我打开门锁」，系统即可完成语音识别→意图解析→MCP调用→射频发射的全链路闭环。支持随时打断、上下文记忆与多轮连续对话，同时也是一款全功能的AI语音助手。",
-            "imageUrl": "/uploads/products/14/1783995027276-0fxsfekmpr9j.jpeg"
+            "imageUrl": "/uploads/products/22/cap-door.png"
           },
           {
             "title": "智能433MHz射频克隆",
             "description": "打破繁琐的硬件配对流程，模块支持基于433MHz频段Sub-1GHz的智能射频信号学习。系统通过CC1101高性能射频收发器精准捕捉并比对遥控器的无线波形，实现对传统车库门遥控器、小区门禁卡、电动卷帘门、遥控窗帘等433MHz设备的高效克隆。一部模块可同时学习并存储多个遥控器信号，成为集中化射频设备管理中心。",
-            "imageUrl": "/uploads/products/14/cap-rf.png"
+            "imageUrl": "/uploads/products/22/cap-rf.png"
           },
           {
             "title": "MCP协议大模型直连与可视化反馈",
             "description": "系统原生通过设备端MCP接口将CC1101射频能力注册给云端AI。大模型根据用户的自然语言意图精准调用底层接口，触发CC1101模块发射对应的射频信号。1.54寸TFT屏幕实时显示门禁开/关状态、遥控器学习进度与克隆成功/失败提示，交互过程全程可视化。ST7789驱动240×240高清彩屏还支持动态表情反馈与系统信息展示。",
-            "imageUrl": "/uploads/products/14/1783994973925-6w8okrzlj5r.jpeg"
+            "imageUrl": "/uploads/products/22/cap-desk.png"
           }
         ]
       },
@@ -3160,17 +3160,17 @@
           "items": [
             {
               "title": "旧式门禁AI改造",
-              "imageUrl": "/uploads/products/14/scene-gate.png",
+              "imageUrl": "/uploads/products/22/scene-gate.png",
               "description": "无需更改原有门禁电控系统，只需复制原有的433MHz遥控器信号，即可为旧小区门禁、办公室电磁锁增加高端的AI语音开门体验，施工成本趋近于零。"
             },
             {
               "title": "全屋传统家电集中升级",
-              "imageUrl": "/uploads/products/14/scene-home.png",
+              "imageUrl": "/uploads/products/22/scene-home.png",
               "description": "除门锁外，可广泛应用于老款遥控窗帘、电动卷帘门、投影幕布升降、遥控插座等433MHz设备的集中语音控制，一部模块统管全屋传统遥控设备。"
             },
             {
               "title": "可视化桌面智能管家",
-              "imageUrl": "/uploads/products/14/1783995093679-a8yax10quwp.png",
+              "imageUrl": "/uploads/products/22/scene-desk.png",
               "description": "借助1.54寸屏幕与交互按钮，它不仅是门禁控制器，更是可以放置在桌面上的全能AI语音助手与智能家居中控面板，工作生活两不误。"
             }
           ]
@@ -3181,7 +3181,7 @@
         "type": "architecture",
         "architecture": {
           "title": "五层硬件架构",
-          "imageUrl": "/uploads/products/14/architecture.svg",
+          "imageUrl": "/uploads/products/22/architecture.svg",
           "description": "五层架构：用户自然语言输入→I2S高保真音频+流式AI引擎→MCP协议大模型直连→ESP32-S3双核主控+1.54寸TFT交互屏→CC1101 433MHz射频模块→目标门禁/设备。基于ESP-IDF纯C++构建，中断驱动微秒级采样，提供高度模块化的硬件接口。"
         }
       },
@@ -3249,7 +3249,7 @@
     ]
   },
   {
-    "id": "15",
+    "id": "23",
     "title": "XiaoZhi AI 虚拟数字人",
     "tagline": "基于WebRTC与OpenAI Realtime API的超低延迟全双工智能交互伴侣",
     "category": "自动化与办公协同",
@@ -3264,9 +3264,9 @@
       "跨端深度适配：PC端与移动端主流浏览器完美兼容，HTTPS安全协议保障",
       "智能资源调度：自动检测空闲状态优化资源占用，断连后智能语音唤醒恢复"
     ],
-    "imageUrl": "/uploads/products/15/hero-bg.png",
+    "imageUrl": "/uploads/products/23/hero-bg.png",
     "imageAlt": "XiaoZhi AI 虚拟数字人",
-    "order": 15,
+    "order": 23,
     "showInHome": true,
     "showInNavbar": true,
     "layout": "text-left",
@@ -3278,7 +3278,7 @@
           "title": "XiaoZhi AI 虚拟数字人",
           "subtitle": "基于WebRTC与OpenAI Realtime API的超低延迟全双工智能交互伴侣",
           "bgType": "image",
-          "bgUrl": "/uploads/products/15/architecture.svg"
+          "bgUrl": "/uploads/products/23/hero-bg.png"
         }
       },
       {
@@ -3292,28 +3292,28 @@
               "size": "large",
               "title": "毫秒级全双工语音",
               "subtitle": "WebRTC实时双向音频流，打断即响应，沟通零割裂感",
-              "imageUrl": "/uploads/products/15/scene-enterprise.png",
+              "imageUrl": "/uploads/products/23/scene-enterprise.png",
               "colorBg": "#1a0a2e"
             },
             {
               "size": "small",
               "title": "Live2D动态交互",
               "subtitle": "高精度虚拟模型，实时口型同步与情绪反馈",
-              "imageUrl": "/uploads/products/15/cap-live2d.png",
+              "imageUrl": "/uploads/products/23/cap-live2d.png",
               "colorBg": "#0a1628"
             },
             {
               "size": "small",
               "title": "双模式智能适配",
               "subtitle": "连续对话与按讲模式自动切换",
-              "imageUrl": "/uploads/products/15/scene-modes.png",
+              "imageUrl": "/uploads/products/23/scene-modes.png",
               "colorBg": "#0a1a1a"
             },
             {
               "size": "tall",
               "title": "7×24不间断在线",
               "subtitle": "全天候待命，智能唤醒，资源自适应调度",
-              "imageUrl": "/uploads/products/15/scene-companion.png",
+              "imageUrl": "/uploads/products/23/scene-companion.png",
               "colorBg": "#1a0a1a"
             }
           ]
@@ -3325,7 +3325,7 @@
         "canvas": {
           "title": "数字人交互界面",
           "subtitle": "macOS风格窗口展示Live2D虚拟形象与实时语音交互",
-          "imageUrl": "/uploads/products/15/scene-dashboard.png",
+          "imageUrl": "/uploads/products/23/scene-dashboard.png",
           "imageAlt": "XiaoZhi AI虚拟数字人交互界面",
           "description": "左侧为Live2D虚拟形象实时渲染区域，支持动态表情与口型同步；右侧为交互面板，包含音频波形可视化、对话历史与状态指示。向下兼容PC浏览器与移动端H5自适应布局。",
           "features": [
@@ -3351,17 +3351,17 @@
           {
             "title": "毫秒级全双工语音交互",
             "description": "基于企业级WebRTC技术实现音频流的实时双向传输，彻底打破传统HTTP发送-等待的割裂感。您可以随时打断数字人的发言，沟通流畅度媲美真人面对面交流。集成OpenAI Realtime API，流式ASR语音识别、GPT上下文推理与TTS语音合成一体化处理，端到端响应延迟低至毫秒级。",
-            "imageUrl": "/uploads/products/15/cap-webrtc.png"
+            "imageUrl": "/uploads/products/23/cap-webrtc.png"
           },
           {
             "title": "生动的Live2D沉浸式互动",
             "description": "内置精美的高精度Live2D虚拟模型（默认560号角色），支持细腻的动态表情变化、头部跟随、眨眼与微动作。语音输出时口型实时同步，让AI真正活起来。辅以实时音频波形可视化与粒子特效反馈，不仅是声音交流，更是全感官的视觉互动体验。",
-            "imageUrl": "/uploads/products/15/cap-live2d.png"
+            "imageUrl": "/uploads/products/23/cap-live2d.png"
           },
           {
             "title": "多场景智能双语音模式",
             "description": "集成先进的VAD（语音活动检测）算法实现连续对话模式——开口即聊，无需按键。同时提供精准控制的按讲模式（Push-to-Talk），适用于嘈杂环境或需要精确控制发言时机的场景。系统根据环境噪音自动适配最佳交互方式，无论安静居家还是嘈杂办公区都能流畅使用。",
-            "imageUrl": "/uploads/products/15/cap-modes.png"
+            "imageUrl": "/uploads/products/23/cap-modes.png"
           }
         ]
       },
@@ -3373,17 +3373,17 @@
           "subtitle": "从企业前台到个人陪伴，一个数字人覆盖全场景需求",
           "items": [
             {
-              "imageUrl": "/uploads/products/15/cap-modes.png",
+              "imageUrl": "/uploads/products/23/scene-enterprise.png",
               "caption": "企业数字代言人与智能客服",
               "description": "部署于企业官网、小程序或线下展厅大屏，7×24小时提供专业有温度的客户咨询服务，显著提升品牌科技感与服务效率。"
             },
             {
-              "imageUrl": "/uploads/products/15/cap-webrtc.png",
+              "imageUrl": "/uploads/products/23/scene-companion.png",
               "caption": "专属虚拟陪伴助理",
               "description": "针对终端用户提供情绪价值、日常问答与事务处理，打造具备个性化记忆与互动的私人专属AI伴侣。"
             },
             {
-              "imageUrl": "/uploads/products/15/scene-education.png",
+              "imageUrl": "/uploads/products/23/scene-education.png",
               "caption": "教育辅导与互动培训",
               "description": "化身全天候虚拟外教或专业导师，提供极低延迟的语言对话练习、即时发音纠正与沉浸式互动教学体验。"
             }
@@ -3395,7 +3395,7 @@
         "type": "architecture",
         "architecture": {
           "title": "WebRTC + AI 技术架构",
-          "imageUrl": "/uploads/products/15/architecture.svg",
+          "imageUrl": "/uploads/products/23/architecture.svg",
           "description": "六层架构：用户端（PC/移动/大屏）→WebRTC全双工实时通信层（3秒心跳保活+NAT穿透）→OpenAI Realtime API引擎层（流式ASR+LLM+TTS）→Live2D渲染引擎+VAD双模式语音→Docker容器化部署→输出数字代言人/伴侣/导师多角色。无缝对接OpenAI Realtime API与WebRTC底层，赋予数字人顶级的上下文理解与极速流式语音能力。"
         }
       },

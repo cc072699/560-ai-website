@@ -1,0 +1,1027 @@
+[
+  {
+    "id": "1",
+    "title": "企业智能数据分析与决策系统（修改测试）",
+    "tagline": "多源异构数据分析与高频运营指标智能决策系统",
+    "category": "自动化与办公协同",
+    "description": "面向大型企业提供跨部门的数据整合、指标分析与预测性排程方案，助力管理层进行精准的运营决策及风险把控。支持私有化数据库安全对接。（修改测试）",
+    "features": [
+      "多源异构数据高速分析与指标建模",
+      "高频运营指标自动监控预警与推演",
+      "（修改测试）（修改测试）（修改测试）"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Decision Center Office",
+    "order": 1,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "swxd5dc",
+        "type": "hero",
+        "hero": {
+          "title": "企业智能数据分析与决策系统（修改测试）",
+          "subtitle": "多源异构数据分析与高频运营指标智能决策系统",
+          "bgType": "image",
+          "bgUrl": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+        }
+      },
+      {
+        "id": "qqmauk7",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          },
+          {
+            "title": "核心能力 2",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          }
+        ]
+      },
+      {
+        "id": "swhxcl4",
+        "type": "video",
+        "video": {
+          "title": "产品与案例视频演示",
+          "subtitle": "3分钟快速了解我们在该行业的落地实践与具体成效",
+          "videoUrl": ""
+        }
+      },
+      {
+        "id": "aael308",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "d29q4qn",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "全方位多场景支持，打通业务效率瓶颈",
+          "items": [
+            {
+              "title": "多源物理引擎适配",
+              "description": "支持绝大多数主流工控协议和物理设备端实时接入",
+              "highlightText": "核心"
+            },
+            {
+              "title": "秒级预测模型响应",
+              "description": "云端联合计算实现超短网络时延与高帧率仿真反馈",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "私有化离线交付",
+              "description": "支持完全的单机/私有网部署，保障核心数据资产安全"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "AI多模态大模型预测舱",
+    "tagline": "融合时序与舆情数据的供应链与需求预测系统",
+    "category": "智能决策与分析",
+    "description": "融合时序数据与行业舆情，提供供应链波动及市场需求毫秒级预测，辅助企业制定中长期战略规划，降低库存损耗并提升市场响应效率。",
+    "features": [
+      "供应链上下游波动语义关联分析",
+      "行业舆情指数与销售数据联合建模",
+      "多维度情景模拟与压力测试报告"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "AI Prediction Cabin",
+    "order": 2,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-right",
+    "detailSections": [
+      {
+        "id": "ti33h9t",
+        "type": "hero",
+        "hero": {
+          "title": "AI多模态大模型预测舱",
+          "subtitle": "融合时序与舆情数据的供应链与需求预测系统",
+          "bgType": "image",
+          "bgUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
+        }
+      },
+      {
+        "id": "mpd0dc2",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          },
+          {
+            "title": "核心能力 2",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          }
+        ]
+      },
+      {
+        "id": "weviuaj",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "设备运维",
+              "imageUrl": "",
+              "description": "实现设备巡检与状态自动推演"
+            },
+            {
+              "title": "生产制造",
+              "imageUrl": "",
+              "description": "打通流水线核心指标建模"
+            },
+            {
+              "title": "新应用场景",
+              "imageUrl": "",
+              "description": ""
+            }
+          ]
+        }
+      },
+      {
+        "id": "pdemm60",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "0e9oli4",
+        "type": "cta",
+        "cta": {
+          "title": "深度融合技术，带来行业数字化升级",
+          "description": "立即预约演示，快速了解如何助力您的企业提升整体效率。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "非结构化知识资产管理平台",
+    "tagline": "海量企业文档语义解析与毫秒级智能知识定位平台",
+    "category": "自动化与办公协同",
+    "description": "针对企业各类 PDF 手册、Word 合同、CAD 工程图纸等海量文档进行集中式解析，实现毫秒级精准知识定位，打破部门间的信息 and 文档壁垒。",
+    "features": [
+      "海量扫描件与非结构化文档语义关联解析",
+      "毫秒级精准文档溯源高亮定位与对比",
+      "细粒度多租户权限控制体系与分级加密"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Enterprise Data Room",
+    "order": 3,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "hero-sec",
+        "type": "hero",
+        "hero": {
+          "title": "非结构化知识资产管理平台",
+          "subtitle": "打破部门间的信息壁垒，实现企业海量文档的毫秒级语义检索与高亮知识定位",
+          "bgType": "image",
+          "bgUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200"
+        }
+      },
+      {
+        "id": "caps-sec",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "跨源海量文档深度解析",
+            "description": "系统全面兼容 PDF 手册、Word 合同、CAD 工程图纸及各类扫描图片，深度提取隐藏在文档中的图表、表格与公式数据，实现结构化语义整合。",
+            "imageUrl": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=1200"
+          },
+          {
+            "title": "精准高亮溯源与智能比对",
+            "description": "点击检索结果即可毫秒级跳转到源文档对应的页码与高亮位置。内置智能比对算法，清晰识别不同版本合同或规章之间的细微改动。",
+            "imageUrl": "https://images.unsplash.com/photo-1507207611509-ec012433ff52?auto=format&fit=crop&q=80&w=1200"
+          }
+        ]
+      },
+      {
+        "id": "scenes-sec",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "多维度落地应用场景",
+          "items": [
+            {
+              "title": "法务合同审查",
+              "imageUrl": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=600",
+              "description": "深度解析历年合同文件，自动提取争议条款并关联分析。"
+            },
+            {
+              "title": "研发技术文档共享",
+              "imageUrl": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=600",
+              "description": "建立庞大的产品设计手册与工程图纸语义知识图谱。"
+            },
+            {
+              "title": "新员工入职培训",
+              "imageUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600",
+              "description": "新员工一键问答，快速定位公司规章制度及日常流程操作指南。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "arch-sec",
+        "type": "architecture",
+        "architecture": {
+          "title": "平台核心技术架构",
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
+          "description": "结合多模态深度学习语义提取引擎与分布式向量数据库存储中心，提供百万级文档秒级精准反馈架构。"
+        }
+      },
+      {
+        "id": "cta-sec",
+        "type": "cta",
+        "cta": {
+          "title": "让企业的非结构化知识流转起来",
+          "description": "立即联系我们的资深知识管理专家，开启 30 天免费私有化部署体验之旅。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      },
+      {
+        "id": "r86jdpo",
+        "type": "video",
+        "video": {
+          "title": "产品与案例视频演示",
+          "subtitle": "3分钟快速了解我们在该行业的落地实践与具体成效",
+          "videoUrl": "https://www.bilibili.com/video/BV162E16VEtN/?spm_id_from=333.1007.tianma.1-2-2.click&vd_source=984ae27dd29602d81ef2c4aaec2f979d",
+          "coverUrl": ""
+        }
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "业务流程自动化协同系统",
+    "tagline": "跨系统业务流程智能化RPA全自动协同调度系统",
+    "category": "自动化与办公协同",
+    "description": "集成智能化流程控制（RPA）与跨系统调度能力，全自动流转跨 Web、ERP、日常办公文档等复杂流程，全天候静默运行，极大节省人力。",
+    "features": [
+      "跨应用、跨系统界面数据自动提取与校验",
+      "直观的工作流节点设计及快速上线调试",
+      "自动异常通知、降级重试与合规审计日志"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Business Meeting",
+    "order": 4,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left"
+  },
+  {
+    "id": "5",
+    "title": "AI智能公文与合同审查助手",
+    "tagline": "企业合同与公文合规性风险自动审计与智能修订建议",
+    "category": "自动化与办公协同",
+    "description": "针对法律合同、企业公文进行智能化合规性检查，自动识别潜在风险条款，防范潜在合规及法务漏洞，并给出智能化的条款修改及修订意见。",
+    "features": [
+      "法律条款冲突与合规性自动扫描",
+      "语义层面的违约风险多维评估",
+      "一键生成修订建议与合规报告"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Contract Review Office",
+    "order": 5,
+    "showInHome": false,
+    "showInNavbar": false,
+    "layout": "text-left"
+  },
+  {
+    "id": "6",
+    "title": "工业机器视觉智能质检系统",
+    "tagline": "高精度流水线零部件缺陷在线毫秒级识别与筛查",
+    "category": "工业智能物联",
+    "description": "通过工业高清成像设备采集，对精密五金、组装部件进行表面缺陷（划伤、孔洞、错漏）进行毫秒级自动分类筛查，控制产品漏检率。",
+    "features": [
+      "流水线零部件缺陷在线毫秒级识别与分类",
+      "支持相机自动标定与多种物理传感器对接",
+      "质检看板管理，输出异常检测统计分析周报"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Industrial Automation Line",
+    "order": 6,
+    "showInHome": false,
+    "showInNavbar": false,
+    "layout": "text-right"
+  },
+  {
+    "id": "7",
+    "title": "三维数字孪生工业控制台",
+    "tagline": "高精度厂区与生产线3D数字孪生实时联动控制系统",
+    "category": "工业智能物联",
+    "description": "构建厂区与设备的三维实时数字孪生模型，联动多源传感器数据，实现生产过程的可视化智能监控与预防性警报调度，全面提升厂区运转效率。",
+    "features": [
+      "高精度厂区及生产线3D场景重建",
+      "传感器数据实时渲染与轨迹追踪",
+      "设备寿命预测与预防性维护报警"
+    ],
+    "imageUrl": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200",
+    "imageAlt": "Digital Twin Console",
+    "order": 7,
+    "showInHome": false,
+    "showInNavbar": false,
+    "layout": "text-left"
+  },
+  {
+    "id": "8",
+    "title": "ESP32八合一安防报警系统",
+    "tagline": "基于高性能微控制器构建的综合性智能安防预警终端",
+    "category": "工业智能物联",
+    "description": "该产品深度集成了八种高灵敏度环境及物理传感器，并结合底层实时操作系统（FreeRTOS），实现了对复杂环境的多维度、无死角监控。无论是在智慧工业、智能仓储还是高端全屋智能场景，该系统都能在险情发生的毫秒级时间内做出精准响应，为您的生命与财产安全保驾护航。\n",
+    "features": [
+      "单设备集成八大核心传感器阵列（触摸、红外寻迹、声音、烟雾、火焰、震动、倾斜、光敏），覆盖入侵防盗、火灾预警、异常异动等所有高频安全场景。",
+      "依托ESP-IDF框架与FreeRTOS实时任务调度，系统以50ms（毫秒）周期高频轮询所有传感器链路，做到“触之即警”。",
+      "针对各类传感器的物理特性（如声音的瞬态性），系统内置智能脉冲拉长与独立超时计时器（3秒超时释放机制），有效滤除环境干扰与误触发。",
+      "对于烟雾、火焰等危及生命安全的险情，系统采用独立无延迟的直通报警逻辑，确保火情初期的绝对触发。",
+      "采用硬件级PWM（LEDC）驱动，输出频率可调的高分贝警报声，穿透力强，确保环境内人员第一时间获悉险情。"
+    ],
+    "imageUrl": "/uploads/1783564511550-otzkit6zvx.jpg",
+    "imageAlt": "",
+    "order": 8,
+    "showInHome": false,
+    "showInNavbar": false,
+    "layout": "text-right",
+    "detailSections": [
+      {
+        "id": "91g9exv",
+        "type": "hero",
+        "hero": {
+          "title": "ESP32八合一安防报警系统",
+          "subtitle": "基于高性能微控制器构建的综合性智能安防预警终端",
+          "bgType": "image",
+          "bgUrl": "/uploads/1783564511550-otzkit6zvx.jpg"
+        }
+      },
+      {
+        "id": "zk5rvl2",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          },
+          {
+            "title": "核心能力 2",
+            "description": "描述该能力的具体表现、带来的业务价值以及应用成效...",
+            "imageUrl": ""
+          }
+        ]
+      },
+      {
+        "id": "9j1yxwv",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "设备运维",
+              "imageUrl": "",
+              "description": "实现设备巡检与状态自动推演"
+            },
+            {
+              "title": "生产制造",
+              "imageUrl": "",
+              "description": "打通流水线核心指标建模"
+            }
+          ]
+        }
+      },
+      {
+        "id": "opscbmg",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "n1zjh40",
+        "type": "timeline",
+        "timeline": {
+          "title": "落地实施与服务流程",
+          "subtitle": "我们提供端到端的贴身规划与系统平滑上线支持",
+          "steps": [
+            {
+              "title": "需求调研与环境规划",
+              "description": "深入业务一线进行软硬件环境与物理数据流建模规划",
+              "duration": "阶段一 (第1-2周)"
+            },
+            {
+              "title": "系统部署与模型定制",
+              "description": "现场/私有化交付系统并针对客户特定业务微调垂直模型",
+              "duration": "阶段二 (第3-4周)"
+            },
+            {
+              "title": "上线培训与运营交割",
+              "description": "提供全套技术文档并培训现场人员，实现系统完美交接",
+              "duration": "阶段三 (第5周起)"
+            }
+          ]
+        }
+      },
+      {
+        "id": "g4zjez8",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "全方位多场景支持，打通业务效率瓶颈",
+          "items": [
+            {
+              "title": "多源物理引擎适配",
+              "description": "支持绝大多数主流工控协议和物理设备端实时接入",
+              "highlightText": "核心"
+            },
+            {
+              "title": "秒级预测模型响应",
+              "description": "云端联合计算实现超短网络时延与高帧率仿真反馈",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "私有化离线交付",
+              "description": "支持完全的单机/私有网部署，保障核心数据资产安全"
+            }
+          ]
+        }
+      },
+      {
+        "id": "mwc1hiq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cl1jrv7",
+        "type": "cta",
+        "cta": {
+          "title": "深度融合技术，带来行业数字化升级",
+          "description": "立即预约演示，快速了解如何助力您的企业提升整体效率。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "title": "560科技数字员工平台",
+    "tagline": "数字员工平台是一个企业内部 AI 对话 Agent 管理与使用平台。",
+    "category": "自动化与办公协同",
+    "description": "数字员工平台是一个企业内部 AI 对话 Agent 管理与使用平台，核心目标是为企业提供统一的数字员工（AI Agent）配置、授权、对话入口，并通过 RBAC + 个人权限叠加的精细化权限体系控制使用范围，同时支持访客模式将部分数字员工开放给未登录用户。",
+    "features": [
+      "数字员工",
+      "自建知识库"
+    ],
+    "imageUrl": "/uploads/1783582205539-xq75fflnrrm.png",
+    "imageAlt": "",
+    "order": 9,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "a98szfa",
+        "type": "hero",
+        "hero": {
+          "title": "560科技数字员工平台",
+          "subtitle": "数字员工平台是一个企业内部 AI 对话 Agent 管理与使用平台。",
+          "bgType": "image",
+          "bgUrl": "/uploads/1783582205539-xq75fflnrrm.png"
+        }
+      },
+      {
+        "id": "dnvrjnu",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "数字员工",
+            "imageUrl": "/uploads/1783665920376-9158lwqhxnu.png"
+          },
+          {
+            "title": "核心能力 2",
+            "description": "自建知识库",
+            "imageUrl": "/uploads/1783666051563-0zj1wdenwxyc.png"
+          }
+        ]
+      },
+      {
+        "id": "sc4o2cz",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "/uploads/1783666012797-kv5x6h9mm7f.png",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "asfux8b",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "全方位多场景支持，打通业务效率瓶颈",
+          "items": [
+            {
+              "title": "多源物理引擎适配",
+              "description": "支持绝大多数主流工控协议和物理设备端实时接入",
+              "highlightText": "核心"
+            },
+            {
+              "title": "秒级预测模型响应",
+              "description": "云端联合计算实现超短网络时延与高帧率仿真反馈",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "私有化离线交付",
+              "description": "支持完全的单机/私有网部署，保障核心数据资产安全"
+            }
+          ]
+        }
+      },
+      {
+        "id": "xep2us4",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "设备运维",
+              "imageUrl": "/uploads/1783666433173-o1tdbw6bfib.png",
+              "imageUrl": "",
+              "description": "实现设备巡检与状态自动推演"
+            },
+            {
+              "title": "生产制造",
+              "imageUrl": "/uploads/1783666414848-hd1liy9wylw.png",
+              "description": "打通流水线核心指标建模"
+            }
+          ]
+        }
+      },
+      {
+        "id": "yr15ckg",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "3273v4b",
+        "type": "cta",
+        "cta": {
+          "title": "深度融合技术，带来行业数字化升级",
+          "description": "立即预约演示，快速了解如何助力您的企业提升整体效率。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
+        }
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "title": "物联网智慧民宿管理系统",
+    "tagline": "全链路可视化的智能民宿管理系统，让房屋运营更高效、更智能。",
+    "category": "工业智能物联",
+    "description": "本系统深度融合物联网与数据可视化技术，打造了一站式的智能民宿管理解决方案。系统通过MQTT协议实时连接各类智能硬件，实现对房间设备（灯光、窗帘、门锁等）的毫秒级远程控制与状态监测。依托Home Assistant构建稳定的核心控制层，结合InfluxDB时序数据库与Grafana可视化大屏，不仅能完美支持订单对接与自动化场景联动，更能将能耗与设备运行数据转化为直观的可视化报表，帮助管理者实时掌握运营状态，降低运维成本，提升住客体验。",
+    "features": [
+      "毫秒级实时监控与控制",
+      "数据驱动的可视化运营",
+      "高扩展性的模块化架构"
+    ],
+    "imageUrl": "/uploads/1783579322241-gcoz2de26s.png",
+    "imageAlt": "",
+    "order": 10,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "txjshqy",
+        "type": "hero",
+        "hero": {
+          "title": "物联网智慧民宿管理系统",
+          "subtitle": "全链路可视化的智能民宿管理系统，让房屋运营更高效、更智能。",
+          "bgType": "image",
+          "bgUrl": "/uploads/1783579322241-gcoz2de26s.png"
+        }
+      },
+      {
+        "id": "duslbd5",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "核心能力 1",
+            "description": "毫秒级实时监控与控制",
+            "imageUrl": "/uploads/1783666775734-tzmobvbhk0d.png"
+          },
+          {
+            "title": "核心能力 2",
+            "description": "数据驱动的可视化运营",
+            "imageUrl": "/uploads/1783667434388-uty364jg5c.png"
+          }
+        ]
+      },
+      {
+        "id": "p1qq8bw",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "/uploads/1783667495381-jddb9rlogvo.png",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "wz8vrej",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "智慧民宿",
+              "imageUrl": "/uploads/1783667811107-mepcjjpkls.png",
+              "description": "物联智控民宿，实现无人值守与高效数字化管理。"
+            },
+            {
+              "title": "智能家居",
+              "imageUrl": "/uploads/1783667993543-sqxb5kwfpzs.png",
+              "description": "万物互联智控，打造便捷舒适安全的全新生活。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "xta16a6",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "y29lonv",
+        "type": "timeline",
+        "timeline": {
+          "title": "落地实施与服务流程",
+          "subtitle": "我们提供端到端的贴身规划与系统平滑上线支持",
+          "steps": [
+            {
+              "title": "需求调研与环境规划",
+              "description": "深入业务一线进行软硬件环境与物理数据流建模规划",
+              "duration": "阶段一 (第1-2周)"
+            },
+            {
+              "title": "系统部署与模型定制",
+              "description": "现场/私有化交付系统并针对客户特定业务微调垂直模型",
+              "duration": "阶段二 (第3-4周)"
+            },
+            {
+              "title": "上线培训与运营交割",
+              "description": "提供全套技术文档并培训现场人员，实现系统完美交接",
+              "duration": "阶段三 (第5周起)"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "title": "大数据智能咨询平台",
+    "tagline": "企业级智能对话分析平台，让数据分析像聊天一样简单，赋能全员数据决策。",
+    "category": "智能决策与分析",
+    "description": "是一款基于大语言模型与 RAG 技术的先进 ChatBI 系统，致力于打破数据孤岛，让业务人员无需掌握 SQL 技能也能轻松驾驭复杂数据。系统支持 MySQL、Oracle、ClickHouse 等十余种主流数据源，通过自然语言即可秒级生成精准 SQL 与可视化图表。依托 Vanna 引擎与强大的数据训练能力，系统能深度理解企业专属业务术语，确保分析结果的专业性与准确性。同时，提供细粒度的行级/字段级权限控制、全链路操作审计及 MCP 协议嵌入能力，既保障了核心数据资产的安全，又能无缝集成到企业现有业务系统中，是企业实现数字化转型的理想数据助手。",
+    "features": [
+      "无缝集成：支持多种嵌入方式，像聊天机器人一样轻松接入企业现有系统。",
+      "安全可控：提供精细权限管理与审计，保障数据安全。",
+      "精准问答：通过私有化训练，让查数据像聊天一样简单准确。"
+    ],
+    "imageUrl": "/uploads/1783580246881-wl60fspe0u.png",
+    "imageAlt": "",
+    "order": 11,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left",
+    "detailSections": [
+      {
+        "id": "h15d8sw",
+        "type": "hero",
+        "hero": {
+          "title": "大数据智能咨询平台",
+          "subtitle": "企业级智能对话分析平台，让数据分析像聊天一样简单，赋能全员数据决策。",
+          "bgType": "image",
+          "bgUrl": "/uploads/1783580246881-wl60fspe0u.png"
+        }
+      },
+      {
+        "id": "pxuhek3",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "无缝集成",
+            "description": "支持多种嵌入方式，像聊天机器人一样轻松接入企业现有系统。",
+            "imageUrl": "/uploads/1783668236410-0nygpriu97sj.png"
+          },
+          {
+            "title": "安全可控",
+            "description": "提供精细权限管理与审计，保障数据安全。",
+            "imageUrl": ""
+          }
+        ]
+      },
+      {
+        "id": "lkwxazg",
+        "type": "architecture",
+        "architecture": {
+          "title": "产品架构图",
+          "imageUrl": "",
+          "description": "融合多源物理数据与智能大模型处理中心，提供端到端数据交付控制。"
+        }
+      },
+      {
+        "id": "vuq3lvv",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "应用场景",
+          "items": [
+            {
+              "title": "设备运维",
+              "imageUrl": "",
+              "description": "实现设备巡检与状态自动推演"
+            },
+            {
+              "title": "生产制造",
+              "imageUrl": "",
+              "description": "打通流水线核心指标建模"
+            }
+          ]
+        }
+      },
+      {
+        "id": "oyq1rrt",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于该产品的商业授权、技术服务与部署周期的解答",
+          "items": [
+            {
+              "question": "该系统支持私有化部署吗？",
+              "answer": "支持。系统可以通过 Docker/K8s 容器化技术一键部署在客户的私有数据中心，提供完整的离线计算与预测能力。"
+            },
+            {
+              "question": "部署这套系统需要多长时间？",
+              "answer": "一般标准版部署加对接工作在 3-5 周内完成，我们提供全流程专属工程师贴身跟进支持。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "8082jds",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "全方位多场景支持，打通业务效率瓶颈",
+          "items": [
+            {
+              "title": "多源物理引擎适配",
+              "description": "支持绝大多数主流工控协议和物理设备端实时接入",
+              "highlightText": "核心"
+            },
+            {
+              "title": "秒级预测模型响应",
+              "description": "云端联合计算实现超短网络时延与高帧率仿真反馈",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "私有化离线交付",
+              "description": "支持完全的单机/私有网部署，保障核心数据资产安全"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "title": "五六零人工智能考试管理系统",
+    "tagline": "AI赋能的智能考试管理平台，实现从出题到评卷的全流程自动化。",
+    "category": "自动化与办公协同",
+    "description": "本系统是一款专为现代化教育与考核场景打造的智能化管理平台。它不仅涵盖了用户、题库、试卷及考试的全生命周期管理，更创新性地集成了先进的AI技术。通过内置的“AI生成试题”功能，系统能够根据知识点模板自动批量生成高质量题目，极大地降低了人工出题的成本与难度。清晰的可视化控制台让管理员能实时掌握考试动态与数据概览，配合便捷的快捷操作入口，无论是创建试题还是发布考试都能一键完成。这不仅提升了考务工作的效率，更推动了考试管理的数字化与智能化转型。",
+    "features": [
+      "AI智能辅助出题",
+      "全流程考务管理",
+      "可视化数据看板"
+    ],
+    "imageUrl": "/uploads/1783581896338-oc3ajxbygm.png",
+    "imageAlt": "",
+    "order": 12,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-left"
+  },
+  {
+    "id": "13",
+    "title": "LiveTalking-560 实时交互数字人系统",
+    "tagline": "企业专属知识库同步实时交互数字人解决方案",
+    "category": "自动化与办公协同",
+    "description": "基于低延迟 WebRTC 协议深度重构的音视频同步实时数字人系统。系统针对画面抖动、合成时延进行了像素级算法优化，支持企业知识库无感热更新以及本地 ASR 离线识别，为客户提供全天候的高稳定性虚拟人交互解决方案。",
+    "features": [
+      "视频抖动深度消除，画面完美自然过渡",
+      "OpenCV 像素级渲染加速，1ms 极速字幕合成",
+      "企业专属知识库注入，外部配置热加载即时生效",
+      "本地 SenseVoice 语音识别，弱网离线极速交互",
+      "连接生命周期资源回收，7x24小时常驻运行不溢出"
+    ],
+    "imageUrl": "/uploads/livetalking_hero.jpg",
+    "imageAlt": "LiveTalking-560 实时交互数字人",
+    "order": 13,
+    "showInHome": true,
+    "showInNavbar": true,
+    "layout": "text-right",
+    "detailSections": [
+      {
+        "id": "lt-hero",
+        "type": "hero",
+        "hero": {
+          "title": "LiveTalking-560 实时交互数字人系统",
+          "subtitle": "560 AI 团队深度重构的超低延迟实时数字人引擎，打造智能、流畅、无抖动的面对面实时人机交互。",
+          "bgType": "image",
+          "bgUrl": "/uploads/livetalking_hero.jpg"
+        }
+      },
+      {
+        "id": "lt-capabilities",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "极致流畅：双向 WebRTC 极速低延迟推流",
+            "description": "依托底层重构的 WebRTC 通信链路与全局会话生命周期管理器，完美解决数字人推流的画质损失与网络卡顿。多端并发连接毫秒级响应，带来仿佛真人面对面交谈的低延迟视频互动体验。",
+            "imageUrl": "/uploads/livetalking_hero.jpg"
+          },
+          {
+            "title": "硬核重构：像素级字幕渲染与画面抖动消除",
+            "description": "独创的 OpenCV 像素级矩阵运算代替 PIL，使得单帧字幕合成耗时由 30ms 暴降至 1ms，稳定跑满 25fps 推流。同时，重组静音与播报状态下的时序帧对齐，杜绝了开源版本中数字人反复跳步和画面抖动的致命 Bug。",
+            "imageUrl": "/uploads/livetalking_hero.jpg"
+          }
+        ]
+      },
+      {
+        "id": "lt-architecture",
+        "type": "architecture",
+        "architecture": {
+          "title": "模块化技术架构与统一 API 交付",
+          "imageUrl": "/uploads/livetalking_architecture.jpg",
+          "description": "基于统一的 API 路由管理，无缝提供 WebRTC 握手 (Offer)、文本驱动 (Human)、音频驱动 (Human Audio) 及录像合成服务。企业可轻松将本系统打包接入现有 App、大屏终端或网页，快速构建专属虚拟前台。"
+        }
+      },
+      {
+        "id": "lt-features",
+        "type": "features",
+        "features": {
+          "title": "多场景细分技术特性矩阵",
+          "subtitle": "卓越的技术底座，让企业的虚拟员工更具智能与高可用性",
+          "items": [
+            {
+              "title": "专属知识库无感热更新",
+              "description": "通过 prompt_config.yaml 热加载，大模型提示词与企业问答随时编辑即时生效，无需重启服务。",
+              "highlightText": "首创"
+            },
+            {
+              "title": "本地离线 ASR 识别",
+              "description": "集成 FunASR 的 SenseVoice 语音识别引擎，不依赖公网，在局域网内即可实现极速端到端语音转文字。",
+              "highlightText": "核心"
+            },
+            {
+              "title": "7x24小时常驻稳定性",
+              "description": "修复多路连接断开时的资源泄漏，内存占用始终稳定在约 8.4 GB 最佳水平，支持长期挂机运行。",
+              "highlightText": "推荐"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lt-scenarios",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "多行业落地应用场景",
+          "items": [
+            {
+              "title": "智能金融/理财顾问",
+              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "description": "数字人搭配专属金融知识库，全天候不间断为用户解答理财政策与理财产品信息，提升客服质量。"
+            },
+            {
+              "title": "智慧政务虚拟前台",
+              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "description": "市民通过语音直达数字前台，轻松查询各类事务办事指南与流程，减少线下排队拥挤。"
+            },
+            {
+              "title": "电商无人带货直播",
+              "imageUrl": "/uploads/livetalking_hero.jpg",
+              "description": "支持自动文字/音频脚本驱动，实时回复用户弹幕，一键启动多平台无人直播，极大节约主播成本。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lt-faq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答 (FAQ)",
+          "subtitle": "全面解答 LiveTalking-560 的环境配置、运行与更新问题",
+          "items": [
+            {
+              "question": "该系统部署需要准备哪些模型 and 数据文件？",
+              "answer": "由于权重文件过大，系统未将模型纳入 Git。用户需要手动下载主模型 wav2lip.pth (205MB) 与企业定制的形象包（如 zxw560-1 约 777MB），解压放入 data/avatars/ 对应目录。本地 ASR 模型在首次运行 FunASR 时会自动拉取。"
+            },
+            {
+              "question": "如何更新数字人的企业知识库？",
+              "answer": "系统支持热加载机制。只需直接编辑根目录下的 prompt_config.yaml 配置文件并保存，下一次与数字人对话时即刻生效，完全无需重启服务器。"
+            },
+            {
+              "question": "为什么客户端连不上麦克风？如何开启 HTTPS (SSL)？",
+              "answer": "浏览器安全机制要求只有在安全上下文（HTTPS 或 localhost）中才能使用麦克风功能。LiveTalking-560 默认支持开启自签名 SSL 证书。生成 ssl/cert.pem 和 ssl/key.pem 并在 config.py 或 .env 中将 SSL_ENABLED 改为 True，即可通过 https://<IP>:8051 正常使用语音通话功能。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "lt-cta",
+        "type": "cta",
+        "cta": {
+          "title": "开启企业的智能人机交互时代",
+          "description": "联系我们的技术专家，申请 30 天免费本地私有化部署测试，体验零抖动的极速实时数字人交互。",
+          "primaryText": "申请预约演示",
+          "secondaryText": "在线咨询"
+        }
+      }
+    ]
+  }
+]
