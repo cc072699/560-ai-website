@@ -921,7 +921,7 @@
       "录制导出MP4：对话过程录制存档，支持API批量生产视频内容",
       "全身视频拼接：仅生成口部区域无缝贴回高清全身，支持全身出镜"
     ],
-    "imageUrl": "/uploads/products/5/hero.jpg",
+    "imageUrl": "/uploads/products/5/1784009304281-licdzqo783.jpg",
     "imageAlt": "LiveTalking 实时交互数字人引擎",
     "order": 5,
     "showInHome": true,
@@ -1923,7 +1923,7 @@
       "一键汇总输出：生成 Markdown 统计报告，含总收支、净差额、有效记录数四项核心指标",
       "强大容错能力：针对页码跨行、空行干扰、PDF 拆字等问题内置预处理修复"
     ],
-    "imageUrl": "/uploads/products/9/hero_bg.png",
+    "imageUrl": "/uploads/products/9/1784011812256-ochneo9fmn.jpeg",
     "imageAlt": "流水智算产品主图",
     "order": 9,
     "showInHome": true,
@@ -1937,7 +1937,7 @@
           "title": "流水智算",
           "subtitle": "上传微信/支付宝流水文件，AI 自动识别解析，一键输出收支统计报告",
           "bgType": "image",
-          "bgUrl": "/uploads/products/9/architecture.svg"
+          "bgUrl": "/uploads/products/9/1784011836443-1j3ugj9cd7v.jpeg"
         }
       },
       {
@@ -2063,12 +2063,12 @@
           "items": [
             {
               "title": "个人财务管理",
-              "imageUrl": "/uploads/products/9/scenario_personal.png",
+              "imageUrl": "/uploads/products/9/1784013249113-ihvj3d4xk3.jpeg",
               "description": "快速统计个人或家庭月度收支，无需逐条计算，掌握财务状况"
             },
             {
               "title": "审计与合规",
-              "imageUrl": "/uploads/products/9/scenario_audit.png",
+              "imageUrl": "/uploads/products/9/1784013218120-pgaolzgfh.jpeg",
               "description": "批量处理流水并自动生成结构化报告，为审计合规提供便利"
             },
             {
@@ -2078,7 +2078,7 @@
             },
             {
               "title": "企业报销辅助",
-              "imageUrl": "/uploads/products/9/scenario_reimburse.png",
+              "imageUrl": "/uploads/products/9/1784013289215-lvedbnemf3.jpeg",
               "description": "员工上传流水自动生成支出明细，简化企业报销流程"
             }
           ]
@@ -2138,7 +2138,7 @@
       "工作空间隔离：多租户数据隔离，行级权限控制，审计日志全程留痕",
       "MCP协议支持：通过MCP协议与其他AI助手交互，扩展系统边界"
     ],
-    "imageUrl": "/uploads/products/10/hero-bg.jpg",
+    "imageUrl": "/uploads/products/10/1784009738684-f6cf6ukm5ik.png",
     "imageAlt": "SQLBot 智能数据分析平台",
     "order": 10,
     "showInHome": true,
@@ -2858,12 +2858,12 @@
           {
             "title": "端云协同的高能AI语音交互",
             "description": "采用流式ASR+LLM+TTS架构，内置ESP-SR离线语音唤醒引擎与3D Speaker声纹识别。用户只需自然发声，即可直接与主流大模型（Qwen/DeepSeek）进行低延迟的全双工对话。支持多轮上下文记忆、随时打断、连续对话，覆盖知识问答、闲聊陪伴、智能提醒等全部语音交互场景。高质量OPUS音频编解码保障清晰拾音与自然合成。",
-            "imageUrl": "/uploads/products/13/cap-voice.png"
+            "imageUrl": "/uploads/products/13/1784001307332-6gnmwom3zs2.jpeg"
           },
           {
             "title": "强大的MCP协议设备互联",
             "description": "通过设备端与云端MCP接口构成的完整控制链路，原生赋予大模型调用底层硬件与外部服务的能力。不仅是智能对话——更能实现GPIO的灯光开关、电机的PWM调速、音量的智能调节，并扩展至云端智能家居全屋控制、PC桌面操作、知识库检索、邮件收发等进阶服务，将大模型从「对话者」升级为「行动者」。",
-            "imageUrl": "/uploads/products/13/cap-mcp.png"
+            "imageUrl": "/uploads/products/13/1784001367443-pvgt4jot4.jpeg"
           },
           {
             "title": "跨平台极简连接与全硬件适配",
@@ -2935,7 +2935,7 @@
             },
             {
               "title": "全屋IoT控制中枢",
-              "imageUrl": "/uploads/products/13/scene-home.png",
+              "imageUrl": "/uploads/products/13/1784001416640-i7gsowutvw.png",
               "description": "集成MCP协议可轻松扩展家庭物联网能力。用户通过语音即可控制照明、智能插座、电动窗帘等设备，成为全屋智能核心交互中枢。"
             },
             {
@@ -3251,18 +3251,14 @@
   {
     "id": "15",
     "title": "XiaoZhi AI 虚拟数字人",
-    "tagline": "基于WebRTC与OpenAI Realtime API的超低延迟全双工智能交互伴侣",
+    "tagline": "让数字人真正「活」起来 — 毫秒级全双工AI虚拟伴侣",
     "category": "自动化与办公协同",
-    "description": "面向企业与个人的实时AI虚拟数字人解决方案。基于WebRTC全双工音频流与OpenAI Realtime API，实现毫秒级语音交互。内置Live2D高精度虚拟模型与VAD智能双模式（连续对话/按讲），支持随时打断、上下文记忆与多轮自然对话。可部署于官网、小程序、线下大屏，化身数字代言人、智能客服或专属虚拟伴侣。",
+    "description": "面向企业与个人的实时AI虚拟数字人解决方案。基于WebRTC全双工音频流与OpenAI Realtime API，实现毫秒级语音交互。内置Live2D高精度虚拟模型，支持动态表情与口型实时同步，随时打断、上下文记忆、多轮自然对话。可部署于官网、小程序、线下大屏，化身数字代言人、智能客服或专属虚拟伴侣，7×24小时全天候在线。",
     "features": [
-      "全双工WebRTC实时语音：毫秒级音频双向流传输，支持随时打断，对话如真人",
-      "Live2D高精度虚拟形象：内置精美角色模型，动态表情+动作+口型实时同步",
-      "OpenAI Realtime API深度集成：流式ASR+LLM上下文推理+TTS语音合成一体化",
-      "VAD双模式智能切换：连续对话模式（开口即聊）+按讲模式（精准控制）自动适配",
-      "双向心跳保活机制：3秒检测周期，确保复杂NAT环境下连接稳定不中断",
-      "极简多平台部署：Docker容器化+uv包管理器+Windows原生脚本，一键上线",
-      "跨端深度适配：PC端与移动端主流浏览器完美兼容，HTTPS安全协议保障",
-      "智能资源调度：自动检测空闲状态优化资源占用，断连后智能语音唤醒恢复"
+      "双向心跳保活机制：客户端与服务端每3秒检测，确保复杂NAT环境下WebRTC连接坚如磐石",
+      "智能资源调度优化：自动检测空闲状态并优化资源占用，断连后支持智能语音唤醒恢复",
+      "极简多平台部署：全面支持uv包管理器、Docker容器化及Windows原生一键启动脚本",
+      "跨端深度适配：完美兼容PC端与移动端主流浏览器，HTTPS安全协议保障全平台一致体验"
     ],
     "imageUrl": "/uploads/products/15/hero-bg.png",
     "imageAlt": "XiaoZhi AI 虚拟数字人",
@@ -3272,17 +3268,17 @@
     "layout": "text-left",
     "detailSections": [
       {
-        "id": "xz-hero",
+        "id": "vz-hero",
         "type": "hero",
         "hero": {
           "title": "XiaoZhi AI 虚拟数字人",
-          "subtitle": "基于WebRTC与OpenAI Realtime API的超低延迟全双工智能交互伴侣",
+          "subtitle": "让数字人真正「活」起来 — 毫秒级全双工AI虚拟伴侣",
           "bgType": "image",
-          "bgUrl": "/uploads/products/15/architecture.svg"
+          "bgUrl": "/uploads/products/15/hero-bg.png"
         }
       },
       {
-        "id": "xz-bento",
+        "id": "vz-bento",
         "type": "bentoGrid",
         "bentoGrid": {
           "title": "四大突破性体验",
@@ -3292,7 +3288,7 @@
               "size": "large",
               "title": "毫秒级全双工语音",
               "subtitle": "WebRTC实时双向音频流，打断即响应，沟通零割裂感",
-              "imageUrl": "/uploads/products/15/scene-enterprise.png",
+              "imageUrl": "/uploads/products/15/cap-webrtc.png",
               "colorBg": "#1a0a2e"
             },
             {
@@ -3306,7 +3302,7 @@
               "size": "small",
               "title": "双模式智能适配",
               "subtitle": "连续对话与按讲模式自动切换",
-              "imageUrl": "/uploads/products/15/scene-modes.png",
+              "imageUrl": "/uploads/products/15/cap-modes.png",
               "colorBg": "#0a1a1a"
             },
             {
@@ -3320,32 +3316,7 @@
         }
       },
       {
-        "id": "xz-canvas",
-        "type": "canvas",
-        "canvas": {
-          "title": "数字人交互界面",
-          "subtitle": "macOS风格窗口展示Live2D虚拟形象与实时语音交互",
-          "imageUrl": "/uploads/products/15/scene-dashboard.png",
-          "imageAlt": "XiaoZhi AI虚拟数字人交互界面",
-          "description": "左侧为Live2D虚拟形象实时渲染区域，支持动态表情与口型同步；右侧为交互面板，包含音频波形可视化、对话历史与状态指示。向下兼容PC浏览器与移动端H5自适应布局。",
-          "features": [
-            {
-              "title": "Live2D实时渲染",
-              "description": "高精度虚拟模型，毫秒级表情与口型跟随语音输出同步变化"
-            },
-            {
-              "title": "音频波形可视化",
-              "description": "实时显示输入/输出音频波形，交互状态一目了然"
-            },
-            {
-              "title": "跨端自适应布局",
-              "description": "PC端全功能界面+移动端精简版，HTTPS协议保障"
-            }
-          ]
-        }
-      },
-      {
-        "id": "xz-capabilities",
+        "id": "vz-cap",
         "type": "capabilities",
         "capabilities": [
           {
@@ -3355,52 +3326,18 @@
           },
           {
             "title": "生动的Live2D沉浸式互动",
-            "description": "内置精美的高精度Live2D虚拟模型（默认560号角色），支持细腻的动态表情变化、头部跟随、眨眼与微动作。语音输出时口型实时同步，让AI真正活起来。辅以实时音频波形可视化与粒子特效反馈，不仅是声音交流，更是全感官的视觉互动体验。",
+            "description": "内置精美的高精度Live2D虚拟模型（默认560号角色），支持细腻的动态表情变化、头部跟随、眨眼与微动作。语音输出时口型实时同步，让AI真正「活」起来。辅以实时音频波形可视化与粒子特效反馈，不仅是声音交流，更是全感官的视觉互动体验。",
             "imageUrl": "/uploads/products/15/cap-live2d.png"
           },
           {
             "title": "多场景智能双语音模式",
-            "description": "集成先进的VAD（语音活动检测）算法实现连续对话模式——开口即聊，无需按键。同时提供精准控制的按讲模式（Push-to-Talk），适用于嘈杂环境或需要精确控制发言时机的场景。系统根据环境噪音自动适配最佳交互方式，无论安静居家还是嘈杂办公区都能流畅使用。",
+            "description": "集成先进的VAD语音活动检测算法实现连续对话模式——开口即聊，无需按键。同时提供精准控制的按讲模式Push-to-Talk，适用于嘈杂环境或需要精确控制发言时机的场景。系统根据环境噪音自动适配最佳交互方式，无论安静居家还是嘈杂办公区都能流畅使用。",
             "imageUrl": "/uploads/products/15/cap-modes.png"
           }
         ]
       },
       {
-        "id": "xz-carousel",
-        "type": "carousel",
-        "carousel": {
-          "title": "多场景应用展示",
-          "subtitle": "从企业前台到个人陪伴，一个数字人覆盖全场景需求",
-          "items": [
-            {
-              "imageUrl": "/uploads/products/15/cap-modes.png",
-              "caption": "企业数字代言人与智能客服",
-              "description": "部署于企业官网、小程序或线下展厅大屏，7×24小时提供专业有温度的客户咨询服务，显著提升品牌科技感与服务效率。"
-            },
-            {
-              "imageUrl": "/uploads/products/15/cap-webrtc.png",
-              "caption": "专属虚拟陪伴助理",
-              "description": "针对终端用户提供情绪价值、日常问答与事务处理，打造具备个性化记忆与互动的私人专属AI伴侣。"
-            },
-            {
-              "imageUrl": "/uploads/products/15/scene-education.png",
-              "caption": "教育辅导与互动培训",
-              "description": "化身全天候虚拟外教或专业导师，提供极低延迟的语言对话练习、即时发音纠正与沉浸式互动教学体验。"
-            }
-          ]
-        }
-      },
-      {
-        "id": "xz-architecture",
-        "type": "architecture",
-        "architecture": {
-          "title": "WebRTC + AI 技术架构",
-          "imageUrl": "/uploads/products/15/architecture.svg",
-          "description": "六层架构：用户端（PC/移动/大屏）→WebRTC全双工实时通信层（3秒心跳保活+NAT穿透）→OpenAI Realtime API引擎层（流式ASR+LLM+TTS）→Live2D渲染引擎+VAD双模式语音→Docker容器化部署→输出数字代言人/伴侣/导师多角色。无缝对接OpenAI Realtime API与WebRTC底层，赋予数字人顶级的上下文理解与极速流式语音能力。"
-        }
-      },
-      {
-        "id": "xz-comparison",
+        "id": "vz-compare",
         "type": "comparison",
         "comparison": {
           "title": "WebRTC实时方案 vs 传统HTTP轮询",
@@ -3450,31 +3387,103 @@
                 "无"
               ],
               "highlightIndex": 1
-            },
-            {
-              "label": "资源占用",
-              "values": [
-                "空闲自动降级",
-                "持续轮询浪费"
-              ],
-              "highlightIndex": 1
             }
           ]
         }
       },
       {
-        "id": "xz-consultation",
-        "type": "consultation",
-        "consultation": {
-          "title": "重新定义人机交互，开启全双工对话时代",
-          "subtitle": "立即预约演示，体验前所未有的超低延迟语音互动与数字人陪伴",
-          "ctaText": "预约专属演示",
-          "benefits": [
-            "免费1对1方案咨询",
-            "Docker一键私有化部署",
-            "Live2D角色定制服务",
-            "30天免费试用"
+        "id": "vz-arch",
+        "type": "architecture",
+        "architecture": {
+          "title": "WebRTC + AI 六层技术架构",
+          "imageUrl": "/uploads/products/15/architecture.svg",
+          "description": "自底向上六层架构：Docker容器化部署层 → WebRTC全双工实时通信层（3秒心跳保活+NAT穿透） → OpenAI Realtime API引擎层（流式ASR+LLM上下文推理+TTS语音合成） → VAD双模式语音管理层（连续对话/按讲智能切换） → Live2D虚拟形象渲染引擎层（动态表情+口型同步+粒子特效） → 多端输出层（PC/移动/大屏自适应）。无缝对接OpenAI Realtime API与WebRTC底层，赋予数字人顶级的上下文理解与极速流式语音能力。"
+        }
+      },
+      {
+        "id": "vz-scenes",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "多场景应用",
+          "items": [
+            {
+              "title": "企业数字代言人与智能客服",
+              "imageUrl": "/uploads/products/15/scene-enterprise.png",
+              "description": "部署于企业官网、小程序或线下展厅大屏，7×24小时提供专业、有温度的客户咨询服务，显著提升品牌科技感与服务效率。"
+            },
+            {
+              "title": "专属虚拟陪伴助理",
+              "imageUrl": "/uploads/products/15/scene-companion.png",
+              "description": "针对终端用户提供情绪价值、日常问答与事务处理，打造具备个性化记忆与互动的私人专属AI伴侣，让陪伴触手可及。"
+            },
+            {
+              "title": "教育辅导与互动培训",
+              "imageUrl": "/uploads/products/15/scene-education.png",
+              "description": "化身全天候虚拟外教或专业导师，提供极低延迟的语言对话练习、即时发音纠正与沉浸式互动教学体验。"
+            }
           ]
+        }
+      },
+      {
+        "id": "vz-features",
+        "type": "features",
+        "features": {
+          "title": "细分功能特性矩阵",
+          "subtitle": "强大底层技术支撑，保障业务全天候稳定运行",
+          "items": [
+            {
+              "title": "双向心跳保活",
+              "description": "客户端与服务端每3秒检测，确保复杂NAT环境下WebRTC连接坚如磐石",
+              "highlightText": "核心"
+            },
+            {
+              "title": "智能资源调度",
+              "description": "自动检测空闲状态并优化资源占用，断连后支持智能语音唤醒恢复",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "极简多平台部署",
+              "description": "全面支持uv包管理器、Docker容器化及Windows原生一键启动脚本",
+              "highlightText": "推荐"
+            },
+            {
+              "title": "跨端深度适配",
+              "description": "完美兼容PC端与移动端主流浏览器，HTTPS安全协议保障全平台一致体验",
+              "highlightText": "核心"
+            }
+          ]
+        }
+      },
+      {
+        "id": "vz-faq",
+        "type": "faq",
+        "faq": {
+          "title": "常见问题解答",
+          "subtitle": "关于部署、网络要求与定制化的快速解答",
+          "items": [
+            {
+              "question": "系统支持私有化部署在内部服务器吗？",
+              "answer": "完全支持。系统可通过Docker Compose或Python原生环境快速私有化部署，保证企业数据流转的独立性与安全性。同时支持对接企业自有的OpenAI兼容API，实现模型层面的完全自主可控。"
+            },
+            {
+              "question": "WebRTC接入对网络有什么特殊要求？",
+              "answer": "出于现代浏览器安全策略，非本地访问必须使用HTTPS协议以获取麦克风权限。此外需要防火墙放行UDP协议的音视频流传输端口，系统内置ICE/STUN/TURN机制自动完成NAT穿透，无需手动配置网络。"
+            },
+            {
+              "question": "可以更换Live2D虚拟形象吗？支持定制角色吗？",
+              "answer": "可以。系统支持替换Live2D Cubism模型文件，您可以使用官方模型市场中的任意角色或导入设计师定制的专属虚拟形象。我们提供完整的模型适配指南与技术支持，帮助您打造独一无二的品牌数字代言人。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "vz-cta",
+        "type": "cta",
+        "cta": {
+          "title": "重新定义人机交互，开启全双工对话时代",
+          "description": "立即预约演示，体验前所未有的超低延迟语音互动与数字人陪伴。",
+          "primaryText": "预约演示",
+          "secondaryText": "联系我们"
         }
       }
     ]
