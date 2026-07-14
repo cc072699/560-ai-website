@@ -1354,34 +1354,64 @@ function DetailBentoGrid({ section }: { section: PageSection }) {
           <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
         </div>
 
-        {/* Asymmetrical Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
+        {/* Bento Grid: 图片作为主视觉，配渐变遮罩 + 底部信息层 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
           {bg.items.map((item, idx) => {
             const isLarge = item.size === 'large';
             const isTall = item.size === 'tall';
+            const spanClass = isLarge ? 'md:col-span-2' : isTall ? 'md:row-span-2' : '';
             return (
               <div
                 key={idx}
-                className={`p-8 rounded-3xl border border-gray-150/70 shadow-sm flex flex-col justify-between overflow-hidden relative min-h-[160px] md:min-h-[200px] hover:shadow-lg transition-all duration-300 ${
-                  item.colorBg || 'bg-white text-slate-850'
-                } ${
-                  isLarge ? 'md:col-span-2' : isTall ? 'md:row-span-2' : 'col-span-1'
+                className={`group relative rounded-3xl border border-gray-150/70 shadow-sm overflow-hidden bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col ${spanClass} ${
+                  isTall ? 'min-h-[480px]' : 'min-h-[280px]'
                 }`}
               >
-                <div className="space-y-2 z-10">
-                  <h4 className="text-lg md:text-xl font-black leading-snug">{item.title}</h4>
-                  {item.subtitle && <p className="text-xs opacity-80 leading-relaxed font-medium">{item.subtitle}</p>}
-                </div>
-                {item.imageUrl && (
-                  <img
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="absolute right-4 bottom-4 opacity-15 w-24 md:w-32 object-contain pointer-events-none hover:scale-105 transition-transform duration-500"
-                  />
+                {/* 顶部：图片主视觉区 */}
+                {item.imageUrl ? (
+                  <div className="relative w-full overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50 flex-shrink-0" style={{ height: isLarge ? '60%' : isTall ? '55%' : '50%', minHeight: '160px' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={item.imageUrl}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* 渐变遮罩，让标题在图片上依然可读 */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
+                    {/* 序号徽章 */}
+                    <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 text-[11px] font-bold text-white bg-white/15 backdrop-blur-md border border-white/20 px-2.5 py-1 rounded-full">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                      特性 0{idx + 1}
+                    </span>
+                  </div>
+                ) : (
+                  <div className="relative w-full bg-gradient-to-br from-slate-100 to-slate-50 flex-shrink-0 flex items-center justify-center" style={{ height: '50%', minHeight: '160px' }}>
+                    <ImageIcon className="w-10 h-10 text-gray-300" />
+                    <span className="absolute top-4 left-4 text-[11px] font-bold text-gray-500 bg-white/80 backdrop-blur-sm border border-gray-200 px-2.5 py-1 rounded-full">
+                      特性 0{idx + 1}
+                    </span>
+                  </div>
                 )}
-                <span className="text-[10px] opacity-40 font-bold uppercase tracking-widest mt-8 block">
-                  特性 0{idx + 1}
-                </span>
+
+                {/* 底部：信息层 */}
+                <div className="relative flex-1 p-6 md:p-7 flex flex-col justify-between bg-white">
+                  <div className="space-y-2.5">
+                    <h4 className="text-lg md:text-xl font-black text-gray-900 leading-snug">
+                      {item.title}
+                    </h4>
+                    {item.subtitle && (
+                      <p className="text-[13px] text-gray-500 leading-relaxed font-medium">
+                        {item.subtitle}
+                      </p>
+                    )}
+                  </div>
+                  {/* 底部装饰条 */}
+                  <div className="mt-4 flex items-center gap-2">
+                    <span className="h-1 w-8 rounded-full bg-gradient-to-r from-blue-600 to-indigo-500" />
+                    <span className="h-1 w-2 rounded-full bg-blue-200" />
+                    <span className="h-1 w-1 rounded-full bg-blue-100" />
+                  </div>
+                </div>
               </div>
             );
           })}

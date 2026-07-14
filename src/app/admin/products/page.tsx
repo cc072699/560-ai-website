@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { Plus, Pencil, Trash2, Eye, EyeOff, X, Check, Loader2, Image as ImageIcon, LayoutGrid, Layers, Settings, Calendar, ArrowLeft, Palette } from 'lucide-react';
+import { Plus, Pencil, Trash2, Eye, EyeOff, X, Check, Loader2, Image as ImageIcon, LayoutGrid, Layers, Settings, Calendar, ArrowLeft, Palette, ChevronDown, Home, Navigation } from 'lucide-react';
 import { ConfirmDialog } from '@/components/admin/ConfirmDialog';
 import { ImageUpload } from '@/components/admin/ImageUpload';
 import type { Product, ProductLayout } from '@/types';
@@ -29,6 +29,7 @@ export default function ProductsPage() {
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
   const [categories, setCategories] = useState<string[]>(['智能决策与分析', '自动化与办公协同', '工业智能物联']);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const showToast = useCallback((msg: string, type: 'success' | 'error' = 'success') => {
     setToast({ msg, type });
@@ -512,13 +513,21 @@ export default function ProductsPage() {
                 <span className="text-sm font-bold text-slate-400">目前暂无产品信息，点击右上角按钮进行添加</span>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {products.map((p) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {products.map((p) => {
+                  const isExpanded = expandedId === p.id;
+                  return (
                   <div
                     key={p.id}
-                    className="bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col justify-between group"
+                    className={`bg-white rounded-2xl border overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col group ${
+                      isExpanded ? 'border-blue-300 ring-1 ring-blue-200/60 lg:col-span-3' : 'border-slate-200/80'
+                    }`}
                   >
-                    <div>
+                    {/* Header (always visible) — clickable to toggle expand */}
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => setExpandedId(isExpanded ? null : p.id)}
+                    >
                       {/* Cover image area */}
                       <div className="relative aspect-[16/10] bg-slate-50 overflow-hidden border-b border-slate-100">
                         {p.imageUrl ? (
@@ -534,107 +543,169 @@ export default function ProductsPage() {
                             <span className="text-xs font-bold uppercase tracking-wider">无图展示</span>
                           </div>
                         )}
+                        {/* Expand indicator */}
+                        <div className="absolute top-2.5 right-2.5 bg-white/90 backdrop-blur-sm border border-slate-200/80 rounded-full p-1.5 shadow-sm">
+                          <ChevronDown
+                            className={`w-3.5 h-3.5 text-slate-600 transition-transform duration-300 ${
+                              isExpanded ? 'rotate-180' : ''
+                            }`}
+                          />
+                        </div>
                       </div>
 
-                      {/* Meta info & content */}
-                      <div className="p-6 space-y-4">
-                        <div className="flex items-center justify-between">
-                          <div className="flex gap-2">
-                            <span className="inline-flex items-center px-3 py-1.5 bg-blue-50 border border-blue-100 rounded-lg text-sm font-bold text-blue-600 uppercase tracking-wider">
-                              {p.category}
-                            </span>
-                            <span className="inline-flex items-center px-3 py-1.5 bg-slate-100 border border-slate-200/50 rounded-lg text-sm font-bold text-slate-500 uppercase tracking-wider">
-                              {p.layout === 'text-left' ? '文左图右' : '图左文右'}
-                            </span>
-                          </div>
-                          <div className="flex items-center gap-1.5 text-base text-slate-400 font-black">
-                            <Calendar className="w-4 h-4" />
-                            <span>NO. {p.id}</span>
-                          </div>
-                        </div>
-
-                        <div className="space-y-2.5">
-                          <h3 className="text-2xl font-black text-slate-900 leading-snug group-hover:text-blue-600 transition-colors">
-                            {p.title}
-                          </h3>
-                          <p className="text-base font-bold text-blue-650 leading-normal">
-                            {p.tagline}
-                          </p>
-                          <p className="text-base text-slate-650 line-clamp-3 leading-relaxed indent-[2em]">
-                            {p.description}
-                          </p>
-                        </div>
-
-                        {/* Highlight badges */}
-                        {p.features && p.features.length > 0 && (
-                          <div className="pt-2 flex flex-wrap gap-2">
-                            {p.features.filter(f => f.trim() !== '').map((f, i) => (
-                              <span
-                                key={i}
-                                className="text-sm font-semibold px-3 py-1.5 bg-slate-50/80 text-slate-600 rounded-lg border border-slate-200"
-                              >
-                                {f}
+                      {/* Meta info & content (compact, only when collapsed) */}
+                      {!isExpanded && (
+                        <div className="p-4 space-y-3">
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex gap-1.5 flex-wrap min-w-0">
+                              <span className="inline-flex items-center px-2 py-0.5 bg-blue-50 border border-blue-100 rounded-md text-[11px] font-bold text-blue-600 tracking-wider truncate max-w-[120px]">
+                                {p.category}
                               </span>
-                            ))}
+                              <span className="inline-flex items-center px-2 py-0.5 bg-slate-100 border border-slate-200/50 rounded-md text-[11px] font-bold text-slate-500 tracking-wider">
+                                {p.layout === 'text-left' ? '文左图右' : '图左文右'}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-1 text-[11px] text-slate-400 font-black shrink-0">
+                              <Calendar className="w-3 h-3" />
+                              <span>NO. {p.id}</span>
+                            </div>
                           </div>
-                        )}
-                      </div>
+
+                          <div className="space-y-1.5">
+                            <h3 className="text-base font-black text-slate-900 leading-snug group-hover:text-blue-600 transition-colors line-clamp-1">
+                              {p.title}
+                            </h3>
+                            <p className="text-[13px] font-semibold text-blue-650 leading-snug line-clamp-1">
+                              {p.tagline}
+                            </p>
+                            <p className="text-[13px] text-slate-650 line-clamp-2 leading-relaxed indent-[2em]">
+                              {p.description}
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
-                    {/* Actions footer */}
-                    <div className="p-5 bg-slate-50/70 border-t border-slate-150/60 flex items-center justify-between">
-                      {/* Status Visibility Toggles */}
-                      <div className="flex gap-3">
+                    {/* Expanded detail panel */}
+                    {isExpanded && (
+                      <div className="p-5 space-y-4 border-b border-slate-100 bg-gradient-to-br from-slate-50/50 to-white animate-fade-in">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                          {/* Left: meta + description */}
+                          <div className="lg:col-span-2 space-y-3">
+                            <div className="flex items-center justify-between gap-2 flex-wrap">
+                              <div className="flex gap-1.5 flex-wrap">
+                                <span className="inline-flex items-center px-2.5 py-1 bg-blue-50 border border-blue-100 rounded-md text-xs font-bold text-blue-600 tracking-wider">
+                                  {p.category}
+                                </span>
+                                <span className="inline-flex items-center px-2.5 py-1 bg-slate-100 border border-slate-200/50 rounded-md text-xs font-bold text-slate-500 tracking-wider">
+                                  {p.layout === 'text-left' ? '文左图右' : '图左文右'}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-1.5 text-xs text-slate-400 font-black">
+                                <Calendar className="w-3.5 h-3.5" />
+                                <span>NO. {p.id}</span>
+                              </div>
+                            </div>
+                            <div className="space-y-2">
+                              <h3 className="text-xl font-black text-slate-900 leading-snug">
+                                {p.title}
+                              </h3>
+                              <p className="text-sm font-bold text-blue-650 leading-normal">
+                                {p.tagline}
+                              </p>
+                              <p className="text-sm text-slate-650 leading-relaxed indent-[2em]">
+                                {p.description}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* Right: features list */}
+                          {p.features && p.features.filter(f => f.trim() !== '').length > 0 && (
+                            <div className="lg:col-span-1 lg:border-l lg:border-slate-200/60 lg:pl-5">
+                              <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
+                                核心特性亮点
+                              </div>
+                              <ul className="space-y-1.5">
+                                {p.features.filter(f => f.trim() !== '').map((f, i) => (
+                                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-700 leading-snug">
+                                    <span className="text-blue-500 font-bold mt-0.5 shrink-0">✓</span>
+                                    <span>{f}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Actions footer — always visible */}
+                    <div className="px-4 py-3 bg-slate-50/70 border-t border-slate-150/60 flex items-center justify-between gap-3 flex-wrap">
+                      {/* Visibility status group */}
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mr-0.5">展示</span>
                         <button
-                          onClick={() => handleToggleShowInHome(p)}
-                          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-base font-bold border transition-all cursor-pointer ${
+                          onClick={(e) => { e.stopPropagation(); handleToggleShowInHome(p); }}
+                          title={p.showInHome ? '已在首页"产品中心"区块展示，点击隐藏' : '当前未在首页展示，点击发布到首页'}
+                          className={`group flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-bold border transition-all cursor-pointer ${
                             p.showInHome
-                              ? 'bg-emerald-50 text-emerald-700 border-emerald-250 shadow-sm'
-                              : 'bg-white text-slate-400 border-slate-200 hover:border-slate-300'
+                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                              : 'bg-white text-slate-400 border-slate-200 hover:border-slate-300 hover:text-slate-600'
                           }`}
                         >
-                          <span className={`w-2 h-2 rounded-full ${p.showInHome ? 'bg-emerald-500 animate-pulse' : 'bg-slate-350'}`} />
+                          <Home className="w-3 h-3" />
                           <span>首页</span>
                         </button>
                         <button
-                          onClick={() => handleToggleShowInNavbar(p)}
-                          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-base font-bold border transition-all cursor-pointer ${
+                          onClick={(e) => { e.stopPropagation(); handleToggleShowInNavbar(p); }}
+                          title={p.showInNavbar ? '已在顶部导航"产品中心"下拉菜单中显示，点击隐藏' : '当前未在导航下拉菜单中显示，点击加入导航'}
+                          className={`group flex items-center gap-1 px-2 py-1 rounded-md text-[11px] font-bold border transition-all cursor-pointer ${
                             p.showInNavbar
-                              ? 'bg-indigo-50 text-indigo-700 border-indigo-255 shadow-sm'
-                              : 'bg-white text-slate-400 border-slate-200 hover:border-slate-300'
+                              ? 'bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100'
+                              : 'bg-white text-slate-400 border-slate-200 hover:border-slate-300 hover:text-slate-600'
                           }`}
                         >
-                          <span className={`w-2 h-2 rounded-full ${p.showInNavbar ? 'bg-indigo-500 animate-pulse' : 'bg-slate-355'}`} />
+                          <Navigation className="w-3 h-3" />
                           <span>导航</span>
                         </button>
                       </div>
 
-                      <div className="flex items-center gap-2.5">
+                      {/* Divider */}
+                      <div className="h-5 w-px bg-slate-200 hidden sm:block" />
+
+                      {/* Management actions group */}
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mr-0.5">操作</span>
                         <Link
                           href={`/admin/products/${p.id}/design`}
-                          className="flex items-center gap-2 px-4 py-2.5 bg-blue-50 text-blue-600 border border-blue-150 rounded-xl text-base font-bold hover:bg-blue-100/60 transition-all shadow-sm cursor-pointer"
+                          onClick={(e) => e.stopPropagation()}
+                          title="设计产品详情页的 section 模块（Hero/Capabilities/Architecture 等）"
+                          className="group flex items-center gap-1 px-2 py-1 bg-blue-50 text-blue-600 border border-blue-200 rounded-md text-[11px] font-bold hover:bg-blue-100 transition-all cursor-pointer"
                         >
-                          <Palette className="w-4.5 h-4.5" />
+                          <Palette className="w-3 h-3" />
                           <span>设计</span>
                         </Link>
                         <button
-                          onClick={() => openEdit(p)}
-                          className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-600 rounded-xl text-base font-bold hover:bg-slate-100 hover:text-slate-800 transition-all shadow-sm cursor-pointer"
+                          onClick={(e) => { e.stopPropagation(); openEdit(p); }}
+                          title="编辑产品基础信息（名称/分类/简介/图片等）"
+                          className="group flex items-center gap-1 px-2 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-[11px] font-bold hover:bg-slate-100 hover:text-slate-800 transition-all cursor-pointer"
                         >
-                          <Pencil className="w-4.5 h-4.5" />
+                          <Pencil className="w-3 h-3" />
                           <span>编辑</span>
                         </button>
                         <button
-                          onClick={() => setDeleteId(p.id)}
-                          className="flex items-center gap-2 px-4.5 py-2.5 bg-rose-50 text-rose-600 border border-rose-100 rounded-xl text-base font-bold hover:bg-rose-100 transition-all cursor-pointer"
+                          onClick={(e) => { e.stopPropagation(); setDeleteId(p.id); }}
+                          title="永久删除该产品（不可恢复）"
+                          className="group flex items-center gap-1 px-2 py-1 bg-white border border-rose-200 text-rose-600 rounded-md text-[11px] font-bold hover:bg-rose-50 transition-all cursor-pointer"
                         >
-                          <Trash2 className="w-4.5 h-4.5" />
+                          <Trash2 className="w-3 h-3" />
                           <span>删除</span>
                         </button>
                       </div>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </>
