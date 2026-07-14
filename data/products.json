@@ -1675,21 +1675,21 @@
             {
               "title": "中小企业 · 财务共享",
               "imageUrl": "/uploads/products/7/1784021732105-1x6yrpk7c2f.jpeg",
-              "description": "月报销单量100-2000笔，财务2-5人，金蝶精斗云为唯一账务系统。上线后每月节省30+小时重复劳动，凭证零差错。"
+              "description": "适配中小型财务团队，告别手工制证，每月释放30+小时人效且凭证零差错。"
             },
             {
               "title": "连锁零售 · 多门店统一核算",
-              "imageUrl": "/uploads/products/7/scenario_retail.png",
-              "description": "门店多、单据多、附件多，需要统一科目与凭证格式。总部财务集中审单、集中入账，全门店凭证格式统一，对账自动完成。"
+              "imageUrl": "/uploads/products/7/1784022044870-1zvwjpgposx.jpeg",
+              "description": "规范多门店财务标准，支持总部集中审单入账，实现全业务自动对账。"
             },
             {
               "title": "专业服务 · 项目制核算",
-              "imageUrl": "/uploads/products/7/scenario_service.png",
+              "imageUrl": "/uploads/products/7/1784022232129-ksyh6hbcqb.jpeg",
               "description": "按项目归集费用，凭证需含项目编码。规则灵活可定制，审计要求高的场景下，项目费用自动归集，审计无忧。"
             },
             {
               "title": "成长型互联网公司",
-              "imageUrl": "/uploads/products/7/scenario_tech.png",
+              "imageUrl": "/uploads/products/7/1784022316519-1do9j03ajc2.jpeg",
               "description": "审批流程数字化先行，金蝶精斗云+企微多端协同。要求快速上线、轻量集成，无专职运维。一周上线，零运维负担。"
             }
           ]
@@ -1772,7 +1772,7 @@
       "多轮对话交互：无需一次说全，像聊天一样逐步补充信息",
       "假种实时校验：与企业微信审批模板实时校验，避免错误提交"
     ],
-    "imageUrl": "/uploads/products/8/hero_bg.png",
+    "imageUrl": "/uploads/products/8/1784022802060-f6uthq2xfi.jpeg",
     "imageAlt": "智能办公助理",
     "order": 8,
     "showInHome": true,
@@ -1786,7 +1786,7 @@
           "title": "智能办公助理",
           "subtitle": "在企微里聊天，就能办公——用自然语言对话替代表单填写与系统跳转",
           "bgType": "image",
-          "bgUrl": "/uploads/products/8/1783758493438-7h0mpekixpd.png"
+          "bgUrl": "/uploads/products/8/1784022863798-bdgqrzzwmn5.jpeg"
         }
       },
       {
@@ -1796,12 +1796,12 @@
           {
             "title": "对话式请假审批",
             "description": "员工用日常口语描述请假需求，系统自动提取信息、校验假种、组装表单并提交审批。支持年假、病假、事假、调休假、陪产假等多种假种，口语化表述自动识别。可分多次对话补充信息，支持上传病假证明等图片附件。",
-            "imageUrl": "/uploads/products/8/user_mobile_screens.png"
+            "imageUrl": "/uploads/products/8/1784023106169-45d2316qf7o.jpeg"
           },
           {
             "title": "企业知识问答",
             "description": "接入企业专属知识库，覆盖人事制度、行政规范、IT 指南、财务报销规则等。员工用自然语言提问，即时获得基于企业真实文档的准确回答，有据可依，避免 AI 编造信息。7×24 小时在线，服务异常时自动降级。",
-            "imageUrl": "/uploads/products/8/1783759423416-ngo81mvlm6.png"
+            "imageUrl": "/uploads/products/8/1784023329014-2o7fq6ldtc.jpeg"
           },
           {
             "title": "请假进度全维度追踪",
@@ -1859,17 +1859,17 @@
             {
               "title": "新员工入职咨询",
               "description": "新员工入职时面临大量制度文档，通过智能助理直接提问即可获得即时解答，降低入职适应成本，减轻 HR 重复咨询压力。",
-              "imageUrl": "/uploads/products/8/scenario_onboard.png"
+              "imageUrl": "/uploads/products/8/1784023560465-uil3wtnax2.jpeg"
             },
             {
               "title": "日常请假快捷办理",
               "description": "员工生病或临时有事需要请假，在企业微信里发一条消息就能提交请假申请，附带医院证明照片，全程手机端完成。",
-              "imageUrl": "/uploads/products/8/scenario_leave.png"
+              "imageUrl": "/uploads/products/8/1784023575963-kfi0n2coul.jpeg"
             },
             {
               "title": "制度规范即时查询",
               "description": "员工对报销标准、考勤规则等日常制度问题高度重复。智能助理基于企业知识库即时回答，保证准确一致，释放行政和 HR 团队压力。",
-              "imageUrl": "/uploads/products/8/scenario_policy.png"
+              "imageUrl": "/uploads/products/8/1784023630794-iw68jwft7dc.jpeg"
             }
           ]
         }
