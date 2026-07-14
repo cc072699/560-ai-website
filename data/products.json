@@ -1425,22 +1425,22 @@
           "items": [
             {
               "title": "律师事务所",
-              "imageUrl": "/uploads/products/6/office-scene.png",
+              "imageUrl": "/uploads/products/6/1784019144001-d3kzomzycya.jpeg",
               "description": "过去百件文书制作需团队加班数日；如今上传数据即可分钟级交付，律师得以回归案件分析本身。"
             },
             {
               "title": "企业法务",
-              "imageUrl": "/uploads/products/6/product-ui.png",
+              "imageUrl": "/uploads/products/6/1784019046169-y0cewkykelg.jpeg",
               "description": "以往催告函需逐份起草审核；现在系统批量生成自动填充，法务团队从重复劳动中解放，专注核心合规工作。"
             },
             {
               "title": "金融机构",
-              "imageUrl": "/uploads/products/6/architecture.svg",
+              "imageUrl": "/uploads/products/6/1784019281412-d8gol3mbd7h.jpeg",
               "description": "传统手工制作效率低易出错；系统一键生成标准函件，每份文书格式统一内容精准，满足大规模合规催收需求。"
             },
             {
               "title": "物业管理",
-              "imageUrl": "/uploads/products/6/cap-lawyer-letter.png",
+              "imageUrl": "/uploads/products/6/1784019803077-93l54hheu1h.jpeg",
               "description": "过去每起欠费需单独准备诉讼材料；现在一键上传数据，催告函与起诉状同步产出，批量物业纠纷标准化处理。"
             }
           ]
@@ -1486,7 +1486,7 @@
   },
   {
     "id": "7",
-    "title": "wecom-kingdee 集成服务",
+    "title": "微蝶云账通",
     "tagline": "企业微信审批通过即自动生成金蝶会计凭证，3秒入账，财务零手工",
     "category": "自动化与办公协同",
     "description": "连接企业微信审批与金蝶精斗云的自动化集成产品。报销审批通过后3秒自动生成借贷平衡凭证并同步附件，财务团队每月释放30+小时重复劳动。",
@@ -1498,7 +1498,7 @@
       "附件自动同步：从企业微信下载发票、行程单等原始附件，自动上传金蝶并绑定对应凭证，支持18种常见文件格式",
       "实时通知与追溯：凭证生成结果企微+邮件双通道即时通知，审批单号→凭证→附件全链路留痕，审计无忧"
     ],
-    "imageUrl": "/uploads/products/7/hero_bg.png",
+    "imageUrl": "/uploads/products/7/1784020656506-pivplowi41.jpeg",
     "imageAlt": "wecom-kingdee 集成服务",
     "order": 7,
     "showInHome": true,
@@ -1509,10 +1509,10 @@
         "id": "wk-hero",
         "type": "hero",
         "hero": {
-          "title": "wecom-kingdee 集成服务",
+          "title": "微蝶云账通",
           "subtitle": "企业微信审批通过即自动生成金蝶会计凭证，3秒入账，财务零手工",
           "bgType": "image",
-          "bgUrl": "/uploads/products/7/canvas_mapping.png"
+          "bgUrl": "/uploads/products/7/1784020797528-obd7m2ypun7.jpeg"
         }
       },
       {
@@ -1551,7 +1551,7 @@
         "canvas": {
           "title": "费用科目对照 · 可视化规则配置",
           "subtitle": "企业微信报销类型自动映射金蝶借贷科目，零代码配置",
-          "imageUrl": "/uploads/products/7/canvas_mapping.png",
+          "imageUrl": "/uploads/products/7/1784021357916-5c3hkgkmixr.jpeg",
           "imageAlt": "wecom-kingdee 费用科目对照管理后台",
           "description": "管理员在后台完成全部配置：费用类型、借贷科目、启用状态、备注规则一目了然。支持搜索、编辑、新增，配置完成后审批通过即自动匹配，无需切换系统。",
           "features": [
@@ -1674,7 +1674,7 @@
           "items": [
             {
               "title": "中小企业 · 财务共享",
-              "imageUrl": "/uploads/products/7/scenario_sme.png",
+              "imageUrl": "/uploads/products/7/1784021732105-1x6yrpk7c2f.jpeg",
               "description": "月报销单量100-2000笔，财务2-5人，金蝶精斗云为唯一账务系统。上线后每月节省30+小时重复劳动，凭证零差错。"
             },
             {
