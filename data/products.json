@@ -277,204 +277,207 @@
   {
     "id": "2",
     "title": "560科技数字员工平台",
-    "tagline": "上传视频即建专属AI员工，企业知识一键赋能",
+    "tagline": "企业智能化转型的核心引擎",
     "category": "自动化与办公协同",
-    "description": "企业级 AI Agent 管理与使用平台。上传人物视频、配置提示词与知识库，即可快速创建能对话、能回答专业知识的 AI 数字员工。集成 RBAC 精细权限叠加、RAG 知识库增强检索、SSE 流式对话与访客免登录模式，帮助企业将重复性问题自动化处理、知识资产沉淀复用、AI 使用安全可控。",
+    "description": "企业级内部 AI 对话 Agent 管理与使用平台。构建法务、IT、HR 等垂直领域数字员工，自动处理60%以上重复性咨询。集成智能数字员工矩阵、企业级知识库 RAG 问答、RBAC 精细权限管控、访客免登录模式与 SSE 流式对话，将分散文档转化为可复用智能资产，打破内外服务壁垒。",
     "features": [
-      "数字员工创建：上传视频+配置提示词+知识库，三步完成 AI 员工部署",
-      "RBAC 精细权限：角色权限+个人权限叠加，部门级数据隔离，权限覆盖全部模块",
-      "知识库 RAG 增强：外接 WeKnora 知识库，对话时自动检索相关片段注入上下文",
-      "SSE 流式对话：逐字输出，首字响应 ≤3秒，支持打断/停止，多轮上下文传递",
-      "访客免登录模式：数字员工可设为公开，无需注册即可使用，满足对外服务场景",
-      "多模型自由切换：支持配置多种 LLM，API Key 加密存储，连通性测试一键搞定"
+      "智能数字员工矩阵：多角色定制（法务/IT/HR），自定义提示词与模型，分类展示一键触达",
+      "企业级知识库 RAG 问答：语义检索+来源引用，文档知识沉淀复用，新人培训周期缩短40%",
+      "精细化 RBAC 权限管控：角色权限+个人权限叠加，最终权限=角色∪个人，对话历史严格隔离",
+      "访客模式对外开放：数字员工设为公开即可免登录使用，降低对外服务门槛",
+      "SSE 流式对话体验：逐字输出首字≤3秒，20条上下文保留，智能标题生成与历史搜索"
     ],
-    "imageUrl": "/uploads/products/2/hero-bg.png",
-    "imageAlt": "560科技数字员工平台工作台界面",
+    "imageUrl": "/uploads/products/2/hero-new.png",
+    "imageAlt": "560科技数字员工平台管理界面",
     "order": 2,
     "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
       {
-        "id": "d9h1e7r",
+        "id": "k7m9n2p",
         "type": "hero",
         "hero": {
           "title": "560科技数字员工平台",
-          "subtitle": "上传视频即建专属 AI 员工，企业知识一键赋能",
+          "subtitle": "企业智能化转型的核心引擎",
           "bgType": "image",
-          "bgUrl": "/uploads/products/2/1783582205539-xq75fflnrrm.png"
+          "bgUrl": "/uploads/products/2/hero-new.png"
         }
       },
       {
-        "id": "d9m2t8c",
+        "id": "01kdmtp",
+        "type": "features",
+        "features": {
+          "title": "五大核心能力",
+          "subtitle": "构建企业级 AI 数字员工矩阵，覆盖智能问答、知识管理、权限管控全场景",
+          "items": [
+            {
+              "title": "智能数字员工矩阵",
+              "description": "法务、IT、HR 等多角色定制 AI 数字员工，每个 Agent 拥有专属人设、提示词、知识库与模型配置，支持按部门或职能分类展示。",
+              "highlightText": "核心"
+            },
+            {
+              "title": "企业级知识库 RAG 问答",
+              "description": "结合 RAG 检索增强生成技术，对话时自动检索企业文档库片段注入上下文，提供来源引用，让知识真正可追溯、可复用。",
+              "highlightText": "核心"
+            },
+            {
+              "title": "精细化 RBAC 权限管控",
+              "description": "角色权限 + 个人权限双重叠加模型，最终权限 = 角色权限 ∪ 个人权限，部门级数据隔离覆盖全部模块增删改查操作。",
+              "highlightText": "安全"
+            },
+            {
+              "title": "访客免登录对外开放",
+              "description": "数字员工可设为公开，访客无需注册即可使用。突破内部系统边界，会话隔离保障内部数据不向外泄露。",
+              "highlightText": "开放"
+            },
+            {
+              "title": "流畅 SSE 流式对话体验",
+              "description": "AI 回答逐字输出首字延迟低至3秒，自动保留最近20条对话上下文，智能标题生成，历史按时间分组可搜索。",
+              "highlightText": "体验"
+            }
+          ]
+        }
+      },
+      {
+        "id": "a1c3e5g",
+        "type": "capabilities",
+        "capabilities": [
+          {
+            "title": "智能数字员工矩阵",
+            "description": "平台支持创建和管理多个具备不同专业能力的数字员工，每个都是独立的 AI Agent，拥有专属人设、知识库和模型配置。支持按部门或职能分类展示，方便用户快速查找。自定义系统提示词，选择底层 LLM 模型，挂载特定知识库，打造最懂业务的 AI 助手。",
+            "imageUrl": "/uploads/products/2/cap_agents_v2.png"
+          },
+          {
+            "title": "企业级知识库问答",
+            "description": "告别传统关键词搜索的低效，实现基于语义理解的精准知识检索。结合 RAG 技术，AI 基于企业上传的文档库生成答案并提供来源引用。将散落在各系统中的非结构化数据转化为可对话的知识资产。新员工可通过向数字员工提问快速了解公司制度与业务流程。",
+            "imageUrl": "/uploads/products/2/cap_rag_v2.png"
+          },
+          {
+            "title": "精细化权限与安全管控",
+            "description": "采用业界标准 RBAC 模型，确保数据安全与合规使用。超级管理员可完全自定义角色及权限组合。支持角色授权和个人授权双重机制，最终权限=角色权限+个人权限，灵活且严谨。对话历史严格按用户隔离，数字员工访问范围严格受控。",
+            "imageUrl": "/uploads/products/2/cap_rbac_v2.png"
+          },
+          {
+            "title": "访客模式与对外开放",
+            "description": "突破内部系统边界，将智能服务能力延伸至外部合作伙伴与客户。无需注册账号，访客即可直接使用被标记为公开的数字员工。简化外部用户使用流程，提升服务体验。访客对话仅在当前会话有效，关闭页面即清除。",
+            "imageUrl": "/uploads/products/2/cap_guest_v2.png"
+          },
+          {
+            "title": "流畅的对话体验",
+            "description": "提供媲美主流 C 端产品的交互体验。AI 回答逐字输出减少等待焦虑，自动保留最近20条对话历史支持连续追问。登录用户可随时查看、搜索、重命名或删除历史对话。新建对话时自动提取首条消息前20个字符作为标题。",
+            "imageUrl": "/uploads/products/2/cap_sse_v2.png"
+          }
+        ]
+      },
+      {
+        "id": "h2j4l6n",
+        "type": "scenarios",
+        "scenarios": {
+          "title": "典型应用场景",
+          "subtitle": "从内部协作到对外服务，数字员工全场景赋能企业智能化转型",
+          "items": [
+            {
+              "title": "内部智能问答",
+              "imageUrl": "/uploads/products/2/scenario_qa_v2.png",
+              "description": "部署 HR、IT、行政等数字员工自动回答常见咨询，重复性问题不再占用人工时间，知识实现真正复用。预期减少60%人工处理量，提升员工满意度。"
+            },
+            {
+              "title": "知识库专家问答",
+              "imageUrl": "/uploads/products/2/scenario_kb_v2.png",
+              "description": "挂载企业文档库，AI 基于知识库精准回答各类专业问题，新人无需翻阅大量文档即可快速上手。培训周期缩短40%，企业知识真正沉淀为可复用资产。"
+            },
+            {
+              "title": "对外智能服务",
+              "imageUrl": "/uploads/products/2/scenario_open_v2.png",
+              "description": "将客服类数字员工设为公开，访客无需注册即可使用。降低对外服务门槛，响应更加及时，降低服务成本的同时扩展品牌触达、提升客户体验。"
+            },
+            {
+              "title": "权限精细化管理",
+              "imageUrl": "/uploads/products/2/scenario_permission_v2.png",
+              "description": "基于 RBAC 的精细化权限管理，支持角色与个人双重授权组合，确保不同部门、不同层级员工只能访问授权范围内的数字员工和数据，满足企业内控合规要求。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "p8q0r2s",
         "type": "metrics",
         "metrics": {
-          "title": "核心效能指标",
-          "subtitle": "用数据见证 AI 数字员工为企业带来的真实改变",
+          "title": "效果数据",
+          "subtitle": "用真实数据见证 AI 数字员工为企业带来的变革",
           "items": [
             {
               "value": "60%",
               "label": "人工处理减少",
-              "description": "重复性问题自动化应答，释放人力资源"
+              "description": "重复性问题自动化应答，释放人力资源专注高价值事务"
             },
             {
               "value": "40%",
               "label": "培训周期缩短",
-              "description": "知识库嵌入数字员工，新人快速上手"
+              "description": "知识库嵌入数字员工，新人无需翻阅大量文档即可快速上手"
             },
             {
               "value": "≤3s",
               "label": "首字响应时间",
-              "description": "SSE 流式逐字输出，对话如真人般流畅"
+              "description": "SSE 流式逐字输出，对话交互自然流畅如真人"
             },
             {
               "value": "7×24",
               "label": "全天候在线",
-              "description": "访客模式支持免登录使用，永不掉线"
+              "description": "数字员工全天候待命，访客免登录即可使用，永不离线"
             }
           ]
         }
       },
       {
-        "id": "d9b3n9o",
-        "type": "bentoGrid",
-        "bentoGrid": {
-          "title": "四大核心差异化亮点",
-          "subtitle": "从权限管控到知识增强，重新定义企业 AI 员工平台",
-          "items": [
-            {
-              "size": "large",
-              "title": "RBAC 精细权限叠加",
-              "subtitle": "角色权限 + 个人权限并集，部门级数据隔离，覆盖7大模块增删改查",
-              "imageUrl": "/uploads/products/2/bento_rbac.png"
-            },
-            {
-              "size": "small",
-              "title": "访客免登录模式",
-              "subtitle": "数字员工设为公开，无需注册即可对话，满足对外服务场景",
-              "imageUrl": "/uploads/products/2/bento_guest.png"
-            },
-            {
-              "size": "small",
-              "title": "知识库 RAG 增强",
-              "subtitle": "外接 WeKnora，对话自动检索知识片段，失败不影响对话降级继续",
-              "imageUrl": "/uploads/products/2/bento_rag.png"
-            },
-            {
-              "size": "large",
-              "title": "流式 SSE + 多模型",
-              "subtitle": "逐字输出首字≤3秒，支持打断/停止生成，多种 LLM 自由切换",
-              "imageUrl": "/uploads/products/2/bento_sse.png"
-            }
-          ]
-        }
-      },
-      {
-        "id": "d9f4t0e",
-        "type": "features",
-        "features": {
-          "title": "六大核心模块，覆盖企业 AI 管理全流程",
-          "subtitle": "从身份认证到智能对话，一个平台闭环企业 AI 能力建设",
-          "items": [
-            {
-              "title": "M01 认证模块",
-              "description": "JWT 安全登录/登出、访客免登录访问、密码修改，登录失败统一提示防信息泄露",
-              "highlightText": "基础"
-            },
-            {
-              "title": "M02 用户管理",
-              "description": "用户 CRUD、角色分配（单角色）、个人权限叠加、启用/禁用/删除，权限=角色权限∪个人权限",
-              "highlightText": "核心"
-            },
-            {
-              "title": "M03 角色管理",
-              "description": "完全自定义角色与权限组合，预置超级管理员，删除角色自动清理授权关联",
-              "highlightText": "核心"
-            },
-            {
-              "title": "M04 模型管理",
-              "description": "LLM 模型配置（名称/标识/API地址/Key），Key 加密存储+前端脱敏展示，支持连通性测试",
-              "highlightText": "推荐"
-            },
-            {
-              "title": "M05 数字员工管理",
-              "description": "创建数字员工：名称、描述、分类、系统提示词、选择模型、配置知识库、设置开放访问与授权",
-              "highlightText": "核心"
-            },
-            {
-              "title": "M06 对话模块",
-              "description": "SSE 流式对话，上下文注入（系统提示词+最近20条历史+知识库检索），历史按时间分组搜索",
-              "highlightText": "核心"
-            }
-          ]
-        }
-      },
-      {
-        "id": "d9s5c1n",
-        "type": "scenarios",
-        "scenarios": {
-          "title": "多场景应用，全方位赋能企业 AI 化",
-          "subtitle": "从内部协作到对外服务，四大典型场景深度覆盖",
-          "items": [
-            {
-              "title": "企业内部智能问答",
-              "imageUrl": "/uploads/products/2/scenario_qa.png",
-              "description": "法务、IT、HR 等专业数字员工自动回答常见问题，减少60%人工处理量，员工随时随地获取精准答案"
-            },
-            {
-              "title": "知识库专家问答",
-              "imageUrl": "/uploads/products/2/scenario_kb.png",
-              "description": "基于企业文档库精准回答，新人快速上手，培训周期缩短40%，企业知识真正沉淀与复用"
-            },
-            {
-              "title": "对外开放智能服务",
-              "imageUrl": "/uploads/products/2/scenario_open.png",
-              "description": "将客服类数字员工设为公开，访客无需注册即可使用，降低对外服务门槛，扩展品牌触达"
-            }
-          ]
-        }
-      },
-      {
-        "id": "d9a6r2c",
-        "type": "architecture",
-        "architecture": {
-          "title": "系统技术架构",
-          "imageUrl": "/uploads/products/2/architecture.svg",
-          "description": "五层分层架构：用户接入层（Web/移动端/访客/API）→ 认证鉴权层（JWT/RBAC/Session）→ 业务核心层（6大模块）→ AI 引擎层（模型调度/RAG检索/上下文编排）→ 数据基础层。支持 Docker/K8s 容器化部署，可私有化部署或云端 SaaS 多租户。"
-        }
-      },
-      {
-        "id": "d9f7a3q",
+        "id": "t4u6v8w",
         "type": "faq",
         "faq": {
-          "title": "常见问题解答",
-          "subtitle": "关于部署方式、扩展能力、数据安全与适用场景的常见疑问",
+          "title": "常见问题",
+          "subtitle": "关于部署、安全、扩展与数据隐私，您关心的都在这里",
           "items": [
             {
-              "question": "数字员工平台支持私有化部署吗？",
-              "answer": "支持。系统基于 Docker/K8s 容器化技术，可一键部署在企业私有数据中心，满足内网隔离与数据合规要求。"
+              "question": "支持私有化部署吗？",
+              "answer": "支持。系统基于 Docker/K8s 容器化技术，可部署在企业私有数据中心，满足内网隔离与数据合规要求。同时支持云端 SaaS 多租户模式，按需选择。"
             },
             {
-              "question": "一个企业可以创建多少个数字员工？",
+              "question": "可以创建多少个数字员工？",
               "answer": "数量无上限。平台支持按业务线、部门、岗位自由扩展数字员工，并通过 RBAC 权限体系灵活分配使用范围。"
             },
             {
-              "question": "数字员工能调用我现有的业务系统吗？",
+              "question": "能与现有业务系统打通吗？",
               "answer": "可以。通过模型管理模块对接业务 API，让数字员工在对话中完成数据查询、工单创建、流程触发等操作。"
             },
             {
-              "question": "知识库中的数据如何保障安全？",
-              "answer": "平台支持私有化部署，知识库数据不出企业内网；同时通过角色权限与个人权限叠加，确保员工仅能访问授权范围内的知识。"
+              "question": "数据安全如何保障？",
+              "answer": "API Key 加密存储，密码加盐哈希处理，全站 HTTPS 传输。支持私有化部署确保数据不出企业内网，同时通过角色权限与个人权限叠加实现数据访问的细粒度控制。"
             }
           ]
         }
       },
       {
-        "id": "d9c8t4a",
+        "id": "y0z1a3b",
+        "type": "consultation",
+        "consultation": {
+          "title": "为什么选择数字员工平台？",
+          "subtitle": "五大理由，让 AI 真正落地为企业生产力",
+          "ctaText": "预约演示",
+          "benefits": [
+            "开箱即用——预置超级管理员角色，快速上手配置模型与数字员工，无需额外开发投入",
+            "高度灵活——完全自定义角色与权限组合，支持多种 LLM 模型自由切换，适应不同规模企业",
+            "安全可靠——API Key 加密存储，密码加盐哈希处理，HTTPS 全站传输，支持私有化部署",
+            "性能卓越——支持高并发访问，SSE 流式响应首字延迟低至3秒内，提供流畅用户体验",
+            "持续进化——平台架构支持后续移动端扩展及更多 AI 能力集成，伴随企业共同成长"
+          ]
+        }
+      },
+      {
+        "id": "c5d7e9f",
         "type": "cta",
         "cta": {
-          "title": "立即为团队配备专属 AI 数字员工",
-          "description": "预约一对一演示，30 分钟了解如何上传视频、配置知识库，快速部署您的第一个 AI 数字员工。",
+          "title": "立即启用数字员工平台，让 AI 成为您企业中最得力的助手",
+          "description": "预约一对一演示，了解如何快速部署您的第一个 AI 数字员工，开启企业智能化转型第一步。",
           "primaryText": "预约演示",
           "secondaryText": "联系我们"
         }
@@ -1235,7 +1238,7 @@
       "本地处理，数据安全：全部计算在浏览器端完成，客户案件数据不上传云端",
       "浏览器即用：无需安装任何软件，拖拽上传即可操作，零门槛上手"
     ],
-    "imageUrl": "/uploads/products/6/hero.png",
+    "imageUrl": "/uploads/products/6/1784017602418-r6pgjpm3i2k.jpeg",
     "imageAlt": "智能法律文书批量生成系统",
     "order": 6,
     "showInHome": true,
@@ -1249,7 +1252,7 @@
           "title": "智能法律文书批量生成系统",
           "subtitle": "一次上传，整包产出——百件案件文书，分钟级交付",
           "bgType": "image",
-          "bgUrl": "/uploads/products/6/_originals"
+          "bgUrl": "/uploads/products/6/1784017624572-pk70n667nk.jpeg"
         }
       },
       {
@@ -1289,17 +1292,17 @@
           {
             "title": "律师函批量生成",
             "description": "上传律师函Word模板与客户欠费数据，系统自动填充被催告人姓名、欠费明细、催告截止日期等关键信息，一键生成全部律师函。每份文书独立完整，格式统一规范，可直接打印寄送。",
-            "imageUrl": "/uploads/products/6/cap-lawyer-letter.png"
+            "imageUrl": "/uploads/products/6/1784018438079-tei1vr2u2z.jpeg"
           },
           {
             "title": "民事起诉状智能填充",
             "description": "系统自动填充当事人信息、标的金额等文本内容，更能智能识别诉讼请求选项，自动完成多选框勾选。当案件涉及本金与利息追索时，自动勾选对应选项，无需人工逐个标注。",
-            "imageUrl": "/uploads/products/6/dashboard.png"
+            "imageUrl": "/uploads/products/6/1784018399023-p7na0zvvw8g.jpeg"
           },
           {
             "title": "违约金跨年复利自动核算",
             "description": "内置2012年至今的全部央行基准利率档位，根据每个案件的欠费起止日期自动展开逐月明细，按不同时期利率标准分段计算逾期天数，完成13档加权复利核算，生成精确到每一元的违约金计算表。",
-            "imageUrl": "/uploads/products/6/_originals"
+            "imageUrl": "/uploads/products/6/1784018675949-790iwu29m5l.jpeg"
           }
         ]
       },

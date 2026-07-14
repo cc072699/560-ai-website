@@ -1,33 +1,27 @@
 {
   "hero": {
-    "title": "科技点亮实体产业（修改测试）",
+    "title": "科技点亮实体产业",
     "description": "让大模型及物联网智能感知能力切实落地，\n服务广西，辐射东盟，助力区域人工智能产业协同普惠与共赢。",
     "imageUrl": "/uploads/about/about_hero_banner.jpg"
   },
   "slides": [
     {
-      "category": "有硬实力的技术基因 / Tech DNA",
-      "title": "源自深圳的前沿算法沉淀（测试）",
+      "category": "有硬实力的技术基因",
+      "title": "源自深圳的前沿算法沉淀",
       "description": "五六零人工智能发源于深圳大湾区，传承领先的大语言模型、时序大数据预测及机器视觉底层核心算法能力。依托先进的算法工程化经验，确保我们的技术架构始终保持行业前列。",
-      "image": "/uploads/about/shenzhen_lab.jpg"
+      "image": "/uploads/general/1784015441267-n9vvnegbt0n.jpeg"
     },
     {
-      "category": "更懂实体痛点的本地方案 / Regional Delivery",
+      "category": "更懂实体痛点的本地方案",
       "title": "深耕广西的敏捷服务交付",
       "description": "总部落地广西北海高新技术产业园。我们知晓小微科技企业的核心竞争力在于\"交付与贴身服务\"，因此建立了一支2小时内快速响应的本地技术交付队伍，切实消除传统实体数智化转型的后顾之忧。",
-      "image": "/uploads/about/1783560678234-41fljf97v.jpg"
+      "image": "/uploads/general/1784015085084-5j5pkemeu6m.jpeg"
     },
     {
-      "category": "协同共赢的开放体系 / Regional Ecosystem",
+      "category": "协同共赢的开放体系",
       "title": "辐射东盟的产业普惠生态",
       "description": "紧跟国家\"中国-东盟信息港\"战略，我们以北海为跨境合作桥头堡。通过定制开发中英双语、东盟多语种的智能工作流与高兼容物联网数据网关，积极联动政企、院校与行业主体，推动AI技术普惠共赢。",
-      "image": "/uploads/about/asean_connectivity.jpg"
-    },
-    {
-      "category": "测试1",
-      "title": "测试1",
-      "description": "测试111",
-      "image": ""
+      "image": "/uploads/general/1784015473242-h5c2kkz1zp.jpeg"
     }
   ],
   "philosophy": {
