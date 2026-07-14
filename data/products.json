@@ -16,7 +16,7 @@
     "imageUrl": "/uploads/products/1/hero-bg.png",
     "imageAlt": "ESP32八合一安防报警系统",
     "order": 1,
-    "showInHome": false,
+    "showInHome": true,
     "showInNavbar": true,
     "layout": "text-right",
     "detailSections": [
@@ -291,7 +291,7 @@
     "imageUrl": "/uploads/products/2/hero-bg.png",
     "imageAlt": "560科技数字员工平台工作台界面",
     "order": 2,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -497,7 +497,7 @@
       "历史数据留存：InfluxDB时序数据库保存所有环境数据，支持长期趋势分析与在线状态判断",
       "智能设备自动注册：基于MQTT Discovery，新设备通电即自动接入系统，无需手工配置"
     ],
-    "imageUrl": "/uploads/products/3/hero-bg.jpeg",
+    "imageUrl": "/uploads/products/3/1783992320128-j3qn6twxb9.jpeg",
     "imageAlt": "HomeStay 智能民宿管理平台",
     "order": 3,
     "showInHome": true,
@@ -511,7 +511,7 @@
           "title": "HomeStay 智能民宿管理平台",
           "subtitle": "一句话管房，一屏看全店——民宿数字化转型一站式平台",
           "bgType": "image",
-          "bgUrl": "/uploads/products/3/1783666775734-tzmobvbhk0d.png"
+          "bgUrl": "/uploads/products/3/1783990921573-fbumhmpnzef.jpeg"
         }
       },
       {
@@ -571,7 +571,7 @@
         "canvas": {
           "title": "产品全景总览",
           "subtitle": "从智能家居到经营管理的全链路覆盖",
-          "imageUrl": "/uploads/products/3/1783667495381-jddb9rlogvo.png",
+          "imageUrl": "/uploads/products/3/1783991584762-fhjw9c35vnd.jpeg",
           "imageAlt": "HomeStay 产品全景展示",
           "description": "HomeStay 将智能家居设备管控与民宿经营业务深度融合，提供Web管理后台、AI语音助手、移动端管理、数据可视化大屏四大入口，实现民宿运营全链路数字化。",
           "features": [
@@ -2408,7 +2408,7 @@
           {
             "title": "无线便携与电池供电",
             "description": "集成18650大容量可充电锂电池供电方案，Type-C接口充电，彻底摆脱线缆束缚。无论是在客厅茶几、书房桌面还是卧室床头，都能作为精美的科技艺术品独立放置。低功耗待机设计使其可以全天候在线待命，用户随时随地唤醒即可开始对话。支持边充边用，连接Type-C线缆后可作为常驻桌面摆件持续运行，兼顾便携性与长期部署需求。",
-            "imageUrl": "/uploads/products/11/cap-dual.jpg"
+            "imageUrl": "/uploads/products/11/1783992395018-dvzna914guo.jpeg"
           }
         ]
       },
@@ -2470,7 +2470,7 @@
           "items": [
             {
               "title": "桌面极客潮玩与科技摆件",
-              "imageUrl": "/uploads/products/11/scene-desk.png",
+              "imageUrl": "/uploads/products/11/1783992438373-0v2e21gwnmfh.jpg",
               "description": "独特的裸露电路设计与复古灯丝结合，使其成为桌面上最吸睛的科技潮玩。内置的双屏显示不仅可以展示动态时间、天气信息，还能根据语音交互状态呈现生动的AI表情反馈，极大地提升了桌面的科技氛围与个性表达。"
             },
             {
@@ -2588,7 +2588,7 @@
           "title": "小智AI智能小车",
           "subtitle": "基于ESP32与大模型融合，支持语音控制与MCP智能联动的下一代AI移动终端",
           "bgType": "image",
-          "bgUrl": "/uploads/products/12/architecture.svg"
+          "bgUrl": "/uploads/products/12/1783992716347-3o4hjoaxmm7.jpeg"
         }
       },
       {
@@ -2628,7 +2628,7 @@
           {
             "title": "全双工流式AI语音交互",
             "description": "采用流式ASR+LLM+TTS架构，内置ESP-SR离线语音唤醒引擎。用户可通过自然语言直接对小车下达指令，例如「向前走」「跳个舞」「避开障碍物」等。小车内置大模型（Qwen/DeepSeek）会实时解析语义意图并精准执行，支持随时打断、上下文记忆与多轮连续对话，实现真正的智能语音操控体验。",
-            "imageUrl": "/uploads/products/12/cap-voice.png"
+            "imageUrl": "/uploads/products/12/1783992765312-7cx9xis0s2w.jpeg"
           },
           {
             "title": "强大的MCP双向协议控制",
@@ -2804,7 +2804,7 @@
       "私有化灵活部署：支持Python/Java/Golang服务端自建，对接企业私有LLM与数据库",
       "量产级稳定性：固件OTA升级、云端配置热加载、完善的开发文档与技术支持体系"
     ],
-    "imageUrl": "/uploads/products/13/hero-bg.png",
+    "imageUrl": "/uploads/products/13/1783993768851-ph6d3uxvuds.jpeg",
     "imageAlt": "小智AI智能语音交互系统",
     "order": 13,
     "showInHome": true,
@@ -2818,7 +2818,7 @@
           "title": "小智AI智能语音交互系统",
           "subtitle": "基于ESP32与多端大模型融合的全语音交互终端一站式解决方案",
           "bgType": "image",
-          "bgUrl": "/uploads/products/13/architecture.svg"
+          "bgUrl": "/uploads/products/13/1783993882220-1u0b7mb1hag.jpeg"
         }
       },
       {
@@ -3034,7 +3034,7 @@
       "不改原有门禁系统：仅需复制433MHz遥控器信号即可实现AI开门，零施工零改造",
       "多设备集中控制：一部模块可学习多个遥控器，集中管理门锁/窗帘/卷帘/插座等433MHz设备"
     ],
-    "imageUrl": "/uploads/products/14/hero-bg.png",
+    "imageUrl": "/uploads/products/14/1783994892729-kxnzyhr3tk.jpeg",
     "imageAlt": "小智CC1101 AI智能门禁模块",
     "order": 14,
     "showInHome": true,
@@ -3048,7 +3048,7 @@
           "title": "小智CC1101 AI智能门禁模块",
           "subtitle": "基于ESP32-S3与CC1101的AI语音门禁与433MHz射频克隆一站式解决方案",
           "bgType": "image",
-          "bgUrl": "/uploads/products/14/architecture.svg"
+          "bgUrl": "/uploads/products/14/1783994928181-k8mmzvg8ubk.jpeg"
         }
       },
       {
@@ -3088,7 +3088,7 @@
           {
             "title": "AI语音全双工交互控制",
             "description": "依托小智AI的端云协同架构，模块内置I2S高保真音频系统（INMP441数字麦克风+MAX98357A D类功放）。用户可以直接通过自然语言与大模型对话来控制门锁，例如说「帮我打开门锁」，系统即可完成语音识别→意图解析→MCP调用→射频发射的全链路闭环。支持随时打断、上下文记忆与多轮连续对话，同时也是一款全功能的AI语音助手。",
-            "imageUrl": "/uploads/products/14/cap-door.png"
+            "imageUrl": "/uploads/products/14/1783995027276-0fxsfekmpr9j.jpeg"
           },
           {
             "title": "智能433MHz射频克隆",
@@ -3098,7 +3098,7 @@
           {
             "title": "MCP协议大模型直连与可视化反馈",
             "description": "系统原生通过设备端MCP接口将CC1101射频能力注册给云端AI。大模型根据用户的自然语言意图精准调用底层接口，触发CC1101模块发射对应的射频信号。1.54寸TFT屏幕实时显示门禁开/关状态、遥控器学习进度与克隆成功/失败提示，交互过程全程可视化。ST7789驱动240×240高清彩屏还支持动态表情反馈与系统信息展示。",
-            "imageUrl": "/uploads/products/14/cap-desk.png"
+            "imageUrl": "/uploads/products/14/1783994973925-6w8okrzlj5r.jpeg"
           }
         ]
       },
@@ -3170,7 +3170,7 @@
             },
             {
               "title": "可视化桌面智能管家",
-              "imageUrl": "/uploads/products/14/scene-desk.png",
+              "imageUrl": "/uploads/products/14/1783995093679-a8yax10quwp.png",
               "description": "借助1.54寸屏幕与交互按钮，它不仅是门禁控制器，更是可以放置在桌面上的全能AI语音助手与智能家居中控面板，工作生活两不误。"
             }
           ]

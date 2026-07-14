@@ -1,7 +1,7 @@
 import { getProductById, getProducts } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, ChevronRight, PhoneCall, Send, Image as ImageIcon, Workflow, Play, Download, Award, MapPin, Images, Check, Monitor, Layers } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ChevronRight, PhoneCall, Send, Image as ImageIcon, Workflow, Play, Download, Award, MapPin, Images, Check, Monitor, Layers, Cpu } from 'lucide-react';
 import type { PageSection } from '@/types';
 
 export const revalidate = 30;
@@ -1094,61 +1094,99 @@ function DetailHardwareSpec({ section }: { section: PageSection }) {
   const hw = section.hardwareSpec;
   if (!hw) return null;
   return (
-    <div className="py-24 bg-slate-950 text-white border-b border-gray-900 relative overflow-hidden">
+    <div className="py-24 bg-gradient-to-b from-white via-slate-50 to-white border-b border-gray-100 relative overflow-hidden">
+      {/* 背景装饰: 浅色科技网格 + 柔和光晕 */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:48px_48px] opacity-[0.18] pointer-events-none" />
+      <div className="absolute top-[10%] left-[8%] w-[320px] h-[260px] bg-blue-100/40 rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute bottom-[8%] right-[8%] w-[360px] h-[280px] bg-indigo-100/40 rounded-full blur-[100px] pointer-events-none" />
+
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
-        <div className="text-center mb-16 max-w-2xl mx-auto space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">{hw.title}</h2>
+        <div className="text-center mb-14 max-w-2xl mx-auto space-y-4">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 border border-blue-100 rounded-full text-[11px] font-bold tracking-widest text-blue-600 uppercase">
+            <Cpu className="w-3 h-3" />
+            Core Architecture
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">{hw.title}</h2>
           {hw.subtitle && (
-            <p className="text-sm md:text-base text-slate-400 leading-relaxed font-light">{hw.subtitle}</p>
+            <p className="text-sm md:text-base text-slate-500 leading-relaxed font-normal">{hw.subtitle}</p>
           )}
-          <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
+          <div className="w-12 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mx-auto mt-4" />
         </div>
 
-        {/* Central exploded spec container */}
-        <div className="max-w-3xl mx-auto bg-slate-900/40 border border-slate-800/80 rounded-3xl p-8 shadow-2xl relative flex items-center justify-center overflow-hidden">
-          {hw.imageUrl ? (
-            <img src={hw.imageUrl} alt="Core specification architecture" className="w-full h-auto max-h-[600px] object-contain rounded-2xl" />
-          ) : (
-            <div className="text-slate-500 flex flex-col items-center gap-3">
-              <Workflow className="w-12 h-12 opacity-20 text-slate-300 animate-pulse" />
-              <span className="text-xs tracking-wider">系统核心引擎工艺架构图</span>
-            </div>
-          )}
+        {/* 核心拆解图: 浅色卡片 + 蓝色光晕 + 浮动热点 */}
+        <div className="relative max-w-3xl mx-auto">
+          {/* 卡片底层光晕 */}
+          <div className="absolute -inset-4 bg-gradient-to-r from-blue-200/40 via-indigo-200/40 to-cyan-200/40 rounded-[2rem] blur-2xl opacity-70 pointer-events-none" />
 
-          {/* Absolute hotspot coordinates */}
+          <div className="relative bg-white border border-slate-200/80 rounded-3xl p-6 md:p-8 shadow-xl shadow-blue-500/5 flex items-center justify-center overflow-hidden min-h-[360px]">
+            {/* 内层柔和渐变背景 */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-50/60 via-white to-blue-50/30 pointer-events-none" />
+
+            {hw.imageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={hw.imageUrl}
+                alt="Core specification architecture"
+                className="relative w-full h-auto max-h-[520px] object-contain rounded-2xl"
+              />
+            ) : (
+              <div className="relative text-slate-300 flex flex-col items-center gap-3 py-12">
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200/60">
+                  <Workflow className="w-10 h-10 text-slate-300" />
+                </div>
+                <span className="text-xs tracking-wider text-slate-400 font-semibold">系统核心引擎工艺架构图</span>
+              </div>
+            )}
+
+            {/* 浮动热点坐标 */}
+            {hw.annotations.map((ann, idx) => (
+              <div
+                key={idx}
+                className="absolute group z-20 cursor-pointer"
+                style={{ left: `${ann.x}%`, top: `${ann.y}%` }}
+              >
+                {/* 双层雷达环 + 中心点 */}
+                <span className="relative flex h-6 w-6 justify-center items-center -translate-x-1/2 -translate-y-1/2">
+                  <span className="animate-ping absolute inline-flex h-5 w-5 rounded-full bg-blue-500/60" />
+                  <span className="absolute inline-flex h-5 w-5 rounded-full border-2 border-blue-500/40 animate-pulse" />
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-gradient-to-br from-blue-500 to-indigo-600 border-2 border-white shadow-lg shadow-blue-500/40" />
+                </span>
+
+                {/* Tooltip: 浅色现代风 */}
+                <div className="absolute left-1/2 -translate-x-1/2 bottom-7 bg-white/95 backdrop-blur-sm border border-slate-200 p-3.5 rounded-2xl text-left shadow-xl shadow-slate-200/60 w-[230px] scale-0 group-hover:scale-100 transition-all duration-300 origin-bottom pointer-events-none">
+                  <div className="flex items-center gap-1.5 mb-1.5">
+                    <span className="w-4 h-4 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-[9px] font-black text-white flex items-center justify-center">
+                      {idx + 1}
+                    </span>
+                    <h4 className="text-xs font-bold text-slate-900 leading-snug">{ann.title}</h4>
+                  </div>
+                  <p className="text-[11px] text-slate-500 leading-relaxed font-normal">{ann.desc}</p>
+                  {/* 三角箭头 */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-x-[6px] border-x-transparent border-t-[6px] border-t-white" />
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full -mt-px w-0 h-0 border-x-[7px] border-x-transparent border-t-[7px] border-t-slate-200" style={{ zIndex: -1 }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 底部说明列表: 浅色现代卡片 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto mt-10 text-left">
           {hw.annotations.map((ann, idx) => (
             <div
               key={idx}
-              className="absolute group z-20 cursor-pointer"
-              style={{ left: `${ann.x}%`, top: `${ann.y}%` }}
+              className="group relative bg-white border border-slate-200/80 p-5 rounded-2xl hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/5 transition-all duration-300 overflow-hidden"
             >
-              {/* Radar ring indicator */}
-              <span className="relative flex h-5 w-5 justify-center items-center">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-60"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600 border border-white shadow"></span>
-              </span>
+              {/* 左侧蓝色装饰条 */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-indigo-600 opacity-80 group-hover:opacity-100 transition-opacity" />
 
-              {/* Tooltip annotations popup */}
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-8 bg-slate-900/95 border border-slate-700 p-4 rounded-xl text-left shadow-2xl w-[220px] scale-0 group-hover:scale-100 transition-all duration-300 origin-bottom pointer-events-none">
-                <h4 className="text-xs font-black text-white leading-snug">{ann.title}</h4>
-                <p className="text-[10px] text-slate-405 leading-relaxed mt-1 font-medium">{ann.desc}</p>
-                <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-x-8 border-x-transparent border-t-8 border-t-slate-900" />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Flat backup lists for mobile view */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-12 text-left border-t border-slate-800/60 pt-8">
-          {hw.annotations.map((ann, idx) => (
-            <div key={idx} className="bg-slate-900/30 border border-slate-800 p-5 rounded-2xl space-y-1.5">
-              <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-blue-900/50 border border-blue-500 text-[10px] font-black text-blue-400 flex items-center justify-center">
+              <div className="flex items-center gap-2.5 mb-2">
+                <span className="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 text-[10px] font-black text-white flex items-center justify-center shadow-sm shadow-blue-500/20">
                   0{idx + 1}
                 </span>
-                <h4 className="text-sm font-bold text-white">{ann.title}</h4>
+                <h4 className="text-sm font-bold text-slate-900 leading-snug">{ann.title}</h4>
               </div>
-              <p className="text-xs text-slate-400 leading-relaxed font-light pl-7">{ann.desc}</p>
+              <p className="text-xs text-slate-500 leading-relaxed pl-[34px]">{ann.desc}</p>
             </div>
           ))}
         </div>

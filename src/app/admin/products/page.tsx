@@ -362,6 +362,7 @@ export default function ProductsPage() {
                       label="产品主宣传图"
                       value={formData.imageUrl}
                       onChange={(url) => setFormData({ ...formData, imageUrl: url })}
+                      folder={editingId !== 'new' ? `products/${editingId}` : undefined}
                     />
                   </div>
 
