@@ -2347,7 +2347,7 @@
       "个性化深度定制：支持自定义唤醒词、AI角色设定、音色风格与待机界面UI",
       "开放硬件架构：基于开源小智AI生态，支持创客DIY扩展与STEM教育"
     ],
-    "imageUrl": "/uploads/products/11/hero-main.jpg",
+    "imageUrl": "/uploads/products/11/1784105243459-chw6ifmekso.png",
     "imageAlt": "小智AI赛博朋克智能相框",
     "order": 11,
     "showInHome": true,
@@ -2361,7 +2361,7 @@
           "title": "小智AI赛博朋克智能相框",
           "subtitle": "硬核手工铜线走线 × 小智AI全双工语音交互 × 18650无线便携——把AI艺术品放上你的桌面",
           "bgType": "image",
-          "bgUrl": "/uploads/products/11/architecture-exploded.jpg"
+          "bgUrl": "/uploads/products/11/1784105224864-no7s77uj12.png"
         }
       },
       {
@@ -2406,7 +2406,7 @@
           {
             "title": "端云协同AI语音交互",
             "description": "内置小智AI核心架构，支持高灵敏度数字麦克风拾音与高保真腔体扬声器外放。通过流式ASR语音识别+LLM大模型语义理解+TTS语音合成技术，用户可以与相框进行低延迟、全双工的自然语音对话。系统支持随时打断、上下文记忆与多轮连续对话，无论是查询天气、闲聊陪伴、知识问答还是智能提醒，它都能快速理解并准确回应，成为桌面上最贴心的AI助手。",
-            "imageUrl": "/uploads/products/11/cap-voice.jpg"
+            "imageUrl": "/uploads/products/11/1784104843831-mpvosooegbe.jpeg"
           },
           {
             "title": "无线便携与电池供电",
@@ -2478,7 +2478,7 @@
             },
             {
               "title": "贴心智能陪伴助手",
-              "imageUrl": "/uploads/products/11/scene-companion.png",
+              "imageUrl": "/uploads/products/11/1784104874995-grtthdsie6a.jpg",
               "description": "它不仅是一个摆件，更是一个拥有灵魂的陪伴伴侣。接入主流大模型后，相框具备丰富的人格特性与知识储备，为你提供全天候的语音问答、效率提醒、情感交流与生活陪伴，随时唤醒立即回应。"
             },
             {
