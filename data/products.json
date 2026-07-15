@@ -2127,7 +2127,7 @@
   },
   {
     "id": "10",
-    "title": "SQLBot 智能数据分析平台",
+    "title": "SQL智析-智能数据分析平台",
     "tagline": "自然语言对话，秒级生成SQL与可视化图表",
     "category": "智能决策与分析",
     "description": "基于大语言模型与向量检索技术的企业级智能数据分析平台。支持十余种主流数据库，用户用自然语言提问即可自动转换为SQL查询、生成可视化图表、完成数据分析与预测。业务人员无需掌握SQL技能，就能像聊天一样获取数据洞察。",
@@ -2141,7 +2141,7 @@
       "工作空间隔离：多租户数据隔离，行级权限控制，审计日志全程留痕",
       "MCP协议支持：通过MCP协议与其他AI助手交互，扩展系统边界"
     ],
-    "imageUrl": "/uploads/products/10/1784009738684-f6cf6ukm5ik.png",
+    "imageUrl": "/uploads/products/10/1784078865132-vp3kcq2fu4.jpeg",
     "imageAlt": "SQLBot 智能数据分析平台",
     "order": 10,
     "showInHome": true,
@@ -2152,10 +2152,10 @@
         "id": "sb-hero",
         "type": "hero",
         "hero": {
-          "title": "SQLBot 智能数据分析平台",
+          "title": "SQL智析-智能数据分析平台",
           "subtitle": "自然语言对话，秒级生成SQL与可视化图表",
           "bgType": "image",
-          "bgUrl": "/uploads/products/10/cap-chart-prediction.jpg"
+          "bgUrl": "/uploads/products/10/1784078889129-51k0dmmpakp.jpeg"
         }
       },
       {
@@ -2195,22 +2195,22 @@
           {
             "title": "自然语言转SQL",
             "description": "用户用自然语言描述数据需求，系统通过术语匹配、表结构向量检索、SQL示例匹配，自动构建精准Prompt，调用大语言模型生成符合目标数据库语法的SQL。支持复杂多表联查、聚合计算、条件筛选。",
-            "imageUrl": "/uploads/products/10/cap-model-kb.jpg"
+            "imageUrl": "/uploads/products/10/1784079680836-dfgeg4llrd.jpeg"
           },
           {
             "title": "智能图表与数据分析",
             "description": "查询结果自动转换为可视化图表，系统智能推荐图表类型。支持数据分析摘要自动生成，基于历史数据识别趋势、异常和关联性。还可基于时间序列数据完成预测分析，输出预测报告与建议。",
-            "imageUrl": "/uploads/products/10/cap-sql-gen.jpg"
+            "imageUrl": "/uploads/products/10/1784080342178-oz55phkxr5m.jpeg"
           },
           {
             "title": "模型配置与业务知识库",
             "description": "统一管理多种大语言模型（OpenAI、通义千问、智谱GLM、文心一言、Yi等），支持一键切换与连通性测试。业务知识库支持术语定义、SQL示例导入与向量化训练，让模型更懂业务。",
-            "imageUrl": "/uploads/products/10/cap-chart-prediction.jpg"
+            "imageUrl": "/uploads/products/10/1784080862713-2tkx38dbhtb.jpeg"
           },
           {
             "title": "企业级安全与审计",
             "description": "工作空间隔离、行级权限控制、字段级可见性管理，确保数据安全。完整审计日志记录所有查询操作、Token消耗与耗时，支持操作追溯与合规审计。",
-            "imageUrl": "/uploads/products/10/cap-security.jpg"
+            "imageUrl": "/uploads/products/10/1784081086558-908sa1erv7m.jpeg"
           }
         ]
       },

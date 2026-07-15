@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Upload, X, Play, Video } from 'lucide-react';
 
 interface VideoUploadProps {
@@ -14,6 +14,7 @@ export function VideoUpload({ value, onChange, label = '视频', folder }: Video
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [mode, setMode] = useState<'url' | 'upload'>('url');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = useCallback(async (file: File) => {
     setUploading(true);
@@ -88,10 +89,10 @@ export function VideoUpload({ value, onChange, label = '视频', folder }: Video
           onDrop={handleDrop}
           onDragOver={(e) => e.preventDefault()}
           className="border-2 border-dashed border-slate-200 rounded-lg p-6 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50/50 transition-all"
-          onClick={() => document.getElementById('video-file-input')?.click()}
+          onClick={() => fileInputRef.current?.click()}
         >
           <input
-            id="video-file-input"
+            ref={fileInputRef}
             type="file"
             accept="video/mp4,video/webm,video/ogg,video/quicktime"
             className="hidden"

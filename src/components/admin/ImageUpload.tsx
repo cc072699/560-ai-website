@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Upload, X, Image as ImageIcon } from 'lucide-react';
 
 interface ImageUploadProps {
@@ -14,6 +14,7 @@ export function ImageUpload({ value, onChange, label = '图片', folder }: Image
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [mode, setMode] = useState<'url' | 'upload'>('url');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // URL验证函数
   const validateImageUrl = (url: string): boolean => {
@@ -124,10 +125,10 @@ export function ImageUpload({ value, onChange, label = '图片', folder }: Image
           onDrop={handleDrop}
           onDragOver={(e) => e.preventDefault()}
           className="border-2 border-dashed border-slate-200 rounded-lg p-6 text-center cursor-pointer hover:border-blue-400 hover:bg-blue-50/50 transition-all"
-          onClick={() => document.getElementById('image-file-input')?.click()}
+          onClick={() => fileInputRef.current?.click()}
         >
           <input
-            id="image-file-input"
+            ref={fileInputRef}
             type="file"
             accept="image/jpeg,image/png,image/webp,image/gif"
             className="hidden"
