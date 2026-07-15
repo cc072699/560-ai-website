@@ -733,7 +733,7 @@
       "断点续考：意外退出自动保存进度，重新进入无缝恢复答题",
       "防作弊体系：切屏监控+警告+超限自动交卷，三重保障考试公平"
     ],
-    "imageUrl": "/uploads/products/4/hero-bg.png",
+    "imageUrl": "/uploads/products/4/1784099901168-9wvgj38capf.jpeg",
     "imageAlt": "五六零人工智能考试管理系统",
     "order": 4,
     "showInHome": true,
@@ -747,7 +747,7 @@
           "title": "五六零人工智能考试管理系统",
           "subtitle": "从出题到评卷全流程AI自动化，让企业培训考核真正数字化",
           "bgType": "image",
-          "bgUrl": "/uploads/products/4/1783581896338-oc3ajxbygm.png"
+          "bgUrl": "/uploads/products/4/1784099993804-5wy0trl0uet.jpeg"
         }
       },
       {
@@ -787,12 +787,12 @@
           {
             "title": "AI智能出题与组卷",
             "description": "对接企业乐享知识库，选择知识节点即可一键拉取并解析试题，分钟级自动生成包含试题、答案、解析、分值的完整试卷。支持按知识点多级标签分类管理，试卷保存为模板复用，批量创建相似考试更高效。",
-            "imageUrl": "/uploads/products/4/cap-paper-gen.png"
+            "imageUrl": "/uploads/products/4/1784100167196-gxb1qbovprv.jpeg"
           },
           {
             "title": "在线考试与防作弊",
             "description": "响应式H5设计，PC端和手机端自适应。考生微信扫码或链接即可进入考试，支持倒计时提醒、题号导航、试题标记、实时自动保存草稿。切屏监控自动记录并警告，超阈值强制交卷；意外退出后重新进入自动恢复答题进度，断点续考不丢失数据。",
-            "imageUrl": "/uploads/products/4/screenshot-exam.png"
+            "imageUrl": "/uploads/products/4/1784100449116-mmhmjstciqi.jpg"
           },
           {
             "title": "AI智能阅卷与复核",
@@ -849,22 +849,22 @@
           "items": [
             {
               "title": "新员工入职考核",
-              "imageUrl": "/uploads/products/4/scene-qrcode.png",
+              "imageUrl": "/uploads/products/4/1784100996418-7htuokld4v.jpeg",
               "description": "HR批量导入新员工名单，生成考试二维码发送至群聊，新人扫码即考。系统自动评分排名，培训效果一目了然。"
             },
             {
               "title": "岗位技能认证",
-              "imageUrl": "/uploads/products/4/scene-pc.png",
+              "imageUrl": "/uploads/products/4/1784100922926-uklvmr7zz1.jpeg",
               "description": "按岗位设置不同试卷与及格线，定期组织技能认证考试。成绩永久存档，认证到期自动提醒复考。"
             },
             {
               "title": "培训效果评估",
-              "imageUrl": "/uploads/products/4/screenshot-admin.png",
+              "imageUrl": "/uploads/products/4/1784101071236-w68k9708v1l.jpeg",
               "description": "培训前后分别组织考试，系统自动对比成绩变化，识别学员薄弱知识点，为课程优化提供数据支撑。"
             },
             {
               "title": "移动端随到随考",
-              "imageUrl": "/uploads/products/4/scene-mobile.png",
+              "imageUrl": "/uploads/products/4/1784101315319-pmumqdaylw.jpeg",
               "description": "现场培训结束后立即发布考试，学员手机扫码开考。从扫码到答题不超过3步，弱网环境断点续考无忧。"
             }
           ]
@@ -3263,7 +3263,7 @@
       "极简多平台部署：全面支持uv包管理器、Docker容器化及Windows原生一键启动脚本",
       "跨端深度适配：完美兼容PC端与移动端主流浏览器，HTTPS安全协议保障全平台一致体验"
     ],
-    "imageUrl": "/uploads/products/15/hero-bg.png",
+    "imageUrl": "/uploads/products/15/1784097478831-fd47wfpnk4q.jpeg",
     "imageAlt": "XiaoZhi AI 虚拟数字人",
     "order": 15,
     "showInHome": true,
@@ -3277,45 +3277,7 @@
           "title": "XiaoZhi AI 虚拟数字人",
           "subtitle": "让数字人真正「活」起来 — 毫秒级全双工AI虚拟伴侣",
           "bgType": "image",
-          "bgUrl": "/uploads/products/15/hero-bg.png"
-        }
-      },
-      {
-        "id": "vz-bento",
-        "type": "bentoGrid",
-        "bentoGrid": {
-          "title": "四大突破性体验",
-          "subtitle": "重新定义人机交互的边界",
-          "items": [
-            {
-              "size": "large",
-              "title": "毫秒级全双工语音",
-              "subtitle": "WebRTC实时双向音频流，打断即响应，沟通零割裂感",
-              "imageUrl": "/uploads/products/15/cap-webrtc.png",
-              "colorBg": "#1a0a2e"
-            },
-            {
-              "size": "small",
-              "title": "Live2D动态交互",
-              "subtitle": "高精度虚拟模型，实时口型同步与情绪反馈",
-              "imageUrl": "/uploads/products/15/cap-live2d.png",
-              "colorBg": "#0a1628"
-            },
-            {
-              "size": "small",
-              "title": "双模式智能适配",
-              "subtitle": "连续对话与按讲模式自动切换",
-              "imageUrl": "/uploads/products/15/cap-modes.png",
-              "colorBg": "#0a1a1a"
-            },
-            {
-              "size": "tall",
-              "title": "7×24不间断在线",
-              "subtitle": "全天候待命，智能唤醒，资源自适应调度",
-              "imageUrl": "/uploads/products/15/scene-companion.png",
-              "colorBg": "#1a0a1a"
-            }
-          ]
+          "bgUrl": "/uploads/products/15/1784097509099-3ty2tbbaxsl.jpeg"
         }
       },
       {
@@ -3325,17 +3287,17 @@
           {
             "title": "毫秒级全双工语音交互",
             "description": "基于企业级WebRTC技术实现音频流的实时双向传输，彻底打破传统HTTP发送-等待的割裂感。您可以随时打断数字人的发言，沟通流畅度媲美真人面对面交流。集成OpenAI Realtime API，流式ASR语音识别、GPT上下文推理与TTS语音合成一体化处理，端到端响应延迟低至毫秒级。",
-            "imageUrl": "/uploads/products/15/cap-webrtc.png"
+            "imageUrl": "/uploads/products/15/1784097823459-mvsgyxtuyh.jpeg"
           },
           {
             "title": "生动的Live2D沉浸式互动",
-            "description": "内置精美的高精度Live2D虚拟模型（默认560号角色），支持细腻的动态表情变化、头部跟随、眨眼与微动作。语音输出时口型实时同步，让AI真正「活」起来。辅以实时音频波形可视化与粒子特效反馈，不仅是声音交流，更是全感官的视觉互动体验。",
-            "imageUrl": "/uploads/products/15/cap-live2d.png"
+            "description": "内置精美的高精度Live2D虚拟模型（，支持细腻的动态表情变化、头部跟随、眨眼与微动作。语音输出时口型实时同步，让AI真正「活」起来。辅以实时音频波形可视化与粒子特效反馈，不仅是声音交流，更是全感官的视觉互动体验。",
+            "imageUrl": "/uploads/products/15/1784098318659-dc6mrfdp9b7.jpeg"
           },
           {
             "title": "多场景智能双语音模式",
             "description": "集成先进的VAD语音活动检测算法实现连续对话模式——开口即聊，无需按键。同时提供精准控制的按讲模式Push-to-Talk，适用于嘈杂环境或需要精确控制发言时机的场景。系统根据环境噪音自动适配最佳交互方式，无论安静居家还是嘈杂办公区都能流畅使用。",
-            "imageUrl": "/uploads/products/15/cap-modes.png"
+            "imageUrl": "/uploads/products/15/1784098335417-6xtextahmbn.jpeg"
           }
         ]
       },
@@ -3411,17 +3373,17 @@
           "items": [
             {
               "title": "企业数字代言人与智能客服",
-              "imageUrl": "/uploads/products/15/scene-enterprise.png",
+              "imageUrl": "/uploads/products/15/1784099292053-ejnl57b68ev.jpeg",
               "description": "部署于企业官网、小程序或线下展厅大屏，7×24小时提供专业、有温度的客户咨询服务，显著提升品牌科技感与服务效率。"
             },
             {
               "title": "专属虚拟陪伴助理",
-              "imageUrl": "/uploads/products/15/scene-companion.png",
+              "imageUrl": "/uploads/products/15/1784099297887-wdr2fnknva.jpeg",
               "description": "针对终端用户提供情绪价值、日常问答与事务处理，打造具备个性化记忆与互动的私人专属AI伴侣，让陪伴触手可及。"
             },
             {
               "title": "教育辅导与互动培训",
-              "imageUrl": "/uploads/products/15/scene-education.png",
+              "imageUrl": "/uploads/products/15/1784099042129-xuq14vg8m6.jpeg",
               "description": "化身全天候虚拟外教或专业导师，提供极低延迟的语言对话练习、即时发音纠正与沉浸式互动教学体验。"
             }
           ]
