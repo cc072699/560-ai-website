@@ -287,7 +287,7 @@
       "访客模式对外开放：数字员工设为公开即可免登录使用，降低对外服务门槛",
       "SSE 流式对话体验：逐字输出首字≤3秒，20条上下文保留，智能标题生成与历史搜索"
     ],
-    "imageUrl": "/uploads/products/2/hero-new.png",
+    "imageUrl": "/uploads/products/2/1784083726202-5k7xtip2r5q.jpeg",
     "imageAlt": "560科技数字员工平台管理界面",
     "order": 2,
     "showInHome": false,
@@ -301,7 +301,7 @@
           "title": "560科技数字员工平台",
           "subtitle": "企业智能化转型的核心引擎",
           "bgType": "image",
-          "bgUrl": "/uploads/products/2/hero-new.png"
+          "bgUrl": "/uploads/products/2/1784083743592-ai51pqsaodl.jpeg"
         }
       },
       {
@@ -346,27 +346,27 @@
           {
             "title": "智能数字员工矩阵",
             "description": "平台支持创建和管理多个具备不同专业能力的数字员工，每个都是独立的 AI Agent，拥有专属人设、知识库和模型配置。支持按部门或职能分类展示，方便用户快速查找。自定义系统提示词，选择底层 LLM 模型，挂载特定知识库，打造最懂业务的 AI 助手。",
-            "imageUrl": "/uploads/products/2/cap_agents_v2.png"
+            "imageUrl": "/uploads/products/2/1784085659809-0qbbpcm3bb8g.jpeg"
           },
           {
             "title": "企业级知识库问答",
             "description": "告别传统关键词搜索的低效，实现基于语义理解的精准知识检索。结合 RAG 技术，AI 基于企业上传的文档库生成答案并提供来源引用。将散落在各系统中的非结构化数据转化为可对话的知识资产。新员工可通过向数字员工提问快速了解公司制度与业务流程。",
-            "imageUrl": "/uploads/products/2/cap_rag_v2.png"
+            "imageUrl": "/uploads/products/2/1784085877534-ho1xtyxm1c.jpeg"
           },
           {
             "title": "精细化权限与安全管控",
             "description": "采用业界标准 RBAC 模型，确保数据安全与合规使用。超级管理员可完全自定义角色及权限组合。支持角色授权和个人授权双重机制，最终权限=角色权限+个人权限，灵活且严谨。对话历史严格按用户隔离，数字员工访问范围严格受控。",
-            "imageUrl": "/uploads/products/2/cap_rbac_v2.png"
+            "imageUrl": "/uploads/products/2/1784086538947-v70bbnn2fn8.jpeg"
           },
           {
             "title": "访客模式与对外开放",
             "description": "突破内部系统边界，将智能服务能力延伸至外部合作伙伴与客户。无需注册账号，访客即可直接使用被标记为公开的数字员工。简化外部用户使用流程，提升服务体验。访客对话仅在当前会话有效，关闭页面即清除。",
-            "imageUrl": "/uploads/products/2/cap_guest_v2.png"
+            "imageUrl": "/uploads/products/2/1784085692160-5j0o7boe7lw.jpeg"
           },
           {
             "title": "流畅的对话体验",
             "description": "提供媲美主流 C 端产品的交互体验。AI 回答逐字输出减少等待焦虑，自动保留最近20条对话历史支持连续追问。登录用户可随时查看、搜索、重命名或删除历史对话。新建对话时自动提取首条消息前20个字符作为标题。",
-            "imageUrl": "/uploads/products/2/cap_sse_v2.png"
+            "imageUrl": "/uploads/products/2/1784086249108-nl7b7ybcreo.jpeg"
           }
         ]
       },
@@ -379,22 +379,22 @@
           "items": [
             {
               "title": "内部智能问答",
-              "imageUrl": "/uploads/products/2/scenario_qa_v2.png",
+              "imageUrl": "/uploads/products/2/1784087005954-wh8oyc0j98.jpeg",
               "description": "部署 HR、IT、行政等数字员工自动回答常见咨询，重复性问题不再占用人工时间，知识实现真正复用。预期减少60%人工处理量，提升员工满意度。"
             },
             {
               "title": "知识库专家问答",
-              "imageUrl": "/uploads/products/2/scenario_kb_v2.png",
+              "imageUrl": "/uploads/products/2/1784087908036-j9t6z7tv4ys.jpeg",
               "description": "挂载企业文档库，AI 基于知识库精准回答各类专业问题，新人无需翻阅大量文档即可快速上手。培训周期缩短40%，企业知识真正沉淀为可复用资产。"
             },
             {
               "title": "对外智能服务",
-              "imageUrl": "/uploads/products/2/scenario_open_v2.png",
+              "imageUrl": "/uploads/products/2/1784087892153-1rufdvggui5.jpeg",
               "description": "将客服类数字员工设为公开，访客无需注册即可使用。降低对外服务门槛，响应更加及时，降低服务成本的同时扩展品牌触达、提升客户体验。"
             },
             {
               "title": "权限精细化管理",
-              "imageUrl": "/uploads/products/2/scenario_permission_v2.png",
+              "imageUrl": "/uploads/products/2/1784096135690-re0984uc7p.jpeg",
               "description": "基于 RBAC 的精细化权限管理，支持角色与个人双重授权组合，确保不同部门、不同层级员工只能访问授权范围内的数字员工和数据，满足企业内控合规要求。"
             }
           ]
@@ -2272,22 +2272,22 @@
           "items": [
             {
               "title": "经营分析会议",
-              "imageUrl": "/uploads/products/10/scenario-analysis.png",
+              "imageUrl": "/uploads/products/10/1784081920922-eadztvnc38l.jpeg",
               "description": "跨部门经营分析会上，管理层用自然语言提问，秒级获取销售趋势、库存分析、成本结构等数据，支持多维度对比，决策效率提升10倍。"
             },
             {
               "title": "财务数据查询",
-              "imageUrl": "/uploads/products/10/cap-model-kb.jpg",
+              "imageUrl": "/uploads/products/10/1784081928496-cdh2t1lhhm.jpeg",
               "description": "财务人员无需学习SQL，通过对话式查询快速获取应收应付、利润分析、现金流趋势，从小时级缩短到分钟级。"
             },
             {
               "title": "运营数据监控",
-              "imageUrl": "/uploads/products/10/cap-security.jpg",
+              "imageUrl": "/uploads/products/10/1784082003396-zm964gwoke7.jpeg",
               "description": "运营团队实时监控用户增长、转化率、留存率等核心指标，异常自动告警，数据驱动精细化运营。"
             },
             {
               "title": "研发数据洞察",
-              "imageUrl": "/uploads/products/10/cap-sql-gen.jpg",
+              "imageUrl": "/uploads/products/10/1784082014104-mi5iqkr7zfb.jpeg",
               "description": "研发团队通过自然语言查询Bug分布、代码提交趋势、版本发布质量，快速定位问题领域。"
             }
           ]
