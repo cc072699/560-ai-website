@@ -381,3 +381,40 @@ export interface AboutPageData {
     timeline: CultureTimelineItem[];
   };
 }
+
+// ── 申请表单 ────────────────────────────────────────────────
+export type ContactFieldType = 'text' | 'email' | 'phone' | 'textarea' | 'select';
+
+export interface ContactFormField {
+  id: string;
+  type: ContactFieldType;
+  label: string;
+  placeholder: string;
+  required: boolean;
+  maxLength?: number;
+  options?: string[];
+  defaultValue?: string;
+  order: number;
+}
+
+export interface ContactFormTemplate {
+  title: string;
+  description?: string;
+  submitText: string;
+  successMessage: string;
+  fields: ContactFormField[];
+  updatedAt?: string;
+}
+
+export type SubmissionStatus = 'new' | 'read' | 'replied' | 'archived';
+
+export interface ContactSubmission {
+  id: string;
+  submittedAt: string;
+  productId?: string;
+  productName?: string;
+  data: Record<string, string>;
+  status: SubmissionStatus;
+  ip?: string;
+  userAgent?: string;
+}

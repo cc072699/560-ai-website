@@ -13,16 +13,26 @@ import {
   ShieldCheck,
   ChevronDown,
   ChevronRight,
+  FileSpreadsheet,
+  Inbox,
 } from 'lucide-react';
 
 export function AdminSidebar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const [productsOpen, setProductsOpen] = useState(pathname.startsWith('/admin/products'));
+  const [productsOpen, setProductsOpen] = useState(
+    pathname.startsWith('/admin/products') ||
+    pathname.startsWith('/admin/contact-form') ||
+    pathname.startsWith('/admin/contact-submissions')
+  );
 
   useEffect(() => {
-    if (pathname.startsWith('/admin/products')) {
+    if (
+      pathname.startsWith('/admin/products') ||
+      pathname.startsWith('/admin/contact-form') ||
+      pathname.startsWith('/admin/contact-submissions')
+    ) {
       setProductsOpen(true);
     }
   }, [pathname]);
@@ -122,6 +132,28 @@ export function AdminSidebar() {
               >
                 <div className="w-1 h-1 rounded-full bg-current opacity-70" />
                 <span>设计模版库介绍</span>
+              </Link>
+              <Link
+                href="/admin/contact-form"
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                  isActive('/admin/contact-form', true)
+                    ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+                }`}
+              >
+                <FileSpreadsheet className="w-4 h-4 shrink-0" />
+                <span>申请表单配置</span>
+              </Link>
+              <Link
+                href="/admin/contact-submissions"
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                  isActive('/admin/contact-submissions', true)
+                    ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+                }`}
+              >
+                <Inbox className="w-4 h-4 shrink-0" />
+                <span>申请记录</span>
               </Link>
             </div>
           )}

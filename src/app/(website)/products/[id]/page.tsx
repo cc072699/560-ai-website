@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2, ChevronRight, PhoneCall, Send, Image as ImageIcon, Workflow, Play, Download, Award, MapPin, Images, Check, Monitor, Layers, Cpu } from 'lucide-react';
 import type { PageSection } from '@/types';
+import { ProductCTAButtons } from '@/components/ProductCTAButtons';
 
 export const revalidate = 30;
 
@@ -65,20 +66,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all shadow-md shadow-blue-500/10 hover:scale-[1.01]"
-                >
-                  <span>申请试用</span>
-                  <Send className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/#contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 hover:border-blue-200 text-gray-700 hover:text-blue-600 font-semibold rounded-xl transition-all"
-                >
-                  <span>联系专家</span>
-                  <PhoneCall className="w-4 h-4" />
-                </Link>
+                <ProductCTAButtons productId={product.id} productName={product.title} />
               </div>
             </div>
 
@@ -160,11 +148,11 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
           {/* Map and render components */}
           <div className="flex flex-col w-full">
             {product.detailSections!.map((section) => {
-              if (section.type === 'hero') return <DetailHero key={section.id} section={section} />;
+              if (section.type === 'hero') return <DetailHero key={section.id} section={section} productId={product.id} productName={product.title} />;
               if (section.type === 'capabilities') return <DetailCapabilities key={section.id} section={section} />;
               if (section.type === 'scenarios') return <DetailScenarios key={section.id} section={section} />;
               if (section.type === 'architecture') return <DetailArchitecture key={section.id} section={section} />;
-              if (section.type === 'cta') return <DetailCta key={section.id} section={section} />;
+              if (section.type === 'cta') return <DetailCta key={section.id} section={section} productId={product.id} productName={product.title} />;
               if (section.type === 'video') return <DetailVideo key={section.id} section={section} />;
               if (section.type === 'timeline') return <DetailTimeline key={section.id} section={section} />;
               if (section.type === 'features') return <DetailFeatures key={section.id} section={section} />;
@@ -196,7 +184,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
 }
 
 // Subcomponents for dynamic sections
-function DetailHero({ section }: { section: PageSection }) {
+function DetailHero({ section, productId, productName }: { section: PageSection; productId: string; productName: string }) {
   const hero = section.hero;
   if (!hero) return null;
   return (
@@ -218,12 +206,7 @@ function DetailHero({ section }: { section: PageSection }) {
           </p>
         )}
         <div className="pt-4 flex justify-center gap-4">
-          <Link href="/#contact" className="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-500/25 hover:scale-[1.01]">
-            申请试用
-          </Link>
-          <Link href="/#contact" className="px-8 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold rounded-xl transition-all backdrop-blur-sm">
-            联系专家
-          </Link>
+          <ProductCTAButtons productId={productId} productName={productName} primaryClassName="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-500/25 hover:scale-[1.01]" secondaryClassName="px-8 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold rounded-xl transition-all backdrop-blur-sm" />
         </div>
       </div>
     </div>
@@ -343,7 +326,7 @@ function DetailArchitecture({ section }: { section: PageSection }) {
   );
 }
 
-function DetailCta({ section }: { section: PageSection }) {
+function DetailCta({ section, productId, productName }: { section: PageSection; productId: string; productName: string }) {
   const cta = section.cta;
   if (!cta) return null;
   return (
@@ -353,12 +336,7 @@ function DetailCta({ section }: { section: PageSection }) {
         <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">{cta.title}</h2>
         <p className="text-sm md:text-base text-slate-200/90 font-light leading-relaxed max-w-xl mx-auto">{cta.description}</p>
         <div className="flex justify-center gap-4 pt-4">
-          <Link href="/#contact" className="px-8 py-3.5 bg-white text-blue-700 font-bold rounded-xl shadow-md hover:bg-slate-50 hover:scale-[1.01] transition-all">
-            {cta.primaryText}
-          </Link>
-          <Link href="/#contact" className="px-8 py-3.5 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-all">
-            {cta.secondaryText}
-          </Link>
+          <ProductCTAButtons productId={productId} productName={productName} primaryText={cta.primaryText || '申请试用'} secondaryText={cta.secondaryText || '联系我们'} primaryClassName="px-8 py-3.5 bg-white text-blue-700 font-bold rounded-xl shadow-md hover:bg-slate-50 hover:scale-[1.01] transition-all" secondaryClassName="px-8 py-3.5 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-all" />
         </div>
       </div>
     </section>

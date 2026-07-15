@@ -54,3 +54,14 @@ export async function deleteFileByUrl(url: string): Promise<void> {
     // 文件不存在或删除失败，静默处理
   }
 }
+
+/**
+ * 删除联系人提交记录（没有关联的文件，仅做一致性同步）
+ */
+export async function deleteContactSubmission(id: string): Promise<void> {
+  const { getContactSubmissions, saveContactSubmissions } = await import('./data');
+  const submissions = await getContactSubmissions();
+  const filtered = submissions.filter((s) => s.id !== id);
+  if (filtered.length === submissions.length) return;
+  await saveContactSubmissions(filtered);
+}

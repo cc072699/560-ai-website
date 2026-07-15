@@ -1,0 +1,55 @@
+{
+  "title": "申请产品试用",
+  "description": "请填写您的信息，我们将在 24 小时内与您联系",
+  "submitText": "提交申请",
+  "successMessage": "感谢您的申请，我们将尽快与您联系！",
+  "fields": [
+    {
+      "id": "name",
+      "type": "text",
+      "label": "姓名",
+      "placeholder": "请输入您的姓名",
+      "required": true,
+      "maxLength": 50,
+      "order": 1
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "联系方式",
+      "placeholder": "请输入手机号或邮箱",
+      "required": true,
+      "maxLength": 100,
+      "order": 2
+    },
+    {
+      "id": "company",
+      "type": "text",
+      "label": "公司名称",
+      "placeholder": "请输入您所在公司",
+      "required": false,
+      "maxLength": 100,
+      "order": 3
+    },
+    {
+      "id": "product",
+      "type": "text",
+      "label": "申请试用产品",
+      "placeholder": "请输入您想试用的产品",
+      "required": true,
+      "maxLength": 100,
+      "defaultValue": "",
+      "order": 4
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "label": "想对我们说",
+      "placeholder": "请简单描述您的需求或建议",
+      "required": false,
+      "maxLength": 500,
+      "order": 5
+    }
+  ],
+  "updatedAt": "2026-07-15T09:50:40.260Z"
+}

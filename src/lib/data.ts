@@ -99,3 +99,22 @@ export async function saveAboutPageData(aboutPage: AboutPageData): Promise<void>
 export async function saveHeroData(hero: HeroData): Promise<void> {
   await writeJson('hero.json', hero);
 }
+
+// ── 申请表单模板 ──────────────────────────────────────────
+import type { ContactFormTemplate, ContactSubmission } from '@/types';
+
+export async function getContactFormTemplate(): Promise<ContactFormTemplate> {
+  return readJson<ContactFormTemplate>('contact_form.json');
+}
+
+export async function saveContactFormTemplate(template: ContactFormTemplate): Promise<void> {
+  await writeJson('contact_form.json', template);
+}
+
+export async function getContactSubmissions(): Promise<ContactSubmission[]> {
+  return readJson<ContactSubmission[]>('contact_submissions.json');
+}
+
+export async function saveContactSubmissions(submissions: ContactSubmission[]): Promise<void> {
+  await writeJson('contact_submissions.json', submissions);
+}
