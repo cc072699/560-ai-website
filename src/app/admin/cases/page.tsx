@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Plus, Pencil, Trash2, Eye, EyeOff, X, Check, Loader2, FolderOpen, Tag, Award, User, Layers, Calendar } from 'lucide-react';
+import { Plus, Pencil, Trash2, Eye, EyeOff, X, Check, Loader2, FolderOpen, Tag, Award, User, Layers, Calendar, Palette } from 'lucide-react';
+import Link from 'next/link';
 import { ConfirmDialog } from '@/components/admin/ConfirmDialog';
 import { ImageUpload } from '@/components/admin/ImageUpload';
 import type { Case } from '@/types';
@@ -490,6 +491,13 @@ export default function CasesPage() {
                     </div>
 
                     <div className="flex items-center gap-2">
+                      <Link
+                        href={`/admin/cases/${c.id}/design`}
+                        className="flex items-center gap-1.5 px-3.5 py-2 bg-blue-50 text-blue-600 border border-blue-200 rounded-xl text-xs font-bold hover:bg-blue-100 transition-all shadow-sm"
+                      >
+                        <Palette className="w-3.5 h-3.5" />
+                        <span>设计</span>
+                      </Link>
                       <button
                         onClick={() => openEdit(c)}
                         className="flex items-center gap-1.5 px-3.5 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl text-xs font-bold hover:bg-slate-100 hover:text-slate-800 transition-all shadow-sm"

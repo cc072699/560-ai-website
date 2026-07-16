@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import type { SiteConfig, Product } from '@/types';
+import { ContactDialog } from '@/components/ContactDialog';
 
 interface NavbarProps {
   site: SiteConfig;
@@ -16,6 +17,7 @@ export function Navbar({ site, products }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   // Filter products that should be shown in navbar
   const navProducts = products.filter((p) => p.showInNavbar);
@@ -67,7 +69,7 @@ export function Navbar({ site, products }: NavbarProps) {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-14 ml-auto mr-20">
           {site.nav.map((link) => {
-            if (link.name === '产品介绍') {
+            if (link.name === '解决方案') {
               return (
                 <div
                   key={link.name}
@@ -183,6 +185,20 @@ export function Navbar({ site, products }: NavbarProps) {
             }
 
             // Normal text anchor link (smart navigation: redirect to home if not on homepage)
+            if (link.name === '联系我们') {
+              return (
+                <button
+                  key={link.name}
+                  type="button"
+                  onClick={() => setContactOpen(true)}
+                  className="text-[16px] text-gray-800 hover:text-blue-600 font-medium transition-colors relative py-5 group"
+                >
+                  {link.name}
+                  <span className="absolute bottom-0 left-0 w-full h-[3px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200" />
+                </button>
+              );
+            }
+
             return (
               <Link
                 key={link.name}
@@ -216,7 +232,7 @@ export function Navbar({ site, products }: NavbarProps) {
           >
             <div className="flex flex-col py-6 px-6 gap-5 text-left">
               {site.nav.map((link) => {
-                if (link.name === '产品介绍') {
+                if (link.name === '解决方案') {
                   return (
                     <div key={link.name} className="flex flex-col">
                       <button
@@ -276,6 +292,22 @@ export function Navbar({ site, products }: NavbarProps) {
                   );
                 }
 
+                if (link.name === '联系我们') {
+                  return (
+                    <button
+                      key={link.name}
+                      type="button"
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setContactOpen(true);
+                      }}
+                      className="text-base text-gray-700 hover:text-blue-600 font-medium py-1 text-left"
+                    >
+                      {link.name}
+                    </button>
+                  );
+                }
+
                 return (
                   <Link
                     key={link.name}
@@ -291,6 +323,9 @@ export function Navbar({ site, products }: NavbarProps) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* 联系我们 弹窗 */}
+      <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} site={site} />
     </header>
   );
 }

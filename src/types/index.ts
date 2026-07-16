@@ -76,7 +76,15 @@ export type SectionType =
   | 'techStack'
   | 'sandbox'
   | 'signalWave'
-  | 'bentoGrid';
+  | 'bentoGrid'
+  | 'caseOverview'
+  | 'caseChallenges'
+  | 'caseScenes'
+  | 'caseMetrics'
+  | 'caseTestimonial'
+  | 'caseComparison'
+  | 'caseStructure'
+  | 'caseFaq';
 
 export interface PageSection {
   id: string;
@@ -305,6 +313,92 @@ export interface PageSection {
       colorBg?: string;
     }>;
   };
+  caseOverview?: {
+    title: string;
+    subtitle?: string;
+    clientName: string;
+    industry: string;
+    location?: string;
+    date?: string;
+    scale?: string;
+    summary: string;
+  };
+  caseChallenges?: {
+    title: string;
+    subtitle?: string;
+    challenges: Array<{
+      index: string;
+      title: string;
+      description: string;
+      footerText?: string;
+    }>;
+  };
+  caseScenes?: {
+    title: string;
+    subtitle?: string;
+    scenes: Array<{
+      id: string;
+      tabName: string;
+      painPointTitle: string;
+      painPointDesc: string;
+      solutionTitle: string;
+      solutionItems: string[];
+      metricsTitle?: string;
+      metrics: Array<{
+        value: string;
+        label: string;
+      }>;
+    }>;
+  };
+  caseMetrics?: {
+    title: string;
+    subtitle?: string;
+    items: Array<{
+      value: string;
+      label: string;
+      description?: string;
+      highlight?: boolean;
+    }>;
+  };
+  caseTestimonial?: {
+    title: string;
+    subtitle?: string;
+    quote: string;
+    author: string;
+    role: string;
+    company: string;
+  };
+  caseComparison?: {
+    title: string;
+    subtitle?: string;
+    beforeTitle: string;
+    afterTitle: string;
+    items: Array<{
+      label: string;
+      beforeValue: string;
+      afterValue: string;
+      highlight?: boolean;
+    }>;
+  };
+  caseStructure?: {
+    title: string;
+    subtitle?: string;
+    steps: Array<{
+      stepNumber: string;
+      title: string;
+      description: string;
+      duration?: string;
+    }>;
+  };
+  caseFaq?: {
+    title: string;
+    subtitle?: string;
+    faqs: Array<{
+      question: string;
+      answer: string;
+      tag?: string;
+    }>;
+  };
 }
 
 export interface Product {
@@ -338,6 +432,7 @@ export interface Case {
   visible: boolean;
   showInHome?: boolean;
   homeDescription?: string;
+  detailSections?: PageSection[];
 }
 
 export interface AboutSlide {

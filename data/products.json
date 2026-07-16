@@ -3,7 +3,7 @@
     "id": "1",
     "title": "ESP32八合一安防报警系统",
     "tagline": "八大传感器一体集成 · 50ms极速巡检 · 生命安全直通零延迟",
-    "category": "工业智能物联",
+    "category": "AI物联网",
     "description": "单设备集成触摸、红外寻迹、声音、烟雾、火焰、震动、倾斜、光敏八大传感器的综合性智能安防终端。基于ESP-IDF框架与FreeRTOS实时任务调度，50ms周期高频轮询全部传感器链路，具备智能脉冲拉长与3秒超时释放防误报机制，对烟雾火焰等生命险情采用独立零延迟直通报警逻辑。",
     "features": [
       "八大传感器阵列一体集成：烟雾、火焰、红外、震动、声音、倾斜、光敏、触摸全覆盖",
@@ -16,7 +16,7 @@
     "imageUrl": "/uploads/products/1/1783995809775-1ka6xfstbm7.jpeg",
     "imageAlt": "ESP32八合一安防报警系统",
     "order": 1,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-right",
     "detailSections": [
@@ -278,7 +278,7 @@
     "id": "2",
     "title": "560科技数字员工平台",
     "tagline": "企业智能化转型的核心引擎",
-    "category": "自动化与办公协同",
+    "category": "AI自动化",
     "description": "企业级内部 AI 对话 Agent 管理与使用平台。构建法务、IT、HR 等垂直领域数字员工，自动处理60%以上重复性咨询。集成智能数字员工矩阵、企业级知识库 RAG 问答、RBAC 精细权限管控、访客免登录模式与 SSE 流式对话，将分散文档转化为可复用智能资产，打破内外服务壁垒。",
     "features": [
       "智能数字员工矩阵：多角色定制（法务/IT/HR），自定义提示词与模型，分类展示一键触达",
@@ -488,7 +488,7 @@
     "id": "3",
     "title": "HomeStay 智能民宿管理平台",
     "tagline": "一句话管房，一屏看全店——民宿数字化转型一站式平台",
-    "category": "工业智能物联",
+    "category": "AI行业应用",
     "description": "面向民宿、短租、智慧酒店业态的智能客房与经营管理系统。通过物联网实时连接灯光、窗帘、门锁等智能硬件，打通订单管理、入住退房、清洁调度等业务闭环，以AI语音助手和数据可视化大屏驱动，让房东远程控房、运营一屏看全店。",
     "features": [
       "智能客房控制：远程开关灯、开合窗帘、下发门锁指令，支持单房间精准控制与批量操作",
@@ -503,7 +503,7 @@
     "imageUrl": "/uploads/products/3/1783992320128-j3qn6twxb9.jpeg",
     "imageAlt": "HomeStay 智能民宿管理平台",
     "order": 3,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -723,7 +723,7 @@
     "id": "4",
     "title": "五六零人工智能考试管理系统",
     "tagline": "AI赋能的智能考试管理平台，实现从出题到评卷的全流程自动化。",
-    "category": "自动化与办公协同",
+    "category": "AI行业应用",
     "description": "面向企业培训场景的一站式在线考试与智能阅卷平台。覆盖\"出题→组卷→考试→阅卷→成绩统计\"全流程，对接乐享知识库分钟级自动生成试卷，百度NLP语义分析智能评分简答题，微信扫码即考、断点续考无忧、切屏防作弊。阅卷工作量缩短90%以上，让培训考核真正数字化、智能化。",
     "features": [
       "AI智能辅助出题：对接乐享知识库，按知识点分钟级自动生成完整试卷",
@@ -736,7 +736,7 @@
     "imageUrl": "/uploads/products/4/1784099901168-9wvgj38capf.jpeg",
     "imageAlt": "五六零人工智能考试管理系统",
     "order": 4,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -912,7 +912,7 @@
     "id": "5",
     "title": "LiveTalking 实时交互数字人引擎",
     "tagline": "一段视频生成AI数字分身 — 能听、能说、能打断，口型毫秒级同步",
-    "category": "自动化与办公协同",
+    "category": "Ai多媒体",
     "description": "从零搭建实时数字人的一站式解决方案。只需上传一段人物视频，即可生成口型与语音实时同步的AI数字分身。内置大模型对话接口（Qwen等），支持随时打断、流畅自然的多轮对话。12+TTS引擎覆盖声音克隆与多音色切换，WebRTC/RTMP/虚拟摄像头三路输出覆盖浏览器、直播平台和OBS全场景。",
     "features": [
       "实时口型驱动：文本或语音输入，口型与音频毫秒级同步，对话流畅自然",
@@ -927,7 +927,7 @@
     "imageUrl": "/uploads/products/5/1784009304281-licdzqo783.jpg",
     "imageAlt": "LiveTalking 实时交互数字人引擎",
     "order": 5,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -1228,7 +1228,7 @@
     "id": "6",
     "title": "智能法律文书批量生成系统",
     "tagline": "一次上传，整包产出——百件案件文书，分钟级交付",
-    "category": "自动化与办公协同",
+    "category": "AI行业应用",
     "description": "面向律所与企业法务的自动化文书处理工具。上传案件数据与模板，一键批量生成律师函、起诉状与违约金计算表，百件案件约5分钟完成，全部本地处理保障数据安全。",
     "features": [
       "律师函批量生成：上传模板与欠费数据，一键填充全部关键信息，百份律师函同步产出",
@@ -1488,7 +1488,7 @@
     "id": "7",
     "title": "微蝶云账通",
     "tagline": "企业微信审批通过即自动生成金蝶会计凭证，3秒入账，财务零手工",
-    "category": "自动化与办公协同",
+    "category": "AI行业应用",
     "description": "连接企业微信审批与金蝶精斗云的自动化集成产品。报销审批通过后3秒自动生成借贷平衡凭证并同步附件，财务团队每月释放30+小时重复劳动。",
     "features": [
       "审批自动触发：报销审批通过瞬间实时捕获并启动自动化流程，7×24小时不间断响应，无需人工触发或定时轮询",
@@ -1501,7 +1501,7 @@
     "imageUrl": "/uploads/products/7/1784020656506-pivplowi41.jpeg",
     "imageAlt": "wecom-kingdee 集成服务",
     "order": 7,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -1762,7 +1762,7 @@
     "id": "8",
     "title": "智能办公助理",
     "tagline": "在企微里聊天，就能办公——用自然语言对话替代表单填写与系统跳转",
-    "category": "自动化与办公协同",
+    "category": "AI自动化",
     "description": "嵌入企业微信的 AI 办公助手。员工像聊天一样发消息，就能完成请假、查制度、查审批进度等日常办公操作，实现从「对话」到「业务执行」的完整闭环。",
     "features": [
       "对话式请假：口语描述自动提取信息、校验假种、组装表单并提交审批",
@@ -1775,7 +1775,7 @@
     "imageUrl": "/uploads/products/8/1784022802060-f6uthq2xfi.jpeg",
     "imageAlt": "智能办公助理",
     "order": 8,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -1916,7 +1916,7 @@
     "id": "9",
     "title": "流水智算",
     "tagline": "上传一份流水，自动生成完整收支统计报告",
-    "category": "自动化与办公协同",
+    "category": "AI自动化",
     "description": "流水智算是一款专为个人与企业打造的智能交易流水统计解决方案。用户上传微信或支付宝导出的交易流水文件，系统即可自动识别平台类型、提取并分类统计每笔交易，从原始文件到统计报告全程零人工操作，高效精准。",
     "features": [
       "智能平台识别：自动判断微信支付与支付宝，无需手动选择，解析策略无缝切换",
@@ -1929,7 +1929,7 @@
     "imageUrl": "/uploads/products/9/1784011812256-ochneo9fmn.jpeg",
     "imageAlt": "流水智算产品主图",
     "order": 9,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -2129,7 +2129,7 @@
     "id": "10",
     "title": "SQL智析-智能数据分析平台",
     "tagline": "自然语言对话，秒级生成SQL与可视化图表",
-    "category": "智能决策与分析",
+    "category": "AI大数据",
     "description": "基于大语言模型与向量检索技术的企业级智能数据分析平台。支持十余种主流数据库，用户用自然语言提问即可自动转换为SQL查询、生成可视化图表、完成数据分析与预测。业务人员无需掌握SQL技能，就能像聊天一样获取数据洞察。",
     "features": [
       "自然语言转SQL：用大白话提问，系统自动转换为精准SQL查询，支持复杂多表联查",
@@ -2335,7 +2335,7 @@
     "id": "11",
     "title": "小智AI赛博朋克智能相框",
     "tagline": "硬核手工铜线走线 × 小智AI全双工语音交互 × 18650无线便携——把AI艺术品放上你的桌面",
-    "category": "工业智能物联",
+    "category": "AI物联网",
     "description": "融合赛博朋克设计美学与小智AI核心的桌面级智能终端。采用裸露铜丝手工走线、透明开放式结构、复古LED灯丝点缀，将ESP32核心板、双显示屏、数字麦克风等硬核电子元器件化为桌面艺术品。内置小智AI全双工语音交互系统，支持自然语言连续对话、知识问答与情感陪伴，18650锂电池供电实现全场景无线摆放。",
     "features": [
       "裸铜线3D手工艺术走线：独特的裸露铜丝电路设计，展现硬核工业美学与工匠精神",
@@ -2565,7 +2565,7 @@
     "id": "12",
     "title": "小智AI智能小车",
     "tagline": "基于ESP32与大模型融合，支持语音控制与MCP智能联动的下一代AI移动终端",
-    "category": "工业智能物联",
+    "category": "AI物联网",
     "description": "融合ESP32高性能主控与大模型AI能力的新一代智能小车。采用流式ASR+LLM+TTS架构实现全双工语音交互，支持离线唤醒与自然语言指令控制。通过设备端与云端MCP双向协议，大模型可直接驱动机器人的底盘运动、GPIO外设联动及云端知识检索。兼容超声波、红外、OLED屏幕等多种传感器，支持Wi-Fi与4G双模通信，是STEM教育、移动陪伴与AIoT探索的理想平台。",
     "features": [
       "全双工AI语音操控：流式ASR+LLM+TTS架构，自然语言控制前进/后退/转弯/跳舞，离线语音唤醒",
@@ -2580,7 +2580,7 @@
     "imageUrl": "/uploads/products/12/hero-bg.png",
     "imageAlt": "小智AI智能小车",
     "order": 12,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -2795,7 +2795,7 @@
     "id": "13",
     "title": "小智AI智能语音交互系统",
     "tagline": "基于ESP32与多端大模型融合的全语音交互终端一站式解决方案",
-    "category": "工业智能物联",
+    "category": "AI物联网",
     "description": "面向智能硬件产品化的全链路语音交互解决方案。基于ESP32芯片系列与流式ASR+LLM+TTS架构，内置离线语音唤醒与声纹识别，支持70余款开源开发板及商业产品的快速接入。通过设备端与云端MCP双向协议，大模型不仅能进行自然对话，更能直接控制GPIO、电机、灯光等硬件外设，并扩展智能家居、PC操作、邮件收发等云端服务能力。支持多语言（中/英/日）、私有化部署与全方位个性化定制，是将前沿大模型能力嵌入千行百业设备的首选技术基座。",
     "features": [
       "流式全双工语音交互：ASR+LLM+TTS架构，离线唤醒+毫秒级响应，支持随时打断与多轮对话",
@@ -2810,7 +2810,7 @@
     "imageUrl": "/uploads/products/13/1783993768851-ph6d3uxvuds.jpeg",
     "imageAlt": "小智AI智能语音交互系统",
     "order": 13,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
@@ -3025,7 +3025,7 @@
     "id": "14",
     "title": "小智CC1101 AI智能门禁模块",
     "tagline": "基于ESP32-S3与CC1101的AI语音门禁与433MHz射频克隆一站式解决方案",
-    "category": "工业智能物联",
+    "category": "AI物联网",
     "description": "融合小智AI语音交互与CC1101射频技术的智能门禁控制模块。搭载ESP32-S3双核主控与I2S高保真音频系统（INMP441+MAX98357A），支持全双工AI语音控制门锁。核心亮点是智能射频克隆功能——可一键学习并复制433MHz遥控器信号，无需改造原有门禁电控系统即可实现AI语音开门。1.54寸TFT交互屏实时显示门禁状态，MCP协议将硬件能力注册至云端大模型，从自然语言到射频发射全链路自动完成。广泛适用于旧小区门禁改造、车库门智能控制、传统家电集中语音升级等场景。",
     "features": [
       "AI语音全双工控制：基于小智AI端云协同架构，自然语言对话即可控制门禁开关",
@@ -3255,7 +3255,7 @@
     "id": "15",
     "title": "XiaoZhi AI 虚拟数字人",
     "tagline": "让数字人真正「活」起来 — 毫秒级全双工AI虚拟伴侣",
-    "category": "自动化与办公协同",
+    "category": "Ai多媒体",
     "description": "面向企业与个人的实时AI虚拟数字人解决方案。基于WebRTC全双工音频流与OpenAI Realtime API，实现毫秒级语音交互。内置Live2D高精度虚拟模型，支持动态表情与口型实时同步，随时打断、上下文记忆、多轮自然对话。可部署于官网、小程序、线下大屏，化身数字代言人、智能客服或专属虚拟伴侣，7×24小时全天候在线。",
     "features": [
       "双向心跳保活机制：客户端与服务端每3秒检测，确保复杂NAT环境下WebRTC连接坚如磐石",
@@ -3266,7 +3266,7 @@
     "imageUrl": "/uploads/products/15/1784097478831-fd47wfpnk4q.jpeg",
     "imageAlt": "XiaoZhi AI 虚拟数字人",
     "order": 15,
-    "showInHome": true,
+    "showInHome": false,
     "showInNavbar": true,
     "layout": "text-left",
     "detailSections": [
