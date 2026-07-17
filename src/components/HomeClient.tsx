@@ -112,7 +112,7 @@ export function HomeClient({ hero, about, products, cases }: HomeClientProps) {
                     <p className="text-gray-500 text-sm md:text-base leading-relaxed mb-8 indent-[2em]">
                       {product.description}
                     </p>
-                    <ul className="space-y-3.5 text-xs text-gray-600 mb-8 border-l-2 border-blue-500/30 pl-4">
+                    <ul className="space-y-4 text-sm text-gray-600 leading-relaxed mb-8 border-l-2 border-blue-500/30 pl-4">
                       {product.features.map((f, idx) => (
                         <li key={idx}>{f}</li>
                       ))}

@@ -50,13 +50,12 @@ function LoginForm() {
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
           {/* Logo */}
           <div className="flex flex-col items-center mb-8">
-            <div className="text-blue-400 mb-4">
-              <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.9" />
-                <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/uploads/brand/logo-whale.png"
+              alt="560 AI Logo"
+              className="h-10 w-auto mb-4 drop-shadow-lg"
+            />
             <h1 className="text-xl font-bold text-white">五六零AI 管理后台</h1>
             <p className="text-sm text-white/40 mt-1">560 AI Admin Console</p>
           </div>

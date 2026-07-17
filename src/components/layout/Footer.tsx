@@ -12,14 +12,13 @@ export function Footer({ site }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-10 text-left">
           {/* Column 1: Logo and Introduction */}
           <div className="md:col-span-5 flex flex-col justify-start space-y-6">
-            <Link href="/" className="flex items-center gap-3.5 group shrink-0 w-fit">
-              <div className="text-blue-600 transition-transform duration-300 group-hover:scale-105">
-                <svg className="w-9 h-9" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.9" />
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+            <Link href="/" className="flex items-center gap-3 group shrink-0 w-fit">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/uploads/brand/logo-whale.png"
+                alt="560 AI Logo"
+                className="h-8 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105"
+              />
               <div className="flex flex-col">
                 <span className="text-lg font-black tracking-tight text-gray-900 leading-tight transition-colors group-hover:text-blue-600">
                   {site.companyName}

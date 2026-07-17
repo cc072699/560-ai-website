@@ -48,14 +48,13 @@ export function Navbar({ site, products }: NavbarProps) {
     >
       <div className="container mx-auto px-6 h-16 flex items-center justify-between relative">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3.5 group shrink-0">
-          <div className="text-blue-600 transition-transform duration-300 group-hover:scale-105">
-            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.9" />
-              <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
+        <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/uploads/brand/logo-whale.png"
+            alt="560 AI Logo"
+            className="h-7 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105"
+          />
           <div className="flex flex-col text-left">
             <span className="text-[17px] font-extrabold tracking-tight text-gray-900 leading-tight transition-colors group-hover:text-blue-600">
               {site.companyName}

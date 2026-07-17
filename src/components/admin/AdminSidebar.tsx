@@ -55,12 +55,13 @@ export function AdminSidebar() {
       {/* Admin Branding Header */}
       <div className="h-16 flex items-center px-6 border-b border-slate-800/50">
         <div className="flex items-center gap-3">
-          <div className="text-blue-500 p-1 bg-blue-950/40 rounded-lg border border-blue-900/30">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.95" />
-              <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+          <div className="p-1 bg-blue-950/40 rounded-lg border border-blue-900/30">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/uploads/brand/logo-whale.png"
+              alt="560 AI Logo"
+              className="h-5 w-auto"
+            />
           </div>
           <div>
             <div className="flex items-center gap-1.5 flex-row">

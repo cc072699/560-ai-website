@@ -639,14 +639,13 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
           <div className="border-t border-slate-800/80 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 w-full z-20 relative">
 
             {/* Bottom Left Logo */}
-            <div className="flex items-center gap-3.5 select-none">
-              <div className="text-blue-500">
-                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.9" />
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+            <div className="flex items-center gap-2.5 select-none">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/uploads/brand/logo-whale.png"
+                alt="560 AI Logo"
+                className="h-7 w-auto shrink-0"
+              />
               <div className="flex flex-col text-left">
                 <span className="text-sm font-black tracking-tight text-white leading-tight">
                   {site.companyName}

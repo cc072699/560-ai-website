@@ -462,11 +462,11 @@ export default function ProductsPage() {
                   
                   {/* Features preview list */}
                   {formData.features && formData.features.some(f => f.trim() !== '') ? (
-                    <ul className="space-y-3 text-xs text-gray-650 border-l-2 border-blue-500/30 pl-4">
+                    <ul className="space-y-4 text-sm text-gray-650 leading-relaxed border-l-2 border-blue-500/30 pl-4">
                       {formData.features.filter(f => f.trim() !== '').map((feat, i) => (
                         <li key={i} className="flex items-start gap-2">
                           <span className="text-blue-500 font-bold">✓</span>
-                          <span className="leading-snug">{feat}</span>
+                          <span className="leading-relaxed">{feat}</span>
                         </li>
                       ))}
                     </ul>

@@ -140,15 +140,14 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
               <Link
                 href="/"
                 onClick={onClose}
-                className="flex items-center gap-3 group w-fit mb-8"
+                className="flex items-center gap-2.5 group w-fit mb-8"
               >
-                <div className="text-blue-400 transition-transform duration-300 group-hover:scale-105">
-                  <svg className="w-10 h-10" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.9" />
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/uploads/brand/logo-whale.png"
+                  alt="560 AI Logo"
+                  className="h-9 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105"
+                />
                 <div className="flex flex-col">
                   <span className="text-[17px] font-extrabold tracking-tight leading-tight transition-colors group-hover:text-blue-400">
                     {site.companyName}
