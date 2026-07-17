@@ -83,46 +83,33 @@ export default function CasesClient({ initialCases }: CasesClientProps) {
           >
             {activeCase.description}
           </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            <a
-              href="#case-content"
-              className="inline-flex items-center gap-2 text-xs md:text-sm font-bold text-white bg-blue-600 hover:bg-blue-500 px-7 py-4 rounded-xl transition-all shadow-lg shadow-blue-500/25"
-            >
-              查看完整案例详情 <ArrowRight className="w-4 h-4" />
-            </a>
-          </motion.div>
         </div>
       </section>
 
       {/* ===== 2. Tab Navigation ===== */}
-      <section className="relative z-10 -mt-8 mb-12">
+      <section className="relative z-10 -mt-px mb-8">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap border-t border-slate-200">
             {initialCases.map((c) => {
               const isActive = activeTab === c.id;
               return (
                 <button
                   key={c.id}
                   onClick={() => setActiveTab(c.id)}
-                  className={`flex items-center gap-3 px-5 py-3.5 rounded-xl border transition-all ${
+                  className={`flex items-center gap-3 px-6 py-4 border-b-2 transition-colors ${
                     isActive
-                      ? 'border-blue-600 bg-blue-600 text-white shadow-lg shadow-blue-500/25'
-                      : 'bg-white border-gray-200 hover:border-blue-500 hover:bg-blue-50/30 text-gray-700'
+                      ? 'border-blue-600 bg-slate-50 text-slate-900'
+                      : 'border-transparent bg-white text-slate-500 hover:text-slate-900'
                   }`}
                 >
-                  <span className={`${isActive ? 'text-white' : 'text-gray-400'}`}>
+                  <span className={isActive ? 'text-blue-600' : 'text-slate-400'}>
                     {getCategoryIcon(c.industry)}
                   </span>
-                  <div className="flex flex-col items-start">
-                    <span className={`text-xs font-bold leading-tight ${isActive ? 'text-white' : 'text-gray-800'}`}>
+                  <div className="flex flex-col items-start text-left">
+                    <span className={`text-sm font-semibold leading-tight ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>
                       {c.industry}
                     </span>
-                    <span className={`text-[10px] font-normal leading-tight ${isActive ? 'text-blue-200' : 'text-gray-400'}`}>
+                    <span className={`text-xs leading-tight ${isActive ? 'text-slate-500' : 'text-slate-400'}`}>
                       {c.client}
                     </span>
                   </div>
@@ -137,7 +124,7 @@ export default function CasesClient({ initialCases }: CasesClientProps) {
       <section id="case-content" className="relative z-10 pb-16 md:pb-24">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           {activeCase.detailSections && activeCase.detailSections.length > 0 ? (
-            <div className="bg-white rounded-3xl border border-gray-200/60 p-6 md:p-12 lg:p-16 shadow-sm">
+            <div className="bg-white rounded-2xl border border-gray-200/60 p-5 md:p-8 shadow-sm">
               <DetailSectionsRenderer
                 sections={activeCase.detailSections}
                 productId={'case-' + activeCase.id}
@@ -145,7 +132,7 @@ export default function CasesClient({ initialCases }: CasesClientProps) {
               />
             </div>
           ) : (
-            <div className="bg-white rounded-3xl border border-gray-200/60 p-12 md:p-16 text-center shadow-sm">
+            <div className="bg-white rounded-2xl border border-gray-200/60 p-8 md:p-10 text-center shadow-sm">
               <p className="text-gray-500 text-base">案例详情正在整理中...</p>
             </div>
           )}

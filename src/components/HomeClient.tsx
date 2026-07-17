@@ -190,28 +190,19 @@ export function HomeClient({ hero, about, products, cases }: HomeClientProps) {
                       {/* Details */}
                       <div className="flex flex-col justify-between p-2">
                         <div>
-                          <div className="flex items-start gap-4 mb-6 pb-6 border-b border-gray-150">
-                            <span className="text-5xl md:text-7xl font-black text-blue-600 tracking-tighter leading-none">
-                              {activeCase.stat}
-                            </span>
-                            <div className="flex flex-col pt-1">
-                              <span className="text-base font-semibold text-gray-800 leading-tight">{activeCase.statLabel}</span>
-                            </div>
-                          </div>
-                          <span className="text-xs font-bold text-blue-600 block mb-2">{activeCase.client}</span>
-                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight mb-4">{activeCase.title}</h3>
-                          <p className="text-gray-500 leading-relaxed text-sm md:text-base mb-8 indent-[2em]">
-                            {activeCase.homeDescription || activeCase.description}
+                          <span className="text-sm font-semibold text-blue-600 block mb-3">{activeCase.industry}</span>
+                          <span className="text-xs text-slate-500 block mb-2">{activeCase.client}</span>
+                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight mb-5">{activeCase.title}</h3>
+                          <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-8">
+                            {activeCase.description}
                           </p>
-                          <div className="space-y-3 mb-8">
-                            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-2">项目核心交付成果</span>
-                            {activeCase.deliverables.map((item, dIdx) => (
-                              <div key={dIdx} className="flex items-center gap-2.5 text-sm text-gray-700">
-                                <span className="w-5 h-5 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 text-xs shrink-0 font-bold">✓</span>
-                                <span>{item}</span>
-                              </div>
-                            ))}
-                          </div>
+                          <Link
+                            href={`/cases#case-${activeCase.id}`}
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 group"
+                          >
+                            查看完整案例
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                          </Link>
                         </div>
                       </div>
                     </motion.div>

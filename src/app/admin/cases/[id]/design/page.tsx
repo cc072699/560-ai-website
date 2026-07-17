@@ -1262,6 +1262,197 @@ export default function CaseDesignPage() {
     }
   };
 
+  // ── Mutators for case sections ───────────────────────
+  const updateCaseOverview = (idx: number, fields: Partial<NonNullable<PageSection['caseOverview']>>) => {
+    const list = [...sections];
+    if (list[idx].caseOverview) {
+      list[idx].caseOverview = { ...list[idx].caseOverview!, ...fields };
+      setSections(list);
+    }
+  };
+
+  const updateCaseChallenges = (idx: number, fields: Partial<NonNullable<PageSection['caseChallenges']>>) => {
+    const list = [...sections];
+    if (list[idx].caseChallenges) {
+      list[idx].caseChallenges = { ...list[idx].caseChallenges!, ...fields };
+      setSections(list);
+    }
+  };
+  const updateChallengeItem = (idx: number, cIdx: number, fields: Partial<NonNullable<PageSection['caseChallenges']>['challenges'][0]>) => {
+    const list = [...sections];
+    if (list[idx].caseChallenges) {
+      list[idx].caseChallenges!.challenges[cIdx] = { ...list[idx].caseChallenges!.challenges[cIdx], ...fields };
+      setSections(list);
+    }
+  };
+  const addChallengeItem = (idx: number) => {
+    const list = [...sections];
+    if (list[idx].caseChallenges) {
+      list[idx].caseChallenges!.challenges.push({ index: '0' + (list[idx].caseChallenges!.challenges.length + 1), title: '新痛点', description: '痛点描述' });
+      setSections(list);
+    }
+  };
+  const removeChallengeItem = (idx: number, cIdx: number) => {
+    const list = [...sections];
+    if (list[idx].caseChallenges) {
+      list[idx].caseChallenges!.challenges.splice(cIdx, 1);
+      setSections(list);
+    }
+  };
+
+  const updateCaseScenes = (idx: number, fields: Partial<NonNullable<PageSection['caseScenes']>>) => {
+    const list = [...sections];
+    if (list[idx].caseScenes) {
+      list[idx].caseScenes = { ...list[idx].caseScenes!, ...fields };
+      setSections(list);
+    }
+  };
+  const updateSceneItem = (idx: number, sIdx: number, fields: Partial<NonNullable<PageSection['caseScenes']>['scenes'][0]>) => {
+    const list = [...sections];
+    if (list[idx].caseScenes) {
+      list[idx].caseScenes!.scenes[sIdx] = { ...list[idx].caseScenes!.scenes[sIdx], ...fields };
+      setSections(list);
+    }
+  };
+  const addSceneItem = (idx: number) => {
+    const list = [...sections];
+    if (list[idx].caseScenes) {
+      list[idx].caseScenes!.scenes.push({ id: genId(), tabName: '新场景', painPointTitle: '痛点', painPointDesc: '痛点描述', solutionTitle: '解决方案', solutionItems: ['方案要点'], metrics: [] });
+      setSections(list);
+    }
+  };
+  const removeSceneItem = (idx: number, sIdx: number) => {
+    const list = [...sections];
+    if (list[idx].caseScenes) {
+      list[idx].caseScenes!.scenes.splice(sIdx, 1);
+      setSections(list);
+    }
+  };
+
+  const updateCaseTestimonial = (idx: number, fields: Partial<NonNullable<PageSection['caseTestimonial']>>) => {
+    const list = [...sections];
+    if (list[idx].caseTestimonial) {
+      list[idx].caseTestimonial = { ...list[idx].caseTestimonial!, ...fields };
+      setSections(list);
+    }
+  };
+
+  const updateCaseComparison = (idx: number, fields: Partial<NonNullable<PageSection['caseComparison']>>) => {
+    const list = [...sections];
+    if (list[idx].caseComparison) {
+      list[idx].caseComparison = { ...list[idx].caseComparison!, ...fields };
+      setSections(list);
+    }
+  };
+  const updateComparisonItem = (idx: number, iIdx: number, fields: Partial<NonNullable<PageSection['caseComparison']>['items'][0]>) => {
+    const list = [...sections];
+    if (list[idx].caseComparison) {
+      list[idx].caseComparison!.items[iIdx] = { ...list[idx].caseComparison!.items[iIdx], ...fields };
+      setSections(list);
+    }
+  };
+  const addComparisonItem = (idx: number) => {
+    const list = [...sections];
+    if (list[idx].caseComparison) {
+      list[idx].caseComparison!.items.push({ label: '对比项', beforeValue: '改造前', afterValue: '改造后' });
+      setSections(list);
+    }
+  };
+  const removeComparisonItem = (idx: number, iIdx: number) => {
+    const list = [...sections];
+    if (list[idx].caseComparison) {
+      list[idx].caseComparison!.items.splice(iIdx, 1);
+      setSections(list);
+    }
+  };
+
+  const updateCaseStructure = (idx: number, fields: Partial<NonNullable<PageSection['caseStructure']>>) => {
+    const list = [...sections];
+    if (list[idx].caseStructure) {
+      list[idx].caseStructure = { ...list[idx].caseStructure!, ...fields };
+      setSections(list);
+    }
+  };
+  const updateStepItem = (idx: number, sIdx: number, fields: Partial<NonNullable<PageSection['caseStructure']>['steps'][0]>) => {
+    const list = [...sections];
+    if (list[idx].caseStructure) {
+      list[idx].caseStructure!.steps[sIdx] = { ...list[idx].caseStructure!.steps[sIdx], ...fields };
+      setSections(list);
+    }
+  };
+  const addStepItem = (idx: number) => {
+    const list = [...sections];
+    if (list[idx].caseStructure) {
+      list[idx].caseStructure!.steps.push({ stepNumber: '新阶段', title: '阶段标题', description: '阶段描述' });
+      setSections(list);
+    }
+  };
+  const removeStepItem = (idx: number, sIdx: number) => {
+    const list = [...sections];
+    if (list[idx].caseStructure) {
+      list[idx].caseStructure!.steps.splice(sIdx, 1);
+      setSections(list);
+    }
+  };
+
+  const updateCaseFaq = (idx: number, fields: Partial<NonNullable<PageSection['caseFaq']>>) => {
+    const list = [...sections];
+    if (list[idx].caseFaq) {
+      list[idx].caseFaq = { ...list[idx].caseFaq!, ...fields };
+      setSections(list);
+    }
+  };
+  const updateFaqCaseItem = (idx: number, fIdx: number, fields: Partial<NonNullable<PageSection['caseFaq']>['faqs'][0]>) => {
+    const list = [...sections];
+    if (list[idx].caseFaq) {
+      list[idx].caseFaq!.faqs[fIdx] = { ...list[idx].caseFaq!.faqs[fIdx], ...fields };
+      setSections(list);
+    }
+  };
+  const addFaqCaseItem = (idx: number) => {
+    const list = [...sections];
+    if (list[idx].caseFaq) {
+      list[idx].caseFaq!.faqs.push({ question: '新问题', answer: '答案' });
+      setSections(list);
+    }
+  };
+  const removeFaqCaseItem = (idx: number, fIdx: number) => {
+    const list = [...sections];
+    if (list[idx].caseFaq) {
+      list[idx].caseFaq!.faqs.splice(fIdx, 1);
+      setSections(list);
+    }
+  };
+
+  const updateCaseMetrics = (idx: number, fields: Partial<NonNullable<PageSection['caseMetrics']>>) => {
+    const list = [...sections];
+    if (list[idx].caseMetrics) {
+      list[idx].caseMetrics = { ...list[idx].caseMetrics!, ...fields };
+      setSections(list);
+    }
+  };
+  const updateCaseMetricItem = (idx: number, mIdx: number, fields: Partial<NonNullable<PageSection['caseMetrics']>['items'][0]>) => {
+    const list = [...sections];
+    if (list[idx].caseMetrics) {
+      list[idx].caseMetrics!.items[mIdx] = { ...list[idx].caseMetrics!.items[mIdx], ...fields };
+      setSections(list);
+    }
+  };
+  const addCaseMetricItem = (idx: number) => {
+    const list = [...sections];
+    if (list[idx].caseMetrics) {
+      list[idx].caseMetrics!.items.push({ value: '0%', label: '新指标', description: '数据说明描述。', highlight: false });
+      setSections(list);
+    }
+  };
+  const removeCaseMetricItem = (idx: number, mIdx: number) => {
+    const list = [...sections];
+    if (list[idx].caseMetrics) {
+      list[idx].caseMetrics!.items.splice(mIdx, 1);
+      setSections(list);
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 gap-4">
@@ -1404,7 +1595,7 @@ export default function CaseDesignPage() {
                             {sec.type === 'caseChallenges' && '客户痛点与挑战网格 (Case Challenges)'}
                             {sec.type === 'caseScenes' && '数智化改造场景控制台 (Case Scenes)'}
                             {sec.type === 'caseMetrics' && '项目交付量化成效 (Case Metrics)'}
-                            {sec.type === 'caseTestimonial' && '客户口碑与证言 (Case Testimonial)'}
+                            {sec.type === 'caseTestimonial' && '项目交付总结 (Case Testimonial)'}
                             {sec.type === 'caseComparison' && '改造前后成效对比 (Case Comparison)'}
                             {sec.type === 'caseStructure' && '方案实施路径步骤 (Case Structure)'}
                             {sec.type === 'caseFaq' && '项目部署与交付答疑 (Case FAQ)'}
@@ -3357,6 +3548,348 @@ export default function CaseDesignPage() {
                               </div>
                             </div>
                           )}
+
+                          {/* ===== CASE SECTIONS FORMS ===== */}
+
+                          {/* 25. CASE OVERVIEW */}
+                          {sec.type === 'caseOverview' && sec.caseOverview && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">大标题</label>
+                                <input type="text" value={sec.caseOverview.title} onChange={(e) => updateCaseOverview(idx, { title: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题</label>
+                                <input type="text" value={sec.caseOverview.subtitle || ''} onChange={(e) => updateCaseOverview(idx, { subtitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                  <label className="block font-semibold text-slate-700 mb-1">客户名称</label>
+                                  <input type="text" value={sec.caseOverview.clientName} onChange={(e) => updateCaseOverview(idx, { clientName: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                                </div>
+                                <div>
+                                  <label className="block font-semibold text-slate-700 mb-1">所属行业</label>
+                                  <input type="text" value={sec.caseOverview.industry} onChange={(e) => updateCaseOverview(idx, { industry: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                                </div>
+                                <div>
+                                  <label className="block font-semibold text-slate-700 mb-1">项目地点</label>
+                                  <input type="text" value={sec.caseOverview.location || ''} onChange={(e) => updateCaseOverview(idx, { location: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                                </div>
+                                <div>
+                                  <label className="block font-semibold text-slate-700 mb-1">交付时间</label>
+                                  <input type="text" value={sec.caseOverview.date || ''} onChange={(e) => updateCaseOverview(idx, { date: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                                </div>
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">项目规模</label>
+                                <input type="text" value={sec.caseOverview.scale || ''} onChange={(e) => updateCaseOverview(idx, { scale: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">项目总结</label>
+                                <textarea value={sec.caseOverview.summary} onChange={(e) => updateCaseOverview(idx, { summary: e.target.value })} rows={4} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm resize-none" />
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 26. CASE CHALLENGES */}
+                          {sec.type === 'caseChallenges' && sec.caseChallenges && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">痛点区大标题</label>
+                                <input type="text" value={sec.caseChallenges.title} onChange={(e) => updateCaseChallenges(idx, { title: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题描述</label>
+                                <input type="text" value={sec.caseChallenges.subtitle || ''} onChange={(e) => updateCaseChallenges(idx, { subtitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div className="space-y-2.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">痛点条目</label>
+                                {sec.caseChallenges.challenges.map((c, cIdx) => (
+                                  <div key={cIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-2 relative text-left">
+                                    <button onClick={() => removeChallengeItem(idx, cIdx)} className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer" title="删除痛点">
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <div className="grid grid-cols-2 gap-2">
+                                      <div>
+                                        <label className="text-[10px] font-bold text-slate-500 block mb-0.5">编号</label>
+                                        <input type="text" value={c.index} onChange={(e) => updateChallengeItem(idx, cIdx, { index: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                      </div>
+                                      <div>
+                                        <label className="text-[10px] font-bold text-slate-500 block mb-0.5">标题</label>
+                                        <input type="text" value={c.title} onChange={(e) => updateChallengeItem(idx, cIdx, { title: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">描述</label>
+                                      <textarea value={c.description} onChange={(e) => updateChallengeItem(idx, cIdx, { description: e.target.value })} rows={2} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs resize-none" />
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">底栏文字（可选）</label>
+                                      <input type="text" value={c.footerText || ''} onChange={(e) => updateChallengeItem(idx, cIdx, { footerText: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                    </div>
+                                  </div>
+                                ))}
+                                <button onClick={() => addChallengeItem(idx)} className="w-full py-1.5 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs">
+                                  + 新增痛点
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 27. CASE SCENES */}
+                          {sec.type === 'caseScenes' && sec.caseScenes && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">场景区大标题</label>
+                                <input type="text" value={sec.caseScenes.title} onChange={(e) => updateCaseScenes(idx, { title: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题描述</label>
+                                <input type="text" value={sec.caseScenes.subtitle || ''} onChange={(e) => updateCaseScenes(idx, { subtitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div className="space-y-2.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">场景子项</label>
+                                {sec.caseScenes.scenes.map((s, sIdx) => (
+                                  <div key={sIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-2 relative text-left">
+                                    <button onClick={() => removeSceneItem(idx, sIdx)} className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer" title="删除场景">
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">Tab 名称</label>
+                                      <input type="text" value={s.tabName} onChange={(e) => updateSceneItem(idx, sIdx, { tabName: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">痛点标题</label>
+                                      <input type="text" value={s.painPointTitle} onChange={(e) => updateSceneItem(idx, sIdx, { painPointTitle: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">痛点描述</label>
+                                      <textarea value={s.painPointDesc} onChange={(e) => updateSceneItem(idx, sIdx, { painPointDesc: e.target.value })} rows={2} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs resize-none" />
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">方案标题</label>
+                                      <input type="text" value={s.solutionTitle} onChange={(e) => updateSceneItem(idx, sIdx, { solutionTitle: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">方案要点（每行一条）</label>
+                                      <textarea value={s.solutionItems.join('\n')} onChange={(e) => updateSceneItem(idx, sIdx, { solutionItems: e.target.value.split('\n') })} rows={3} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs resize-none" />
+                                    </div>
+                                  </div>
+                                ))}
+                                <button onClick={() => addSceneItem(idx)} className="w-full py-1.5 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs">
+                                  + 新增场景
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 28. CASE METRICS */}
+                          {sec.type === 'caseMetrics' && sec.caseMetrics && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">成效区大标题</label>
+                                <input type="text" value={sec.caseMetrics.title} onChange={(e) => updateCaseMetrics(idx, { title: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题</label>
+                                <input type="text" value={sec.caseMetrics.subtitle || ''} onChange={(e) => updateCaseMetrics(idx, { subtitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div className="space-y-2.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">指标条目</label>
+                                {sec.caseMetrics.items.map((m, mIdx) => (
+                                  <div key={mIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-2 relative text-left">
+                                    <button onClick={() => removeCaseMetricItem(idx, mIdx)} className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer" title="删除指标">
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <div className="grid grid-cols-2 gap-2">
+                                      <div>
+                                        <label className="text-[10px] font-bold text-slate-500 block mb-0.5">数值（如 80%+）</label>
+                                        <input type="text" value={m.value} onChange={(e) => updateCaseMetricItem(idx, mIdx, { value: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                      </div>
+                                      <div>
+                                        <label className="text-[10px] font-bold text-slate-500 block mb-0.5">指标标签</label>
+                                        <input type="text" value={m.label} onChange={(e) => updateCaseMetricItem(idx, mIdx, { label: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">数据说明</label>
+                                      <textarea value={m.description || ''} onChange={(e) => updateCaseMetricItem(idx, mIdx, { description: e.target.value })} rows={2} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs resize-none" />
+                                    </div>
+                                    <label className="flex items-center gap-1.5 text-[10px] font-bold text-slate-500 cursor-pointer">
+                                      <input type="checkbox" checked={!!m.highlight} onChange={(e) => updateCaseMetricItem(idx, mIdx, { highlight: e.target.checked })} className="rounded" />
+                                      <span>高亮显示此指标</span>
+                                    </label>
+                                  </div>
+                                ))}
+                                <button onClick={() => addCaseMetricItem(idx)} className="w-full py-1.5 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs">
+                                  + 新增指标
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 29. CASE TESTIMONIAL */}
+                          {sec.type === 'caseTestimonial' && sec.caseTestimonial && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">证言区标题</label>
+                                <input type="text" value={sec.caseTestimonial.title} onChange={(e) => updateCaseTestimonial(idx, { title: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">引言内容</label>
+                                <textarea value={sec.caseTestimonial.quote} onChange={(e) => updateCaseTestimonial(idx, { quote: e.target.value })} rows={4} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm resize-none" />
+                              </div>
+                              <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                  <label className="block font-semibold text-slate-700 mb-1">署名</label>
+                                  <input type="text" value={sec.caseTestimonial.author} onChange={(e) => updateCaseTestimonial(idx, { author: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                                </div>
+                                <div>
+                                  <label className="block font-semibold text-slate-700 mb-1">职位</label>
+                                  <input type="text" value={sec.caseTestimonial.role} onChange={(e) => updateCaseTestimonial(idx, { role: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                                </div>
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">单位</label>
+                                <input type="text" value={sec.caseTestimonial.company} onChange={(e) => updateCaseTestimonial(idx, { company: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 30. CASE COMPARISON */}
+                          {sec.type === 'caseComparison' && sec.caseComparison && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">对比区大标题</label>
+                                <input type="text" value={sec.caseComparison.title} onChange={(e) => updateCaseComparison(idx, { title: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题</label>
+                                <input type="text" value={sec.caseComparison.subtitle || ''} onChange={(e) => updateCaseComparison(idx, { subtitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                  <label className="block font-semibold text-slate-700 mb-1">改造前标题</label>
+                                  <input type="text" value={sec.caseComparison.beforeTitle} onChange={(e) => updateCaseComparison(idx, { beforeTitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                                </div>
+                                <div>
+                                  <label className="block font-semibold text-slate-700 mb-1">改造后标题</label>
+                                  <input type="text" value={sec.caseComparison.afterTitle} onChange={(e) => updateCaseComparison(idx, { afterTitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                                </div>
+                              </div>
+                              <div className="space-y-2.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">对比项</label>
+                                {sec.caseComparison.items.map((it, iIdx) => (
+                                  <div key={iIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-2 relative text-left">
+                                    <button onClick={() => removeComparisonItem(idx, iIdx)} className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer" title="删除对比项">
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">对比维度</label>
+                                      <input type="text" value={it.label} onChange={(e) => updateComparisonItem(idx, iIdx, { label: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-2">
+                                      <div>
+                                        <label className="text-[10px] font-bold text-slate-500 block mb-0.5">改造前</label>
+                                        <input type="text" value={it.beforeValue} onChange={(e) => updateComparisonItem(idx, iIdx, { beforeValue: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                      </div>
+                                      <div>
+                                        <label className="text-[10px] font-bold text-slate-500 block mb-0.5">改造后</label>
+                                        <input type="text" value={it.afterValue} onChange={(e) => updateComparisonItem(idx, iIdx, { afterValue: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                                <button onClick={() => addComparisonItem(idx)} className="w-full py-1.5 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs">
+                                  + 新增对比项
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 31. CASE STRUCTURE */}
+                          {sec.type === 'caseStructure' && sec.caseStructure && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">实施路径大标题</label>
+                                <input type="text" value={sec.caseStructure.title} onChange={(e) => updateCaseStructure(idx, { title: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题</label>
+                                <input type="text" value={sec.caseStructure.subtitle || ''} onChange={(e) => updateCaseStructure(idx, { subtitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div className="space-y-2.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">实施步骤</label>
+                                {sec.caseStructure.steps.map((st, sIdx) => (
+                                  <div key={sIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-2 relative text-left">
+                                    <button onClick={() => removeStepItem(idx, sIdx)} className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer" title="删除步骤">
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <div className="grid grid-cols-2 gap-2">
+                                      <div>
+                                        <label className="text-[10px] font-bold text-slate-500 block mb-0.5">阶段编号</label>
+                                        <input type="text" value={st.stepNumber} onChange={(e) => updateStepItem(idx, sIdx, { stepNumber: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                      </div>
+                                      <div>
+                                        <label className="text-[10px] font-bold text-slate-500 block mb-0.5">时长（可选）</label>
+                                        <input type="text" value={st.duration || ''} onChange={(e) => updateStepItem(idx, sIdx, { duration: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">阶段标题</label>
+                                      <input type="text" value={st.title} onChange={(e) => updateStepItem(idx, sIdx, { title: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">阶段描述</label>
+                                      <textarea value={st.description} onChange={(e) => updateStepItem(idx, sIdx, { description: e.target.value })} rows={2} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs resize-none" />
+                                    </div>
+                                  </div>
+                                ))}
+                                <button onClick={() => addStepItem(idx)} className="w-full py-1.5 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs">
+                                  + 新增步骤
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* 32. CASE FAQ */}
+                          {sec.type === 'caseFaq' && sec.caseFaq && (
+                            <div className="space-y-3">
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">答疑区大标题</label>
+                                <input type="text" value={sec.caseFaq.title} onChange={(e) => updateCaseFaq(idx, { title: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div>
+                                <label className="block font-semibold text-slate-700 mb-1">副标题</label>
+                                <input type="text" value={sec.caseFaq.subtitle || ''} onChange={(e) => updateCaseFaq(idx, { subtitle: e.target.value })} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm" />
+                              </div>
+                              <div className="space-y-2.5 border-t border-slate-100 pt-3">
+                                <label className="block font-bold text-slate-700 text-xs uppercase tracking-wider">问答条目</label>
+                                {sec.caseFaq.faqs.map((f, fIdx) => (
+                                  <div key={fIdx} className="bg-slate-50 p-3 rounded-xl border border-slate-200/60 space-y-2 relative text-left">
+                                    <button onClick={() => removeFaqCaseItem(idx, fIdx)} className="absolute top-2 right-2 p-1 hover:bg-rose-100 rounded text-rose-500 cursor-pointer" title="删除问答">
+                                      <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">问题</label>
+                                      <input type="text" value={f.question} onChange={(e) => updateFaqCaseItem(idx, fIdx, { question: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">答案</label>
+                                      <textarea value={f.answer} onChange={(e) => updateFaqCaseItem(idx, fIdx, { answer: e.target.value })} rows={3} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs resize-none" />
+                                    </div>
+                                    <div>
+                                      <label className="text-[10px] font-bold text-slate-500 block mb-0.5">标签（可选）</label>
+                                      <input type="text" value={f.tag || ''} onChange={(e) => updateFaqCaseItem(idx, fIdx, { tag: e.target.value })} className="w-full px-2 py-1.5 border border-slate-200 bg-white rounded text-xs" />
+                                    </div>
+                                  </div>
+                                ))}
+                                <button onClick={() => addFaqCaseItem(idx)} className="w-full py-1.5 bg-slate-50 border border-dashed border-slate-300 rounded-lg font-bold text-blue-600 hover:bg-slate-100 cursor-pointer text-xs">
+                                  + 新增问答
+                                </button>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -3433,7 +3966,7 @@ export default function CaseDesignPage() {
                   className="px-2 py-2.5 border border-slate-200 hover:border-indigo-550 rounded-xl text-[10px] font-bold text-slate-655 hover:text-indigo-650 transition-all flex flex-col items-center gap-1.5 bg-white hover:bg-indigo-50/10 cursor-pointer shadow-sm animate-fade-in"
                 >
                   <MessageSquare className="w-4 h-4 text-indigo-500" />
-                  <span>客户口碑与证言</span>
+                  <span>项目交付总结</span>
                 </button>
                 <button
                   onClick={() => addSection('caseComparison')}

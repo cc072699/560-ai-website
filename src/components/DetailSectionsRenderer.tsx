@@ -80,7 +80,6 @@ export default function DetailSectionsRenderer({
         if (section.type === 'caseOverview') return <DetailCaseOverview key={section.id} section={section} />;
         if (section.type === 'caseChallenges') return <DetailCaseChallenges key={section.id} section={section} />;
         if (section.type === 'caseScenes') return <DetailCaseScenes key={section.id} section={section} />;
-        if (section.type === 'caseMetrics') return <DetailCaseMetrics key={section.id} section={section} />;
         if (section.type === 'caseTestimonial') return <DetailCaseTestimonial key={section.id} section={section} />;
         if (section.type === 'caseComparison') return <DetailCaseComparison key={section.id} section={section} />;
         if (section.type === 'caseStructure') return <DetailCaseStructure key={section.id} section={section} />;
@@ -226,7 +225,7 @@ function DetailArchitecture({ section }: { section: PageSection }) {
         </div>
         {arch.description && (
           <p className="text-sm md:text-base text-gray-500 max-w-3xl mx-auto leading-relaxed text-center italic font-normal">
-            “ {arch.description} ”
+            " {arch.description} "
           </p>
         )}
       </div>
@@ -238,13 +237,12 @@ function DetailCta({ section, productId, productName }: { section: PageSection; 
   const cta = section.cta;
   if (!cta) return null;
   return (
-    <section className="bg-gradient-to-r from-blue-700 to-indigo-850 text-white text-center py-16 px-6 relative overflow-hidden rounded-2xl">
-      <div className="absolute top-[10%] left-[5%] w-[400px] h-[300px] bg-blue-600/30 rounded-full blur-[100px] pointer-events-none z-0" />
-      <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">{cta.title}</h2>
-        <p className="text-sm md:text-base text-slate-200/90 font-light leading-relaxed max-w-xl mx-auto">{cta.description}</p>
-        <div className="flex justify-center gap-4 pt-4">
-          <ProductCTAButtons productId={productId} productName={productName} primaryText={cta.primaryText || '申请试用'} secondaryText={cta.secondaryText || '联系我们'} primaryClassName="px-8 py-3.5 bg-white text-blue-700 font-bold rounded-xl shadow-md hover:bg-slate-50 hover:scale-[1.01] transition-all cursor-pointer" secondaryClassName="px-8 py-3.5 border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-all" />
+    <section className="bg-slate-900 text-white text-center py-12 md:py-16 px-6 rounded-2xl">
+      <div className="max-w-3xl mx-auto space-y-5">
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight leading-tight">{cta.title}</h2>
+        <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-xl mx-auto">{cta.description}</p>
+        <div className="flex justify-center gap-4 pt-2">
+          <ProductCTAButtons productId={productId} productName={productName} primaryText={cta.primaryText || '申请试用'} secondaryText={cta.secondaryText || '联系我们'} primaryClassName="px-7 py-3 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition-all cursor-pointer text-sm" secondaryClassName="px-7 py-3 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-sm" />
         </div>
       </div>
     </section>
@@ -471,7 +469,7 @@ function DetailTestimonials({ section }: { section: PageSection }) {
   return (
     <div className="py-16 bg-white border-b border-gray-100 relative overflow-hidden text-left">
       <div className="absolute -top-10 -right-10 text-[180px] font-serif text-slate-100 select-none pointer-events-none opacity-50 font-bold">
-        “
+        "
       </div>
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <div className="text-center mb-16 max-w-2xl mx-auto space-y-4">
@@ -486,7 +484,7 @@ function DetailTestimonials({ section }: { section: PageSection }) {
           {test.items.map((item, idx) => (
             <div key={idx} className="bg-gradient-to-br from-white to-slate-50/30 rounded-3xl border border-gray-150 p-8 shadow-md hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6 relative hover:-translate-y-0.5">
               <p className="text-gray-600 text-sm md:text-base leading-relaxed font-medium italic relative z-10">
-                “ {item.quote} ”
+                " {item.quote} "
               </p>
               <div className="flex items-center gap-4 border-t border-gray-100 pt-4 z-10">
                 {item.avatarUrl ? (
@@ -613,30 +611,29 @@ function DetailRichText({ section }: { section: PageSection }) {
   if (!rt) return null;
   const hasImage = !!rt.imageUrl;
   return (
-    <div className="py-16 bg-slate-50/30 border-b border-gray-100 relative overflow-hidden text-left">
+    <div className="py-6 md:py-8 text-left">
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
-        <div className="text-center mb-16 max-w-2xl mx-auto space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{rt.title}</h2>
+        <div className="text-center mb-6 max-w-2xl mx-auto space-y-2">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">{rt.title}</h2>
           {rt.subtitle && (
-            <p className="text-sm md:text-base text-gray-500 leading-relaxed font-normal">{rt.subtitle}</p>
+            <p className="text-sm text-gray-500 leading-relaxed font-normal">{rt.subtitle}</p>
           )}
-          <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
         </div>
 
-        <div className={`grid grid-cols-1 ${hasImage ? 'lg:grid-cols-12 gap-12 lg:gap-16' : 'max-w-3xl mx-auto'} items-center`}>
-          <div className={`${hasImage ? 'lg:col-span-7' : 'w-full'} ${rt.align === 'center' ? 'text-center' : 'text-left'} space-y-4 ${
+        <div className={`grid grid-cols-1 ${hasImage ? 'lg:grid-cols-12 gap-6 lg:gap-10' : 'max-w-3xl mx-auto'} items-center`}>
+          <div className={`${hasImage ? 'lg:col-span-7' : 'w-full'} ${rt.align === 'center' ? 'text-center' : 'text-left'} ${
             hasImage && rt.imagePosition === 'left' ? 'lg:order-2' : ''
           }`}>
-            <div className="text-gray-500 text-sm md:text-base leading-relaxed whitespace-pre-line font-medium indent-[2em]">
+            <div className="text-gray-600 text-sm md:text-base leading-relaxed whitespace-pre-line font-normal">
               {rt.content}
             </div>
           </div>
           {hasImage && (
-            <div className={`lg:col-span-5 rounded-2xl overflow-hidden border border-gray-200/80 shadow-lg relative bg-white flex items-center justify-center ${
+            <div className={`lg:col-span-5 rounded-xl overflow-hidden border border-gray-200 relative bg-white flex items-center justify-center ${
               rt.imagePosition === 'left' ? 'lg:order-1' : ''
             }`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={rt.imageUrl} alt="rich text side graphic" className="w-full h-auto max-h-[450px] object-contain" />
+              <img src={rt.imageUrl} alt="rich text side graphic" className="w-full h-auto max-h-[400px] object-contain" />
             </div>
           )}
         </div>
@@ -678,36 +675,35 @@ function DetailCarousel({ section }: { section: PageSection }) {
   const caro = section.carousel;
   if (!caro || !caro.items || caro.items.length === 0) return null;
   return (
-    <div className="py-16 bg-slate-50/50 border-b border-gray-100 relative overflow-hidden text-center">
+    <div className="py-6 md:py-8 text-center">
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        <div className="text-center mb-16 max-w-2xl mx-auto space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{caro.title}</h2>
+        <div className="text-center mb-6 max-w-2xl mx-auto space-y-2">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-900 tracking-tight">{caro.title}</h2>
           {caro.subtitle && (
-            <p className="text-sm md:text-base text-gray-500 leading-relaxed font-normal">{caro.subtitle}</p>
+            <p className="text-sm text-gray-500 leading-relaxed font-normal">{caro.subtitle}</p>
           )}
-          <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
         </div>
 
-        <div className="grid gap-6 max-w-6xl mx-auto text-left" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+        <div className="grid gap-4 max-w-6xl mx-auto text-left" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
           {caro.items.map((item, idx) => (
-            <div key={idx} className="group bg-white rounded-3xl overflow-hidden border border-gray-150 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
-              <div className="bg-slate-900 overflow-hidden relative flex items-center justify-center min-h-[200px] max-h-[400px]">
+            <div key={idx} className="group bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-slate-300 transition-all duration-300 flex flex-col">
+              <div className="bg-slate-100 overflow-hidden relative flex items-center justify-center min-h-[180px] max-h-[350px]">
                 {item.imageUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.imageUrl} alt={item.caption || 'Slide'} className="w-full h-auto max-h-[400px] object-contain group-hover:scale-105 transition-transform duration-500" />
+                  <img src={item.imageUrl} alt={item.caption || 'Slide'} className="w-full h-auto max-h-[350px] object-contain" />
                 ) : (
-                  <div className="text-slate-500 flex flex-col items-center gap-2">
-                    <Images className="w-8 h-8 opacity-30 text-slate-350" />
-                    <span className="text-xs font-semibold">演示大图 {idx + 1}</span>
+                  <div className="text-slate-400 flex flex-col items-center gap-2">
+                    <Images className="w-8 h-8 opacity-40" />
+                    <span className="text-xs">演示大图 {idx + 1}</span>
                   </div>
                 )}
               </div>
-              <div className="p-6 text-left space-y-2">
-                <h3 className="font-extrabold text-gray-900 text-base group-hover:text-blue-600 transition-colors">
+              <div className="p-4 text-left space-y-1.5">
+                <h3 className="font-semibold text-gray-900 text-sm group-hover:text-blue-600 transition-colors">
                   {item.caption || `演示模块 ${idx + 1}`}
                 </h3>
                 {item.description && (
-                  <p className="text-xs md:text-sm text-gray-500 leading-relaxed font-normal">
+                  <p className="text-xs text-gray-500 leading-relaxed font-normal">
                     {item.description}
                   </p>
                 )}
@@ -1226,7 +1222,7 @@ function DetailSignalWave({ section }: { section: PageSection }) {
         </div>
 
         <p className="text-sm md:text-base text-slate-300 max-w-2xl mx-auto font-medium leading-relaxed italic border-t border-slate-800/60 pt-6">
-          “ {sw.description} ”
+          " {sw.description} "
         </p>
       </div>
     </div>
@@ -1317,55 +1313,51 @@ export function DetailCaseOverview({ section }: { section: PageSection }) {
   const data = section.caseOverview;
   if (!data) return null;
   return (
-    <div className="py-16 md:py-20 my-12 text-left">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+    <div className="py-6 md:py-8 text-left">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
         {/* Left column: metadata grid */}
-        <div className="lg:col-span-5 bg-white border-2 border-slate-200/80 rounded-2xl p-8 space-y-6 shadow-sm">
-          <div className="flex items-center gap-2 mb-1">
-            <div className="w-1 h-5 bg-indigo-600 rounded-full" />
-            <h3 className="text-base font-bold text-gray-700">项目快照</h3>
-          </div>
-          <div className="grid grid-cols-2 gap-6 text-sm">
+        <div className="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <div className="grid grid-cols-2 gap-4 text-sm">
             <div className="space-y-1.5">
-              <span className="text-slate-400 font-medium tracking-wide text-xs uppercase">客户名称</span>
-              <p className="font-bold text-gray-800 text-base">{data.clientName}</p>
+              <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">客户名称</span>
+              <p className="text-sm font-semibold text-slate-900">{data.clientName}</p>
             </div>
             <div className="space-y-1.5">
-              <span className="text-slate-400 font-medium tracking-wide text-xs uppercase">所属行业</span>
-              <p className="font-bold text-gray-800 text-base">{data.industry}</p>
+              <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">所属行业</span>
+              <p className="text-sm font-semibold text-slate-900">{data.industry}</p>
             </div>
             {data.location && (
               <div className="space-y-1.5">
-                <span className="text-slate-400 font-medium tracking-wide text-xs uppercase">项目地点</span>
-                <p className="font-bold text-gray-800 text-base">{data.location}</p>
+                <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">项目地点</span>
+                <p className="text-sm font-semibold text-slate-900">{data.location}</p>
               </div>
             )}
             {data.date && (
               <div className="space-y-1.5">
-                <span className="text-slate-400 font-medium tracking-wide text-xs uppercase">交付时间</span>
-                <p className="font-bold text-gray-800 text-base">{data.date}</p>
+                <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">交付时间</span>
+                <p className="text-sm font-semibold text-slate-900">{data.date}</p>
               </div>
             )}
             {data.scale && (
               <div className="col-span-2 space-y-1.5 pt-2 border-t border-slate-100">
-                <span className="text-slate-400 font-medium tracking-wide text-xs uppercase">项目规模</span>
-                <p className="font-bold text-gray-800 text-base leading-relaxed">{data.scale}</p>
+                <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">项目规模</span>
+                <p className="text-sm font-semibold text-slate-900 leading-relaxed">{data.scale}</p>
               </div>
             )}
           </div>
         </div>
 
         {/* Right column: narrative summary */}
-        <div className="lg:col-span-7 space-y-6">
-          {data.subtitle && (
-            <span className="px-4 py-1.5 rounded-full text-xs font-bold text-indigo-600 bg-indigo-50 border border-indigo-100 w-fit inline-block tracking-wider">
-              {data.subtitle}
-            </span>
-          )}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
+        <div className="lg:col-span-7 space-y-3">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
             {data.title || '案例概况与方案背景'}
           </h2>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed font-normal whitespace-pre-line">
+          {data.subtitle && (
+            <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal">
+              {data.subtitle}
+            </p>
+          )}
+          <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal whitespace-pre-line">
             {data.summary}
           </p>
         </div>
@@ -1378,30 +1370,26 @@ export function DetailCaseChallenges({ section }: { section: PageSection }) {
   const data = section.caseChallenges;
   if (!data) return null;
   return (
-    <div className="py-16 md:py-20 my-12 text-left">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        {data.subtitle && (
-          <span className="text-sm font-bold text-rose-500 tracking-widest block mb-3 uppercase">{data.subtitle}</span>
-        )}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{data.title || '核心痛点与挑战'}</h2>
-        <div className="w-10 h-1 bg-rose-400/60 rounded-full mx-auto mt-4" />
+    <div className="py-6 md:py-8 text-left">
+      <div className="text-center max-w-2xl mx-auto mb-6">
+        <h2 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '核心痛点与挑战'}</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
         {data.challenges.map((c, i) => (
-          <div key={i} className="p-7 rounded-2xl bg-rose-50/50 border border-rose-150/60 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-rose-100 text-rose-600 font-black text-base">
+          <div key={i} className="p-4 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition-shadow">
+            <div className="space-y-2.5">
+              <div className="flex items-center gap-3">
+                <span className="w-7 h-7 rounded-md bg-slate-100 text-slate-600 text-xs font-semibold flex items-center justify-center">
                   {c.index || `0${i+1}`}
                 </span>
-                <h4 className="font-bold text-gray-900 text-base">{c.title}</h4>
+                <h4 className="font-semibold text-slate-900 text-sm">{c.title}</h4>
               </div>
-              <p className="text-sm text-gray-500 leading-relaxed font-normal">
+              <p className="text-sm text-slate-700 leading-relaxed font-normal">
                 {c.description}
               </p>
             </div>
             {c.footerText && (
-              <div className="mt-5 pt-4 border-t border-rose-150/50 text-xs text-rose-600 font-bold">
+              <div className="mt-3 pt-2.5 border-t border-slate-100 text-xs text-slate-500">
                 {c.footerText}
               </div>
             )}
@@ -1421,25 +1409,21 @@ export function DetailCaseScenes({ section }: { section: PageSection }) {
   const activeScene = data.scenes.find(s => s.id === activeTab) || data.scenes[0];
 
   return (
-    <div className="py-16 md:py-20 my-12 bg-slate-100/70 p-8 md:p-12 rounded-3xl border border-slate-200/50 text-left">
-      <div className="text-center max-w-3xl mx-auto mb-10">
-        {data.subtitle && (
-          <span className="text-sm font-bold text-indigo-600 tracking-widest block mb-3 uppercase">{data.subtitle}</span>
-        )}
-        <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">{data.title || '数智化应用改造场景'}</h3>
-        <div className="w-10 h-1 bg-indigo-500/60 rounded-full mx-auto mt-4" />
+    <div className="py-6 md:py-8 bg-slate-50 border border-slate-200 rounded-xl p-4 md:p-6 text-left">
+      <div className="text-center max-w-3xl mx-auto mb-5">
+        <h3 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '数智化应用改造场景'}</h3>
       </div>
 
       {/* Sub-tab Selector */}
-      <div className="flex justify-center border-b border-slate-300 mb-8">
-        <div className="flex gap-4 -mb-px overflow-x-auto pb-1 max-w-full">
+      <div className="flex justify-center border-b border-slate-300 mb-5">
+        <div className="flex gap-2 -mb-px overflow-x-auto pb-1 max-w-full">
           {data.scenes.map((s) => (
             <button
               key={s.id}
               onClick={() => setActiveTab(s.id)}
-              className={`flex items-center gap-2 pb-4 px-5 text-sm md:text-base font-bold border-b-2 transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 pb-3 px-4 text-sm font-medium border-b-2 transition-all whitespace-nowrap ${
                 activeTab === s.id
-                  ? 'border-indigo-600 text-indigo-600'
+                  ? 'border-blue-600 text-blue-600'
                   : 'border-transparent text-slate-500 hover:text-slate-900'
               }`}
             >
@@ -1451,22 +1435,22 @@ export function DetailCaseScenes({ section }: { section: PageSection }) {
 
       {/* Tab Content Panel */}
       {activeScene && (
-        <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-150 shadow-sm transition-all duration-300">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            <div className="lg:col-span-8 space-y-8 text-left">
+        <div className="bg-white rounded-lg p-4 md:p-5 transition-all duration-300">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+            <div className="lg:col-span-8 space-y-4 text-left">
               <div>
-                <span className="text-xs font-bold text-rose-500 uppercase bg-rose-50 px-3 py-1.5 rounded-lg border border-rose-100 tracking-wider">{activeScene.painPointTitle || '痛点背景'}</span>
-                <p className="text-sm text-slate-600 mt-3 leading-relaxed font-normal">
+                <h4 className="text-sm font-semibold text-slate-800">{activeScene.painPointTitle || '痛点背景'}</h4>
+                <p className="text-sm text-slate-700 mt-2 leading-relaxed font-normal">
                   {activeScene.painPointDesc}
                 </p>
               </div>
               
               <div>
-                <span className="text-xs font-bold text-emerald-600 uppercase bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100 tracking-wider">{activeScene.solutionTitle || '数智解决方案'}</span>
-                <ul className="mt-4 space-y-3.5 text-sm text-slate-700 leading-relaxed">
+                <h4 className="text-sm font-semibold text-slate-800">{activeScene.solutionTitle || '数智解决方案'}</h4>
+                <ul className="mt-2.5 space-y-2 text-sm text-slate-700 leading-relaxed">
                   {activeScene.solutionItems.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 font-normal">
-                      <span className="w-2 h-2 rounded-full bg-indigo-500 mt-2 shrink-0" />
+                    <li key={idx} className="flex items-start gap-2.5 font-normal">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -1475,16 +1459,16 @@ export function DetailCaseScenes({ section }: { section: PageSection }) {
             </div>
 
             {activeScene.metrics && activeScene.metrics.length > 0 && (
-              <div className="lg:col-span-4 bg-gradient-to-b from-slate-50 to-white rounded-2xl p-7 border border-slate-200/80 flex flex-col justify-center space-y-5 shadow-inner">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block text-center">
+              <div className="lg:col-span-4 bg-slate-50 border border-slate-200 rounded-lg p-4 flex flex-col justify-center space-y-3">
+                <span className="text-xs font-medium text-slate-500 block text-center">
                   {activeScene.metricsTitle || '提升成效'}
                 </span>
-                <div className="space-y-5">
+                <div className="space-y-3">
                   {activeScene.metrics.map((m, idx) => (
                     <div key={idx} className="text-center">
-                      {idx > 0 && <div className="border-t border-slate-200/60 mb-4" />}
-                      <span className="text-3xl md:text-4xl font-black text-indigo-600 tracking-tight">{m.value}</span>
-                      <span className="text-xs text-slate-500 block mt-1.5 font-medium">{m.label}</span>
+                      {idx > 0 && <div className="border-t border-slate-200 mb-3" />}
+                      <span className="text-2xl font-bold text-slate-900">{m.value}</span>
+                      <span className="text-xs text-slate-600 block mt-1">{m.label}</span>
                     </div>
                   ))}
                 </div>
@@ -1497,67 +1481,20 @@ export function DetailCaseScenes({ section }: { section: PageSection }) {
   );
 }
 
-export function DetailCaseMetrics({ section }: { section: PageSection }) {
-  const data = section.caseMetrics;
-  if (!data) return null;
-  return (
-    <div className="py-16 md:py-20 my-12 text-left">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        {data.subtitle && (
-          <span className="text-sm font-bold text-indigo-600 tracking-widest block mb-3 uppercase">{data.subtitle}</span>
-        )}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{data.title || '项目交付成效'}</h2>
-        <div className="w-10 h-1 bg-indigo-500/60 rounded-full mx-auto mt-4" />
-      </div>
-      <div className="grid gap-5 max-w-6xl mx-auto" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
-        {data.items.map((item, idx) => (
-          <div key={idx} className={`p-7 rounded-2xl text-left flex flex-col justify-between shadow-sm border transition-shadow hover:shadow-md ${
-            item.highlight 
-              ? 'bg-gradient-to-br from-indigo-50/70 to-blue-50/70 border-indigo-200 shadow-indigo-100/20' 
-              : 'bg-white border-slate-200/80'
-          }`}>
-            <div className="space-y-3">
-              <span className={`text-4xl md:text-5xl font-black block tracking-tight ${item.highlight ? 'text-indigo-600' : 'text-gray-800'}`}>
-                {item.value}
-              </span>
-              <h4 className="font-bold text-base text-gray-900">{item.label}</h4>
-              {item.description && (
-                <p className="text-sm text-slate-500 leading-relaxed font-normal">
-                  {item.description}
-                </p>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function DetailCaseTestimonial({ section }: { section: PageSection }) {
   const data = section.caseTestimonial;
   if (!data) return null;
   return (
-    <div className="py-16 md:py-20 my-12 max-w-4xl mx-auto text-center px-8 md:px-12 bg-gradient-to-br from-slate-50 via-white to-indigo-50/30 border-2 border-slate-200/80 rounded-3xl relative overflow-hidden shadow-sm">
-      <div className="absolute top-6 left-8 text-slate-200/60 font-serif text-9xl pointer-events-none select-none leading-none">
-        “
-      </div>
-      <div className="relative z-10 space-y-8 py-6">
-        {data.title && (
-          <h4 className="text-sm font-bold text-indigo-500 uppercase tracking-widest">{data.title}</h4>
-        )}
-        <p className="text-lg md:text-xl text-slate-700 leading-relaxed font-medium px-4 max-w-2xl mx-auto">
-          {data.quote}
-        </p>
-        <div className="flex flex-col items-center pt-2">
-          <span className="font-bold text-slate-900 text-base">{data.author}</span>
-          <span className="text-sm text-slate-500 font-normal mt-1">
-            {data.role} · {data.company}
-          </span>
-        </div>
-      </div>
-      <div className="absolute bottom-0 right-8 text-slate-200/60 font-serif text-9xl pointer-events-none select-none leading-none">
-        ”
+    <div className="py-6 md:py-8 max-w-4xl mx-auto px-6 md:px-8 bg-slate-50 border border-slate-200 rounded-xl text-center">
+      <h4 className="text-sm font-semibold text-slate-800 mb-4">{data.title || '项目交付总结'}</h4>
+      <p className="text-base md:text-lg text-slate-700 leading-relaxed italic font-light max-w-2xl mx-auto">
+        &ldquo;{data.quote}&rdquo;
+      </p>
+      <div className="flex flex-col items-center pt-4 mt-5 border-t border-slate-200">
+        <span className="font-semibold text-slate-800 text-sm">{data.author}</span>
+        <span className="text-xs text-slate-600 font-normal mt-0.5">
+          {data.role} · {data.company}
+        </span>
       </div>
     </div>
   );
@@ -1567,42 +1504,35 @@ export function DetailCaseComparison({ section }: { section: PageSection }) {
   const data = section.caseComparison;
   if (!data) return null;
   return (
-    <div className="py-12 my-8 text-left bg-white border border-gray-100 rounded-3xl p-6 md:p-8 shadow-sm">
-      <div className="text-center max-w-2xl mx-auto mb-10">
-        {data.subtitle && (
-          <span className="text-xs font-bold text-indigo-600 tracking-wider block mb-2 uppercase">{data.subtitle}</span>
-        )}
-        <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">{data.title || '改造前后成效对比'}</h2>
+    <div className="py-6 md:py-8 text-left bg-slate-50 border border-slate-200 rounded-xl p-4 md:p-6">
+      <div className="text-center max-w-2xl mx-auto mb-5">
+        <h2 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '改造前后成效对比'}</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto relative">
-        {/* Before Column */}
-        <div className="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl space-y-4">
-          <div className="flex items-center gap-2 border-b border-slate-200 pb-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shrink-0" />
-            <h3 className="font-extrabold text-slate-700 text-sm">{data.beforeTitle || '改造前 / 传统人工模式'}</h3>
-          </div>
-          <div className="space-y-4 text-xs font-normal">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+        <div className="bg-white border border-slate-200 rounded-lg p-4">
+          <h3 className="text-sm font-semibold text-slate-700 mb-3 pb-2 border-b border-slate-200">
+            {data.beforeTitle || '改造前'}
+          </h3>
+          <div className="space-y-3">
             {data.items.map((item, idx) => (
               <div key={idx} className="space-y-1">
-                <span className="text-slate-400 font-bold block">{item.label}</span>
-                <span className="text-slate-600 font-medium">{item.beforeValue}</span>
+                <span className="text-xs text-slate-500 block">{item.label}</span>
+                <span className="text-sm text-slate-700">{item.beforeValue}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* After Column */}
-        <div className="bg-gradient-to-br from-indigo-50/20 to-emerald-50/20 border border-indigo-100 p-6 rounded-2xl space-y-4 shadow-sm">
-          <div className="flex items-center gap-2 border-b border-indigo-150 pb-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
-            <h3 className="font-extrabold text-indigo-900 text-sm">{data.afterTitle || '改造后 / AI数智化升级'}</h3>
-          </div>
-          <div className="space-y-4 text-xs font-normal">
+        <div className="bg-white border border-slate-200 rounded-lg p-4">
+          <h3 className="text-sm font-semibold text-slate-900 mb-3 pb-2 border-b border-slate-200">
+            {data.afterTitle || '改造后'}
+          </h3>
+          <div className="space-y-3">
             {data.items.map((item, idx) => (
               <div key={idx} className="space-y-1">
-                <span className="text-indigo-950 font-bold block">{item.label}</span>
-                <span className={`font-extrabold block ${item.highlight ? 'text-emerald-600 text-sm' : 'text-indigo-950'}`}>{item.afterValue}</span>
+                <span className="text-xs text-slate-500 block">{item.label}</span>
+                <span className={`text-sm ${item.highlight ? 'font-semibold text-blue-600' : 'text-slate-900'}`}>{item.afterValue}</span>
               </div>
             ))}
           </div>
@@ -1616,28 +1546,22 @@ export function DetailCaseStructure({ section }: { section: PageSection }) {
   const data = section.caseStructure;
   if (!data) return null;
   return (
-    <div className="py-16 md:py-20 my-12 text-left bg-slate-50/80 border-2 border-slate-200/80 rounded-3xl p-8 md:p-12 shadow-sm">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        {data.subtitle && (
-          <span className="text-sm font-bold text-indigo-600 tracking-widest block mb-3 uppercase">{data.subtitle}</span>
-        )}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{data.title || '方案架构与实施路径'}</h2>
-        <div className="w-10 h-1 bg-indigo-500/60 rounded-full mx-auto mt-4" />
+    <div className="py-6 md:py-8 bg-white border border-slate-200 rounded-xl p-4 md:p-6 text-left">
+      <div className="text-center max-w-2xl mx-auto mb-6">
+        <h2 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '方案架构与实施路径'}</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
         {data.steps.map((step, idx) => (
-          <div key={idx} className="bg-white p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow text-left flex flex-col h-full">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-100 text-indigo-600 font-black text-sm">
-                {idx + 1}
-              </span>
-              <h4 className="text-base font-bold text-slate-800">{step.title}</h4>
+          <div key={idx} className="p-4 rounded-lg bg-slate-50 border border-slate-200 hover:border-slate-300 transition-shadow flex flex-col">
+            <div className="flex items-center gap-2.5 mb-2">
+              <span className="text-xs font-medium text-slate-500">{idx + 1}</span>
+              <h4 className="font-semibold text-slate-800 text-sm">{step.title}</h4>
             </div>
-            <p className="text-sm text-slate-500 leading-relaxed font-normal flex-1">{step.description}</p>
-            <div className="flex items-center gap-2 mt-4 pt-4 border-t border-slate-100">
-              <span className="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">{step.stepNumber || `阶段 ${idx + 1}`}</span>
-              {step.duration && <span className="text-xs text-slate-400 font-medium">{step.duration}</span>}
+            <p className="text-sm text-slate-700 leading-relaxed font-normal flex-1">{step.description}</p>
+            <div className="flex items-center gap-2 mt-3 pt-2.5 border-t border-slate-100">
+              <span className="text-xs text-slate-500 bg-slate-200/50 px-2 py-0.5 rounded">{step.stepNumber || `阶段 ${idx + 1}`}</span>
+              {step.duration && <span className="text-xs text-slate-500">{step.duration}</span>}
             </div>
           </div>
         ))}
@@ -1650,30 +1574,26 @@ export function DetailCaseFaq({ section }: { section: PageSection }) {
   const data = section.caseFaq;
   if (!data) return null;
   return (
-    <div className="py-16 md:py-20 my-12 text-left bg-white border-2 border-slate-200/80 rounded-3xl p-8 md:p-12 shadow-sm">
-      <div className="text-center max-w-2xl mx-auto mb-12">
-        {data.subtitle && (
-          <span className="text-sm font-bold text-indigo-600 tracking-widest block mb-3 uppercase">{data.subtitle}</span>
-        )}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">{data.title || '项目部署与交付答疑'}</h2>
-        <div className="w-10 h-1 bg-indigo-500/60 rounded-full mx-auto mt-4" />
+    <div className="py-6 md:py-8 bg-white border border-slate-200 rounded-xl p-4 md:p-6 text-left">
+      <div className="text-center max-w-2xl mx-auto mb-6">
+        <h2 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '项目部署与交付答疑'}</h2>
       </div>
 
-      <div className="max-w-3xl mx-auto space-y-5">
+      <div className="max-w-3xl mx-auto space-y-3">
         {data.faqs.map((item, idx) => (
-          <div key={idx} className="p-6 border border-slate-200/80 rounded-2xl bg-slate-50/50 hover:bg-white hover:shadow-sm transition-all text-left space-y-3">
+          <div key={idx} className="p-4 border border-slate-200 rounded-lg bg-white hover:border-slate-300 transition-all">
             <div className="flex gap-3 items-start">
-              <span className="text-xs font-black bg-indigo-100 text-indigo-600 px-2 py-1 rounded-lg shrink-0">Q</span>
-              <div className="space-y-2">
-                <h4 className="text-base font-bold text-slate-800 flex items-center gap-2 flex-wrap">
+              <span className="text-xs font-medium text-slate-500 w-5 shrink-0 mt-0.5">Q</span>
+              <div className="space-y-1.5">
+                <h4 className="font-medium text-slate-800 flex items-center gap-2 flex-wrap text-sm">
                   <span>{item.question}</span>
                   {item.tag && (
-                    <span className="text-[10px] font-bold text-slate-500 border border-slate-200 px-2 py-0.5 rounded-full bg-white">
+                    <span className="text-[10px] text-slate-500 border border-slate-200 px-2 py-0.5 rounded">
                       {item.tag}
                     </span>
                   )}
                 </h4>
-                <p className="text-sm text-slate-600 leading-relaxed font-normal">{item.answer}</p>
+                <p className="text-sm text-slate-700 leading-relaxed font-normal">{item.answer}</p>
               </div>
             </div>
           </div>
