@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getProductById, getProducts } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, CheckCircle2, ChevronRight, PhoneCall, Send, Image as ImageIcon, Workflow, Play, Download, Award, MapPin, Images, Check, Monitor, Layers, Cpu } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ChevronRight, Check } from 'lucide-react';
 import type { PageSection } from '@/types';
 import dynamic from 'next/dynamic';
 

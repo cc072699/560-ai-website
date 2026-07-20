@@ -1,9 +1,0 @@
-# Query: 选择五六零，就是选择了...
-# ContextLines: 1
-
-1 个结果 - 1 个文件
-
-frontend/src/components/AboutClient.tsx:
-  173              <h2 className="text-3xl md:text-5.5xl font-extrabold text-slate-900 tracking-tight mb-2">
-  174:               选择五六零，就是选择了
-  175              </h2>
