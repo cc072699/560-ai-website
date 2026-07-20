@@ -53,7 +53,7 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 export async function getProductById(id: string): Promise<Product | null> {
-  const products = await getProducts();
+  const products = await getAllProducts();
   return products.find((p) => p.id === id) || null;
 }
 

@@ -1,8 +1,17 @@
-import { getProducts } from '@/lib/data';
+import type { Metadata } from 'next';
+import { getProducts, getSiteConfig } from '@/lib/data';
 import Link from 'next/link';
 import { ArrowRight, Check } from 'lucide-react';
 
 export const revalidate = 30;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSiteConfig();
+  return {
+    title: `产品中心 — ${site.companyName}`,
+    description: `探索${site.companyName}自主研发的核心AI软件产品矩阵，涵盖决策智能、知识管理、自动化协同及工业机器视觉，支持高安全性私有化部署。`,
+  };
+}
 
 export default async function ProductsPage() {
   const products = await getProducts();

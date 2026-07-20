@@ -83,6 +83,7 @@ export default function DetailSectionsRenderer({
         if (section.type === 'caseOverview') return <DetailCaseOverview key={section.id} section={section} />;
         if (section.type === 'caseChallenges') return <DetailCaseChallenges key={section.id} section={section} />;
         if (section.type === 'caseScenes') return <DetailCaseScenes key={section.id} section={section} />;
+        if (section.type === 'caseMetrics') return <DetailMetrics key={section.id} section={{...section, metrics: section.caseMetrics}} />;
         if (section.type === 'caseTestimonial') return <DetailCaseTestimonial key={section.id} section={section} />;
         if (section.type === 'caseComparison') return <DetailCaseComparison key={section.id} section={section} />;
         if (section.type === 'caseStructure') return <DetailCaseStructure key={section.id} section={section} />;
@@ -613,7 +614,12 @@ function DetailMetrics({ section }: { section: PageSection }) {
           <div className="w-12 h-1.5 bg-blue-600 rounded-full mx-auto mt-4" />
         </div>
 
-        <div className={`grid grid-cols-1 ${met.items.length === 1 ? 'md:grid-cols-1' : met.items.length === 2 ? 'md:grid-cols-2' : met.items.length === 4 ? 'md:grid-cols-2' : 'md:grid-cols-3'} gap-8 ${met.items.length === 4 ? 'max-w-2xl' : 'max-w-4xl'} mx-auto`}>
+        <div className={`grid grid-cols-1 gap-8 mx-auto ${
+          met.items.length === 1 ? 'md:grid-cols-1 max-w-4xl' :
+          met.items.length === 2 ? 'md:grid-cols-2 max-w-4xl' :
+          met.items.length === 4 ? 'md:grid-cols-2 max-w-2xl' :
+          'md:grid-cols-3 max-w-4xl'
+        }`}>
           {met.items.map((item, idx) => (
             <div key={idx} className="bg-white/95 backdrop-blur rounded-3xl border border-gray-150 p-8 shadow-sm hover:shadow-md transition-all text-center space-y-3">
               <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-indigo-650 bg-clip-text text-transparent tracking-tight">
@@ -1497,10 +1503,9 @@ export function DetailCaseChallenges({ section }: { section: PageSection }) {
 
 export function DetailCaseScenes({ section }: { section: PageSection }) {
   const data = section.caseScenes;
+  const [activeTab, setActiveTab] = useState(data?.scenes?.[0]?.id || '');
   if (!data || !data.scenes || data.scenes.length === 0) return null;
-  
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [activeTab, setActiveTab] = useState(data.scenes[0].id);
+
   const activeScene = data.scenes.find(s => s.id === activeTab) || data.scenes[0];
 
   return (

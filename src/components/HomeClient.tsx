@@ -23,13 +23,11 @@ export function HomeClient({ hero, about, products, cases }: HomeClientProps) {
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-[#FDFDFD] relative overflow-hidden">
-      {/* Global Background Grid and Ambient Glows */}
+      {/* Global Background Grid — single pass, GPU-friendly */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:64px_64px] opacity-[0.35] pointer-events-none z-0" />
-      <div className="absolute top-[5%] left-[5%] w-[800px] h-[500px] bg-blue-50/70 rounded-full blur-[130px] pointer-events-none z-0" />
-      <div className="absolute top-[20%] right-[5%] w-[700px] h-[600px] bg-sky-50/60 rounded-full blur-[140px] pointer-events-none z-0" />
-      <div className="absolute top-[45%] left-[10%] w-[900px] h-[700px] bg-blue-50/40 rounded-full blur-[150px] pointer-events-none z-0" />
-      <div className="absolute top-[70%] right-[10%] w-[800px] h-[600px] bg-indigo-50/30 rounded-full blur-[130px] pointer-events-none z-0" />
-      <div className="absolute top-[90%] left-[5%] w-[600px] h-[500px] bg-sky-50/40 rounded-full blur-[120px] pointer-events-none z-0" />
+      {/* Ambient glow: 减少到 2 层避免移动端 GPU 过载 */}
+      <div className="absolute top-[5%] left-[5%] w-[600px] h-[500px] bg-blue-50/60 rounded-full blur-[100px] pointer-events-none z-0" />
+      <div className="absolute bottom-[10%] right-[5%] w-[600px] h-[500px] bg-indigo-50/50 rounded-full blur-[100px] pointer-events-none z-0" />
 
       {/* 1. Hero Section */}
       <section id="about" className="relative pt-32 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-transparent z-10">

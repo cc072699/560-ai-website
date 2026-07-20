@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { X, Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
@@ -47,17 +47,19 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
     return () => { isMounted = false; };
   }, [open]);
 
-  // Reset state when opening
+  // Reset state when opening — useLayoutEffect 确保在 DOM 更新后、浏览器绘制前执行滚动重置
+  useLayoutEffect(() => {
+    if (open && scrollerRef.current) {
+      scrollerRef.current.scrollTop = 0;
+    }
+  }, [open]);
+
+  // 重置表单数据
   useEffect(() => {
     if (open) {
       setFormData({});
       setError('');
       setSuccess(false);
-      const scrollToTop = () => scrollerRef.current?.scrollTo({ top: 0, behavior: 'auto' });
-      requestAnimationFrame(() => requestAnimationFrame(scrollToTop));
-      const t1 = setTimeout(scrollToTop, 0);
-      const t2 = setTimeout(scrollToTop, 50);
-      return () => { clearTimeout(t1); clearTimeout(t2); };
     }
   }, [open]);
 

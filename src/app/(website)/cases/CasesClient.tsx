@@ -12,8 +12,13 @@ import {
   Home
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import type { Case } from '@/types';
-import DetailSectionsRenderer from '@/components/DetailSectionsRenderer';
+// 按需加载：86KB 的渲染器只在案例页实际使用时才下载
+const DetailSectionsRenderer = dynamic(
+  () => import('@/components/DetailSectionsRenderer'),
+  { ssr: false }
+);
 
 interface CasesClientProps {
   initialCases: Case[];
@@ -34,7 +39,9 @@ const getCategoryIcon = (industry: string) => {
 };
 
 export default function CasesClient({ initialCases }: CasesClientProps) {
-  const [activeTab, setActiveTab] = useState<string>('5');
+  const [activeTab, setActiveTab] = useState<string>(
+    initialCases[0]?.id || ''
+  );
 
   const activeCase = initialCases.find(c => c.id === activeTab) || initialCases[0];
 

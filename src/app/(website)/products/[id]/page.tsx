@@ -1,9 +1,16 @@
+import type { Metadata } from 'next';
 import { getProductById, getProducts } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle2, ChevronRight, PhoneCall, Send, Image as ImageIcon, Workflow, Play, Download, Award, MapPin, Images, Check, Monitor, Layers, Cpu } from 'lucide-react';
 import type { PageSection } from '@/types';
-import DetailSectionsRenderer from '@/components/DetailSectionsRenderer';
+import dynamic from 'next/dynamic';
+
+// 按需加载：只有访问产品详情页时才下载此 86KB 的组件
+const DetailSectionsRenderer = dynamic(
+  () => import('@/components/DetailSectionsRenderer'),
+  { ssr: true }
+);
 
 import { ProductCTAButtons } from '@/components/ProductCTAButtons';
 
@@ -17,9 +24,22 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getProductById(id);
+  if (!product) return {};
+  return {
+    title: `${product.title} — 五六零人工智能`,
+    description: product.tagline
+      ? `${product.tagline} ${product.description?.slice(0, 80) || ''}`
+      : product.description?.slice(0, 120) || '',
+  };
+}
+
 interface ProductDetailPageProps {
   params: Promise<{ id: string }>;
 }
+
 
 export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
   const { id } = await params;

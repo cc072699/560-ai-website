@@ -97,10 +97,19 @@ export function Footer({ site }: FooterProps) {
         {/* Bottom Bar */}
         <div className="border-t border-gray-150 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400 font-medium">
           <p>{site.copyright}</p>
-          {site.icp && <p className="hover:text-gray-600 transition-colors">{site.icp}</p>}
+          {site.icp && (
+            <a
+              href="https://beian.miit.gov.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-600 transition-colors"
+            >
+              {site.icp}
+            </a>
+          )}
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-gray-900 transition-colors">隐私政策</Link>
-            <Link href="#" className="hover:text-gray-900 transition-colors">服务条款</Link>
+            <Link href="/privacy" className="hover:text-gray-900 transition-colors">隐私政策</Link>
+            <Link href="/terms" className="hover:text-gray-900 transition-colors">服务条款</Link>
           </div>
         </div>
       </div>

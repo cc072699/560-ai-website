@@ -9,6 +9,30 @@ const ALLOWED_TYPES = [
   'video/mp4', 'video/webm', 'video/ogg', 'video/quicktime'
 ];
 
+/**
+ * 文件头（magic bytes）签名表
+ * 防止攻击者将非法文件伪装成合法 MIME 类型上传
+ */
+const MAGIC_BYTES: { mime: string; bytes: number[]; offset?: number }[] = [
+  { mime: 'image/jpeg',      bytes: [0xFF, 0xD8, 0xFF] },
+  { mime: 'image/png',       bytes: [0x89, 0x50, 0x4E, 0x47] },
+  { mime: 'image/gif',       bytes: [0x47, 0x49, 0x46] },
+  { mime: 'image/webp',      bytes: [0x52, 0x49, 0x46, 0x46] },   // RIFF....WEBP
+  { mime: 'video/mp4',       bytes: [0x66, 0x74, 0x79, 0x70], offset: 4 }, // ftyp at byte 4
+  { mime: 'video/webm',      bytes: [0x1A, 0x45, 0xDF, 0xA3] },
+  { mime: 'video/quicktime', bytes: [0x66, 0x74, 0x79, 0x70], offset: 4 },
+];
+
+function checkMagicBytes(buffer: Uint8Array, mimeType: string): boolean {
+  const signatures = MAGIC_BYTES.filter(s => s.mime === mimeType);
+  // 若该类型没有定义签名（如 video/ogg），退后放行
+  if (signatures.length === 0) return true;
+  return signatures.some(sig => {
+    const offset = sig.offset ?? 0;
+    return sig.bytes.every((byte, i) => buffer[offset + i] === byte);
+  });
+}
+
 // 简单的内存速率限制器
 class UploadLimiter {
   private uploadCounts: Map<string, number[]> = new Map();
@@ -35,7 +59,7 @@ class UploadLimiter {
     recentUploads.push(now);
     this.uploadCounts.set(identifier, recentUploads);
 
-    // 定期清理过期数据(每小时)
+    // 定期清理过期数据（概率触发）
     if (Math.random() < 0.01) {
       this.cleanup();
     }
@@ -60,11 +84,11 @@ const uploadLimiter = new UploadLimiter(10, 60000); // 每分钟10次
 
 // POST /api/admin/upload
 export const POST = withAdminAuth(async (req: NextRequest) => {
-  // 速率限制检查(使用IP或用户标识)
+  // 速率限制检查（使用IP或用户标识）
   const identifier = req.headers.get('x-forwarded-for') || 'anonymous';
   if (!uploadLimiter.check(identifier)) {
     return NextResponse.json(
-      { error: '上传频率过高,请稍后再试' },
+      { error: '上传频率过高，请稍后再试' },
       { status: 429 }
     );
   }
@@ -84,11 +108,22 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
   }
 
   const isVideo = file.type.startsWith('video/');
-  const maxSizeLimit = isVideo ? 100 * 1024 * 1024 : 10 * 1024 * 1024; // 100MB for video, 10MB for image
+  const maxSizeLimit = isVideo ? 100 * 1024 * 1024 : 10 * 1024 * 1024;
 
   if (file.size > maxSizeLimit) {
     return NextResponse.json(
       { error: `文件过大，最大允许 ${isVideo ? '100MB' : '10MB'}` },
+      { status: 400 }
+    );
+  }
+
+  // 读取文件内容并校验 magic bytes（防止 MIME 类型伪造）
+  const arrayBuf = await file.arrayBuffer();
+  const buffer = new Uint8Array(arrayBuf);
+
+  if (!checkMagicBytes(buffer, file.type)) {
+    return NextResponse.json(
+      { error: '文件内容与声明类型不匹配，请上传合法的图片或视频文件' },
       { status: 400 }
     );
   }
@@ -105,9 +140,7 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
   // 确保目录存在
   await mkdir(uploadDir, { recursive: true });
 
-  const bytes = await file.arrayBuffer();
-  const buffer = Buffer.from(bytes);
-  await writeFile(path.join(uploadDir, filename), buffer);
+  await writeFile(path.join(uploadDir, filename), Buffer.from(buffer));
 
   // 返回的 URL 路径包含子目录
   const url = `/uploads/${folder}/${filename}`;

@@ -3,9 +3,14 @@ import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 
 const COOKIE_NAME = 'admin_token';
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.NEXTAUTH_SECRET || 'fallback-secret-change-in-production'
-);
+
+if (!process.env.NEXTAUTH_SECRET) {
+  throw new Error(
+    '[auth] NEXTAUTH_SECRET 环境变量未设置。请在 .env.local（开发）或服务器环境变量（生产）中配置该值。'
+  );
+}
+
+const JWT_SECRET = new TextEncoder().encode(process.env.NEXTAUTH_SECRET);
 
 // ── Token 签发 ──────────────────────────────────────────────────
 export async function signToken(payload: { username: string }) {

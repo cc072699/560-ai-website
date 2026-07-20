@@ -201,7 +201,7 @@ export function Navbar({ site, products }: NavbarProps) {
             return (
               <Link
                 key={link.name}
-                href={link.href.startsWith('#') ? `/${link.href}` : link.href}
+                href={link.href.startsWith('#') && link.href.length > 1 ? `/${link.href}` : (link.href || '/')}
                 className="text-[16px] text-gray-800 hover:text-blue-600 font-medium transition-colors relative py-5 group"
               >
                 {link.name}
@@ -310,7 +310,7 @@ export function Navbar({ site, products }: NavbarProps) {
                 return (
                   <Link
                     key={link.name}
-                    href={link.href.startsWith('#') ? `/${link.href}` : link.href}
+                    href={link.href.startsWith('#') && link.href.length > 1 ? `/${link.href}` : (link.href || '/')}
                     className="text-base text-gray-700 hover:text-blue-600 font-medium py-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
