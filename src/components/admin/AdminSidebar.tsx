@@ -15,6 +15,7 @@ import {
   ChevronRight,
   FileSpreadsheet,
   Inbox,
+  MessageSquare,
 } from 'lucide-react';
 
 export function AdminSidebar() {
@@ -27,13 +28,22 @@ export function AdminSidebar() {
     pathname.startsWith('/admin/contact-submissions')
   );
 
+  const [consultationsOpen, setConsultationsOpen] = useState(
+    pathname.startsWith('/admin/consultations')
+  );
+
   useEffect(() => {
     if (
-      pathname.startsWith('/admin/products') ||
+      pathname.startsWith('/admin/products')
+    ) {
+      setProductsOpen(true);
+    }
+    if (
+      pathname.startsWith('/admin/consultations') ||
       pathname.startsWith('/admin/contact-form') ||
       pathname.startsWith('/admin/contact-submissions')
     ) {
-      setProductsOpen(true);
+      setConsultationsOpen(true);
     }
   }, [pathname]);
 
@@ -134,6 +144,53 @@ export function AdminSidebar() {
                 <div className="w-1 h-1 rounded-full bg-current opacity-70" />
                 <span>设计模版库介绍</span>
               </Link>
+            </div>
+          )}
+        </div>
+
+        {/* Collapsible: 咨询管理 */}
+        <div className="space-y-1">
+          <button
+            onClick={() => setConsultationsOpen(!consultationsOpen)}
+            className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-base font-semibold transition-all duration-200 group cursor-pointer ${
+              isActive('/admin/consultations') || isActive('/admin/contact-form') || isActive('/admin/contact-submissions')
+                ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
+                : 'text-slate-400 hover:text-white hover:bg-slate-900'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <MessageSquare className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+                isActive('/admin/consultations') || isActive('/admin/contact-form') || isActive('/admin/contact-submissions') ? 'scale-105' : 'group-hover:scale-105'
+              }`} />
+              <span>咨询管理</span>
+            </div>
+            {consultationsOpen ? <ChevronDown className="w-3.5 h-3.5 text-slate-500" /> : <ChevronRight className="w-3.5 h-3.5 text-slate-500" />}
+          </button>
+
+          {consultationsOpen && (
+            <div className="pl-6 pr-2 py-1 space-y-1 animate-fade-in">
+              <Link
+                href="/admin/consultations/config"
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                  isActive('/admin/consultations/config', true)
+                    ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+                }`}
+              >
+                <FileSpreadsheet className="w-4 h-4 shrink-0" />
+                <span>咨询表单配置</span>
+              </Link>
+              <Link
+                href="/admin/consultations/records"
+                className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
+                  isActive('/admin/consultations/records', true)
+                    ? 'text-blue-400 bg-blue-950/30 border-l-2 border-blue-500 pl-3.5'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+                }`}
+              >
+                <Inbox className="w-4 h-4 shrink-0" />
+                <span>咨询记录</span>
+              </Link>
               <Link
                 href="/admin/contact-form"
                 className={`flex items-center gap-2.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
@@ -143,7 +200,7 @@ export function AdminSidebar() {
                 }`}
               >
                 <FileSpreadsheet className="w-4 h-4 shrink-0" />
-                <span>申请表单配置</span>
+                <span>产品申请表配置</span>
               </Link>
               <Link
                 href="/admin/contact-submissions"
@@ -154,7 +211,7 @@ export function AdminSidebar() {
                 }`}
               >
                 <Inbox className="w-4 h-4 shrink-0" />
-                <span>申请记录</span>
+                <span>产品申请记录</span>
               </Link>
             </div>
           )}

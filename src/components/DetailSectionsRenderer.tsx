@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { 
   ArrowLeft,
@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import type { PageSection } from '@/types';
 import { ProductCTAButtons } from '@/components/ProductCTAButtons';
+import { ContactDialog } from '@/components/ContactDialog';
 
 function getEmbedUrl(url: string): { type: 'iframe' | 'video'; src: string } {
   if (!url) return { type: 'video', src: '' };
@@ -57,7 +58,7 @@ export default function DetailSectionsRenderer({
         if (section.type === 'capabilities') return <DetailCapabilities key={section.id} section={section} />;
         if (section.type === 'scenarios') return <DetailScenarios key={section.id} section={section} />;
         if (section.type === 'architecture') return <DetailArchitecture key={section.id} section={section} />;
-        if (section.type === 'cta') return <DetailCta key={section.id} section={section} productId={productId} productName={productName} />;
+        if (section.type === 'cta') return <DetailCta key={section.id} section={section} />;
         if (section.type === 'video') return <DetailVideo key={section.id} section={section} />;
         if (section.type === 'timeline') return <DetailTimeline key={section.id} section={section} />;
         if (section.type === 'features') return <DetailFeatures key={section.id} section={section} />;
@@ -245,18 +246,90 @@ function DetailArchitecture({ section }: { section: PageSection }) {
   );
 }
 
-function DetailCta({ section, productId, productName }: { section: PageSection; productId: string; productName: string }) {
+function TypewriterText({ text, className, cursorClassName }: { text: string, className?: string, cursorClassName?: string }) {
+  const [displayedText, setDisplayedText] = useState('');
+  const [hasStarted, setHasStarted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted || !text) return;
+
+    let timeoutId: NodeJS.Timeout;
+    let charIndex = 0;
+    let isCancelled = false;
+
+    const typeNextChar = () => {
+      if (isCancelled) return;
+      if (charIndex < text.length) {
+        charIndex++;
+        setDisplayedText(text.slice(0, charIndex));
+        timeoutId = setTimeout(typeNextChar, 45);
+      } else {
+        // Typing finished, wait 5 seconds (5000ms), then reset and re-type
+        timeoutId = setTimeout(() => {
+          if (isCancelled) return;
+          charIndex = 0;
+          setDisplayedText('');
+          timeoutId = setTimeout(typeNextChar, 300);
+        }, 5000);
+      }
+    };
+
+    typeNextChar();
+
+    return () => {
+      isCancelled = true;
+      clearTimeout(timeoutId);
+    };
+  }, [hasStarted, text]);
+
+  return (
+    <div ref={containerRef} className={className || "text-lg md:text-xl lg:text-2xl text-slate-100 font-medium leading-relaxed max-w-3xl mx-auto min-h-[4.5rem] flex items-center justify-center tracking-wide"}>
+      <span>
+        {displayedText}
+        <span className={`ml-1 font-normal animate-pulse select-none ${cursorClassName || 'text-blue-400'}`}>|</span>
+      </span>
+    </div>
+  );
+}
+
+function DetailCta({ section }: { section: PageSection }) {
   const cta = section.cta;
+  const [contactOpen, setContactOpen] = useState(false);
   if (!cta) return null;
   return (
-    <section className="bg-slate-900 text-white text-center py-12 md:py-16 px-6 rounded-2xl">
-      <div className="max-w-3xl mx-auto space-y-5">
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight leading-tight">{cta.title}</h2>
-        <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed max-w-xl mx-auto">{cta.description}</p>
-        <div className="flex justify-center gap-4 pt-2">
-          <ProductCTAButtons productId={productId} productName={productName} primaryText={cta.primaryText || '申请试用'} secondaryText={cta.secondaryText || '联系我们'} primaryClassName="px-7 py-3 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition-all cursor-pointer text-sm" secondaryClassName="px-7 py-3 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-sm" />
+    <section className="bg-slate-900 text-white text-center py-14 md:py-20 px-6 rounded-2xl my-8 border border-slate-800/80 shadow-2xl">
+      <div className="max-w-4xl mx-auto space-y-6">
+        <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight leading-tight text-white">{cta.title}</h2>
+        <TypewriterText text={cta.description || ''} />
+        <div className="flex justify-center pt-3">
+          <button
+            type="button"
+            onClick={() => setContactOpen(true)}
+            className="px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-extrabold rounded-xl active:scale-[0.98] transition-all cursor-pointer text-base md:text-lg shadow-lg shadow-blue-600/30"
+          >
+            {cta.primaryText || '免费获取方案咨询'}
+          </button>
         </div>
       </div>
+      <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} />
     </section>
   );
 }
@@ -858,6 +931,7 @@ function DetailCoverage({ section }: { section: PageSection }) {
 
 function DetailConsultation({ section }: { section: PageSection }) {
   const cons = section.consultation;
+  const [contactOpen, setContactOpen] = useState(false);
   if (!cons) return null;
   return (
     <div className="py-16 bg-gradient-to-r from-slate-900 to-indigo-950 text-white border-b border-gray-100 text-center relative overflow-hidden rounded-2xl">
@@ -877,8 +951,12 @@ function DetailConsultation({ section }: { section: PageSection }) {
         </div>
 
         <div className="flex justify-center pt-2">
-          <button className="px-8 py-4 bg-blue-600 hover:bg-blue-500 hover:scale-[1.02] active:scale-[0.98] text-white text-sm md:text-base font-extrabold rounded-2xl shadow-xl shadow-blue-900/40 cursor-pointer transition-all duration-300 border-0">
-            {cons.ctaText}
+          <button
+            type="button"
+            onClick={() => setContactOpen(true)}
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-500 hover:scale-[1.02] active:scale-[0.98] text-white text-sm md:text-base font-extrabold rounded-2xl shadow-xl shadow-blue-900/40 cursor-pointer transition-all duration-300 border-0"
+          >
+            {cons.ctaText || '免费获取方案咨询'}
           </button>
         </div>
 
@@ -892,6 +970,7 @@ function DetailConsultation({ section }: { section: PageSection }) {
           </div>
         )}
       </div>
+      <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} />
     </div>
   );
 }
@@ -1328,50 +1407,54 @@ export function DetailCaseOverview({ section }: { section: PageSection }) {
     <div className="py-6 md:py-8 text-left">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
         {/* Left column: metadata grid */}
-        <div className="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-xl p-5">
+        <div className="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-xl p-5 shadow-sm">
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div className="space-y-1.5">
-              <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">客户名称</span>
-              <p className="text-sm font-semibold text-slate-900">{data.clientName}</p>
+              <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">客户名称</span>
+              <p className="text-base font-bold text-slate-900">{data.clientName}</p>
             </div>
             <div className="space-y-1.5">
-              <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">所属行业</span>
-              <p className="text-sm font-semibold text-slate-900">{data.industry}</p>
+              <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">所属行业</span>
+              <p className="text-base font-bold text-slate-900">{data.industry}</p>
             </div>
             {data.location && (
               <div className="space-y-1.5">
-                <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">项目地点</span>
-                <p className="text-sm font-semibold text-slate-900">{data.location}</p>
+                <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">项目地点</span>
+                <p className="text-base font-bold text-slate-900">{data.location}</p>
               </div>
             )}
             {data.date && (
               <div className="space-y-1.5">
-                <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">交付时间</span>
-                <p className="text-sm font-semibold text-slate-900">{data.date}</p>
+                <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">交付时间</span>
+                <p className="text-base font-bold text-slate-900">{data.date}</p>
               </div>
             )}
             {data.scale && (
-              <div className="col-span-2 space-y-1.5 pt-2 border-t border-slate-100">
-                <span className="text-xs uppercase tracking-wider text-slate-500 font-medium">项目规模</span>
-                <p className="text-sm font-semibold text-slate-900 leading-relaxed">{data.scale}</p>
+              <div className="col-span-2 space-y-1.5 pt-3 border-t border-slate-200">
+                <span className="text-xs uppercase tracking-wider text-slate-600 font-semibold">项目规模</span>
+                <p className="text-base font-bold text-slate-900 leading-relaxed">{data.scale}</p>
               </div>
             )}
           </div>
         </div>
 
         {/* Right column: narrative summary */}
-        <div className="lg:col-span-7 space-y-3">
-          <h2 className="text-xl md:text-2xl font-bold text-slate-900 leading-snug">
+        <div className="lg:col-span-7 space-y-4">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 leading-snug">
             {data.title || '案例概况与方案背景'}
           </h2>
           {data.subtitle && (
-            <p className="text-sm md:text-base text-slate-600 leading-relaxed font-normal">
+            <p className="text-base md:text-lg text-slate-800 leading-relaxed font-semibold">
               {data.subtitle}
             </p>
           )}
-          <p className="text-sm md:text-base text-slate-700 leading-relaxed font-normal whitespace-pre-line">
-            {data.summary}
-          </p>
+          {data.summary && (
+            <TypewriterText 
+              text={data.summary}
+              className="text-lg md:text-xl text-slate-900 leading-relaxed font-semibold whitespace-pre-line text-left items-start justify-start"
+              cursorClassName="text-blue-600"
+            />
+          )}
         </div>
       </div>
     </div>
@@ -1384,24 +1467,24 @@ export function DetailCaseChallenges({ section }: { section: PageSection }) {
   return (
     <div className="py-6 md:py-8 text-left">
       <div className="text-center max-w-2xl mx-auto mb-6">
-        <h2 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '核心痛点与挑战'}</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">{data.title || '核心痛点与挑战'}</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
         {data.challenges.map((c, i) => (
-          <div key={i} className="p-4 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition-shadow">
-            <div className="space-y-2.5">
+          <div key={i} className="p-5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-slate-300 transition-all">
+            <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-md bg-slate-100 text-slate-600 text-xs font-semibold flex items-center justify-center">
+                <span className="w-8 h-8 rounded-md bg-blue-50 text-blue-700 text-sm font-bold flex items-center justify-center border border-blue-100">
                   {c.index || `0${i+1}`}
                 </span>
-                <h4 className="font-semibold text-slate-900 text-sm">{c.title}</h4>
+                <h4 className="font-bold text-slate-900 text-base md:text-lg">{c.title}</h4>
               </div>
-              <p className="text-sm text-slate-700 leading-relaxed font-normal">
+              <p className="text-base text-slate-800 leading-relaxed font-normal">
                 {c.description}
               </p>
             </div>
             {c.footerText && (
-              <div className="mt-3 pt-2.5 border-t border-slate-100 text-xs text-slate-500">
+              <div className="mt-3.5 pt-2.5 border-t border-slate-100 text-xs font-semibold text-slate-600">
                 {c.footerText}
               </div>
             )}
@@ -1421,22 +1504,22 @@ export function DetailCaseScenes({ section }: { section: PageSection }) {
   const activeScene = data.scenes.find(s => s.id === activeTab) || data.scenes[0];
 
   return (
-    <div className="py-6 md:py-8 bg-slate-50 border border-slate-200 rounded-xl p-4 md:p-6 text-left">
-      <div className="text-center max-w-3xl mx-auto mb-5">
-        <h3 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '数智化应用改造场景'}</h3>
+    <div className="py-6 md:py-8 bg-slate-50/80 border border-slate-200 rounded-xl p-5 md:p-7 text-left">
+      <div className="text-center max-w-3xl mx-auto mb-6">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900">{data.title || '数智化应用改造场景'}</h3>
       </div>
 
       {/* Sub-tab Selector */}
-      <div className="flex justify-center border-b border-slate-300 mb-5">
+      <div className="flex justify-center border-b border-slate-300 mb-6">
         <div className="flex gap-2 -mb-px overflow-x-auto pb-1 max-w-full">
           {data.scenes.map((s) => (
             <button
               key={s.id}
               onClick={() => setActiveTab(s.id)}
-              className={`flex items-center gap-2 pb-3 px-4 text-sm font-medium border-b-2 transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 pb-3 px-5 text-base font-bold border-b-2 transition-all whitespace-nowrap ${
                 activeTab === s.id
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
+                  ? 'border-blue-600 text-blue-700 bg-blue-50/40'
+                  : 'border-transparent text-slate-600 hover:text-slate-900'
               }`}
             >
               <span>{s.tabName}</span>
@@ -1447,22 +1530,22 @@ export function DetailCaseScenes({ section }: { section: PageSection }) {
 
       {/* Tab Content Panel */}
       {activeScene && (
-        <div className="bg-white rounded-lg p-4 md:p-5 transition-all duration-300">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-            <div className="lg:col-span-8 space-y-4 text-left">
+        <div className="bg-white rounded-lg p-5 md:p-6 shadow-sm border border-slate-200 transition-all duration-300">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-8 space-y-5 text-left">
               <div>
-                <h4 className="text-sm font-semibold text-slate-800">{activeScene.painPointTitle || '痛点背景'}</h4>
-                <p className="text-sm text-slate-700 mt-2 leading-relaxed font-normal">
+                <h4 className="text-base font-bold text-slate-900">{activeScene.painPointTitle || '痛点背景'}</h4>
+                <p className="text-base text-slate-800 mt-2 leading-relaxed font-normal">
                   {activeScene.painPointDesc}
                 </p>
               </div>
               
               <div>
-                <h4 className="text-sm font-semibold text-slate-800">{activeScene.solutionTitle || '数智解决方案'}</h4>
-                <ul className="mt-2.5 space-y-2 text-sm text-slate-700 leading-relaxed">
+                <h4 className="text-base font-bold text-slate-900">{activeScene.solutionTitle || '数智解决方案'}</h4>
+                <ul className="mt-3 space-y-2.5 text-base text-slate-800 leading-relaxed">
                   {activeScene.solutionItems.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 font-normal">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-2 shrink-0" />
+                    <li key={idx} className="flex items-start gap-3 font-normal">
+                      <span className="w-2 h-2 rounded-full bg-blue-600 mt-2 shrink-0" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -1471,16 +1554,16 @@ export function DetailCaseScenes({ section }: { section: PageSection }) {
             </div>
 
             {activeScene.metrics && activeScene.metrics.length > 0 && (
-              <div className="lg:col-span-4 bg-slate-50 border border-slate-200 rounded-lg p-4 flex flex-col justify-center space-y-3">
-                <span className="text-xs font-medium text-slate-500 block text-center">
+              <div className="lg:col-span-4 bg-slate-50 border border-slate-200 rounded-lg p-5 flex flex-col justify-center space-y-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-600 block text-center">
                   {activeScene.metricsTitle || '提升成效'}
                 </span>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {activeScene.metrics.map((m, idx) => (
                     <div key={idx} className="text-center">
-                      {idx > 0 && <div className="border-t border-slate-200 mb-3" />}
-                      <span className="text-2xl font-bold text-slate-900">{m.value}</span>
-                      <span className="text-xs text-slate-600 block mt-1">{m.label}</span>
+                      {idx > 0 && <div className="border-t border-slate-200 mb-4" />}
+                      <span className="text-3xl font-black text-slate-900">{m.value}</span>
+                      <span className="text-xs text-slate-700 font-semibold block mt-1">{m.label}</span>
                     </div>
                   ))}
                 </div>
@@ -1497,14 +1580,14 @@ export function DetailCaseTestimonial({ section }: { section: PageSection }) {
   const data = section.caseTestimonial;
   if (!data) return null;
   return (
-    <div className="py-6 md:py-8 max-w-4xl mx-auto px-6 md:px-8 bg-slate-50 border border-slate-200 rounded-xl text-center">
-      <h4 className="text-sm font-semibold text-slate-800 mb-4">{data.title || '项目交付总结'}</h4>
-      <p className="text-base md:text-lg text-slate-700 leading-relaxed italic font-light max-w-2xl mx-auto">
+    <div className="py-6 md:py-8 max-w-4xl mx-auto px-6 md:px-8 bg-slate-50 border border-slate-200 rounded-xl text-center shadow-sm">
+      <h4 className="text-base font-bold text-slate-900 mb-4">{data.title || '项目交付总结'}</h4>
+      <p className="text-lg md:text-xl text-slate-900 leading-relaxed italic font-medium max-w-2xl mx-auto">
         &ldquo;{data.quote}&rdquo;
       </p>
       <div className="flex flex-col items-center pt-4 mt-5 border-t border-slate-200">
-        <span className="font-semibold text-slate-800 text-sm">{data.author}</span>
-        <span className="text-xs text-slate-600 font-normal mt-0.5">
+        <span className="font-bold text-slate-900 text-base">{data.author}</span>
+        <span className="text-sm text-slate-700 font-medium mt-0.5">
           {data.role} · {data.company}
         </span>
       </div>
@@ -1516,35 +1599,35 @@ export function DetailCaseComparison({ section }: { section: PageSection }) {
   const data = section.caseComparison;
   if (!data) return null;
   return (
-    <div className="py-6 md:py-8 text-left bg-slate-50 border border-slate-200 rounded-xl p-4 md:p-6">
-      <div className="text-center max-w-2xl mx-auto mb-5">
-        <h2 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '改造前后成效对比'}</h2>
+    <div className="py-6 md:py-8 text-left bg-slate-50 border border-slate-200 rounded-xl p-5 md:p-7">
+      <div className="text-center max-w-2xl mx-auto mb-6">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">{data.title || '改造前后成效对比'}</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-        <div className="bg-white border border-slate-200 rounded-lg p-4">
-          <h3 className="text-sm font-semibold text-slate-700 mb-3 pb-2 border-b border-slate-200">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+        <div className="bg-white border border-slate-200 rounded-lg p-5 shadow-sm">
+          <h3 className="text-base font-bold text-slate-800 mb-4 pb-2 border-b border-slate-200">
             {data.beforeTitle || '改造前'}
           </h3>
-          <div className="space-y-3">
+          <div className="space-y-3.5">
             {data.items.map((item, idx) => (
               <div key={idx} className="space-y-1">
-                <span className="text-xs text-slate-500 block">{item.label}</span>
-                <span className="text-sm text-slate-700">{item.beforeValue}</span>
+                <span className="text-xs text-slate-600 font-semibold block">{item.label}</span>
+                <span className="text-base text-slate-800 font-medium">{item.beforeValue}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="bg-white border border-slate-200 rounded-lg p-4">
-          <h3 className="text-sm font-semibold text-slate-900 mb-3 pb-2 border-b border-slate-200">
+        <div className="bg-white border border-slate-200 rounded-lg p-5 shadow-sm">
+          <h3 className="text-base font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200">
             {data.afterTitle || '改造后'}
           </h3>
-          <div className="space-y-3">
+          <div className="space-y-3.5">
             {data.items.map((item, idx) => (
               <div key={idx} className="space-y-1">
-                <span className="text-xs text-slate-500 block">{item.label}</span>
-                <span className={`text-sm ${item.highlight ? 'font-semibold text-blue-600' : 'text-slate-900'}`}>{item.afterValue}</span>
+                <span className="text-xs text-slate-600 font-semibold block">{item.label}</span>
+                <span className={`text-base ${item.highlight ? 'font-bold text-blue-700' : 'font-medium text-slate-900'}`}>{item.afterValue}</span>
               </div>
             ))}
           </div>
@@ -1558,22 +1641,22 @@ export function DetailCaseStructure({ section }: { section: PageSection }) {
   const data = section.caseStructure;
   if (!data) return null;
   return (
-    <div className="py-6 md:py-8 bg-white border border-slate-200 rounded-xl p-4 md:p-6 text-left">
+    <div className="py-6 md:py-8 bg-white border border-slate-200 rounded-xl p-5 md:p-7 text-left shadow-sm">
       <div className="text-center max-w-2xl mx-auto mb-6">
-        <h2 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '方案架构与实施路径'}</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">{data.title || '方案架构与实施路径'}</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
         {data.steps.map((step, idx) => (
-          <div key={idx} className="p-4 rounded-lg bg-slate-50 border border-slate-200 hover:border-slate-300 transition-shadow flex flex-col">
-            <div className="flex items-center gap-2.5 mb-2">
-              <span className="text-xs font-medium text-slate-500">{idx + 1}</span>
-              <h4 className="font-semibold text-slate-800 text-sm">{step.title}</h4>
+          <div key={idx} className="p-5 rounded-lg bg-slate-50 border border-slate-200 hover:border-slate-300 transition-shadow flex flex-col">
+            <div className="flex items-center gap-3 mb-2.5">
+              <span className="w-6 h-6 rounded bg-blue-50 text-blue-700 border border-blue-100 flex items-center justify-center text-xs font-bold">{idx + 1}</span>
+              <h4 className="font-bold text-slate-900 text-base">{step.title}</h4>
             </div>
-            <p className="text-sm text-slate-700 leading-relaxed font-normal flex-1">{step.description}</p>
-            <div className="flex items-center gap-2 mt-3 pt-2.5 border-t border-slate-100">
-              <span className="text-xs text-slate-500 bg-slate-200/50 px-2 py-0.5 rounded">{step.stepNumber || `阶段 ${idx + 1}`}</span>
-              {step.duration && <span className="text-xs text-slate-500">{step.duration}</span>}
+            <p className="text-base text-slate-800 leading-relaxed font-normal flex-1">{step.description}</p>
+            <div className="flex items-center gap-2 mt-4 pt-3 border-t border-slate-200">
+              <span className="text-xs text-slate-700 bg-slate-200/70 px-2.5 py-0.5 rounded font-semibold">{step.stepNumber || `阶段 ${idx + 1}`}</span>
+              {step.duration && <span className="text-xs text-slate-600 font-medium">{step.duration}</span>}
             </div>
           </div>
         ))}
@@ -1586,26 +1669,26 @@ export function DetailCaseFaq({ section }: { section: PageSection }) {
   const data = section.caseFaq;
   if (!data) return null;
   return (
-    <div className="py-6 md:py-8 bg-white border border-slate-200 rounded-xl p-4 md:p-6 text-left">
+    <div className="py-6 md:py-8 bg-white border border-slate-200 rounded-xl p-5 md:p-7 text-left shadow-sm">
       <div className="text-center max-w-2xl mx-auto mb-6">
-        <h2 className="text-xl md:text-2xl font-bold text-slate-900">{data.title || '项目部署与交付答疑'}</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">{data.title || '项目部署与交付答疑'}</h2>
       </div>
 
-      <div className="max-w-3xl mx-auto space-y-3">
+      <div className="max-w-3xl mx-auto space-y-4">
         {data.faqs.map((item, idx) => (
-          <div key={idx} className="p-4 border border-slate-200 rounded-lg bg-white hover:border-slate-300 transition-all">
+          <div key={idx} className="p-5 border border-slate-200 rounded-lg bg-white hover:border-slate-300 transition-all shadow-sm">
             <div className="flex gap-3 items-start">
-              <span className="text-xs font-medium text-slate-500 w-5 shrink-0 mt-0.5">Q</span>
-              <div className="space-y-1.5">
-                <h4 className="font-medium text-slate-800 flex items-center gap-2 flex-wrap text-sm">
+              <span className="text-sm font-bold text-blue-600 w-6 shrink-0 mt-0.5">Q:</span>
+              <div className="space-y-2">
+                <h4 className="font-bold text-slate-900 flex items-center gap-2 flex-wrap text-base">
                   <span>{item.question}</span>
                   {item.tag && (
-                    <span className="text-[10px] text-slate-500 border border-slate-200 px-2 py-0.5 rounded">
+                    <span className="text-xs text-slate-600 border border-slate-300 bg-slate-50 px-2.5 py-0.5 rounded font-medium">
                       {item.tag}
                     </span>
                   )}
                 </h4>
-                <p className="text-sm text-slate-700 leading-relaxed font-normal">{item.answer}</p>
+                <p className="text-base text-slate-800 leading-relaxed font-normal">{item.answer}</p>
               </div>
             </div>
           </div>

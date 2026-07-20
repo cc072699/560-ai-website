@@ -40,13 +40,11 @@ interface ProductOption {
   title: string;
 }
 
-export default function ContactSubmissionsAdminPage() {
+export default function ConsultationSubmissionsAdminPage() {
   const [submissions, setSubmissions] = useState<ContactSubmission[]>([]);
-  const [products, setProducts] = useState<ProductOption[]>([]);
   const [template, setTemplate] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState('');
-  const [filterProduct, setFilterProduct] = useState('');
   const [deleteId, setDeleteId] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
@@ -56,51 +54,38 @@ export default function ContactSubmissionsAdminPage() {
     setTimeout(() => setToast(null), 3000);
   }, []);
 
-  const fetchSubmissions = useCallback(async (status?: string) => {
-    const params = status ? `?status=${status}` : '';
-    const res = await fetch(`/api/admin/contact-submissions${params}`);
-    const data = await res.json();
-    setSubmissions(data);
-  }, []);
-
-  const fetchProducts = useCallback(async () => {
+  const fetchData = useCallback(async (status?: string) => {
     try {
-      const res = await fetch('/api/admin/products');
-      const data = await res.json();
-      setProducts(data);
-    } catch {
-      // silently fail; product filter just won't show
-    }
-  }, []);
-
-  const fetchTemplate = useCallback(async () => {
-    try {
-      const res = await fetch('/api/admin/contact-form');
-      const data = await res.json();
-      setTemplate(data);
-    } catch {
-      // ignore
+      const params = status ? `?status=${status}` : '';
+      const [subsRes, tplRes] = await Promise.all([
+        fetch(`/api/admin/consultation-submissions${params}`),
+        fetch('/api/admin/consultation-form')
+      ]);
+      const [subsData, tplData] = await Promise.all([
+        subsRes.json(),
+        tplRes.json()
+      ]);
+      setSubmissions(subsData);
+      setTemplate(tplData);
+    } catch (e) {
+      console.error(e);
     }
   }, []);
 
   useEffect(() => {
-    Promise.all([fetchSubmissions(), fetchProducts(), fetchTemplate()]).finally(() => setLoading(false));
-  }, [fetchSubmissions, fetchProducts, fetchTemplate]);
+    fetchData().finally(() => setLoading(false));
+  }, [fetchData]);
 
   const handleStatusFilter = (status: string) => {
     setFilterStatus(status);
     setLoading(true);
-    fetchSubmissions(status || undefined);
+    fetchData(status || undefined).finally(() => setLoading(false));
   };
 
-  // Since the API only supports status filter, we do client-side product filtering
-  const filteredSubmissions = submissions.filter((s) => {
-    if (filterProduct && s.productId !== filterProduct) return false;
-    return true;
-  });
+  const filteredSubmissions = submissions;
 
   const handleStatusChange = async (id: string, newStatus: SubmissionStatus) => {
-    const res = await fetch(`/api/admin/contact-submissions/${id}`, {
+    const res = await fetch(`/api/admin/consultation-submissions/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ status: newStatus }),
@@ -116,7 +101,7 @@ export default function ContactSubmissionsAdminPage() {
 
   const handleDelete = async () => {
     if (!deleteId) return;
-    const res = await fetch(`/api/admin/contact-submissions/${deleteId}`, {
+    const res = await fetch(`/api/admin/consultation-submissions/${deleteId}`, {
       method: 'DELETE',
     });
     if (res.ok) {
@@ -244,9 +229,9 @@ export default function ContactSubmissionsAdminPage() {
       <div className="pb-4 border-b border-slate-200/50">
         <h1 className="text-xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
           <Inbox className="w-5 h-5 text-blue-600" />
-          申请记录
+          咨询记录
         </h1>
-        <p className="text-xs text-slate-400 mt-1">查看和管理产品申请/联系我们表单的提交记录</p>
+        <p className="text-xs text-slate-400 mt-1">查看和管理全局“立即咨询”表单的提交记录</p>
       </div>
 
       {/* Stat Cards */}
@@ -289,21 +274,6 @@ export default function ContactSubmissionsAdminPage() {
               ))}
             </select>
           </div>
-          <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">产品</label>
-            <select
-              value={filterProduct}
-              onChange={(e) => setFilterProduct(e.target.value)}
-              className="px-3 py-2 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 text-slate-800 transition-all bg-white cursor-pointer"
-            >
-              <option value="">全部</option>
-              {products.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.title}
-                </option>
-              ))}
-            </select>
-          </div>
           <div className="ml-auto text-xs text-slate-400 font-medium pt-2">
             共 {filteredSubmissions.length} 条记录
           </div>
@@ -322,7 +292,6 @@ export default function ContactSubmissionsAdminPage() {
       ) : (
         <div className="space-y-4">
           {filteredSubmissions.map((sub) => {
-            const isExpanded = expandedId === sub.id;
             const bar = leftBarColor[sub.status];
             const badgeCls = badgeBorderClass[sub.status];
             const dot = dotColor[sub.status];
@@ -331,9 +300,7 @@ export default function ContactSubmissionsAdminPage() {
             return (
               <div
                 key={sub.id}
-                className={`bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 ${
-                  isExpanded ? 'ring-1 ring-blue-200/60' : ''
-                }`}
+                className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
               >
                 <div className="flex">
                   {/* Colored left bar */}
@@ -341,7 +308,7 @@ export default function ContactSubmissionsAdminPage() {
 
                   {/* Card body */}
                   <div className="flex-1 min-w-0">
-                    {/* Clickable expand area */}
+                    {/* Clickable open area */}
                     <div
                       className="cursor-pointer px-4 pt-3 pb-2"
                       onClick={() => setExpandedId(sub.id)}
@@ -384,29 +351,16 @@ export default function ContactSubmissionsAdminPage() {
                       {/* Divider */}
                       <div className="border-t border-slate-100 my-2" />
 
-                      {/* Product name */}
-                      <div className="mb-2">
-                        {sub.productName ? (
-                          <span className="inline-block bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-sm font-semibold">
-                            {sub.productName}
+                      {/* Info row: dynamic values preview */}
+                      <div className="text-sm text-slate-700 pb-1 flex flex-wrap items-center">
+                        {Object.entries(sub.data).slice(0, 3).map(([k, v], idx, arr) => (
+                          <span key={k} className="flex items-center">
+                            <span className={idx === 0 ? "font-semibold" : ""}>{String(v) || '-'}</span>
+                            {idx < arr.length - 1 && <span className="text-slate-300 mx-2">·</span>}
                           </span>
-                        ) : (
-                          <span className="inline-block text-slate-400 px-3 py-1 text-sm">
-                            未指定产品
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Info row: name · contact · company */}
-                      <div className="text-sm text-slate-700 pb-1">
-                        <span className="font-semibold">{sub.data?.name || '-'}</span>
-                        <span className="text-slate-300 mx-2">·</span>
-                        <span>{sub.data?.phone || sub.data?.email || '-'}</span>
-                        <span className="text-slate-300 mx-2">·</span>
-                        <span>{sub.data?.company || '-'}</span>
+                        ))}
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -428,7 +382,7 @@ export default function ContactSubmissionsAdminPage() {
             <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-200">
               <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
                 <div>
-                  <h2 className="text-lg font-bold text-slate-800">申请记录详情</h2>
+                  <h2 className="text-lg font-bold text-slate-800">咨询记录详情</h2>
                   <p className="text-xs text-slate-500 mt-1">提交于 {formatTime(activeSub.submittedAt)}</p>
                 </div>
                 <button
@@ -439,16 +393,6 @@ export default function ContactSubmissionsAdminPage() {
                 </button>
               </div>
               <div className="p-6 overflow-y-auto">
-                <div className="mb-6 pb-6 border-b border-slate-100">
-                  <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">申请产品</h3>
-                  {activeSub.productName ? (
-                    <span className="inline-block bg-blue-50 text-blue-700 px-3 py-1.5 rounded-lg text-sm font-semibold">
-                      {activeSub.productName}
-                    </span>
-                  ) : (
-                    <span className="inline-block text-slate-400 px-3 py-1 text-sm italic">未指定产品</span>
-                  )}
-                </div>
                 <div className="space-y-6">
                   {template?.fields ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

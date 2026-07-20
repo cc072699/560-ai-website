@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import {
-  ArrowRight,
   Building2,
   Sprout,
   Landmark,
@@ -10,10 +9,8 @@ import {
   Cpu,
   MapPin,
   Bot,
-  Home,
-  MessageSquare
+  Home
 } from 'lucide-react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import type { Case } from '@/types';
 import DetailSectionsRenderer from '@/components/DetailSectionsRenderer';
@@ -52,14 +49,14 @@ export default function CasesClient({ initialCases }: CasesClientProps) {
             backgroundPosition: 'center 35%'
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/45 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-955/85 via-slate-950/60 to-slate-950/30 z-10" />
 
         <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-20 max-w-[1440px] text-left w-full pt-16 md:pt-24">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight mb-6 leading-none"
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight mb-6 leading-none drop-shadow-md"
           >
             {activeCase.title}
           </motion.h1>
@@ -68,7 +65,7 @@ export default function CasesClient({ initialCases }: CasesClientProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base md:text-lg lg:text-xl text-slate-200/90 max-w-2xl leading-relaxed font-normal mb-10"
+            className="text-lg md:text-xl lg:text-2xl text-slate-100 max-w-3xl leading-relaxed font-medium mb-10 drop-shadow"
           >
             {activeCase.description}
           </motion.p>
@@ -88,17 +85,17 @@ export default function CasesClient({ initialCases }: CasesClientProps) {
                   className={`flex items-center gap-3 px-6 py-4 border-b-2 transition-colors ${
                     isActive
                       ? 'border-blue-600 bg-slate-50 text-slate-900'
-                      : 'border-transparent bg-white text-slate-500 hover:text-slate-900'
+                      : 'border-transparent bg-white text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <span className={isActive ? 'text-blue-600' : 'text-slate-400'}>
+                  <span className={isActive ? 'text-blue-600' : 'text-slate-500'}>
                     {getCategoryIcon(c.industry)}
                   </span>
                   <div className="flex flex-col items-start text-left">
-                    <span className={`text-sm font-semibold leading-tight ${isActive ? 'text-slate-900' : 'text-slate-700'}`}>
+                    <span className={`text-sm md:text-base font-bold leading-tight ${isActive ? 'text-slate-900' : 'text-slate-800'}`}>
                       {c.industry}
                     </span>
-                    <span className={`text-xs leading-tight ${isActive ? 'text-slate-500' : 'text-slate-400'}`}>
+                    <span className={`text-xs md:text-sm leading-tight font-medium ${isActive ? 'text-slate-600' : 'text-slate-500'}`}>
                       {c.client}
                     </span>
                   </div>
@@ -125,25 +122,6 @@ export default function CasesClient({ initialCases }: CasesClientProps) {
               <p className="text-gray-500 text-base">案例详情正在整理中...</p>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* ===== 4. Bottom CTA ===== */}
-      <section className="bg-slate-900 py-16 md:py-20">
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl text-center">
-          <h3 className="text-2xl md:text-4xl font-extrabold text-white mb-4 tracking-tight">
-            需要为您的行业定制数字化方案？
-          </h3>
-          <p className="text-slate-300 text-sm md:text-base max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
-            我们的顾问与算法科学家团队拥有丰富的跨行业交付经验，能够针对您的具体业务痛点提供定制化模型开发与本地集成服务。
-          </p>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all shadow-lg text-sm"
-          >
-            <MessageSquare className="w-4 h-4" />
-            <span>预约免费方案沟通</span>
-          </Link>
         </div>
       </section>
     </div>

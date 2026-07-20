@@ -4,37 +4,55 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { X, Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
-import type { SiteConfig } from '@/types';
+import type { SiteConfig, ContactFormTemplate, ContactFormField } from '@/types';
 
 interface ContactDialogProps {
   open: boolean;
   onClose: () => void;
-  site: SiteConfig;
+  site?: SiteConfig;
 }
 
 export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
-  // 必须用 Portal 挂到 document.body —— 因为 Navbar 的 <header> 有 backdrop-filter，
-  // 会成为 fixed 定位的 containing block，导致 fixed inset-0 只能填满 header 而非视口
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  const [name, setName] = useState('');
-  const [contact, setContact] = useState('');
-  const [message, setMessage] = useState('');
+  const [template, setTemplate] = useState<ContactFormTemplate | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [formData, setFormData] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
   const scrollerRef = useRef<HTMLDivElement>(null);
 
-  // 每次打开重置状态 + 把外层滚动条滚到顶部（确保从弹窗顶部开始显示）
+  // Fetch form configuration
+  useEffect(() => {
+    if (!open) return;
+    let isMounted = true;
+    
+    async function fetchTemplate() {
+      try {
+        setLoading(true);
+        const res = await fetch('/api/consultation');
+        if (!res.ok) throw new Error('fetch template failed');
+        const data = await res.json();
+        if (isMounted) setTemplate(data);
+      } catch (err) {
+        console.error('Failed to load consultation form config:', err);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    }
+    fetchTemplate();
+
+    return () => { isMounted = false; };
+  }, [open]);
+
+  // Reset state when opening
   useEffect(() => {
     if (open) {
-      setName('');
-      setContact('');
-      setMessage('');
+      setFormData({});
       setError('');
       setSuccess(false);
-      // 多次延迟兜底：rAF + 短 timeout 确保 DOM 渲染完成后滚动到顶
       const scrollToTop = () => scrollerRef.current?.scrollTo({ top: 0, behavior: 'auto' });
       requestAnimationFrame(() => requestAnimationFrame(scrollToTop));
       const t1 = setTimeout(scrollToTop, 0);
@@ -43,7 +61,7 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
     }
   }, [open]);
 
-  // Body 滚动锁定
+  // Body scroll lock
   useEffect(() => {
     if (open) {
       const prev = document.body.style.overflow;
@@ -54,7 +72,7 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
     }
   }, [open]);
 
-  // ESC 关闭
+  // ESC close
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -66,31 +84,69 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!template) return;
     setError('');
 
-    if (!name.trim()) { setError('请填写您的姓名或公司名称'); return; }
-    if (!contact.trim()) { setError('请填写您的联系电话或邮箱'); return; }
+    // Validation
+    for (const field of template.fields) {
+      if (field.required && !formData[field.id]?.trim()) {
+        setError(`请填写 ${field.label}`);
+        return;
+      }
+    }
 
     setSubmitting(true);
     try {
-      const res = await fetch('/api/contact/submit', {
+      const res = await fetch('/api/consultation/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          data: {
-            name: name.trim(),
-            contact: contact.trim(),
-            message: message.trim(),
-          },
+          data: formData,
         }),
       });
-      if (!res.ok) throw new Error('submit failed');
+      const resData = await res.json();
+      if (!res.ok) throw new Error(resData.error || 'submit failed');
       setSuccess(true);
-    } catch {
-      setError('提交失败，请稍后重试');
+    } catch (err: any) {
+      setError(err.message || '提交失败，请稍后重试');
     } finally {
       setSubmitting(false);
     }
+  };
+
+  const sortedFields = template?.fields.slice().sort((a, b) => a.order - b.order) || [];
+
+  const handleFieldChange = (id: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [id]: value }));
+    setError('');
+  };
+
+  const renderField = (field: ContactFormField) => {
+    const value = formData[field.id] || '';
+    if (field.type === 'textarea') {
+      return (
+        <textarea
+          id={`cf-${field.id}`}
+          rows={4}
+          value={value}
+          onChange={(e) => handleFieldChange(field.id, e.target.value)}
+          placeholder={field.placeholder || `请输入${field.label}`}
+          maxLength={field.maxLength}
+          className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/15 focus:border-blue-400 transition-all bg-slate-50/50 hover:bg-white resize-none"
+        />
+      );
+    }
+    return (
+      <input
+        id={`cf-${field.id}`}
+        type="text"
+        value={value}
+        onChange={(e) => handleFieldChange(field.id, e.target.value)}
+        placeholder={field.placeholder || `请输入${field.label}`}
+        maxLength={field.maxLength}
+        className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/15 focus:border-blue-400 transition-all bg-slate-50/50 hover:bg-white"
+      />
+    );
   };
 
   if (!open || !mounted) return null;
@@ -150,10 +206,10 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
                 />
                 <div className="flex flex-col">
                   <span className="text-[17px] font-extrabold tracking-tight leading-tight transition-colors group-hover:text-blue-400">
-                    {site.companyName}
+                    {site?.companyName || '五六零人工智能科技'}
                   </span>
                   <span className="text-[10px] font-bold text-white/35 tracking-[0.18em] uppercase leading-none mt-0.5">
-                    {site.companyNameEn}
+                    {site?.companyNameEn || '560 AI TECHNOLOGY'}
                   </span>
                 </div>
               </Link>
@@ -171,31 +227,31 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
 
             {/* 底部联系方式 */}
             <div className="relative z-10 space-y-3.5 mt-8">
-              {site.contact.phone && (
+              {(site?.contact?.phone || '0779-3221560') && (
                 <div className="flex items-center gap-3 text-sm text-white/70 hover:text-white/95 transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
                     <Phone className="w-4 h-4 text-blue-400" />
                   </div>
-                  <span className="font-semibold">电话：{site.contact.phone}</span>
+                  <span className="font-semibold">电话：{site?.contact?.phone || '0779-3221560'}</span>
                 </div>
               )}
-              {site.contact.email && (
+              {(site?.contact?.email || 'contact@560ai.com') && (
                 <div className="flex items-center gap-3 text-sm text-white/70 hover:text-white/95 transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4 text-blue-400" />
                   </div>
-                  <a href={`mailto:${site.contact.email}`} className="font-semibold truncate">
-                    邮箱：{site.contact.email}
+                  <a href={`mailto:${site?.contact?.email || 'contact@560ai.com'}`} className="font-semibold truncate">
+                    邮箱：{site?.contact?.email || 'contact@560ai.com'}
                   </a>
                 </div>
               )}
-              {site.contact.address && (
+              {(site?.contact?.address || '广西北海市中国—东盟产业合作区') && (
                 <div className="flex items-center gap-3 text-sm text-white/70">
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4 text-blue-400" />
                   </div>
                   <span className="font-semibold leading-snug text-xs">
-                    地址：{site.contact.address}
+                    地址：{site?.contact?.address || '广西北海市中国—东盟产业合作区'}
                   </span>
                 </div>
               )}
@@ -206,99 +262,72 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
           <div className="md:w-[58%] p-8 md:p-10 flex flex-col justify-between">
             {success ? (
               /* 成功状态 */
-              <MotionSuccess onClose={onClose} />
+              <MotionSuccess onClose={onClose} template={template} />
             ) : (
               <>
-                <div>
-                  <div className="flex items-center gap-2.5 mb-1">
-                    <div className="w-1 h-5 rounded-full bg-blue-600" />
-                    <h3 className="text-xl font-extrabold text-slate-900">立即咨询</h3>
+                {loading ? (
+                  <div className="flex flex-1 items-center justify-center py-12">
+                    <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
                   </div>
-                  <p className="text-sm text-slate-500 font-medium mb-7">
-                    请填写以下信息，我们会在 24 小时内与您取得联系
-                  </p>
-
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    {/* 姓名 / 公司 */}
-                    <div>
-                      <label htmlFor="cf-name" className="block text-sm font-semibold text-slate-700 mb-1.5">
-                        您的姓名 / 公司名称
-                      </label>
-                      <input
-                        id="cf-name"
-                        type="text"
-                        value={name}
-                        onChange={(e) => { setName(e.target.value); setError(''); }}
-                        placeholder="请输入姓名或公司名称"
-                        className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/15 focus:border-blue-400 transition-all bg-slate-50/50 hover:bg-white"
-                      />
+                ) : (
+                  <div>
+                    <div className="flex items-center gap-2.5 mb-1">
+                      <div className="w-1 h-5 rounded-full bg-blue-600" />
+                      <h3 className="text-xl font-extrabold text-slate-900">
+                        {template?.title || '立即咨询'}
+                      </h3>
                     </div>
+                    <p className="text-sm text-slate-500 font-medium mb-7">
+                      {template?.description || '请填写以下信息，我们会在 24 小时内与您取得联系'}
+                    </p>
 
-                    {/* 联系方式 */}
-                    <div>
-                      <label htmlFor="cf-contact" className="block text-sm font-semibold text-slate-700 mb-1.5">
-                        联系电话 / 邮箱
-                      </label>
-                      <input
-                        id="cf-contact"
-                        type="text"
-                        value={contact}
-                        onChange={(e) => { setContact(e.target.value); setError(''); }}
-                        placeholder="手机号或电子邮箱"
-                        className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/15 focus:border-blue-400 transition-all bg-slate-50/50 hover:bg-white"
-                      />
-                    </div>
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      {sortedFields.map((field) => (
+                        <div key={field.id}>
+                          <label htmlFor={`cf-${field.id}`} className="block text-sm font-semibold text-slate-700 mb-1.5">
+                            {field.label}
+                            {field.required && <span className="text-red-500 ml-0.5">*</span>}
+                          </label>
+                          {renderField(field)}
+                        </div>
+                      ))}
 
-                    {/* 咨询内容 */}
-                    <div>
-                      <label htmlFor="cf-message" className="block text-sm font-semibold text-slate-700 mb-1.5">
-                        咨询内容
-                      </label>
-                      <textarea
-                        id="cf-message"
-                        rows={4}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        placeholder="请简要描述您的需求或问题…"
-                        className="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/15 focus:border-blue-400 transition-all bg-slate-50/50 hover:bg-white resize-none"
-                      />
-                    </div>
-
-                    {/* 错误提示 */}
-                    {error && (
-                      <p className="text-sm text-red-500 bg-red-50 rounded-xl px-4 py-2.5 font-medium">{error}</p>
-                    )}
-
-                    {/* 提交按钮 */}
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-blue-600 disabled:bg-slate-400 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-slate-200 hover:shadow-blue-200 text-[15px]"
-                    >
-                      {submitting ? (
-                        <>
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          发送中…
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          发送消息
-                        </>
+                      {/* 错误提示 */}
+                      {error && (
+                        <p className="text-sm text-red-500 bg-red-50 rounded-xl px-4 py-2.5 font-medium">{error}</p>
                       )}
-                    </button>
-                  </form>
-                </div>
+
+                      {/* 提交按钮 */}
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-blue-600 disabled:bg-slate-400 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-slate-200 hover:shadow-blue-200 text-[15px]"
+                      >
+                        {submitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            发送中…
+                          </>
+                        ) : (
+                          <>
+                            <Send className="w-4 h-4" />
+                            {template?.submitText || '发送消息'}
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  </div>
+                )}
 
                 {/* 底部：二维码 */}
                 <div className="mt-7 pt-6 border-t border-slate-100">
                   <div className="flex items-center gap-6">
-                    {site.wechatQrUrl ? (
+                    {(site?.wechatQrUrl || '/uploads/1783561335632-8i7n4ravjv6.png') ? (
                       <div className="flex items-center gap-3">
                         <div className="w-12 h-12 rounded-xl border border-slate-200 p-1.5 bg-white flex items-center justify-center shadow-sm shrink-0">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
-                            src={site.wechatQrUrl}
+                            src={site?.wechatQrUrl || '/uploads/1783561335632-8i7n4ravjv6.png'}
                             alt="微信公众号二维码"
                             className="w-full h-full object-contain rounded-md"
                           />
@@ -308,7 +337,7 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
                         </span>
                       </div>
                     ) : null}
-                    {site.douyinQrUrl ? (
+                    {site?.douyinQrUrl ? (
                       <div className="flex items-center gap-3">
                         <div className="w-12 h-12 rounded-xl border border-slate-200 p-1.5 bg-white flex items-center justify-center shadow-sm shrink-0">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -323,11 +352,6 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
                         </span>
                       </div>
                     ) : null}
-                    {(site.wechatQrUrl || site.douyinQrUrl) && (
-                      <span className="text-[11px] text-slate-400 font-medium ml-auto hidden sm:inline">
-                        扫码关注，了解更多
-                      </span>
-                    )}
                   </div>
                 </div>
               </>
@@ -343,15 +367,17 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
 }
 
 /** 提交成功提示 */
-function MotionSuccess({ onClose }: { onClose: () => void }) {
+function MotionSuccess({ onClose, template }: { onClose: () => void, template: ContactFormTemplate | null }) {
   return (
     <div className="flex flex-col items-center justify-center text-center py-10">
       <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mb-5">
         <CheckCircle2 className="w-8 h-8 text-emerald-600" />
       </div>
-      <h3 className="text-xl font-extrabold text-slate-900 mb-2">消息已发送</h3>
+      <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+        {template?.successTitle || '消息已发送'}
+      </h3>
       <p className="text-sm text-slate-500 font-medium leading-relaxed max-w-xs mb-6">
-        感谢您的咨询，我们的团队将在 24 小时内通过您留下的联系方式与您取得联系。
+        {template?.successMessage || '感谢您的咨询，我们的团队将在 24 小时内通过您留下的联系方式与您取得联系。'}
       </p>
       <button
         type="button"

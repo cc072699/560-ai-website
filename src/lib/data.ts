@@ -118,3 +118,21 @@ export async function getContactSubmissions(): Promise<ContactSubmission[]> {
 export async function saveContactSubmissions(submissions: ContactSubmission[]): Promise<void> {
   await writeJson('contact_submissions.json', submissions);
 }
+
+// ── 咨询管理（通用立即咨询）──────────────────────────────────────────
+
+export async function getConsultationFormTemplate(): Promise<ContactFormTemplate> {
+  return readJson<ContactFormTemplate>('consultation_form.json');
+}
+
+export async function saveConsultationFormTemplate(template: ContactFormTemplate): Promise<void> {
+  await writeJson('consultation_form.json', template);
+}
+
+export async function getConsultationSubmissions(): Promise<ContactSubmission[]> {
+  return readJson<ContactSubmission[]>('consultation_submissions.json');
+}
+
+export async function saveConsultationSubmissions(submissions: ContactSubmission[]): Promise<void> {
+  await writeJson('consultation_submissions.json', submissions);
+}

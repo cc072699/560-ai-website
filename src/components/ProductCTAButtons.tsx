@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { ContactFormDialog } from './ContactFormDialog';
+import { ContactDialog } from './ContactDialog';
 
 interface ProductCTAButtonsProps {
   productId: string;
@@ -24,6 +24,7 @@ export function ProductCTAButtons({
   layout = 'horizontal',
 }: ProductCTAButtonsProps) {
   const [open, setOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <>
@@ -35,18 +36,23 @@ export function ProductCTAButtons({
         >
           {primaryText}
         </button>
-        <Link
-          href="/about#contact"
-          className={secondaryClassName || 'inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 hover:border-blue-200 text-gray-700 hover:text-blue-600 font-semibold rounded-xl transition-all'}
+        <button
+          type="button"
+          onClick={() => setContactOpen(true)}
+          className={secondaryClassName || 'inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 hover:border-blue-200 text-gray-700 hover:text-blue-600 font-semibold rounded-xl transition-all cursor-pointer'}
         >
           {secondaryText}
-        </Link>
+        </button>
       </div>
       <ContactFormDialog
         open={open}
         onClose={() => setOpen(false)}
         productId={productId}
         productName={productName}
+      />
+      <ContactDialog
+        open={contactOpen}
+        onClose={() => setContactOpen(false)}
       />
     </>
   );

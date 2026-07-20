@@ -3612,10 +3612,7 @@ export default function ProductDesignPage() {
                           <p className="text-xs text-slate-300 max-w-lg mx-auto font-light leading-relaxed">{sec.cta.description}</p>
                           <div className="flex justify-center gap-3 pt-2">
                             <span className="px-4 py-2 bg-white text-blue-700 text-xs font-bold rounded-lg shadow cursor-pointer">
-                              {sec.cta.primaryText}
-                            </span>
-                            <span className="px-4 py-2 border border-white/40 text-white text-xs font-bold rounded-lg cursor-pointer">
-                              {sec.cta.secondaryText}
+                              {sec.cta.primaryText || '免费获取方案咨询'}
                             </span>
                           </div>
                         </div>

@@ -1,0 +1,36 @@
+{
+  "title": "立即咨询",
+  "description": "请填写以下信息，我们会在 24 小时内与您取得联系",
+  "submitText": "发送消息",
+  "successMessage": "感谢您的咨询，我们的团队将在 24 小时内通过您留下的联系方式与您取得联系。",
+  "fields": [
+    {
+      "id": "name",
+      "type": "text",
+      "label": "您的姓名 / 公司名称",
+      "placeholder": "请输入姓名或公司名称",
+      "required": true,
+      "maxLength": 100,
+      "order": 1
+    },
+    {
+      "id": "contact",
+      "type": "text",
+      "label": "联系电话 / 邮箱",
+      "placeholder": "手机号或电子邮箱",
+      "required": true,
+      "maxLength": 100,
+      "order": 2
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "label": "咨询内容",
+      "placeholder": "请简要描述您的需求或问题…",
+      "required": false,
+      "maxLength": 800,
+      "order": 3
+    }
+  ],
+  "updatedAt": "2026-07-20T08:35:57.414Z"
+}

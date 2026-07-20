@@ -496,7 +496,8 @@ export interface ContactFormTemplate {
   title: string;
   description?: string;
   submitText: string;
-  successMessage: string;
+  successTitle?: string;
+  successMessage?: string;
   fields: ContactFormField[];
   updatedAt?: string;
 }

@@ -65,3 +65,14 @@ export async function deleteContactSubmission(id: string): Promise<void> {
   if (filtered.length === submissions.length) return;
   await saveContactSubmissions(filtered);
 }
+
+/**
+ * 删除咨询记录
+ */
+export async function deleteConsultationSubmission(id: string): Promise<void> {
+  const { getConsultationSubmissions, saveConsultationSubmissions } = await import('./data');
+  const submissions = await getConsultationSubmissions();
+  const filtered = submissions.filter((s) => s.id !== id);
+  if (filtered.length === submissions.length) return;
+  await saveConsultationSubmissions(filtered);
+}

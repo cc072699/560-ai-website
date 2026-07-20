@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import type { AboutPageData, SiteConfig } from '@/types';
+import { ContactDialog } from '@/components/ContactDialog';
 
 interface AboutClientProps {
   aboutPage: AboutPageData;
@@ -22,6 +23,8 @@ interface AboutClientProps {
 const tagColors = ['bg-[#059669]', 'bg-[#E25C34]', 'bg-[#C08E32]', 'bg-[#2563EB]'];
 
 export function AboutClient({ aboutPage, site }: AboutClientProps) {
+  const [contactOpen, setContactOpen] = useState(false);
+
   // 1. Hover state for split section
   const [hoveredSide, setHoveredSide] = useState<'left' | 'right' | null>(null);
   const isLeftActive = hoveredSide === 'left' || hoveredSide === null;
@@ -614,19 +617,23 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
               </a>
 
               {/* Teal consultation pill */}
-              <Link
-                href="/#contact"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#008080] hover:bg-[#009999] active:bg-[#006666] text-white font-bold text-sm md:text-lg transition-all shadow-lg shadow-[#008080]/25 hover:shadow-xl hover:scale-[1.01] active:scale-[0.98]"
+              <button
+                type="button"
+                onClick={() => setContactOpen(true)}
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#008080] hover:bg-[#009999] active:bg-[#006666] text-white font-bold text-sm md:text-lg transition-all shadow-lg shadow-[#008080]/25 hover:shadow-xl hover:scale-[1.01] active:scale-[0.98] cursor-pointer"
               >
                 <Headphones className="w-5.5 h-5.5" />
                 <span>预约咨询</span>
-              </Link>
+              </button>
             </div>
           </div>
 
 
         </div>
       </section>
+
+      {/* 联系我们 弹窗 */}
+      <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} site={site} />
     </div>
   );
 }
