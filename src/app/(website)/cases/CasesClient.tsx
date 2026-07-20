@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import {
   ArrowRight,
-  Sparkles,
   Building2,
   Sprout,
   Landmark,
@@ -56,16 +55,6 @@ export default function CasesClient({ initialCases }: CasesClientProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/45 to-transparent z-10" />
 
         <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-20 max-w-[1440px] text-left w-full pt-16 md:pt-24">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-            <span className="text-[10px] font-bold text-blue-300 tracking-widest uppercase">客户案例 / CASE STUDIES</span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

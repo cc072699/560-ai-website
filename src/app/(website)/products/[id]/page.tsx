@@ -136,17 +136,6 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
       ) : (
         /* Dynamic Modular Page Layout */
         <div className="w-full relative z-10">
-          {/* Breadcrumb banner */}
-          <div className="container mx-auto px-6 max-w-5xl text-left mb-6">
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-blue-600 transition-colors group"
-            >
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
-              <span>返回产品中心</span>
-            </Link>
-          </div>
-
           {/* Map and render components */}
           <DetailSectionsRenderer 
             sections={product.detailSections!} 

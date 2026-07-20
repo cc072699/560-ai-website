@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { 
+  ArrowLeft,
   CheckCircle2, 
   ChevronRight, 
   PhoneCall, 
@@ -95,20 +97,30 @@ function DetailHero({ section, productId, productName }: { section: PageSection;
   const hero = section.hero;
   if (!hero) return null;
   return (
-    <div className="relative w-full aspect-[16/7] md:aspect-[21/9] min-h-[450px] bg-slate-900 flex items-center justify-center overflow-hidden rounded-2xl">
+    <div className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mt-28 aspect-[16/7] md:aspect-[21/9] min-h-[480px] md:min-h-[580px] bg-slate-900 flex items-center justify-center overflow-hidden mb-12">
+      {/* Top Left Return Button inside Image Banner */}
+      <div className="absolute top-32 left-6 md:left-12 lg:left-16 z-30">
+        <Link
+          href="/products"
+          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-950/50 hover:bg-slate-950/80 border border-white/20 text-white text-xs md:text-sm font-semibold transition-all backdrop-blur-md shadow-lg group"
+        >
+          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5" />
+          <span>返回产品中心</span>
+        </Link>
+      </div>
       {hero.bgType === 'video' ? (
-        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-50">
+        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover opacity-85">
           <source src={hero.bgUrl} type="video/mp4" />
         </video>
       ) : hero.bgUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={hero.bgUrl} alt="Hero background" className="absolute inset-0 w-full h-full object-cover object-center opacity-45" />
+        <img src={hero.bgUrl} alt="Hero background" className="absolute inset-0 w-full h-full object-cover object-center opacity-85" />
       ) : null}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-950/20 via-gray-950/40 to-gray-950/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-955/15 via-slate-950/30 to-slate-950/55" />
       <div className="relative z-10 text-center text-white px-6 max-w-4xl space-y-6">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow-md">{hero.title}</h1>
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]">{hero.title}</h1>
         {hero.subtitle && (
-          <p className="text-base md:text-xl text-slate-200/90 font-medium max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+          <p className="text-base md:text-xl text-slate-100 font-semibold max-w-2xl mx-auto leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
             {hero.subtitle}
           </p>
         )}

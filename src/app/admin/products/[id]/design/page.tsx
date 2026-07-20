@@ -3470,7 +3470,7 @@ export default function ProductDesignPage() {
                             <img
                               src={sec.hero.bgUrl}
                               alt="Hero bg"
-                              className="absolute inset-0 w-full h-full object-cover opacity-40"
+                              className="absolute inset-0 w-full h-full object-cover opacity-85"
                             />
                           )}
                           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50" />

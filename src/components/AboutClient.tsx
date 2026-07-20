@@ -6,12 +6,10 @@ import {
   Target,
   Eye,
   ArrowRight,
-  Sparkles,
   ChevronLeft,
   ChevronRight,
   Phone,
-  Headphones,
-  Bot
+  Headphones
 } from 'lucide-react';
 import Link from 'next/link';
 import type { AboutPageData, SiteConfig } from '@/types';
@@ -135,16 +133,6 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
 
         {/* Hero Text Overlay */}
         <div className="container mx-auto px-6 md:px-12 lg:px-16 relative z-20 max-w-[1440px] text-left w-full pt-16 md:pt-24">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-500/10 border border-blue-500/20 mb-6 backdrop-blur-sm"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
-            <span className="text-[10px] font-bold text-blue-300 tracking-widest uppercase">关于我们 / ABOUT US</span>
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -349,12 +337,13 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
       {/* 4. Brand Origin, Corporate Culture & Contact Us Combined */}
       <section
         ref={timelineRef}
-        className="relative w-screen left-1/2 right-1/2 -ml-[50vw] bg-[#001713] bg-gradient-to-b from-[#001713] via-[#00221b] to-[#011411] pt-32 pb-16 overflow-hidden border-t border-slate-900 z-10"
+        className="relative w-screen left-1/2 right-1/2 -ml-[50vw] bg-slate-950 pt-32 pb-24 overflow-hidden border-t border-slate-800 z-10 bg-fixed bg-cover bg-top bg-no-repeat"
+        style={{
+          backgroundImage: `url('/uploads/about/city_skyscrapers_bg.jpg')`,
+        }}
       >
-        {/* Soft glowing ambient forest-teal radial backdrops */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-emerald-500/[0.08] blur-[140px] pointer-events-none z-0" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-teal-500/[0.08] blur-[140px] pointer-events-none z-0" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#002b22_1px,transparent_1px),linear-gradient(to_bottom,#002b22_1px,transparent_1px)] bg-[size:64px_64px] opacity-[0.25] pointer-events-none z-0" />
+        {/* Soft transparent dark overlay for legibility & balanced contrast */}
+        <div className="absolute inset-0 bg-slate-950/45 pointer-events-none z-0" />
 
         <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-[1440px] relative z-10 w-full text-center">
 
@@ -364,7 +353,7 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-6.5xl font-black text-white tracking-tight"
+              className="text-4xl md:text-6.5xl font-black text-white tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
             >
               {aboutPage.culture?.title}
             </motion.h2>
@@ -372,10 +361,10 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[#10B981] text-xl md:text-2.5xl font-extrabold leading-relaxed"
+              className="text-cyan-300 text-xl md:text-2.5xl font-extrabold leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
             >
               {aboutPage.culture?.subtitle}
-              <span className="text-slate-200 text-base md:text-xl mt-4 block font-medium leading-relaxed">
+              <span className="text-slate-100 text-base md:text-xl mt-4 block font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]">
                 {aboutPage.culture?.description}
               </span>
             </motion.p>
@@ -394,12 +383,12 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
           <div className="relative max-w-5xl mx-auto mt-20 px-4 md:px-0">
 
             {/* Background inactive timeline track */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-[#002b22] border-r border-[#00382d] -translate-x-1/2 pointer-events-none z-0" />
+            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2px] bg-slate-800 border-r border-slate-700/50 -translate-x-1/2 pointer-events-none z-0" />
 
             {/* Active scroll-growing timeline track */}
             <motion.div
               style={{ scaleY }}
-              className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2.5px] bg-gradient-to-b from-[#10B981] via-[#059669] to-[#047857] -translate-x-1/2 origin-top pointer-events-none z-10 shadow-[0_0_12px_rgba(16,185,129,0.6)]"
+              className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[2.5px] bg-gradient-to-b from-emerald-400 via-teal-500 to-cyan-500 -translate-x-1/2 origin-top pointer-events-none z-10 shadow-[0_0_14px_rgba(16,185,129,0.7)]"
             />
 
             {/* Timeline Items */}
@@ -494,10 +483,10 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
 
                     {/* Center dot (Node) */}
                     <div className={`absolute left-6 md:left-1/2 -translate-x-1/2 w-9 h-9 rounded-full border transition-all duration-500 flex items-center justify-center text-xs font-bold z-20 select-none ${activeTimelineIndex === index
-                        ? 'border-[#10B981] bg-[#10B981] text-white shadow-[0_0_20px_rgba(16,185,129,0.6)] scale-110'
+                        ? 'border-emerald-400 bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.7)] scale-110'
                         : activeTimelineIndex >= index
-                          ? 'border-[#059669] bg-[#059669] text-white'
-                          : 'border-[#00382d] bg-[#001713] text-[#004d3e]'
+                          ? 'border-emerald-600 bg-emerald-700 text-white'
+                          : 'border-slate-700 bg-slate-900 text-slate-500'
                       }`}>
                       {item.node}
                     </div>
@@ -606,10 +595,10 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
           {/* Top Row: Title & Action Buttons */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 lg:gap-16 text-left w-full">
             <div className="space-y-5">
-              <h2 className="text-3xl md:text-5.5xl font-black text-white tracking-tight leading-tight">
+              <h2 className="text-3xl md:text-5.5xl font-black text-white tracking-tight leading-tight drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)]">
                 联系我们 合作共赢
               </h2>
-              <p className="text-slate-400 text-base md:text-xl font-normal leading-relaxed">
+              <p className="text-slate-100 text-base md:text-xl font-bold leading-relaxed drop-shadow-[0_3px_10px_rgba(0,0,0,0.95)]">
                 我们会安排专业的顾问为您答疑解惑
               </p>
             </div>
@@ -635,74 +624,6 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
             </div>
           </div>
 
-          {/* Bottom Row: Logo (Left) and WeChat/Douyin QR hover + Mascot (Right) */}
-          <div className="border-t border-slate-800/80 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 w-full z-20 relative">
-
-            {/* Bottom Left Logo */}
-            <div className="flex items-center gap-2.5 select-none">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/uploads/brand/logo-whale.png"
-                alt="560 AI Logo"
-                className="h-7 w-auto shrink-0"
-              />
-              <div className="flex flex-col text-left">
-                <span className="text-sm font-black tracking-tight text-white leading-tight">
-                  {site.companyName}
-                </span>
-                <span className="text-[8px] font-bold text-slate-400 tracking-[0.18em] uppercase leading-none mt-0.5">
-                  {site.companyNameEn}
-                </span>
-              </div>
-            </div>
-
-            {/* Bottom Right WeChat, Douyin, Mascot */}
-            <div className="flex items-center gap-4">
-
-              {/* WeChat QR hover trigger */}
-              <div className="relative group">
-                <button className="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow">
-                  <svg className="w-5.5 h-5.5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8.56 12.83c0-1.74 1.76-3.15 3.92-3.15 2.16 0 3.92 1.41 3.92 3.15 0 1.74-1.76 3.15-3.92 3.15-2.16 0-3.92-1.41-3.92-3.15zm-2.2-4.8c0 2.1 2.13 3.82 4.76 3.82 2.63 0 4.76-1.72 4.76-3.82 0-2.1-2.13-3.82-4.76-3.82-2.63 0-4.76 1.72-4.76 3.82z" />
-                  </svg>
-                </button>
-                {/* Popover QR code card */}
-                <div className="absolute bottom-12 right-1/2 translate-x-1/2 bg-white border border-slate-200 p-2.5 rounded-2xl shadow-2xl hidden group-hover:flex flex-col items-center justify-center transition-all z-50 w-32 h-32">
-                  <img src={site.wechatQrUrl || "/uploads/1783561335632-8i7n4ravjv6.png"} className="w-full h-full object-contain rounded-lg" alt="微信公众号" />
-                  <span className="text-[9px] font-bold text-slate-400 mt-1.5 block">微信扫码关注</span>
-                </div>
-              </div>
-
-              {/* Douyin QR hover trigger */}
-              <div className="relative group">
-                <button className="w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow">
-                  <svg className="w-4.5 h-4.5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.53.02c.08 0 .15.02.21.08.38.38.8.72 1.25 1.01.96.63 2.05 1.01 3.2 1.13.06 0 .11.02.15.07.03.04.05.09.05.15v2.85c0 .12-.1.21-.22.21h-.14c-1.34 0-2.61-.41-3.67-1.12v9.31c0 3.75-3.04 6.79-6.79 6.79s-6.79-3.04-6.79-6.79 3.04-6.79 6.79-6.79c.64 0 1.25.09 1.83.26.11.03.18.13.18.25v2.84c0 .12-.08.21-.2.23-.55-.12-1.13-.19-1.81-.19-2.2 0-3.99 1.79-3.99 3.99s1.79 3.99 3.99 3.99 3.99-1.79 3.99-3.99V0c0-.02 0-.03.01-.05l.02-.02c.03-.03.06-.05.1-.05h3.31z" />
-                  </svg>
-                </button>
-                {/* Popover QR code card */}
-                <div className="absolute bottom-12 right-1/2 translate-x-1/2 bg-white border border-slate-200 p-2.5 rounded-2xl shadow-2xl hidden group-hover:flex flex-col items-center justify-center transition-all z-50 w-32 h-32">
-                  <img src={site.douyinQrUrl || site.wechatQrUrl || "/uploads/1783561335632-8i7n4ravjv6.png"} className="w-full h-full object-contain rounded-lg" alt="抖音官方号" />
-                  <span className="text-[9px] font-bold text-slate-400 mt-1.5 block">抖音扫码关注</span>
-                </div>
-              </div>
-
-              {/* Bot Mascot Button with speech bubble */}
-              <div className="relative group flex items-center">
-                {/* Speech bubble */}
-                <div className="absolute right-12 bg-white text-slate-800 text-[10px] font-bold px-3 py-1.5 rounded-xl shadow-2xl border border-slate-200/80 hidden group-hover:block whitespace-nowrap z-50 transition-all select-none">
-                  获取专属解决方案 <span className="text-teal-600">⚡</span>
-                </div>
-                <Link
-                  href="/#contact"
-                  className="w-10 h-10 rounded-full bg-teal-600 hover:bg-teal-500 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg shadow-teal-500/20 active:scale-[0.95]"
-                >
-                  <Bot className="w-5 h-5 animate-pulse" />
-                </Link>
-              </div>
-
-            </div>
-          </div>
 
         </div>
       </section>

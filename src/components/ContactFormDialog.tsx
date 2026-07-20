@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { Loader2, X } from 'lucide-react';
 import type { ContactFormTemplate, ContactFormField } from '@/types';
 
@@ -16,8 +17,13 @@ interface FormErrors {
 }
 
 export function ContactFormDialog({ open, onClose, productId, productName }: ContactFormDialogProps) {
+  const [mounted, setMounted] = useState(false);
   const [template, setTemplate] = useState<ContactFormTemplate | null>(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
@@ -223,23 +229,23 @@ export function ContactFormDialog({ open, onClose, productId, productName }: Con
     ? [...template.fields].sort((a, b) => a.order - b.order)
     : [];
 
-  if (!open) return null;
+  if (!open || !mounted) return null;
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 overflow-y-auto">
       {/* 遮罩 */}
       <div
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
       {/* 卡片 */}
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-auto p-6 animate-in fade-in zoom-in-95 duration-150 max-h-[90vh] overflow-y-auto">
+      <div className="relative z-10 bg-white rounded-3xl shadow-2xl w-full max-w-md mx-auto p-6 md:p-8 my-auto animate-in fade-in zoom-in-95 duration-150 max-h-[85vh] overflow-y-auto">
         {/* 关闭按钮 */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+          className="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
         >
           <X className="w-4.5 h-4.5" />
         </button>
@@ -291,7 +297,7 @@ export function ContactFormDialog({ open, onClose, productId, productName }: Con
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition-all shadow-md shadow-blue-500/20"
                 >
                   {submitting && <Loader2 className="w-4 h-4 animate-spin" />}
                   {template.submitText}
@@ -305,6 +311,7 @@ export function ContactFormDialog({ open, onClose, productId, productName }: Con
           <p className="text-sm text-red-500 py-4 text-center">{error}</p>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
