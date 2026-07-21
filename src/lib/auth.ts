@@ -60,7 +60,7 @@ export function withAdminAuth(
 export function setAuthCookie(response: NextResponse, token: string) {
   response.cookies.set(COOKIE_NAME, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: process.env.NODE_ENV === 'production' && process.env.SECURE_COOKIE !== 'false',
     sameSite: 'lax',
     maxAge: 7 * 24 * 60 * 60, // 7天
     path: '/',
