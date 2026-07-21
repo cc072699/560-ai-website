@@ -21,11 +21,46 @@
 
 ## 必配环境变量
 
-`.env.production`（**不**入 Git）：
+> `.env` / `.env.production` **不入 Git**（已在 `.gitignore` 忽略）。
+> 本地开发使用 `.env.local`，服务器使用 `.env`。
+
+### 完整环境变量参考
+
 ```env
+# 管理员登录账号
+ADMIN_USERNAME=admin
+
+# 管理员密码（bcrypt 哈希值，用 scripts/gen-hash.js 生成）
+ADMIN_PASSWORD_HASH=\$2b\$10\$...
+
+# JWT 签名密钥（生成: openssl rand -base64 32）
 NEXTAUTH_SECRET=<openssl rand -base64 32>
+
+# 运行环境
 NODE_ENV=production
+
+# 运行端口
+PORT=8091
+
+# Cookie 安全策略（HTTP 服务器必须设为 false）
+SECURE_COOKIE=false
 ```
+
+### SECURE_COOKIE 特别说明
+
+Cookie 的 `secure` 属性根据以下逻辑自动判断：
+
+```
+secure = (NODE_ENV === 'production') && (SECURE_COOKIE !== 'false')
+```
+
+| 场景 | NODE_ENV | SECURE_COOKIE | Cookie secure | 适用 |
+|---|---|---|---|---|
+| Mac 本地开发 `npm run dev` | `development` | 未设置 | `false` | ✅ 正常 |
+| 服务器 HTTP 部署 | `production` | `false` | `false` | ✅ 正常 |
+| 未来 HTTPS 上线 | `production` | 不设或 `true` | `true` | ✅ 正常 |
+
+> **⚠️ 重要**：HTTP 服务器必须设置 `SECURE_COOKIE=false`，否则浏览器会拒绝发送 secure Cookie，导致登录后无限跳转。
 
 ## 必改项目配置
 
@@ -83,7 +118,26 @@ pm2 reload 560-ai-website
 ## 常见坑
 
 1. Node 25 编译 sharp 失败 → 用 20 LTS
-2. `/admin` 转圈 → 检查 NEXTAUTH_SECRET
+2. `/admin` 转圈/登录中卡死 → 检查 NEXTAUTH_SECRET；HTTP 环境需设置 `SECURE_COOKIE=false`
 3. 图片 404 → `git ls-files public/uploads/`
 4. Nginx 413 → 调 `client_max_body_size`
-5. 防火墙阻断 → `ufw allow 80/tcp` 或 `3000/tcp`
+5. 防火墙阻断 → `ufw allow 80/tcp` 或 `8091/tcp`
+6. 登录提示"用户名或密码错误" → 检查 `.env` 中 `ADMIN_PASSWORD_HASH` 的 `$` 符号是否为 `\$` 转义
+
+## 本地开发 ↔ 服务器同步
+
+```bash
+# Mac 本地 → 推送到仓库
+git add .
+git commit -m "描述"
+git push origin main
+
+# 服务器 ← 拉取更新
+cd /var/www/560web
+git pull origin main
+npm run build
+pkill -f "next-server"
+nohup npx next start -p 8091 > /var/log/560web.log 2>&1 &
+```
+
+> 两个环境共用同一个 Git 仓库，`.env` 不入库各自维护，互不影响。
