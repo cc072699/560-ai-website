@@ -1,14 +1,1 @@
-[
-  {
-    "id": "1784536582015",
-    "submittedAt": "2026-07-20T08:36:22.015Z",
-    "data": {
-      "name": "cctest",
-      "contact": "1",
-      "message": "测试"
-    },
-    "status": "new",
-    "ip": "::1",
-    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36"
-  }
-]
+[]
