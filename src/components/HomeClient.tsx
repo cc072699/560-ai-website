@@ -157,20 +157,20 @@ export function HomeClient({ hero, about, products, cases, opc }: HomeClientProp
             </div>
 
             {/* 右侧：5列，建筑配图 + 蓝色横幅 */}
-            <div className="lg:col-span-5 flex flex-col gap-5">
+            <div className="lg:col-span-5 flex flex-col gap-5 justify-center">
               {/* 建筑图 */}
               <motion.div
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="relative rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100/80 flex-1"
+                className="relative rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100/80 aspect-[4/3]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={opc.imageUrl}
                   alt={opc.imageAlt}
-                  className="absolute inset-0 w-full h-full object-contain bg-slate-50"
+                  className="absolute inset-0 w-full h-full object-contain"
                 />
               </motion.div>
 

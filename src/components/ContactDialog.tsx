@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { X, Phone, Mail, MapPin, Send, Loader2, CheckCircle2 } from 'lucide-react';
 import type { SiteConfig, ContactFormTemplate, ContactFormField } from '@/types';
+import { QrCodeImage } from '@/components/QrCodeImage';
 
 interface ContactDialogProps {
   open: boolean;
@@ -337,14 +338,12 @@ export function ContactDialog({ open, onClose, site: siteProp }: ContactDialogPr
                   <div className="flex items-center gap-6">
                     {site?.wechatQrUrl ? (
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl border border-slate-200 p-1.5 bg-white flex items-center justify-center shadow-sm shrink-0">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={site.wechatQrUrl}
-                            alt="微信公众号二维码"
-                            className="w-full h-full object-contain rounded-md"
-                          />
-                        </div>
+                        <QrCodeImage
+                          src={site.wechatQrUrl}
+                          alt="微信公众号二维码"
+                          label="微信公众号"
+                          containerClassName="w-12 h-12 border border-slate-200 bg-white shadow-sm shrink-0"
+                        />
                         <span className="text-xs font-bold text-slate-500 leading-tight">
                           关注<br />公众号
                         </span>
@@ -352,14 +351,12 @@ export function ContactDialog({ open, onClose, site: siteProp }: ContactDialogPr
                     ) : null}
                     {site?.douyinQrUrl ? (
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl border border-slate-200 p-1.5 bg-white flex items-center justify-center shadow-sm shrink-0">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={site.douyinQrUrl}
-                            alt="抖音官方号"
-                            className="w-full h-full object-contain rounded-md"
-                          />
-                        </div>
+                        <QrCodeImage
+                          src={site.douyinQrUrl}
+                          alt="抖音官方号"
+                          label="抖音官方号"
+                          containerClassName="w-12 h-12 border border-slate-200 bg-white shadow-sm shrink-0"
+                        />
                         <span className="text-xs font-bold text-slate-500 leading-tight">
                           关注<br />抖音号
                         </span>

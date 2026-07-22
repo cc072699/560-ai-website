@@ -109,11 +109,11 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
   }
 
   const isVideo = file.type.startsWith('video/');
-  const maxSizeLimit = isVideo ? 100 * 1024 * 1024 : 10 * 1024 * 1024;
+  const maxSizeLimit = isVideo ? 100 * 1024 * 1024 : 20 * 1024 * 1024;
 
   if (file.size > maxSizeLimit) {
     return NextResponse.json(
-      { error: `文件过大，最大允许 ${isVideo ? '100MB' : '10MB'}` },
+      { error: `文件过大，最大允许 ${isVideo ? '100MB' : '20MB'}` },
       { status: 400 }
     );
   }

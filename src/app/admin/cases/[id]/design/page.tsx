@@ -378,7 +378,7 @@ export default function CaseDesignPage() {
       newSec.caseOverview = {
         title: '案例概况与方案背景',
         subtitle: '数字化升级标杆落地案例',
-        clientName: caseItem?.client || '广西亿库光养硅藻环保科技有限公司',
+        clientName: caseItem?.client || '广西某硅藻板生产公司',
         industry: caseItem?.industry || '工业智能',
         location: '广西北海市',
         date: '2026年7月',
@@ -456,7 +456,7 @@ export default function CaseDesignPage() {
         quote: '该项目落地非常轻量，不需要我们投入昂贵的机房服务器，直接在工控机上就跑起来了。AI视觉质检速度极快，色差检出率和设备一等品率都有了实实在在的提高。',
         author: '陈总',
         role: '生产部总经理',
-        company: '广西亿库光养硅藻环保科技有限公司'
+        company: '广西某硅藻板生产公司'
       };
     } else if (type === 'caseComparison') {
       newSec.caseComparison = {

@@ -1,13 +1,9 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import {
-  Target,
-  Eye,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
   Phone,
   Headphones
 } from 'lucide-react';
@@ -30,31 +26,35 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
   const isLeftActive = hoveredSide === 'left' || hoveredSide === null;
   const isRightActive = hoveredSide === 'right';
 
-  // 2. Longshine-style Carousel state
-  const [activeSlide, setActiveSlide] = useState(0);
-
   const slides = aboutPage.slides || [];
 
-  // Auto-play slides every 6 seconds
-  useEffect(() => {
-    if (slides.length === 0) return;
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
+  // 3D ring carousel state — cumulative rotation angle for smooth one-way circling
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [rotationAngle, setRotationAngle] = useState(0);
+  const angleStep = 360 / (slides.length || 1);
 
-  const handlePrevSlide = () => {
-    if (slides.length === 0) return;
-    setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % slides.length);
+    setRotationAngle((prev) => prev - angleStep);
   };
 
-  const handleNextSlide = () => {
-    if (slides.length === 0) return;
-    setActiveSlide((prev) => (prev + 1) % slides.length);
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
+    setRotationAngle((prev) => prev + angleStep);
   };
 
-  // 3. Longshine Scroll Timeline active element detection
+  const handleJumpTo = (index: number) => {
+    const diff = index - activeIndex;
+    const n = slides.length;
+    // Normalize diff to [-n/2, n/2) range for shortest path
+    const shortestDiff = ((diff + n / 2) % n) - n / 2;
+    // Round to nearest integer (handle n/2 for odd n)
+    const step = Math.round(shortestDiff);
+    setActiveIndex(index);
+    setRotationAngle((prev) => prev - step * angleStep);
+  };
+
+  // 2. Longshine Scroll Timeline active element detection
   const timelineRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeTimelineIndex, setActiveTimelineIndex] = useState<number>(0);
@@ -122,14 +122,13 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
       <div className="absolute top-0 inset-x-0 h-48 bg-gradient-to-b from-slate-50 to-transparent pointer-events-none z-0" />
 
       {/* 1. Immersive Full-Width Cover Banner */}
-      <section className="relative w-full h-[70vh] min-h-[580px] md:h-[78vh] md:min-h-[680px] flex items-center justify-center overflow-hidden z-10">
-        {/* Background image cover */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-[8000ms] ease-out scale-100"
-          style={{
-            backgroundImage: `url('${aboutPage.hero?.imageUrl || ""}')`,
-            backgroundPosition: 'center 35%'
-          }}
+      <section className="relative w-full aspect-video flex items-center justify-center overflow-hidden z-10 bg-slate-900">
+        {/* Background image - full display, no cropping */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={aboutPage.hero?.imageUrl || ''}
+          alt="about hero"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Overlay mask for perfect readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/45 to-transparent z-10" />
@@ -169,92 +168,106 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
         </div>
       </section>
 
-      {/* 2. Editorial Slider Carousel */}
-      <section id="carousel-section" className="py-28 md:py-44 relative z-10 w-full">
+      {/* 2. 3D Ring Carousel — image ring only, text above & below */}
+      <section id="carousel-section" className="py-32 md:py-44 relative z-10 w-full overflow-hidden">
         <div className="container mx-auto px-6 md:px-12 lg:px-16 max-w-[1440px]">
-          <div className="text-center md:text-left mb-20">
-            <h2 className="text-3xl md:text-5.5xl font-extrabold text-slate-900 tracking-tight mb-2">
+          <div className="mb-6 md:mb-8">
+            <h2 className="text-3xl md:text-5.5xl font-extrabold text-slate-900 tracking-tight">
               选择五六零，就是选择了
             </h2>
-            <div className="w-20 h-1 bg-blue-600 rounded mt-4 mx-auto md:mx-0" />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-            {/* Left slide info panel */}
-            <div className="lg:col-span-5 flex flex-col justify-between min-h-[380px] text-left">
-              <div className="min-h-[260px] flex flex-col justify-center">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeSlide}
-                    initial={{ opacity: 0, x: -15 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 15 }}
-                    transition={{ duration: 0.4 }}
-                    className="space-y-5"
-                  >
-                    <span className="text-xs md:text-sm font-bold text-blue-600 tracking-wider block uppercase">
-                      {slides[activeSlide]?.category}
-                    </span>
-                    <h3 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-snug">
-                      {slides[activeSlide]?.title}
-                    </h3>
-                    <p className="text-slate-500 text-sm md:text-lg lg:text-xl leading-relaxed font-normal text-justify">
-                      {slides[activeSlide]?.description}
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
+          {/* === Active slide title — above ring === */}
+          <div className="text-center mb-10 md:mb-14">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <span className="text-3xl sm:text-4xl font-black text-slate-200 tabular-nums">
+                {String(activeIndex + 1).padStart(2, '0')}
+              </span>
+              <span className="text-[11px] sm:text-xs font-bold text-blue-600 tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full">
+                {slides[activeIndex]?.category}
+              </span>
+            </div>
+            <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug">
+              {slides[activeIndex]?.title}
+            </h3>
+          </div>
 
-              {/* Navigation controls */}
-              <div className="flex items-center gap-6 mt-10">
-                {/* Arrow buttons */}
-                <div className="flex items-center gap-3.5">
-                  <button
-                    onClick={handlePrevSlide}
-                    className="w-12 h-12 rounded-full border border-slate-200 hover:border-blue-600 hover:text-blue-600 active:bg-slate-50 text-slate-500 flex items-center justify-center transition-all cursor-pointer shadow-sm hover:shadow"
-                  >
-                    <ChevronLeft className="w-6 h-6" />
-                  </button>
-                  <button
-                    onClick={handleNextSlide}
-                    className="w-12 h-12 rounded-full border border-slate-200 hover:border-blue-600 hover:text-blue-600 active:bg-slate-50 text-slate-500 flex items-center justify-center transition-all cursor-pointer shadow-sm hover:shadow"
-                  >
-                    <ChevronRight className="w-6 h-6" />
-                  </button>
-                </div>
+          {/* === 3D Ring Stage === */}
+          <div className="relative flex flex-col items-center" style={{ perspective: '1800px' }}>
 
-                {/* Indicator dots */}
-                <div className="flex items-center gap-3">
-                  {slides.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveSlide(index)}
-                      className={`h-3 rounded-full transition-all duration-300 ${activeSlide === index ? 'w-8 bg-blue-600' : 'w-3 bg-slate-250 hover:bg-slate-350'
-                        }`}
-                    />
-                  ))}
-                </div>
+            {/* Ring container — image only */}
+            <div className="relative w-full h-[300px] sm:h-[360px] md:h-[440px]">
+              <div
+                className="absolute inset-0"
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transform: `rotateY(${rotationAngle}deg)`,
+                  transition: 'transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1)',
+                }}
+              >
+                {slides.map((slide, i) => {
+                  const faceAngle = i * angleStep;
+                  return (
+                    <div
+                      key={i}
+                      className="absolute top-1/2 left-1/2 w-[78%] sm:w-[68%] md:w-[62%] max-w-[800px]"
+                      style={{
+                        transform: `translate(-50%, -50%) rotateY(${faceAngle}deg) translateZ(320px)`,
+                      }}
+                    >
+                      <div className="rounded-2xl overflow-hidden shadow-[0_24px_100px_-20px_rgba(0,0,0,0.4)] border border-white/20">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={slide.image}
+                          alt={slide.title}
+                          className="w-full aspect-[16/10] object-cover block"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Right side rounded image view */}
-            <div className="lg:col-span-7">
-              <div className="rounded-[2.5rem] overflow-hidden aspect-[16/10] border border-slate-200/80 shadow-2xl relative min-h-[350px] md:min-h-[480px] lg:min-h-[560px]">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={activeSlide}
-                    src={slides[activeSlide]?.image}
-                    alt={slides[activeSlide]?.title}
-                    initial={{ opacity: 0, scale: 1.03 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/10 via-transparent to-transparent pointer-events-none" />
-              </div>
-            </div>
+            {/* Left / Right arrows */}
+            <button
+              onClick={handlePrev}
+              aria-label="上一项"
+              className="absolute left-2 md:-left-4 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white/90 backdrop-blur border border-slate-200 hover:border-blue-400 text-slate-500 hover:text-blue-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all cursor-pointer"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+
+            <button
+              onClick={handleNext}
+              aria-label="下一项"
+              className="absolute right-2 md:-right-4 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white/90 backdrop-blur border border-slate-200 hover:border-blue-400 text-slate-500 hover:text-blue-600 flex items-center justify-center shadow-lg hover:shadow-xl transition-all cursor-pointer"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          </div>
+
+          {/* === Description — below ring === */}
+          <p className="mt-10 md:mt-14 text-base sm:text-lg md:text-xl text-slate-900 font-medium leading-relaxed max-w-2xl mx-auto text-center">
+            {slides[activeIndex]?.description}
+          </p>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2.5 mt-8 md:mt-12">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => handleJumpTo(i)}
+                aria-label={`第 ${i + 1} 项`}
+                className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
+                  i === activeIndex ? 'w-12 bg-blue-600' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -337,10 +350,18 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
         </div>
       </section>
 
+      {/* 3.5 Section Title — Culture (matches Philosophy style) */}
+      <div className="relative w-full text-center pt-28 md:pt-40 pb-16 md:pb-20 bg-white">
+        <h2 className="text-3xl md:text-4.5xl font-black text-slate-900 tracking-tight">
+          企业文化
+        </h2>
+        <div className="w-10 h-0.5 bg-blue-600 rounded mt-3 mx-auto" />
+      </div>
+
       {/* 4. Brand Origin, Corporate Culture & Contact Us Combined */}
       <section
         ref={timelineRef}
-        className="relative w-screen left-1/2 right-1/2 -ml-[50vw] bg-slate-950 pt-32 pb-24 overflow-hidden border-t border-slate-800 z-10 bg-fixed bg-cover bg-top bg-no-repeat"
+        className="relative w-screen left-1/2 right-1/2 -ml-[50vw] bg-slate-950 pt-20 pb-24 overflow-hidden z-10 bg-fixed bg-cover bg-top bg-no-repeat"
         style={{
           backgroundImage: `url('/uploads/about/city_skyscrapers_bg.jpg')`,
         }}
@@ -371,15 +392,6 @@ export function AboutClient({ aboutPage, site }: AboutClientProps) {
                 {aboutPage.culture?.description}
               </span>
             </motion.p>
-
-            <motion.h3
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4.5xl font-extrabold text-white tracking-tight pt-20"
-            >
-              {aboutPage.culture?.heading}
-            </motion.h3>
           </div>
 
           {/* Timeline Wrapper */}

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { SiteConfig } from '@/types';
+import { QrCodeImage } from '@/components/QrCodeImage';
 
 interface FooterProps {
   site: SiteConfig;
@@ -66,25 +67,23 @@ export function Footer({ site }: FooterProps) {
                 <div className="flex flex-wrap gap-8">
                   {site.wechatQrUrl && (
                     <div className="flex flex-col items-center">
-                      <div className="w-28 h-28 bg-white border border-gray-200/80 rounded-2xl p-2 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center">
-                        <img
-                          src={site.wechatQrUrl}
-                          alt="微信公众号二维码"
-                          className="w-full h-full object-contain rounded-lg"
-                        />
-                      </div>
+                      <QrCodeImage
+                        src={site.wechatQrUrl}
+                        alt="微信公众号二维码"
+                        label="微信公众号"
+                        containerClassName="w-28 h-28 bg-white border border-gray-200/80 shadow-sm hover:shadow-md transition-shadow"
+                      />
                       <span className="text-xs font-bold text-gray-500 mt-2.5">微信公众号</span>
                     </div>
                   )}
                   {site.douyinQrUrl && (
                     <div className="flex flex-col items-center">
-                      <div className="w-28 h-28 bg-white border border-gray-200/80 rounded-2xl p-2 shadow-sm hover:shadow-md transition-shadow flex items-center justify-center">
-                        <img
-                          src={site.douyinQrUrl}
-                          alt="抖音官方号二维码"
-                          className="w-full h-full object-contain rounded-lg"
-                        />
-                      </div>
+                      <QrCodeImage
+                        src={site.douyinQrUrl}
+                        alt="抖音官方号二维码"
+                        label="抖音官方号"
+                        containerClassName="w-28 h-28 bg-white border border-gray-200/80 shadow-sm hover:shadow-md transition-shadow"
+                      />
                       <span className="text-xs font-bold text-gray-500 mt-2.5">抖音官方号</span>
                     </div>
                   )}

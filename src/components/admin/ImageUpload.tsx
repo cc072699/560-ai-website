@@ -146,7 +146,7 @@ export function ImageUpload({ value, onChange, label = '图片', folder }: Image
             <div className="flex flex-col items-center gap-2 text-slate-400">
               <Upload className="w-6 h-6" />
               <span className="text-sm">点击或拖拽文件到此处</span>
-              <span className="text-xs text-slate-300">支持 JPG、PNG、WebP，最大 10MB</span>
+              <span className="text-xs text-slate-300">支持 JPG、PNG、WebP，最大 20MB</span>
             </div>
           )}
         </div>
