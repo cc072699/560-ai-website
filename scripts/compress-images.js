@@ -1,168 +1,163 @@
 /**
- * 批量图片压缩脚本
- * 将 public/uploads/ 下所有图片压缩并转换为 WebP 格式
- * 原文件保留备份到 public/uploads/.backup/
+ * 图片压缩脚本 - 针对近期上传的大图进行压缩
  *
- * 使用：
- *   node scripts/compress-images.js
- *
- * 需要先安装依赖：
- *   npm install sharp
+ * 策略：
+ * - JPEG: 保持格式，质量 80，宽度最大 1920px
+ * - PNG: 保持格式，宽度最大 1920px，使用 palette 模式压缩
  */
 
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-const UPLOADS_DIR = path.join(__dirname, '..', 'public', 'uploads');
-const BACKUP_DIR = path.join(UPLOADS_DIR, '.backup');
+const ROOT = path.join(__dirname, '..', 'public');
 
-// 压缩配置
-const CONFIG = {
-  jpeg: { quality: 82, progressive: true },
-  png:  { quality: 82, compressionLevel: 8 },
-  webp: { quality: 82 },
-  // 超过此尺寸的图片按比例缩小（保持宽高比）
-  maxWidth: 1920,
-  maxHeight: 1080,
-};
+const images = [
+  // === 数据文件中引用的图片（必须保持原格式） ===
+  {
+    file: 'uploads/general/1784706787560-j8llbrfbt8.jpeg',
+    format: 'jpeg',
+    desc: 'about_page hero image (3.12MB)',
+  },
+  {
+    file: 'uploads/general/1784708897725-rwciue5w8mc.png',
+    format: 'png',
+    desc: 'about_page slide image (1.68MB)',
+  },
+  {
+    file: 'uploads/general/1784710363071-v257o4onrn.jpeg',
+    format: 'jpeg',
+    desc: 'opc image (3.53MB)',
+  },
 
-const IMAGE_EXTS = ['.jpg', '.jpeg', '.png', '.webp'];
-const SKIP_DIRS  = ['.backup'];
+  // === 可能通过管理后台使用的图片 ===
+  {
+    file: 'uploads/general/1784705478287-8h86c67bvpo.png',
+    format: 'png',
+    desc: '超大 PNG (12.75MB)',
+    maxWidth: 1920,
+  },
+  {
+    file: 'uploads/general/1784706328913-t9x2u6ysgp8.jpeg',
+    format: 'jpeg',
+    desc: '大 JPEG (3.12MB)',
+  },
+  {
+    file: 'uploads/general/1784706376617-dyo579e8x37.jpeg',
+    format: 'jpeg',
+    desc: '大 JPEG (3.12MB)',
+  },
+  {
+    file: 'uploads/general/1784701703749-zn8bh32fhq.png',
+    format: 'png',
+    desc: '大 PNG (1.68MB)',
+  },
+  {
+    file: 'uploads/general/1784701763434-bnyy5jehlj6.png',
+    format: 'png',
+    desc: '大 PNG (1.68MB)',
+  },
+  {
+    file: 'uploads/general/1784702300767-k5pmf9im96l.png',
+    format: 'png',
+    desc: '大 PNG (1.68MB)',
+  },
+  {
+    file: 'uploads/products/4/scene-qrcode.png',
+    format: 'png',
+    desc: 'product qrcode (1.01MB)',
+  },
+];
 
-let totalOriginal = 0;
-let totalCompressed = 0;
-let processedCount = 0;
-let skippedCount = 0;
-let errorCount = 0;
-
-function ensureDir(dir) {
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-}
-
-function formatBytes(bytes) {
-  if (bytes < 1024) return bytes + ' B';
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+function formatSize(bytes) {
   return (bytes / 1024 / 1024).toFixed(2) + ' MB';
 }
 
-function getRelativePath(absPath) {
-  return absPath.replace(UPLOADS_DIR, '').replace(/^\//, '');
-}
+async function compressImage({ file, format, desc, maxWidth = 1920 }) {
+  const filePath = path.join(ROOT, file);
 
-async function compressImage(filePath) {
-  const ext = path.extname(filePath).toLowerCase();
-  if (!IMAGE_EXTS.includes(ext)) return;
-
-  // 跳过备份目录
-  if (SKIP_DIRS.some(d => filePath.includes(path.sep + d + path.sep) || filePath.includes(path.sep + d))) return;
-
-  const originalSize = fs.statSync(filePath).size;
-  const relPath = getRelativePath(filePath);
-
-  // 小于 150KB 的图片不压缩（已经够小了）
-  if (originalSize < 150 * 1024) {
-    console.log(`  ⏭  跳过（已足够小）: ${relPath} (${formatBytes(originalSize)})`);
-    skippedCount++;
+  if (!fs.existsSync(filePath)) {
+    console.log(`  ⚠ 文件不存在: ${filePath}`);
     return;
   }
 
-  // 备份原文件
-  const backupPath = path.join(BACKUP_DIR, relPath);
-  ensureDir(path.dirname(backupPath));
-  if (!fs.existsSync(backupPath)) {
-    fs.copyFileSync(filePath, backupPath);
+  const originalStats = fs.statSync(filePath);
+  const originalSize = originalStats.size;
+  const meta = await sharp(filePath).metadata();
+
+  // 先备份到临时文件
+  const tmpPath = filePath + '.tmp_compress';
+
+  let pipeline = sharp(filePath);
+
+  // 如果宽度超过 maxWidth，等比缩放
+  if (meta.width > maxWidth) {
+    pipeline = pipeline.resize(maxWidth, null, {
+      withoutEnlargement: true,
+      fit: 'inside',
+    });
   }
 
-  try {
-    const image = sharp(filePath);
-    const metadata = await image.metadata();
-
-    // 调整尺寸（若超过最大限制）
-    let pipeline = image;
-    if (metadata.width > CONFIG.maxWidth || metadata.height > CONFIG.maxHeight) {
-      pipeline = pipeline.resize(CONFIG.maxWidth, CONFIG.maxHeight, {
-        fit: 'inside',
-        withoutEnlargement: true,
-      });
-    }
-
-    // 根据文件类型选择压缩格式
-    let outputBuffer;
-    if (ext === '.png') {
-      outputBuffer = await pipeline.png(CONFIG.png).toBuffer();
-    } else if (ext === '.webp') {
-      outputBuffer = await pipeline.webp(CONFIG.webp).toBuffer();
-    } else {
-      // jpg / jpeg → 输出 jpeg
-      outputBuffer = await pipeline.jpeg(CONFIG.jpeg).toBuffer();
-    }
-
-    const compressedSize = outputBuffer.length;
-
-    // 只有压缩后更小才覆盖（避免二次压缩反而变大）
-    if (compressedSize < originalSize * 0.98) {
-      fs.writeFileSync(filePath, outputBuffer);
-      const saved = originalSize - compressedSize;
-      const ratio = ((saved / originalSize) * 100).toFixed(1);
-      console.log(`  ✅ ${relPath}`);
-      console.log(`     ${formatBytes(originalSize)} → ${formatBytes(compressedSize)} (节省 ${ratio}%)`);
-      totalOriginal += originalSize;
-      totalCompressed += compressedSize;
-    } else {
-      console.log(`  ⏭  压缩无收益，保留原文件: ${relPath}`);
-      totalOriginal += originalSize;
-      totalCompressed += originalSize;
-      skippedCount++;
-    }
-
-    processedCount++;
-  } catch (err) {
-    console.error(`  ❌ 处理失败: ${relPath} — ${err.message}`);
-    errorCount++;
+  if (format === 'jpeg') {
+    pipeline = pipeline.jpeg({ quality: 80, mozjpeg: true });
+  } else if (format === 'png') {
+    pipeline = pipeline.png({ compressionLevel: 9, palette: true, quality: 90 });
   }
-}
 
-async function walkDir(dir) {
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    if (entry.isDirectory()) {
-      if (!SKIP_DIRS.includes(entry.name)) {
-        await walkDir(path.join(dir, entry.name));
-      }
-    } else if (entry.isFile()) {
-      await compressImage(path.join(dir, entry.name));
-    }
+  await pipeline.toFile(tmpPath);
+
+  const compressedStats = fs.statSync(tmpPath);
+  const compressedSize = compressedStats.size;
+
+  // 如果压缩后更大，保留原文件
+  if (compressedSize >= originalSize) {
+    fs.unlinkSync(tmpPath);
+    console.log(`  ⚠ ${desc}: 已是最优 (${formatSize(originalSize)}), 跳过`);
+    return;
   }
+
+  // 替换原文件
+  fs.renameSync(tmpPath, filePath);
+
+  const saved = originalSize - compressedSize;
+  const percent = ((saved / originalSize) * 100).toFixed(1);
+
+  console.log(
+    `  ✔ ${desc}: ${formatSize(originalSize)} → ${formatSize(compressedSize)} (节省 ${percent}%)`
+  );
 }
 
 async function main() {
-  console.log('🖼  开始批量压缩 public/uploads/ 下的图片...');
-  console.log(`📁 目录: ${UPLOADS_DIR}`);
-  console.log(`💾 备份目录: ${BACKUP_DIR}`);
-  console.log('─'.repeat(60));
+  console.log('开始压缩图片...\n');
 
-  ensureDir(BACKUP_DIR);
+  let totalSaved = 0;
+  let totalOriginal = 0;
 
-  await walkDir(UPLOADS_DIR);
+  for (const img of images) {
+    const filePath = path.join(ROOT, img.file);
+    if (fs.existsSync(filePath)) {
+      totalOriginal += fs.statSync(filePath).size;
+    }
+    await compressImage(img);
+  }
 
-  const totalSaved = totalOriginal - totalCompressed;
-  const totalRatio = totalOriginal > 0
-    ? ((totalSaved / totalOriginal) * 100).toFixed(1)
-    : '0';
+  // 重新统计最终大小
+  let totalCompressed = 0;
+  for (const img of images) {
+    const filePath = path.join(ROOT, img.file);
+    if (fs.existsSync(filePath)) {
+      totalCompressed += fs.statSync(filePath).size;
+    }
+  }
+  totalSaved = totalOriginal - totalCompressed;
 
-  console.log('\n' + '─'.repeat(60));
-  console.log('📊 压缩完成统计：');
-  console.log(`   ✅ 成功压缩：${processedCount} 张`);
-  console.log(`   ⏭  跳过：${skippedCount} 张`);
-  console.log(`   ❌ 错误：${errorCount} 张`);
-  console.log(`   原始总大小：${formatBytes(totalOriginal)}`);
-  console.log(`   压缩后大小：${formatBytes(totalCompressed)}`);
-  console.log(`   节省空间：${formatBytes(totalSaved)} (${totalRatio}%)`);
-  console.log('\n✨ 原文件已备份到 public/uploads/.backup/');
-  console.log('   若压缩效果不满意，可手动从备份恢复。');
+  console.log('\n---');
+  console.log(`总计: ${formatSize(totalOriginal)} → ${formatSize(totalCompressed)}`);
+  console.log(`节省: ${formatSize(totalSaved)} (${((totalSaved / totalOriginal) * 100).toFixed(1)}%)`);
+  console.log('压缩完成!');
 }
 
-main().catch(console.error);
+main().catch(err => {
+  console.error('压缩失败:', err);
+  process.exit(1);
+});

@@ -16,6 +16,7 @@ import {
   FileSpreadsheet,
   Inbox,
   MessageSquare,
+  Image as ImageIcon,
 } from 'lucide-react';
 
 export function AdminSidebar() {
@@ -267,6 +268,24 @@ export function AdminSidebar() {
           }`} />
           <span>全局配置</span>
           {isActive('/admin/settings') && (
+            <span className="absolute right-3.5 w-1.5 h-1.5 rounded-full bg-white shadow-glow" />
+          )}
+        </Link>
+
+        {/* 图片管理 */}
+        <Link
+          href="/admin/images"
+          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-base font-semibold transition-all duration-200 relative group ${
+            isActive('/admin/images')
+              ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/10'
+              : 'text-slate-400 hover:text-white hover:bg-slate-900'
+          }`}
+        >
+          <ImageIcon className={`w-4 h-4 shrink-0 transition-transform duration-200 ${
+            isActive('/admin/images') ? 'scale-105' : 'group-hover:scale-105'
+          }`} />
+          <span>图片管理</span>
+          {isActive('/admin/images') && (
             <span className="absolute right-3.5 w-1.5 h-1.5 rounded-full bg-white shadow-glow" />
           )}
         </Link>

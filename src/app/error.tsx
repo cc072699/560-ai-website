@@ -11,8 +11,9 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // 可选: 上报错误到监控系统
-    console.error('页面错误:', error);
+    if (process.env.NODE_ENV === 'development') {
+      console.error('页面错误:', error);
+    }
   }, [error]);
 
   return (
