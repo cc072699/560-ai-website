@@ -10,7 +10,8 @@ import {
   MapPin,
   Save,
   Sparkles,
-  Building2
+  Building2,
+  Rocket,
 } from 'lucide-react';
 import { ImageUpload } from '@/components/admin/ImageUpload';
 
@@ -26,7 +27,23 @@ const defaultConfig: any = {
   hero: { headline: '', headlineHighlight: '', description: '' },
   about: { title: '', description: '', tagline: '', imageUrl: '', imageAlt: '', ctaText: '', ctaHref: '' },
   wechatQrUrl: '',
-  douyinQrUrl: ''
+  douyinQrUrl: '',
+  opc: {
+    sectionTitle: 'OPC创业孵化服务：让AI创业梦想照进现实',
+    sectionDescription: '我们为AI创业者提供从空间、算力、导师到商业化的全链路孵化支持，让每一个AI创业梦想都能在这里扎根成长。',
+    platformTitle: '孵化平台',
+    platformDescription: '我们搭建了专业的AI创业孵化OPC中心，为怀揣AI梦想的创业者提供一个低成本、高赋能的成长环境，助力初创团队轻装上阵，专注于核心技术与商业模式打磨。',
+    cards: [
+      { title: '免费技能培训', description: '入驻者可免费参加全栈AI技术与商业化技能培训，快速补齐短板。' },
+      { title: '零成本办公', description: '通过评估筛选的优质团队，享受工位、水电及物业费全额减免政策。' },
+      { title: '一对一专项辅导', description: '配备经验丰富的创业导师，提供从技术路线到商业变现的全流程指导。' },
+      { title: '低成本算力支持', description: '提供极具市场竞争力的高性能AI算力支持方案，大幅降低模型训练成本。' },
+    ],
+    imageUrl: '/uploads/general/1784015085084-5j5pkemeu6m.jpeg',
+    imageAlt: '国智产业城 OPC创业孵化基地',
+    bannerHighlight: '核心价值：',
+    bannerText: '全方位助力AI项目从0到1落地生根，\n降低门槛与风险',
+  },
 };
 
 export default function SettingsPage() {
@@ -50,7 +67,15 @@ export default function SettingsPage() {
           ...data,
           contact: { ...defaultConfig.contact, ...(data.contact || {}) },
           hero: { ...defaultConfig.hero, ...(data.hero || {}) },
-          about: { ...defaultConfig.about, ...(data.about || {}) }
+          about: { ...defaultConfig.about, ...(data.about || {}) },
+          opc: {
+            ...defaultConfig.opc,
+            ...(data.opc || {}),
+            cards: (data.opc?.cards || defaultConfig.opc.cards).map((c: any, i: number) => ({
+              ...defaultConfig.opc.cards[i],
+              ...c,
+            })),
+          },
         };
         setConfig(merged);
         setLoading(false);
@@ -82,6 +107,15 @@ export default function SettingsPage() {
 
   const setAbout = (key: string, val: string) =>
     setConfig({ ...config, about: { ...config.about, [key]: val } });
+
+  const setOpc = (key: string, val: any) =>
+    setConfig({ ...config, opc: { ...config.opc, [key]: val } });
+
+  const setOpcCard = (idx: number, key: string, val: string) => {
+    const cards = [...config.opc.cards];
+    cards[idx] = { ...cards[idx], [key]: val };
+    setConfig({ ...config, opc: { ...config.opc, cards } });
+  };
 
   if (loading) {
     return (
@@ -343,6 +377,83 @@ export default function SettingsPage() {
                 className={inputCls}
               />
             </Field>
+          </div>
+        </section>
+
+        {/* OPC创业孵化服务配置 */}
+        <section className="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
+          <div className="flex items-center gap-2 pb-3 border-b border-slate-100">
+            <Rocket className="w-4 h-4 text-blue-600" />
+            <h2 className="text-sm font-bold text-slate-800">OPC创业孵化服务配置</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-4">
+            {/* 大标题 */}
+            <Field label="Section 大标题">
+              <input type="text" value={config.opc.sectionTitle} onChange={(e) => setOpc('sectionTitle', e.target.value)} className={inputCls} />
+            </Field>
+            <Field label="Section 描述文字">
+              <textarea rows={2} value={config.opc.sectionDescription} onChange={(e) => setOpc('sectionDescription', e.target.value)} className={`${inputCls} resize-none`} />
+            </Field>
+
+            {/* 孵化平台大卡片 */}
+            <div className="border-t border-slate-100 pt-4">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">左侧 · 孵化平台大卡片</p>
+              <div className="grid grid-cols-1 gap-3">
+                <Field label="卡片标题">
+                  <input type="text" value={config.opc.platformTitle} onChange={(e) => setOpc('platformTitle', e.target.value)} className={inputCls} />
+                </Field>
+                <Field label="卡片描述">
+                  <textarea rows={2} value={config.opc.platformDescription} onChange={(e) => setOpc('platformDescription', e.target.value)} className={`${inputCls} resize-none`} />
+                </Field>
+              </div>
+            </div>
+
+            {/* 4 个小卡片 */}
+            <div className="border-t border-slate-100 pt-4">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">左侧 · 4 个小模块卡片</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {config.opc.cards.map((card: any, idx: number) => {
+                  const iconLabels = ['免费技能培训', '零成本办公', '一对一专项辅导', '低成本算力支持'];
+                  return (
+                    <div key={idx} className="p-3 bg-slate-50 rounded-xl space-y-2">
+                      <p className="text-[11px] font-bold text-slate-400 uppercase">{iconLabels[idx]}</p>
+                      <Field label="标题">
+                        <input type="text" value={card.title} onChange={(e) => setOpcCard(idx, 'title', e.target.value)} className={`${inputCls} text-sm py-2`} />
+                      </Field>
+                      <Field label="描述">
+                        <textarea rows={2} value={card.description} onChange={(e) => setOpcCard(idx, 'description', e.target.value)} className={`${inputCls} text-sm py-2 resize-none`} />
+                      </Field>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* 右侧配图 */}
+            <div className="border-t border-slate-100 pt-4">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">右侧 · 建筑配图</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Field label="配图地址 (ImageUrl)">
+                  <ImageUpload label="上传建筑配图" value={config.opc.imageUrl} onChange={(url) => setOpc('imageUrl', url)} />
+                </Field>
+                <Field label="配图替换文本 (ImageAlt)">
+                  <input type="text" value={config.opc.imageAlt} onChange={(e) => setOpc('imageAlt', e.target.value)} className={inputCls} />
+                </Field>
+              </div>
+            </div>
+
+            {/* 蓝色横幅 */}
+            <div className="border-t border-slate-100 pt-4">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">右侧 · 蓝色价值横幅</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Field label="高亮前缀 (如：核心价值：)">
+                  <input type="text" value={config.opc.bannerHighlight} onChange={(e) => setOpc('bannerHighlight', e.target.value)} className={inputCls} />
+                </Field>
+                <Field label="横幅正文 (换行用 \\n)">
+                  <textarea rows={2} value={config.opc.bannerText} onChange={(e) => setOpc('bannerText', e.target.value)} className={`${inputCls} resize-none`} />
+                </Field>
+              </div>
+            </div>
           </div>
         </section>
 

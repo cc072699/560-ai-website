@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
+import { revalidatePath } from 'next/cache';
 import { withAdminAuth } from '@/lib/api-auth';
 import type { NextRequest } from 'next/server';
 
@@ -141,6 +142,16 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
   await mkdir(uploadDir, { recursive: true });
 
   await writeFile(path.join(uploadDir, filename), Buffer.from(buffer));
+
+  // 关键修复：Next.js 16 在 build 时扫描 public/ 目录生成静态文件清单。
+  // 运行时新增的文件不在清单中，会被错误地 404 缓存。
+  // 通过 revalidatePath 让 Next.js 重新检查 /uploads/* 路径。
+  try {
+    revalidatePath(`/uploads/${folder}/${filename}`);
+    revalidatePath('/uploads/[...slug]', 'page');
+  } catch {
+    // revalidatePath 对非页面路径可能抛错，忽略即可
+  }
 
   // 返回的 URL 路径包含子目录
   const url = `/uploads/${folder}/${filename}`;

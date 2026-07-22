@@ -1,19 +1,28 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Rocket, GraduationCap, Users, Building2, Cpu, Lightbulb } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-import type { HeroData, AboutData, Product, Case } from '@/types';
+import type { HeroData, AboutData, Product, Case, OPCData } from '@/types';
 
 interface HomeClientProps {
   hero: HeroData;
   about: AboutData;
   products: Product[];
   cases: Case[];
+  opc: OPCData;
 }
 
-export function HomeClient({ hero, about, products, cases }: HomeClientProps) {
+/** OPC 4 个小卡片图标映射（固定） */
+const opcIcons = [GraduationCap, Building2, Users, Cpu] as const;
+
+function OPCCardIcon({ idx }: { idx: number }) {
+  const Icon = opcIcons[idx] || opcIcons[0];
+  return <Icon className="w-5 h-5 text-blue-500" />;
+}
+
+export function HomeClient({ hero, about, products, cases, opc }: HomeClientProps) {
   const [activeTab, setActiveTab] = useState(0);
 
   // 获取行业唯一列表（仅含首页展示案例）
@@ -85,6 +94,106 @@ export function HomeClient({ hero, about, products, cases }: HomeClientProps) {
             </div>
           </div>
         </motion.div>
+      </section>
+
+      {/* 1.5 OPC创业孵化服务 Section */}
+      <section className="py-20 md:py-28 relative z-10">
+        <div className="container mx-auto px-6 max-w-7xl">
+          {/* 标题 + 描述 - 居中 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 lg:mb-16 max-w-4xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight text-balance">
+              {opc.sectionTitle}
+            </h2>
+            <p className="text-gray-500 text-base md:text-lg leading-relaxed mt-5 text-pretty">
+              {opc.sectionDescription}
+            </p>
+          </motion.div>
+
+          {/* 主体：12列网格，左右两列等高 */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
+
+            {/* 左侧：7列，1大 + 4小(2x2) */}
+            <div className="lg:col-span-7 flex flex-col gap-5">
+              {/* 孵化平台 - 顶部大卡片，横跨整个左列宽度 */}
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5 }}
+                className="bg-white rounded-2xl p-6 shadow-[0_2px_16px_rgba(0,0,0,0.05)] border border-gray-100/80"
+              >
+                <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+                  <Rocket className="w-6 h-6 text-blue-500" />
+                </div>
+                <h4 className="text-xl font-extrabold text-blue-600 mb-3">{opc.platformTitle}</h4>
+                <p className="text-base text-gray-600 leading-relaxed">{opc.platformDescription}</p>
+              </motion.div>
+
+              {/* 2x2 的 4 个小卡片 - 高度按内容自适应 */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {opc.cards.map((card, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-60px' }}
+                    transition={{ duration: 0.5, delay: 0.06 + idx * 0.04 }}
+                    className="bg-white rounded-2xl p-5 shadow-[0_2px_16px_rgba(0,0,0,0.05)] border border-gray-100/80 h-full"
+                  >
+                    <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+                      <OPCCardIcon idx={idx} />
+                    </div>
+                    <h4 className="text-base font-bold text-gray-900 mb-2">{card.title}</h4>
+                    <p className="text-base text-gray-600 leading-relaxed">{card.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* 右侧：5列，建筑配图 + 蓝色横幅 */}
+            <div className="lg:col-span-5 flex flex-col gap-5">
+              {/* 建筑图 */}
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="relative rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100/80 flex-1"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={opc.imageUrl}
+                  alt={opc.imageAlt}
+                  className="absolute inset-0 w-full h-full object-contain bg-slate-50"
+                />
+              </motion.div>
+
+              {/* 蓝色横幅 */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-gradient-to-r from-blue-700 to-indigo-700 rounded-2xl px-5 py-4 flex items-center gap-3.5 shadow-md"
+              >
+                <div className="w-9 h-9 rounded-lg bg-yellow-400/20 flex items-center justify-center shrink-0">
+                  <Lightbulb className="w-5 h-5 text-yellow-300" />
+                </div>
+                <p className="text-white text-base leading-snug">
+                  <span className="font-bold">{opc.bannerHighlight}</span>{opc.bannerText.split('\n').map((line, i, arr) => (
+                    <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+                  ))}
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 2. Products Section */}

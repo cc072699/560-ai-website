@@ -2,6 +2,24 @@
 // 所有数据类型定义
 // ====================================================
 
+// ── OPC创业孵化服务 ──────────────────────────────────────────
+export interface OPCCard {
+  title: string;
+  description: string;
+}
+
+export interface OPCData {
+  sectionTitle: string;
+  sectionDescription: string;
+  platformTitle: string;
+  platformDescription: string;
+  cards: [OPCCard, OPCCard, OPCCard, OPCCard];
+  imageUrl: string;
+  imageAlt: string;
+  bannerHighlight: string;
+  bannerText: string;
+}
+
 export interface SiteContact {
   phone: string;
   email: string;

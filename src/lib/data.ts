@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import type { SiteConfig, HeroData, AboutData, AboutPageData, Product, Case } from '@/types';
+import type { SiteConfig, HeroData, AboutData, AboutPageData, Product, Case, OPCData } from '@/types';
 
 const dataDir = path.join(process.cwd(), 'data');
 
@@ -98,6 +98,36 @@ export async function saveAboutPageData(aboutPage: AboutPageData): Promise<void>
 
 export async function saveHeroData(hero: HeroData): Promise<void> {
   await writeJson('hero.json', hero);
+}
+
+// ── OPC创业孵化服务 ──────────────────────────────────────────────────
+const defaultOpcData: OPCData = {
+  sectionTitle: 'OPC创业孵化服务：让AI创业梦想照进现实',
+  sectionDescription: '我们为AI创业者提供从空间、算力、导师到商业化的全链路孵化支持，让每一个AI创业梦想都能在这里扎根成长。',
+  platformTitle: '孵化平台',
+  platformDescription: '我们搭建了专业的AI创业孵化OPC中心，为怀揣AI梦想的创业者提供一个低成本、高赋能的成长环境，助力初创团队轻装上阵，专注于核心技术与商业模式打磨。',
+  cards: [
+    { title: '免费技能培训', description: '入驻者可免费参加全栈AI技术与商业化技能培训，快速补齐短板。' },
+    { title: '零成本办公', description: '通过评估筛选的优质团队，享受工位、水电及物业费全额减免政策。' },
+    { title: '一对一专项辅导', description: '配备经验丰富的创业导师，提供从技术路线到商业变现的全流程指导。' },
+    { title: '低成本算力支持', description: '提供极具市场竞争力的高性能AI算力支持方案，大幅降低模型训练成本。' },
+  ],
+  imageUrl: '/uploads/general/1784015085084-5j5pkemeu6m.jpeg',
+  imageAlt: '国智产业城 OPC创业孵化基地',
+  bannerHighlight: '核心价值：',
+  bannerText: '全方位助力AI项目从0到1落地生根，\n降低门槛与风险',
+};
+
+export async function getOpcData(): Promise<OPCData> {
+  try {
+    return await readJson<OPCData>('opc.json');
+  } catch {
+    return defaultOpcData;
+  }
+}
+
+export async function saveOpcData(opc: OPCData): Promise<void> {
+  await writeJson('opc.json', opc);
 }
 
 // ── 申请表单模板 ──────────────────────────────────────────

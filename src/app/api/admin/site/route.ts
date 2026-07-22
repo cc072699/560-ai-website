@@ -6,22 +6,26 @@ import {
   getHeroData,
   saveHeroData,
   getAboutData,
-  saveAboutData
+  saveAboutData,
+  getOpcData,
+  saveOpcData,
 } from '@/lib/data';
 import { withAdminAuth } from '@/lib/api-auth';
 import type { NextRequest } from 'next/server';
 
 // GET /api/admin/site
 export const GET = withAdminAuth(async () => {
-  const [site, hero, about] = await Promise.all([
+  const [site, hero, about, opc] = await Promise.all([
     getSiteConfig(),
     getHeroData(),
-    getAboutData()
+    getAboutData(),
+    getOpcData(),
   ]);
   return NextResponse.json({
     ...site,
     hero,
-    about
+    about,
+    opc,
   });
 });
 
@@ -29,20 +33,20 @@ export const GET = withAdminAuth(async () => {
 export const PUT = withAdminAuth(async (req: NextRequest) => {
   const body = await req.json();
   
-  // Split the body back to their respective config datasets
-  const { hero, about, ...site } = body;
+  const { hero, about, opc, ...site } = body;
   
-  // Read current configs to preserve keys not edited
-  const [currentSite, currentHero, currentAbout] = await Promise.all([
+  const [currentSite, currentHero, currentAbout, currentOpc] = await Promise.all([
     getSiteConfig(),
     getHeroData(),
-    getAboutData()
+    getAboutData(),
+    getOpcData(),
   ]);
 
   await Promise.all([
     saveSiteConfig({ ...currentSite, ...site }),
     saveHeroData({ ...currentHero, ...hero }),
-    saveAboutData({ ...currentAbout, ...about })
+    saveAboutData({ ...currentAbout, ...about }),
+    saveOpcData({ ...currentOpc, ...opc, cards: opc?.cards || currentOpc.cards }),
   ]);
 
   revalidatePath('/');

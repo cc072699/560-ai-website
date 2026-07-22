@@ -12,9 +12,20 @@ interface ContactDialogProps {
   site?: SiteConfig;
 }
 
-export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
+export function ContactDialog({ open, onClose, site: siteProp }: ContactDialogProps) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
+
+  // 当外部未传入 site 时，自动从接口获取全局配置
+  const [fetchedSite, setFetchedSite] = useState<SiteConfig | null>(null);
+  useEffect(() => {
+    if (siteProp || !open) return;
+    fetch('/api/site')
+      .then((r) => r.json())
+      .then((data: SiteConfig) => setFetchedSite(data))
+      .catch(() => {});
+  }, [open, siteProp]);
+  const site = siteProp ?? fetchedSite ?? undefined;
 
   const [template, setTemplate] = useState<ContactFormTemplate | null>(null);
   const [loading, setLoading] = useState(true);
@@ -229,31 +240,31 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
 
             {/* 底部联系方式 */}
             <div className="relative z-10 space-y-3.5 mt-8">
-              {(site?.contact?.phone || '0779-3221560') && (
+              {site?.contact?.phone && (
                 <div className="flex items-center gap-3 text-sm text-white/70 hover:text-white/95 transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
                     <Phone className="w-4 h-4 text-blue-400" />
                   </div>
-                  <span className="font-semibold">电话：{site?.contact?.phone || '0779-3221560'}</span>
+                  <span className="font-semibold">电话：{site.contact.phone}</span>
                 </div>
               )}
-              {(site?.contact?.email || 'contact@560ai.com') && (
+              {site?.contact?.email && (
                 <div className="flex items-center gap-3 text-sm text-white/70 hover:text-white/95 transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
                     <Mail className="w-4 h-4 text-blue-400" />
                   </div>
-                  <a href={`mailto:${site?.contact?.email || 'contact@560ai.com'}`} className="font-semibold truncate">
-                    邮箱：{site?.contact?.email || 'contact@560ai.com'}
+                  <a href={`mailto:${site.contact.email}`} className="font-semibold truncate">
+                    邮箱：{site.contact.email}
                   </a>
                 </div>
               )}
-              {(site?.contact?.address || '广西北海市中国—东盟产业合作区') && (
+              {site?.contact?.address && (
                 <div className="flex items-center gap-3 text-sm text-white/70">
                   <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
                     <MapPin className="w-4 h-4 text-blue-400" />
                   </div>
                   <span className="font-semibold leading-snug text-xs">
-                    地址：{site?.contact?.address || '广西北海市中国—东盟产业合作区'}
+                    地址：{site.contact.address}
                   </span>
                 </div>
               )}
@@ -324,12 +335,12 @@ export function ContactDialog({ open, onClose, site }: ContactDialogProps) {
                 {/* 底部：二维码 */}
                 <div className="mt-7 pt-6 border-t border-slate-100">
                   <div className="flex items-center gap-6">
-                    {(site?.wechatQrUrl || '/uploads/1783561335632-8i7n4ravjv6.png') ? (
+                    {site?.wechatQrUrl ? (
                       <div className="flex items-center gap-3">
                         <div className="w-12 h-12 rounded-xl border border-slate-200 p-1.5 bg-white flex items-center justify-center shadow-sm shrink-0">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
-                            src={site?.wechatQrUrl || '/uploads/1783561335632-8i7n4ravjv6.png'}
+                            src={site.wechatQrUrl}
                             alt="微信公众号二维码"
                             className="w-full h-full object-contain rounded-md"
                           />
